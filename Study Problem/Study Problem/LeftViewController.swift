@@ -27,7 +27,7 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
     @IBOutlet weak var nameLabel:UILabel!
     var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-
+    
     var menus = ["Main", "Post", "Mypost", "Joinpost", "Follow", "Notice" ,"Setting"]
     var mainViewController: UIViewController!
     var postViewController: UIViewController!
@@ -36,20 +36,23 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
     var followViewController: UIViewController!
     var noticeViewController: UIViewController!
     var settingViewController: UIViewController!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Database.authData)
+        //print(Database.authData)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil && Database.authData == nil {
+//        if NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil && Database.authData != nil {
+//            Database.unauth()
+//        }
+        //if NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil && Database.authData == nil {
+        if Database.authData == nil {
             let viewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewControllers")
             self.presentViewController(viewController, animated: true, completion: nil)
             
         }else{
-            let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-            
-            let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(userID)
+            //let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+
+            let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(Database.authData.uid)
             
             currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
                 print(snapshot)
@@ -61,14 +64,14 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
                 }, withCancelBlock: { error in
                     print(error.description)
             })
-
+            
         }
-                tableView.registerNib(UINib(nibName: "MenusTableViewCell", bundle: nil), forCellReuseIdentifier: "MenusTableViewCell")
-    
-//        let blurEffect = UIBlurEffect(style: .Light)
-//        var visualEffectView = UIVisualEffectView(effect: blurEffect)
-//        visualEffectView.frame = backview.bounds
-//        backview.addSubview(visualEffectView)
+        tableView.registerNib(UINib(nibName: "MenusTableViewCell", bundle: nil), forCellReuseIdentifier: "MenusTableViewCell")
+        
+        //        let blurEffect = UIBlurEffect(style: .Light)
+        //        var visualEffectView = UIVisualEffectView(effect: blurEffect)
+        //        visualEffectView.frame = backview.bounds
+        //        backview.addSubview(visualEffectView)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
         self.mainViewController = UINavigationController(rootViewController: mainViewController)
@@ -91,21 +94,21 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
         var nib  = UINib(nibName: "MenusTableViewCell", bundle:nil)
         tableView.registerNib(nib, forCellReuseIdentifier:"MenuCell")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
      */ func changeViewController(menu: LeftMenu) {
         switch menu {
         case .Main:
@@ -122,11 +125,11 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.noticeViewController, close: true)
         case .Setting:
             self.slideMenuController()?.changeMainViewController(self.settingViewController, close: true)
-        
-
+            
+            
         }
     }
-
+    
 }
 extension LeftViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -155,22 +158,22 @@ extension LeftViewController : UITableViewDataSource {
                 let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as! MenusTableViewCell
                 //cell.setData(menus[indexPath.row])
                 //switch menus[indexPath.row] {
-               // case "Main":
-//                    cell.MenuImage.image = UIImage(named:"1")
-//                    case "Post":
-//                    cell.MenuImage.image = UIImage(named:"2")
-//                    case "Mypost":
-//                    cell.MenuImage.image = UIImage(named:"3")
-//                    case "Joinpost":
-//                    cell.MenuImage.image = UIImage(named:"4")
-//                    case "Follow":
-//                    cell.MenuImage.image = UIImage(named:"5")
-//                    case "Notice":
-//                    cell.MenuImage.image = UIImage(named:"6")
-//                    case "Setting":
-//                    cell.MenuImage.image = UIImage(named:"7")
-               // default:
-               //     break
+                // case "Main":
+                //                    cell.MenuImage.image = UIImage(named:"1")
+                //                    case "Post":
+                //                    cell.MenuImage.image = UIImage(named:"2")
+                //                    case "Mypost":
+                //                    cell.MenuImage.image = UIImage(named:"3")
+                //                    case "Joinpost":
+                //                    cell.MenuImage.image = UIImage(named:"4")
+                //                    case "Follow":
+                //                    cell.MenuImage.image = UIImage(named:"5")
+                //                    case "Notice":
+                //                    cell.MenuImage.image = UIImage(named:"6")
+                //                    case "Setting":
+                //                    cell.MenuImage.image = UIImage(named:"7")
+                // default:
+                //     break
                 //}
                 cell.MenuLablel.text = menus[indexPath.row]
                 return cell

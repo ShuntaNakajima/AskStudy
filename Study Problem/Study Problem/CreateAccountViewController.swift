@@ -112,10 +112,10 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                     })
                     
                     // Store the uid for future access - handy!
-                    NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
+                    //NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
                     
                     // Enter the app.
-                    let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController")
+                    let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigation")
                     self.presentViewController(viewController, animated: true, completion: nil)
                   //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
                 }

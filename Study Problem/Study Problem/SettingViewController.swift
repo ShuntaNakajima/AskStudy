@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingViewController: UIViewController {
-
+    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -23,15 +24,19 @@ class SettingViewController: UIViewController {
     @IBAction func openlefts(){
         self.slideMenuController()?.openLeft()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutbutton(){
+        Database.unauth()
+        let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewControllers")
+        self.presentViewController(viewController, animated: true, completion: nil)
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

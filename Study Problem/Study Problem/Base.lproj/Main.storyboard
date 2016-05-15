@@ -205,12 +205,22 @@
                     <view key="view" contentMode="scaleToFill" id="ltL-NV-8Oe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8N2-uo-Cxx">
+                                <rect key="frame" x="136" y="255" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutbutton" destination="87Q-RJ-Ywm" eventType="touchUpInside" id="zPE-gv-oyc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZLR-Yl-rWR">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="V85-9s-ZVx">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="V85-9s-ZVx">
                             <connections>
-                                <action selector="openlefts" destination="87Q-RJ-Ywm" id="IBq-rn-Tt3"/>
+                                <action selector="openlefts" destination="87Q-RJ-Ywm" id="rQ3-W8-z27"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -229,7 +239,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ld2-gE-BQl">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="pdc-TA-QOt">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="pdc-TA-QOt">
                             <connections>
                                 <action selector="openlefts" destination="XrW-vW-QZX" id="QB8-bl-Ijn"/>
                             </connections>
@@ -250,7 +260,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y0s-V4-Xpb">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="CS1-ev-KHo">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="CS1-ev-KHo">
                             <connections>
                                 <action selector="openlefts" destination="N0K-p4-uL2" id="XtL-hy-Vss"/>
                             </connections>
@@ -271,11 +281,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="5sc-mJ-Hih">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="74O-5f-ikA">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="74O-5f-ikA">
                             <connections>
                                 <action selector="openlefts" destination="002-SD-BaY" id="pmV-sO-Hqz"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="&gt;" id="KUR-bd-qtF"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5R-E7-T3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,11 +303,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1D4-XB-qqA">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="nYz-Tf-0CD">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="nYz-Tf-0CD">
                             <connections>
                                 <action selector="openlefts" destination="geZ-eo-Yaj" id="Q4B-cT-VbD"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="&gt;" id="W1O-Vy-cxS"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQY-oN-0G8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,11 +325,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kl2-zt-EAI">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="eSk-5e-Nts">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="eSk-5e-Nts">
                             <connections>
                                 <action selector="openlefts" destination="0eO-ot-Ymr" id="UE6-HJ-5eq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="&gt;" id="kns-Cs-eKr"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8c-X0-HFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,11 +361,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rwf-Pd-CkC">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="OGL-Hc-YGa">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="OGL-Hc-YGa">
                             <connections>
                                 <action selector="test" destination="BYZ-38-t0r" id="7jj-xk-MB2"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="&gt;" id="MaF-yI-mul"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -376,8 +390,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="bE1-7p-ybv" id="uGf-FB-NtB"/>
-                                    <outlet property="delegate" destination="bE1-7p-ybv" id="IXJ-wC-9la"/>
+                                    <outlet property="dataSource" destination="bE1-7p-ybv" id="liQ-wt-zWc"/>
+                                    <outlet property="delegate" destination="bE1-7p-ybv" id="LgP-wd-SCc"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="C1o-F7-eay">
@@ -423,9 +437,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="backview" destination="eEA-Z7-xnG" id="7LG-dE-rbY"/>
-                        <outlet property="nameLabel" destination="K1S-eG-gaA" id="EC5-u4-nF3"/>
-                        <outlet property="tableView" destination="ZkU-er-3pb" id="ey7-Yk-Bdu"/>
+                        <outlet property="backview" destination="eEA-Z7-xnG" id="YGh-Eo-IcC"/>
+                        <outlet property="nameLabel" destination="K1S-eG-gaA" id="MPH-sz-Xwg"/>
+                        <outlet property="tableView" destination="ZkU-er-3pb" id="kcw-3a-Akc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtT-BA-5C1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -435,7 +449,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Jhq-rn-N7f">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMt-Mr-ado" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lMt-Mr-ado" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zbj-NH-3bR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -448,7 +462,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pl1-GI-1Si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="370"/>
+            <point key="canvasLocation" x="-60" y="364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zkv-9g-7sk">
