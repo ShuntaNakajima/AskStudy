@@ -39,6 +39,7 @@
 		BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */; };
 		BC54BB921CE4AE720013C0DD /* Study_ProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB911CE4AE720013C0DD /* Study_ProblemTests.swift */; };
 		BC54BB9D1CE4AE720013C0DD /* Study_ProblemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */; };
+		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		BC54BB981CE4AE720013C0DD /* Study ProblemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Study ProblemUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study_ProblemUITests.swift; sourceTree = "<group>"; };
 		BC54BB9E1CE4AE720013C0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				BC54BB801CE4AE720013C0DD /* Main.storyboard */,
 				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
 				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
+				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
 				BC1437E71CE6139400448AC0 /* MypostViewController.swift */,
 				BC1437E91CE613A700448AC0 /* JoinpostViewController.swift */,
@@ -470,6 +473,7 @@
 				BC1437EA1CE613A700448AC0 /* JoinpostViewController.swift in Sources */,
 				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
+				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,

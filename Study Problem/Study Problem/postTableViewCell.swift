@@ -9,7 +9,7 @@
 import UIKit
 
 class postTableViewCell: UITableViewCell {
-    @IBOutlet var textView : UITextView!
+    @IBOutlet var textView : UILabel!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileLabel: UILabel!
     override func awakeFromNib() {

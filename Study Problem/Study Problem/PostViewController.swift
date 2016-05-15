@@ -150,6 +150,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             let newJoke: Dictionary<String, AnyObject> = [
                 "text": postText!,
                 "subject": subjectTextfield.text!,
+                "replay":0,
                 "author": currentUserId
             ]
             
