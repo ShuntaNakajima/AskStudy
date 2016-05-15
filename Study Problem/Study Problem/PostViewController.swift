@@ -75,6 +75,27 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         subjectTextfield.inputAccessoryView = toolBar
         
+        let toolBarKeyBoard = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        
+        toolBarKeyBoard.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        
+        toolBarKeyBoard.barStyle = UIBarStyle.BlackTranslucent
+        
+        toolBarKeyBoard.tintColor = UIColor.whiteColor()
+        
+        toolBarKeyBoard.backgroundColor = UIColor.whiteColor()
+        
+        
+        
+        let doneButtonKey = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(donePressedKey))
+        
+        let flexSpaces = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        
+
+        
+        toolBarKeyBoard.setItems([flexSpaces,flexSpaces,flexSpaces,flexSpaces,doneButtonKey], animated: true)
+        
+        textView.inputAccessoryView = toolBarKeyBoard
         
         // Do any additional setup after loading the view.
     }
@@ -85,6 +106,9 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     @IBAction func openlefts(){
         self.slideMenuController()?.openLeft()
+    }
+    func donePressedKey(sender: UIBarButtonItem){
+        textView.resignFirstResponder()
     }
     func donePressed(sender: UIBarButtonItem) {
         
