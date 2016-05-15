@@ -21,8 +21,6 @@
 		BC1437EC1CE613B200448AC0 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437EB1CE613B200448AC0 /* FollowViewController.swift */; };
 		BC1437EE1CE613CA00448AC0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */; };
 		BC1437F01CE6140F00448AC0 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */; };
-		BC1437F51CE6186300448AC0 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437F21CE6186300448AC0 /* DataTableViewCell.swift */; };
-		BC1437F61CE6186300448AC0 /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1437F31CE6186300448AC0 /* DataTableViewCell.xib */; };
 		BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437F71CE6192A00448AC0 /* ExSlideMenuController.swift */; };
 		BC1437FA1CE61A7000448AC0 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437F91CE61A7000448AC0 /* UIApplication.swift */; };
 		BC1438001CE61DDE00448AC0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437FF1CE61DDE00448AC0 /* String.swift */; };
@@ -32,6 +30,9 @@
 		BC1438121CE74D4E00448AC0 /* MenusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1438101CE74D4E00448AC0 /* MenusTableViewCell.xib */; };
 		BC1438141CE7575A00448AC0 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1438131CE7575A00448AC0 /* 1.gif */; };
 		BC1438161CE75B6600448AC0 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1438151CE75B6600448AC0 /* 2.gif */; };
+		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
+		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
+		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
 		BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */; };
 		BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB801CE4AE720013C0DD /* Main.storyboard */; };
 		BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB831CE4AE720013C0DD /* Assets.xcassets */; };
@@ -74,8 +75,6 @@
 		BC1437EB1CE613B200448AC0 /* FollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		BC1437F21CE6186300448AC0 /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
-		BC1437F31CE6186300448AC0 /* DataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		BC1437F71CE6192A00448AC0 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		BC1437F91CE61A7000448AC0 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		BC1437FF1CE61DDE00448AC0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -85,6 +84,9 @@
 		BC1438101CE74D4E00448AC0 /* MenusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenusTableViewCell.xib; sourceTree = "<group>"; };
 		BC1438131CE7575A00448AC0 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		BC1438151CE75B6600448AC0 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
+		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
 		BC54BB791CE4AE720013C0DD /* Study Problem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Problem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC54BB811CE4AE720013C0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,15 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3940EE601CE823D400293067 /* DataTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				BC1437F21CE6186300448AC0 /* DataTableViewCell.swift */,
-				BC1437F31CE6186300448AC0 /* DataTableViewCell.xib */,
-			);
-			name = DataTableViewCell;
-			sourceTree = "<group>";
-		};
 		3940EE611CE824B100293067 /* MenuTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,14 +187,31 @@
 			isa = PBXGroup;
 			children = (
 				BC1437F71CE6192A00448AC0 /* ExSlideMenuController.swift */,
-				3940EE601CE823D400293067 /* DataTableViewCell */,
 				BC1437D31CE6106B00448AC0 /* ContainerViewController.swift */,
 				BC1437D51CE610C600448AC0 /* LeftViewController.swift */,
+				BC16036E1CE85C8C00402577 /* PostTableViewCell */,
 				3940EE611CE824B100293067 /* MenuTableViewCell */,
 				3940EE631CE824FF00293067 /* Extension */,
 				BC1437D71CE610D700448AC0 /* RightViewController.swift */,
 			);
 			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		BC1603651CE8563F00402577 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC1603661CE8569200402577 /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BC16036E1CE85C8C00402577 /* PostTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC16036A1CE85C8300402577 /* postTableViewCell.swift */,
+				BC16036B1CE85C8300402577 /* postTableViewCell.xib */,
+			);
+			name = PostTableViewCell;
 			sourceTree = "<group>";
 		};
 		BC54BB701CE4AE720013C0DD = {
@@ -229,6 +239,7 @@
 		BC54BB7B1CE4AE720013C0DD /* Study Problem */ = {
 			isa = PBXGroup;
 			children = (
+				BC1603651CE8563F00402577 /* Model */,
 				3940EE621CE824E800293067 /* Resorces */,
 				BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */,
 				BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */,
@@ -381,7 +392,7 @@
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
 				BC1438121CE74D4E00448AC0 /* MenusTableViewCell.xib in Resources */,
-				BC1437F61CE6186300448AC0 /* DataTableViewCell.xib in Resources */,
+				BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +468,7 @@
 				BC1438001CE61DDE00448AC0 /* String.swift in Sources */,
 				BC1437FA1CE61A7000448AC0 /* UIApplication.swift in Sources */,
 				BC1437EA1CE613A700448AC0 /* JoinpostViewController.swift in Sources */,
+				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
@@ -473,7 +485,7 @@
 				BC1437D61CE610C600448AC0 /* LeftViewController.swift in Sources */,
 				BC1437EC1CE613B200448AC0 /* FollowViewController.swift in Sources */,
 				BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */,
-				BC1437F51CE6186300448AC0 /* DataTableViewCell.swift in Sources */,
+				BC1603671CE8569200402577 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,17 +105,17 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                     self.Database.authUser(email, password: password, withCompletionBlock: {
                         err, authData in
                         
-                        let user = ["provider": authData.provider!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0]
+                        let user = ["provider": authData.provider!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0,"rank":5.0]
                         
                         // Seal the deal in DataService.swift.
                         self.DataUser.childByAppendingPath(authData.uid).setValue(user)
                     })
                     
                     // Store the uid for future access - handy!
-                    NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
+                    //NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
                     
                     // Enter the app.
-                    let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController")
+                    let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigation")
                     self.presentViewController(viewController, animated: true, completion: nil)
                   //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
                 }
@@ -126,7 +126,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
             self.signupErrorAlert("Oops!", message: "Don't forget to enter your email, password, and a username.")
         
         
-    }
+        }
     }
     func signupErrorAlert(title: String, message: String) {
         
@@ -138,18 +138,6 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         presentViewController(alert, animated: true, completion: nil)
     }
 
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
         func donePressed(sender: UIBarButtonItem) {
             
             gradeField.resignFirstResponder()
