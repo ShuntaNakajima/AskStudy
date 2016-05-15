@@ -16,20 +16,17 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
 
     @IBOutlet var subjectTextfield:UITextField!
-    var currentUsername = ""
+    var currentUserId = ""
     var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(Database.authData.uid)
-        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+
             
-            let currentUser = snapshot.value.objectForKey("username") as! String
+             self.currentUserId = self.Database.authData.uid
             
-            print("Username: \(currentUser)")
-            self.currentUsername = currentUser
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+            print("Username: \(self.currentUserId)")
+        
+    
         textView.layer.borderColor = UIColor.blackColor().CGColor
         textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
@@ -152,7 +149,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             let newJoke: Dictionary<String, AnyObject> = [
                 "text": postText!,
                 "subject": subjectTextfield.text!,
-                "author": currentUsername
+                "author": currentUserId
             ]
             
             // Send it over to DataService to seal the deal.
@@ -162,9 +159,16 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             // setValue() saves to Firebase.
             
             firebaseNewJoke.setValue(newJoke)
-            if let navController = self.navigationController {
-                navController.popViewControllerAnimated(true)
-            }
+            let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default, handler: {(action: UIAlertAction!) -> Void in
+                let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigation")
+                self.presentViewController(viewController, animated: true, completion: nil)
+
+            })
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+            
+
         }
     }
 
