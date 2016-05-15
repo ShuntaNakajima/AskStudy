@@ -138,7 +138,7 @@ extension LeftViewController : UITableViewDelegate {
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
             case .Main, .Post, .Mypost, .Joinpost, .Follow, .Notice ,.Setting:
-                return 60
+                return 50
             }
         }
         return 0
