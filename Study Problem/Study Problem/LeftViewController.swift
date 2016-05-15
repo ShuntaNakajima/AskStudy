@@ -40,6 +40,7 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(Database.authData)
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil && Database.authData == nil {
