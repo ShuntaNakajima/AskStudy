@@ -14,6 +14,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
 
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    weak var delegate: LeftMenuProtocol?
 
     @IBOutlet var subjectTextfield:UITextField!
     var currentUserId = ""
@@ -161,9 +162,14 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             firebaseNewJoke.setValue(newJoke)
             let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.Alert)
             let action = UIAlertAction(title: "Ok", style: .Default, handler: {(action: UIAlertAction!) -> Void in
-                let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigation")
-                self.presentViewController(viewController, animated: true, completion: nil)
-
+               // self.delegate?.changeViewController(LeftMenu.Main)
+                let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+                let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+                
+                let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
+                self.presentViewController(slideMenuController, animated: true, completion: nil)
             })
             alert.addAction(action)
             presentViewController(alert, animated: true, completion: nil)
