@@ -408,18 +408,65 @@
                     <navigationItem key="navigationItem" id="Rwf-Pd-CkC">
                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="OGL-Hc-YGa">
                             <connections>
-                                <action selector="test" destination="BYZ-38-t0r" id="7jj-xk-MB2"/>
+                                <action selector="test" destination="BYZ-38-t0r" id="fcW-53-YNz"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="&gt;" id="MaF-yI-mul"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="O4W-2I-fZe" id="y16-NT-v9G"/>
+                        <segue destination="44f-VP-Xsd" kind="push" identifier="viewPost" id="kmm-RN-9aq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="349" y="370"/>
+        </scene>
+        <!--Viewpost View Controller-->
+        <scene sceneID="WVv-eW-6jy">
+            <objects>
+                <viewController id="44f-VP-Xsd" customClass="ViewpostViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oVy-Hk-gtf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Bv-TQ-Pl1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="EaG-n9-t0k">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" id="JqF-ND-0cT">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type comment" textAlignment="natural" minimumFontSize="17" id="gRm-kq-Pc8">
+                                            <rect key="frame" x="16" y="7" width="252" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="z4Q-12-Ep3">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J4h-0Y-lTJ">
+                                            <rect key="frame" x="278" y="7" width="43" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="send"/>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iEN-9H-oOF"/>
+                    <connections>
+                        <outlet property="tableView" destination="0Bv-TQ-Pl1" id="zU6-xZ-QAN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kqt-in-cZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="375"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="AWA-d4-sQI">
@@ -506,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtT-BA-5C1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="962" y="458"/>
+            <point key="canvasLocation" x="1148" y="408"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jhq-rn-N7f">

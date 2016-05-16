@@ -39,6 +39,13 @@
 		BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */; };
 		BC54BB921CE4AE720013C0DD /* Study_ProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB911CE4AE720013C0DD /* Study_ProblemTests.swift */; };
 		BC54BB9D1CE4AE720013C0DD /* Study_ProblemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */; };
+		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
+		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
+		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
+		BCF520BD1CE9B7550027D8EA /* ReplysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520BB1CE9B7550027D8EA /* ReplysTableViewCell.swift */; };
+		BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520BC1CE9B7550027D8EA /* ReplysTableViewCell.xib */; };
+		BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */; };
+		BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,13 @@
 		BC54BB981CE4AE720013C0DD /* Study ProblemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Study ProblemUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study_ProblemUITests.swift; sourceTree = "<group>"; };
 		BC54BB9E1CE4AE720013C0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
+		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
+		BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostMainTableViewCell.xib; sourceTree = "<group>"; };
+		BCF520BB1CE9B7550027D8EA /* ReplysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplysTableViewCell.swift; sourceTree = "<group>"; };
+		BCF520BC1CE9B7550027D8EA /* ReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplysTableViewCell.xib; sourceTree = "<group>"; };
+		BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReplysTableViewCell.swift; sourceTree = "<group>"; };
+		BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplysTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +203,6 @@
 				BC1437F71CE6192A00448AC0 /* ExSlideMenuController.swift */,
 				BC1437D31CE6106B00448AC0 /* ContainerViewController.swift */,
 				BC1437D51CE610C600448AC0 /* LeftViewController.swift */,
-				BC16036E1CE85C8C00402577 /* PostTableViewCell */,
 				3940EE611CE824B100293067 /* MenuTableViewCell */,
 				3940EE631CE824FF00293067 /* Extension */,
 				BC1437D71CE610D700448AC0 /* RightViewController.swift */,
@@ -246,10 +259,12 @@
 				BC54BB801CE4AE720013C0DD /* Main.storyboard */,
 				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
 				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
+				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
 				BC1437E71CE6139400448AC0 /* MypostViewController.swift */,
 				BC1437E91CE613A700448AC0 /* JoinpostViewController.swift */,
 				BC1437EB1CE613B200448AC0 /* FollowViewController.swift */,
+				BCF520B51CE9B7050027D8EA /* Cells */,
 				BC1437D21CE60FED00448AC0 /* SlideMenu */,
 				BC1437D11CE60E7400448AC0 /* User */,
 				BC54BB831CE4AE720013C0DD /* Assets.xcassets */,
@@ -275,6 +290,44 @@
 				BC54BB9E1CE4AE720013C0DD /* Info.plist */,
 			);
 			path = "Study ProblemUITests";
+			sourceTree = "<group>";
+		};
+		BCF520B51CE9B7050027D8EA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BCF520C41CE9B8D20027D8EA /* MyReplysTableViewCell */,
+				BCF520BF1CE9B75A0027D8EA /* ReplysTableViewCell */,
+				BCF520BA1CE9B7270027D8EA /* PostMainTableViewCell */,
+				BC16036E1CE85C8C00402577 /* PostTableViewCell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		BCF520BA1CE9B7270027D8EA /* PostMainTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */,
+				BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */,
+			);
+			name = PostMainTableViewCell;
+			sourceTree = "<group>";
+		};
+		BCF520BF1CE9B75A0027D8EA /* ReplysTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BCF520BB1CE9B7550027D8EA /* ReplysTableViewCell.swift */,
+				BCF520BC1CE9B7550027D8EA /* ReplysTableViewCell.xib */,
+			);
+			name = ReplysTableViewCell;
+			sourceTree = "<group>";
+		};
+		BCF520C41CE9B8D20027D8EA /* MyReplysTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */,
+				BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */,
+			);
+			name = MyReplysTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,11 +440,14 @@
 			files = (
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
+				BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */,
 				BC1438161CE75B6600448AC0 /* 2.gif in Resources */,
+				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
 				BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */,
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
 				BC1438121CE74D4E00448AC0 /* MenusTableViewCell.xib in Resources */,
+				BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */,
 				BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,11 +521,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */,
 				BC1438001CE61DDE00448AC0 /* String.swift in Sources */,
 				BC1437FA1CE61A7000448AC0 /* UIApplication.swift in Sources */,
 				BC1437EA1CE613A700448AC0 /* JoinpostViewController.swift in Sources */,
 				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
+				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,
+				BCF520BD1CE9B7550027D8EA /* ReplysTableViewCell.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,
@@ -478,6 +537,7 @@
 				BC1437E81CE6139400448AC0 /* MypostViewController.swift in Sources */,
 				BC1437E61CE6138900448AC0 /* PostViewController.swift in Sources */,
 				BC1438021CE6CB6200448AC0 /* UITableViewExtension.swift in Sources */,
+				BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */,
 				BC1437D41CE6106B00448AC0 /* ContainerViewController.swift in Sources */,
 				BC1437E41CE6137B00448AC0 /* MainViewController.swift in Sources */,
 				BC1437F01CE6140F00448AC0 /* NoticeViewController.swift in Sources */,

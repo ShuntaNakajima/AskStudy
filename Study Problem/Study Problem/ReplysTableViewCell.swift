@@ -1,17 +1,17 @@
 //
-//  postTableViewCell.swift
+//  ReplysTableViewCell.swift
 //  
 //
-//  Created by nakajimashunta on 2016/05/15.
+//  Created by nakajimashunta on 2016/05/16.
 //
 //
 
 import UIKit
 
-class postTableViewCell: UITableViewCell {
-    @IBOutlet var textView : UILabel!
-    @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var profileLabel: UILabel!
+class ReplysTableViewCell: UITableViewCell {
+    @IBOutlet var profileImageView : UIImageView!
+    @IBOutlet var usernameLabel:UILabel!
+    @IBOutlet var postLabel:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

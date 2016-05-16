@@ -15,11 +15,13 @@ class MainViewController: UIViewController {
     var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
 
-
-    var posts = [[String!]]()
+    var selectpost : String!
+    var posts = [Dictionary<String, AnyObject>]()
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 20
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         // observeEventType is called whenever anything changes in the Firebase - new Jokes or Votes.
         // It's also called here in viewDidLoad().
@@ -41,16 +43,20 @@ class MainViewController: UIViewController {
                     
                     // Make our jokes array for the tableView.
                     
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                    if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let text = postDictionary["text"] as? String
-                        let subject = postDictionary["subject"] as? String
-                        let author = postDictionary["author"] as? String
-                        let newpost : [String!] = [text,subject,author]
+                       
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
-                        
-                        self.posts.insert(newpost, atIndex: 0)
+                        //            Dictionary<String, AnyObject> = [
+                        //                "text": postText!,
+                        //                "subject": subjectTextfield.text!,
+                        //                "replay":0,
+                        //                "author": currentUserId
+                        //            ]
+                        //postディクショなりの内容
+                        postDictionary["key"] = key
+                        self.posts.insert(postDictionary, atIndex: 0)
                         self.tableView.reloadData()
                     }
                 }
@@ -83,20 +89,20 @@ class MainViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let joke = posts[indexPath.row]
+        let post = posts[indexPath.row]
         
         // We are using a custom cell.
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! postTableViewCell
             
             // Send the single joke to configureCell() in JokeCellTableViewCell.
-            
-            cell.textView.text = joke[0]
-        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(Database.authData.uid)
+            let postDictionary = post as? Dictionary<String, AnyObject>
+            cell.textView.text = postDictionary!["text"] as? String
+        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
         
         currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
             print(snapshot)
-            
+
             let postUser = snapshot.value.objectForKey("username") as! String
             
             print("Username: \(postUser)")
@@ -110,9 +116,28 @@ class MainViewController: UIViewController {
         
         
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 175
+    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+         let post = posts[indexPath.row]
+        let postDictionary = post as? Dictionary<String, AnyObject>
+         selectpost = postDictionary!["key"] as! String!
+    
+        if selectpost != nil {
+            // SubViewController へ遷移するために Segue を呼び出す
+            performSegueWithIdentifier("viewPost",sender: nil)
+        }
+       
+        
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "viewPost") {
+            let vpVC: ViewpostViewController = (segue.destinationViewController as? ViewpostViewController)!
+            // SubViewController のselectedImgに選択された画像を設定する
+            vpVC.post = selectpost
+        }
+    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 175
+//    }
 
     @IBAction func test(){
         print("adfsdadfsdafs")
