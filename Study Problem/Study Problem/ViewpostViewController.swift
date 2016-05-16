@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewpostViewController: UIViewController {
+class ViewpostViewController: UIViewController,UITextFieldDelegate {
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
@@ -18,6 +18,8 @@ class ViewpostViewController: UIViewController {
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
     var toreply : String!
+    var myTextField: UITextField!
+
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +31,54 @@ class ViewpostViewController: UIViewController {
         self.tableView.registerNib(replysnib, forCellReuseIdentifier:"ReplysCell")
         var myreplysnib  = UINib(nibName: "MyReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
-        // Do any additional setup after loading the view.
+        
+        // ツールバー
+        let toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 44.0, self.view.bounds.size.width, 44.0))
+        toolbar.barStyle = .BlackTranslucent
+        toolbar.tintColor = UIColor.whiteColor()
+        toolbar.backgroundColor = UIColor.blackColor()
+        let button3: UIBarButtonItem = UIBarButtonItem(title: "send", style:.Plain, target: nil, action: #selector(tappedToolBarBtn))
+        let buttonGap: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        
+        toolbar.items = [buttonGap, buttonGap, button3]
+        
+        self.view.addSubview(toolbar)
+        myTextField = UITextField(frame: CGRectMake(0,0 ,self.view.frame.width, 44))
+        
+        // 表示する文字を代入する.
+        myTextField.placeholder = "Type comment"
+        myTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+        
+        // 枠を表示する.
+        myTextField.borderStyle = UITextBorderStyle.RoundedRect
+        
+        // Delegateを設定する.
+        myTextField.delegate = self
+        
+        
+        // ツールバーに追加する.
+        toolbar.addSubview(self.myTextField)
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+      
     }
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height);
+        self.view.transform = transform
+    }
+    
+    func tappedToolBarBtn(){
+        self.view.transform = CGAffineTransformIdentity
+    }
+    
+
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+  
         let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
         Dataonepost.observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
@@ -195,15 +241,7 @@ if postDic["author"] as? String != nil{
         
         
     }
-//
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+   
 }
