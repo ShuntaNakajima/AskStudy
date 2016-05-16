@@ -10,7 +10,9 @@ import UIKit
 import Firebase
 
 class SettingViewController: UIViewController {
+    
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,22 +23,14 @@ class SettingViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func openlefts(){
         self.slideMenuController()?.openLeft()
     }
+    
     @IBAction func logoutbutton(){
         Database.unauth()
         let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewControllers")
         self.presentViewController(viewController, animated: true, completion: nil)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
