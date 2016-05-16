@@ -195,7 +195,7 @@ if postDic["author"] as? String != nil{
         
         
     }
-
+//
     /*
     // MARK: - Navigation
 
