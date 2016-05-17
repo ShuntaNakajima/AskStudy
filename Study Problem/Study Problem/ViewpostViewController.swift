@@ -25,6 +25,7 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
+         tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
         var mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
         var replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
@@ -43,7 +44,7 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         toolbar.items = [buttonGap, buttonGap, button3]
         
         self.view.addSubview(toolbar)
-        myTextField = UITextField(frame: CGRectMake(0,0 ,self.view.frame.width, 44))
+        myTextField = UITextField(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 44))
         
         // 表示する文字を代入する.
         myTextField.placeholder = "Type comment"
@@ -61,6 +62,61 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
 //        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
+        Dataonepost.observeEventType(.Value, withBlock: { snapshot in
+           
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                
+                
+                // Make our jokes array for the tableView.
+                print(snapshot)
+                if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                    let key = snapshot.key
+                    
+                    
+                    // Items are returned chronologically, but it's more fun with the newest jokes first.
+                    //            Dictionary<String, AnyObject> = [
+                    //                "text": postText!,
+                    //                "subject": subjectTextfield.text!,
+                    //                "replay":0,
+                    //                "author": currentUserId
+                    //            ]
+                    //postディクショなりの内容
+                    postDictionary["key"] = key
+                    self.postDic = postDictionary
+                    self.tableView.reloadData()
+                    
+                }
+            }
+        })
+        
+        let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
+        Dataapost.observeEventType(.Value, withBlock: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                 self.replys = []
+                for snap in snapshots {
+                    
+                    // Make our jokes array for the tableView.
+                    
+                    if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        
+                        
+                        // Items are returned chronologically, but it's more fun with the newest jokes first.
+                        //            Dictionary<String, AnyObject> = [
+                        //                "text": postText!,
+                        //                "author": currentUserId
+                        //            ]
+                        //postディクショなりの内容
+                        postDictionary["key"] = key
+                        self.replys.append(postDictionary)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+
       
     }
     func handleKeyboardWillShowNotification(notification: NSNotification) {
@@ -68,71 +124,45 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
-        let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height);
+        let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height)
+        print(keyboardScreenEndFrame.size.height)
+        
         self.view.transform = transform
+        
+        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 44))
+
     }
     
     func tappedToolBarBtn(){
         self.view.transform = CGAffineTransformIdentity
+        myTextField.resignFirstResponder()
+        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
+     
+            let replyText = myTextField.text
+            
+            if replyText != "" {
+                
+                // Build the new Joke.
+                // AnyObject is needed because of the votes of type Int.
+                
+                let newreply: Dictionary<String, AnyObject> = [
+                    "text": replyText!,
+                    "author": self.Database.authData.uid!
+                ]
+                let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
+                let firebasenewreply = Dataapost.childByAutoId()
+                firebasenewreply.setValue(newreply)
+                // Send it over to DataService to seal the deal.
+
+                
+            }
+        
     }
     
 
     override func viewWillAppear(animated: Bool) {
   
-        let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
-        Dataonepost.observeEventType(.Value, withBlock: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                
-               
-                    
-                    // Make our jokes array for the tableView.
-                    print(snapshot)
-                    if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
-                        let key = snapshot.key
-                        
-                        
-                        // Items are returned chronologically, but it's more fun with the newest jokes first.
-                        //            Dictionary<String, AnyObject> = [
-                        //                "text": postText!,
-                        //                "subject": subjectTextfield.text!,
-                        //                "replay":0,
-                        //                "author": currentUserId
-                        //            ]
-                        //postディクショなりの内容
-                        postDictionary["key"] = key
-                        self.postDic = postDictionary
-                        self.tableView.reloadData()
-                    
-                }
-            }
-        })
-
-        let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
-        Dataapost.observeEventType(.Value, withBlock: { snapshot in
-        if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-            
-            for snap in snapshots {
-                
-                // Make our jokes array for the tableView.
-                
-                if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                    let key = snap.key
-                    
-                    
-                    // Items are returned chronologically, but it's more fun with the newest jokes first.
-                    //            Dictionary<String, AnyObject> = [
-                    //                "text": postText!,
-                    //                "author": currentUserId
-                    //            ]
-                    //postディクショなりの内容
-                    postDictionary["key"] = key
-                    self.replys.append(postDictionary)
-                   self.tableView.reloadData()
-                }
-            }
-        }
-            })
-//        
+        //
 //        print(post)
 //        
 //        let firebasenewreply = Dataapost.childByAutoId()
