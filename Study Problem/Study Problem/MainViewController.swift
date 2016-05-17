@@ -11,21 +11,22 @@ import SlideMenuControllerSwift
 import Firebase
 
 class MainViewController: UIViewController {
+    
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
-
+    
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
     @IBOutlet var tableView :UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-        // observeEventType is called whenever anything changes in the Firebase - new Jokes or Votes.
-        // It's also called here in viewDidLoad().
-        // It's always listening.
         
         Datapost.observeEventType(.Value, withBlock: { snapshot in
             
@@ -45,7 +46,7 @@ class MainViewController: UIViewController {
                     
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                       
+                        
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         //            Dictionary<String, AnyObject> = [
@@ -61,11 +62,7 @@ class MainViewController: UIViewController {
                     }
                 }
                 
-            }
-            
-            // Be sure that the tableView updates when there is new data.
-          
-            
+            }     
         })
         
         
@@ -81,7 +78,7 @@ class MainViewController: UIViewController {
         return 1
     }
     
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return posts.count
     }
@@ -94,15 +91,15 @@ class MainViewController: UIViewController {
         // We are using a custom cell.
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! postTableViewCell
-            
-            // Send the single joke to configureCell() in JokeCellTableViewCell.
-            let postDictionary = post as? Dictionary<String, AnyObject>
-            cell.textView.text = postDictionary!["text"] as? String
+        
+        // Send the single joke to configureCell() in JokeCellTableViewCell.
+        let postDictionary = post as? Dictionary<String, AnyObject>
+        cell.textView.text = postDictionary!["text"] as? String
         let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
         
         currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
             print(snapshot)
-
+            
             let postUser = snapshot.value.objectForKey("username") as! String
             
             print("Username: \(postUser)")
@@ -111,21 +108,21 @@ class MainViewController: UIViewController {
                 print(error.description)
         })
         
-            return cell
+        return cell
         
         
         
     }
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-         let post = posts[indexPath.row]
+        let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
-         selectpost = postDictionary!["key"] as! String!
-    
+        selectpost = postDictionary!["key"] as! String!
+        
         if selectpost != nil {
             // SubViewController へ遷移するために Segue を呼び出す
             performSegueWithIdentifier("viewPost",sender: nil)
         }
-       
+        
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -135,14 +132,14 @@ class MainViewController: UIViewController {
             vpVC.post = selectpost
         }
     }
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 175
-//    }
-
+    //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //        return 175
+    //    }
+    
     @IBAction func test(){
         print("adfsdadfsdafs")
         self.slideMenuController()?.openLeft()
     }
-
-
+    
+    
 }

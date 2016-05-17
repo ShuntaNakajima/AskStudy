@@ -10,24 +10,28 @@ import UIKit
 import Firebase
 
 class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate{
+    
     @IBOutlet var textView:UITextView!
-
+    
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    
     weak var delegate: LeftMenuProtocol?
-
+    
     @IBOutlet var subjectTextfield:UITextField!
+    
     var currentUserId = ""
     var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-            
-             self.currentUserId = self.Database.authData.uid
-            
-            print("Username: \(self.currentUserId)")
         
-    
+        
+        self.currentUserId = self.Database.authData.uid
+        
+        print("Username: \(self.currentUserId)")
+        
+        
         textView.layer.borderColor = UIColor.blackColor().CGColor
         textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
@@ -89,7 +93,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         let flexSpaces = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         
-
+        
         
         toolBarKeyBoard.setItems([flexSpaces,flexSpaces,flexSpaces,flexSpaces,doneButtonKey], animated: true)
         
@@ -102,12 +106,15 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func openlefts(){
         self.slideMenuController()?.openLeft()
     }
+    
     func donePressedKey(sender: UIBarButtonItem){
         textView.resignFirstResponder()
     }
+    
     func donePressed(sender: UIBarButtonItem) {
         
         subjectTextfield.resignFirstResponder()
@@ -120,6 +127,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         subjectTextfield.resignFirstResponder()
     }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -139,6 +147,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         subjectTextfield.text = pickOption[row]
     }
+    
     @IBAction func post(){
         let postText = textView.text
         
@@ -163,21 +172,21 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             firebaseNewJoke.setValue(newJoke)
             let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.Alert)
             let action = UIAlertAction(title: "Ok", style: .Default, handler: {(action: UIAlertAction!) -> Void in
-               // self.delegate?.changeViewController(LeftMenu.Main)
+                // self.delegate?.changeViewController(LeftMenu.Main)
                 let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
                 let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
                 let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
                 
                 let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
+                let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
                 self.presentViewController(slideMenuController, animated: true, completion: nil)
             })
             alert.addAction(action)
             presentViewController(alert, animated: true, completion: nil)
             
-
+            
         }
     }
-
+    
     
 }
