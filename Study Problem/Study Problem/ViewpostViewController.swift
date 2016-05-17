@@ -174,6 +174,7 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
                 let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
                 let firebasenewreply = Dataapost.childByAutoId()
                 firebasenewreply.setValue(newreply)
+                myTextField.text = ""
                 // Send it over to DataService to seal the deal.
 
                 
@@ -258,11 +259,6 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
             }
         }
         
-        
-        // We are using a custom cell.
-        
-        
-        // Send the single joke to configureCell() in JokeCellTableViewCell.
         
         return returncell
     }
