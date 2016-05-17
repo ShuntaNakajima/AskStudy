@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 
-class ViewpostViewController: UIViewController {
-    
+
+class ViewpostViewController: UIViewController,UITextFieldDelegate {
+
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
@@ -21,8 +22,9 @@ class ViewpostViewController: UIViewController {
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
     var toreply : String!
-    
-    
+
+    var myTextField: UITextField!
+
     @IBOutlet var tableView :UITableView!
     
     
@@ -30,20 +32,58 @@ class ViewpostViewController: UIViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
+
+         tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
+        var mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
+        
         let replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(replysnib, forCellReuseIdentifier:"ReplysCell")
+        
         let myreplysnib  = UINib(nibName: "MyReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
+
+        
+        // ツールバー
+        let toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 44.0, self.view.bounds.size.width, 44.0))
+        toolbar.barStyle = .BlackTranslucent
+        toolbar.tintColor = UIColor.whiteColor()
+        toolbar.backgroundColor = UIColor.blackColor()
+        let button3: UIBarButtonItem = UIBarButtonItem(title: "send", style:.Plain, target: nil, action: #selector(tappedToolBarBtn))
+        let buttonGap: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        
+        toolbar.items = [buttonGap, buttonGap, button3]
+        
+        self.view.addSubview(toolbar)
+        myTextField = UITextField(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 44))
+        
+        // 表示する文字を代入する.
+        myTextField.placeholder = "Type comment"
+        myTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+        
+        // 枠を表示する.
+        myTextField.borderStyle = UITextBorderStyle.RoundedRect
+        
+        // Delegateを設定する.
+        myTextField.delegate = self
+        
+        
+        // ツールバーに追加する.
+        toolbar.addSubview(self.myTextField)
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+
         // Do any additional setup after loading the view.
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
         let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
         Dataonepost.observeEventType(.Value, withBlock: { snapshot in
+           
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 
                 
@@ -73,7 +113,9 @@ class ViewpostViewController: UIViewController {
         let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
         Dataapost.observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                
+
+                 self.replys = []
+
                 for snap in snapshots {
                     
                     // Make our jokes array for the tableView.
@@ -95,18 +137,51 @@ class ViewpostViewController: UIViewController {
                 }
             }
         })
-        //
-        //        print(post)
-        //
-        //        let firebasenewreply = Dataapost.childByAutoId()
-        //        let newreply: Dictionary<String, AnyObject> = [
-        //            "text": "test",
-        //            "author": Database.authData.uid!
-        //        ]
-        //        // setValue() saves to Firebase.
-        //
-        //        firebasenewreply.setValue(newreply)
+
+
+      
     }
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height)
+        print(keyboardScreenEndFrame.size.height)
+        
+        self.view.transform = transform
+        
+        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 44))
+
+    }
+    
+    func tappedToolBarBtn(){
+        self.view.transform = CGAffineTransformIdentity
+        myTextField.resignFirstResponder()
+        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
+     
+            let replyText = myTextField.text
+            
+            if replyText != "" {
+                
+                // Build the new Joke.
+                // AnyObject is needed because of the votes of type Int.
+                
+                let newreply: Dictionary<String, AnyObject> = [
+                    "text": replyText!,
+                    "author": self.Database.authData.uid!
+                ]
+                let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
+                let firebasenewreply = Dataapost.childByAutoId()
+                firebasenewreply.setValue(newreply)
+                // Send it over to DataService to seal the deal.
+
+                
+            }
+        
+    }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
