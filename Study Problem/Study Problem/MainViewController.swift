@@ -95,12 +95,14 @@ class MainViewController: UIViewController {
         // Send the single joke to configureCell() in JokeCellTableViewCell.
         let postDictionary = post as? Dictionary<String, AnyObject>
         cell.textView.text = postDictionary!["text"] as? String
+        cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
         
         currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
             print(snapshot)
             
             let postUser = snapshot.value.objectForKey("username") as! String
+            
             
             print("Username: \(postUser)")
             cell.profileLabel.text = postUser

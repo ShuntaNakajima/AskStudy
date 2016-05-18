@@ -16,6 +16,8 @@ class postTableViewCell: UITableViewCell {
     
     @IBOutlet var profileLabel: UILabel!
     
+    @IBOutlet var replyscountLabel : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
