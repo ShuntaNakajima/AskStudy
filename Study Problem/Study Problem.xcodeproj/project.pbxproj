@@ -39,6 +39,8 @@
 		BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */; };
 		BC54BB921CE4AE720013C0DD /* Study_ProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB911CE4AE720013C0DD /* Study_ProblemTests.swift */; };
 		BC54BB9D1CE4AE720013C0DD /* Study_ProblemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */; };
+		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
+		BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */; };
 		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
 		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
@@ -106,6 +108,8 @@
 		BC54BB981CE4AE720013C0DD /* Study ProblemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Study ProblemUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study_ProblemUITests.swift; sourceTree = "<group>"; };
 		BC54BB9E1CE4AE720013C0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
+		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
 		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
 		BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -292,12 +296,22 @@
 			path = "Study ProblemUITests";
 			sourceTree = "<group>";
 		};
+		BC64FFF21CEC9F0F008E5DB7 /* ItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */,
+				BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */,
+			);
+			name = ItemTableViewCell;
+			sourceTree = "<group>";
+		};
 		BCF520B51CE9B7050027D8EA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				BCF520C41CE9B8D20027D8EA /* MyReplysTableViewCell */,
 				BCF520BF1CE9B75A0027D8EA /* ReplysTableViewCell */,
 				BCF520BA1CE9B7270027D8EA /* PostMainTableViewCell */,
+				BC64FFF21CEC9F0F008E5DB7 /* ItemTableViewCell */,
 				BC16036E1CE85C8C00402577 /* PostTableViewCell */,
 			);
 			name = Cells;
@@ -438,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */,
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
 				BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */,
@@ -529,6 +544,7 @@
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
 				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,
 				BCF520BD1CE9B7550027D8EA /* ReplysTableViewCell.swift in Sources */,
+				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,

@@ -38,8 +38,11 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
         
         tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
-        var mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
+        let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
+        
+        let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
+        self.tableView.registerNib(itemnib, forCellReuseIdentifier: "ItemCell")
         
         let replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(replysnib, forCellReuseIdentifier:"ReplysCell")
@@ -192,7 +195,14 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
             let firebasenewreply = Dataapost.childByAutoId()
             firebasenewreply.setValue(newreply)
+            
+            let DataapostReplysCount = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
+var replaycount = postDic["reply"] as! Int
+            replaycount = replaycount + 1
+            let firebasenewreplyscount = DataapostReplysCount.childByAppendingPath("reply")
+            firebasenewreplyscount.setValue(replaycount)
             // Send it over to DataService to seal the deal.
+           
             
             
         }
@@ -207,7 +217,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return replys.count + 1
+        return replys.count + 2
     }
     
     
@@ -215,6 +225,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
         var returncell = UITableViewCell!()
         let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
+        let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
         let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
         let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
         returncell = maincell
@@ -235,10 +246,12 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                     }, withCancelBlock: { error in
                         print(error.description)
                 })
-                
+            }else if indexPath.row == 1{
+            returncell = itemcell
+            itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
             }else{
                 if replys != []{
-                    let reply = replys[indexPath.row - 1]
+                    let reply = replys[indexPath.row - 2]
                     let postDictionary = reply as? Dictionary<String, AnyObject>
                     if postDictionary!["author"] as! String != Database.authData.uid!{
                         returncell = replycell
@@ -307,7 +320,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
             print(myTextView.text!)
             print(textViewtext)
-            let nowheight = toolbar.frame.height
+         //   let nowheight = toolbar.frame.height
             
             toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - size.height, self.view.bounds.size.width, size.height))
             myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, size.height))
