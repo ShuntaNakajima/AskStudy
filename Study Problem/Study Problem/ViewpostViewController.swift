@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 
+
 class ViewpostViewController: UIViewController,UITextViewDelegate {
     
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
@@ -169,19 +170,21 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     func tappedToolBarBtn(){
         self.view.transform = CGAffineTransformIdentity
         myTextView.resignFirstResponder()
-        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
+        
         
         let replyText = myTextView.text
         
-        if replyText != "" {
+        if replyText != "" && replyText != "Type here" {
             
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
-            toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width,
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width,
                 35.0))
-            myTextView = UITextView(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 35))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, 35))
             myTextView.text = "Type here"
             myTextView.textColor = UIColor.lightGrayColor()
+            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
+            
             let newreply: Dictionary<String, AnyObject> = [
                 "text": replyText!,
                 "author": self.Database.authData.uid!
@@ -291,29 +294,31 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
         
     }
-   
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
-                  replacementText text: String) -> Bool {
-        let textViewtext = myTextView.text! + text
-        let testtttttttttt = "tesdaj\nadfae\nfadsaf\ndafs"
-        var lineIndex = 1
-        testtttttttttt.enumerateLines{line, stop in
-            lineIndex + 1
-        }
-        print(lineIndex)
-        print(myTextView.text!)
-        print(textViewtext)
-        let lines : CGFloat = CGFloat(lineIndex)
-        let nowheight = toolbar.frame.height
-        if nowheight < 140{
-            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - lines * 35.0, self.view.bounds.size.width, lines * 35.0))
-            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, lines * 35))
+    func textViewDidChange(textView: UITextView){
+        let textViewtext = myTextView.text!
+    
+        
+       
+        let maxHeight = 140.0  // 入力フィールドの最大サイズ
+        let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
+        
+        if(size.height.native <= maxHeight) {
+            myTextView.frame.size.height = size.height
+        
+            print(myTextView.text!)
+            print(textViewtext)
+            let nowheight = toolbar.frame.height
             
-            tableView.frame = (frame: CGRect(x: 0, y: keyboradheight!, width: self.view.frame.width, height: self.view.frame.height - keyboradheight! - lines * 35))
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - size.height, self.view.bounds.size.width, size.height))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, size.height))
             
+            tableView.frame = (frame: CGRect(x: 0, y: keyboradheight!, width: self.view.frame.width, height: self.view.frame.height - keyboradheight! - size.height))
             
         }
         
-        return true
+        
     }
+    
+    
+    
 }
