@@ -10,8 +10,9 @@ import UIKit
 import Firebase
 
 
-class ViewpostViewController: UIViewController,UITextFieldDelegate {
 
+class ViewpostViewController: UIViewController,UITextViewDelegate {
+    
     var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
     var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
@@ -22,9 +23,11 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
     var toreply : String!
-
-    var myTextField: UITextField!
-
+    var keyboradheight : CGFloat!
+    
+    var myTextView: UITextView!
+    var toolbar:UIToolbar!
+    
     @IBOutlet var tableView :UITableView!
     
     
@@ -32,8 +35,9 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-
-         tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
+        
+        
+        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
         var mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
         
@@ -42,10 +46,10 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         
         let myreplysnib  = UINib(nibName: "MyReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
-
+        
         
         // ツールバー
-        let toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 44.0, self.view.bounds.size.width, 44.0))
+        toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width, 35.0))
         toolbar.barStyle = .BlackTranslucent
         toolbar.tintColor = UIColor.whiteColor()
         toolbar.backgroundColor = UIColor.blackColor()
@@ -55,35 +59,34 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         toolbar.items = [buttonGap, buttonGap, button3]
         
         self.view.addSubview(toolbar)
-        myTextField = UITextField(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 44))
+        myTextView = UITextView(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 35))
         
         // 表示する文字を代入する.
-        myTextField.placeholder = "Type comment"
-        myTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+        myTextView.text = "Type comment"
+        
         
         // 枠を表示する.
-        myTextField.borderStyle = UITextBorderStyle.RoundedRect
-        
+        myTextView.layer.borderWidth = 0.5
+        myTextView.font = UIFont.systemFontOfSize(25.5)
         // Delegateを設定する.
-        myTextField.delegate = self
-        
+        myTextView.delegate = self
+        myTextView.text = "Type here"
+        myTextView.textColor = UIColor.lightGrayColor()
         
         // ツールバーに追加する.
-        toolbar.addSubview(self.myTextField)
+        toolbar.addSubview(self.myTextView)
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
-//        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
-
-        // Do any additional setup after loading the view.
+        
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
         Dataonepost.observeEventType(.Value, withBlock: { snapshot in
-           
+            
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 
                 
@@ -113,9 +116,9 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
         Dataapost.observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-
-                 self.replys = []
-
+                
+                self.replys = []
+                
                 for snap in snapshots {
                     
                     // Make our jokes array for the tableView.
@@ -137,9 +140,9 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
                 }
             }
         })
-
-
-      
+        
+        
+        
     }
     func handleKeyboardWillShowNotification(notification: NSNotification) {
         
@@ -147,41 +150,56 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height)
+        
+        self.keyboradheight = keyboardScreenEndFrame.size.height
+        
         print(keyboardScreenEndFrame.size.height)
         
         self.view.transform = transform
         
-        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 44))
-
+        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 35))
+        
     }
-    
+    func textViewDidBeginEditing(textView: UITextView) {
+        
+        if myTextView.text == "Type here"{
+            myTextView.text = ""
+            myTextView.textColor = UIColor.blackColor()
+        }
+    }
     func tappedToolBarBtn(){
         self.view.transform = CGAffineTransformIdentity
-        myTextField.resignFirstResponder()
-        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
-     
-            let replyText = myTextField.text
+        myTextView.resignFirstResponder()
+        
+        
+        let replyText = myTextView.text
+        
+        if replyText != "" && replyText != "Type here" {
             
-            if replyText != "" {
-                
-                // Build the new Joke.
-                // AnyObject is needed because of the votes of type Int.
-                
-                let newreply: Dictionary<String, AnyObject> = [
-                    "text": replyText!,
-                    "author": self.Database.authData.uid!
-                ]
-                let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
-                let firebasenewreply = Dataapost.childByAutoId()
-                firebasenewreply.setValue(newreply)
-                // Send it over to DataService to seal the deal.
-
-                
-            }
+            // Build the new Joke.
+            // AnyObject is needed because of the votes of type Int.
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width,
+                35.0))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, 35))
+            myTextView.text = "Type here"
+            myTextView.textColor = UIColor.lightGrayColor()
+            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
+            
+            let newreply: Dictionary<String, AnyObject> = [
+                "text": replyText!,
+                "author": self.Database.authData.uid!
+            ]
+            let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
+            let firebasenewreply = Dataapost.childByAutoId()
+            firebasenewreply.setValue(newreply)
+            // Send it over to DataService to seal the deal.
+            
+            
+        }
         
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -274,5 +292,33 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         }
         
         
+        
     }
+    func textViewDidChange(textView: UITextView){
+        let textViewtext = myTextView.text!
+    
+        
+       
+        let maxHeight = 140.0  // 入力フィールドの最大サイズ
+        let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
+        
+        if(size.height.native <= maxHeight) {
+            myTextView.frame.size.height = size.height
+        
+            print(myTextView.text!)
+            print(textViewtext)
+            let nowheight = toolbar.frame.height
+            
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - size.height, self.view.bounds.size.width, size.height))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, size.height))
+            
+            tableView.frame = (frame: CGRect(x: 0, y: keyboradheight!, width: self.view.frame.width, height: self.view.frame.height - keyboradheight! - size.height))
+            
+        }
+        
+        
+    }
+    
+    
+    
 }
