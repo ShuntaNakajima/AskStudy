@@ -8,18 +8,18 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 
 
 class ViewpostViewController: UIViewController,UITextViewDelegate {
     
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
-    var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    var Database = FIRDatabase.database().reference()
     
     
     var post : String!
-    var newpost : Firebase!
+    var newpost : FIRDatabase!
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
     var toreply : String!

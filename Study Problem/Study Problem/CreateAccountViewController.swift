@@ -8,10 +8,11 @@
 
 import UIKit
 import Firebase
-
+import FirebaseDatabase
+import FirebaseAuth
 class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
+    var Database = FIRDatabase.database().reference()
+
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -80,35 +81,23 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
             
             // Set Email and Password for the New User.
             
-            self.Database.createUser(email, password: password, withValueCompletionBlock: { error, result in
-                
+            FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
                 if error != nil {
                     
                     // There was a problem.
-                    
-                    if let errorCode = FAuthenticationError(rawValue: error.code) {
-                        switch (errorCode) {
-                        case .UserDoesNotExist:
-                            self.signupErrorAlert("Oops!", message: "Handle invalid user. Try again.")
-                        case .InvalidEmail:
-                           self.signupErrorAlert("Oops!", message: "Handle invalid email. Try again.")
-                        case .InvalidPassword:
-                            self.signupErrorAlert("Oops!", message: "Handle invalid password. Try again.")
-                        default:
+            
                            self.signupErrorAlert("Oops!", message: "Having some trouble creating your account. Try again.")
-                        }
-                    }
+                    
                     
                 } else {
                     
                     // Create and Login the New User with authUser
-                    self.Database.authUser(email, password: password, withCompletionBlock: {
-                        err, authData in
+              
                         
-                        let user = ["provider": authData.provider!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0,"rank":5.0]
+                        let user = ["provider": password!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0,"rank":5.0]
                         
                         // Seal the deal in DataService.swift.
-                        self.DataUser.childByAppendingPath(authData.uid).setValue(user)
+                        self.Database.child("users").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
                         let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
                         let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
                         let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
@@ -117,14 +106,14 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                         let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
                         self.presentViewController(slideMenuController, animated: true, completion: nil)
 
-                    })
+                    
                     
                     // Store the uid for future access - handy!
                     //NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
                     
                                      //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
                 }
-            })
+            }
             
         }else{
             

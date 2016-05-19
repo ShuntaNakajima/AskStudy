@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SlideMenuOptions.leftViewWidth = 220
         // Override point for customization after application launch.
         // create viewController code...
+        FIRApp.configure()
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
