@@ -18,6 +18,10 @@ class postTableViewCell: UITableViewCell {
     
     @IBOutlet var replyscountLabel : UILabel!
     
+    @IBOutlet var subjectLabel:UILabel!
+    
+    @IBOutlet var dateLabel:UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

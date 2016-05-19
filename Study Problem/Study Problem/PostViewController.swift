@@ -155,12 +155,15 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
-            
+            var date_formatter: NSDateFormatter = NSDateFormatter()
+            date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+            date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
             let newJoke: Dictionary<String, AnyObject> = [
                 "text": postText!,
                 "subject": subjectTextfield.text!,
                 "reply":0,
-                "author": currentUserId
+                "author": currentUserId,
+                "date": date_formatter.stringFromDate(NSDate())
             ]
             
             // Send it over to DataService to seal the deal.

@@ -37,7 +37,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         
         
-        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
+        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
         let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
         
@@ -160,7 +160,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
         self.view.transform = transform
         
-        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 35))
+        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 45))
         
     }
     func textViewDidBeginEditing(textView: UITextView) {
@@ -181,12 +181,12 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                    self.view.transform = CGAffineTransformIdentity
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
-            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width,
-                35.0))
-            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, 35))
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width,
+                45.0))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, 45))
             myTextView.text = "Type here"
             myTextView.textColor = UIColor.lightGrayColor()
-            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 35))
+            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
             
             let newreply: Dictionary<String, AnyObject> = [
                 "text": replyText!,

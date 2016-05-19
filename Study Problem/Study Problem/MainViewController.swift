@@ -9,6 +9,7 @@
 import UIKit
 import SlideMenuControllerSwift
 import Firebase
+import SwiftDate
 
 class MainViewController: UIViewController {
     
@@ -96,6 +97,25 @@ class MainViewController: UIViewController {
         let postDictionary = post as? Dictionary<String, AnyObject>
         cell.textView.text = postDictionary!["text"] as? String
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
+        cell.subjectLabel.text = postDictionary!["subject"] as? String!
+        let postdate = postDictionary!["date"] as! String!
+        var date_formatter: NSDateFormatter = NSDateFormatter()
+        date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+        date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        var change_date:NSDate = date_formatter.dateFromString(postdate)!
+        let now = NSDate()
+        let cal = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+        let components = cal.components(unitFlags, fromDate: change_date, toDate: now, options: NSCalendarOptions())
+        
+        print(components.year) // 0
+        print(components.month) //3
+        print(components.day) //10
+        print(components.hour) //0
+        print(components.minute) //0
+        print(components.second) //
+        cell.textView.layer.borderWidth = 1.0
+        cell.textView.layer.cornerRadius = 5
         let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
         
         currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
@@ -139,7 +159,7 @@ class MainViewController: UIViewController {
     //    }
     
     @IBAction func test(){
-        print("adfsdadfsdafs")
+       // print("adfsdadfsdafs")
         self.slideMenuController()?.openLeft()
     }
     
