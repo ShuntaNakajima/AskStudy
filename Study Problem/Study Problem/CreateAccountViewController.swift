@@ -109,19 +109,20 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                         
                         // Seal the deal in DataService.swift.
                         self.DataUser.childByAppendingPath(authData.uid).setValue(user)
+                        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                        let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+                        let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+                        
+                        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+                        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
+                        self.presentViewController(slideMenuController, animated: true, completion: nil)
+
                     })
                     
                     // Store the uid for future access - handy!
                     //NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
                     
-                    let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                    let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-                    let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
-                    
-                    let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-                    let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
-                    self.presentViewController(slideMenuController, animated: true, completion: nil)
-                  //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
+                                     //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
                 }
             })
             
