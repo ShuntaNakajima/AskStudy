@@ -117,12 +117,12 @@ class MainViewController: UIViewController {
         print(components.second) //
         cell.textView.layer.borderWidth = 1.0
         cell.textView.layer.cornerRadius = 5
-        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
+        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDictionary!["author"] as? String)!)
         
-        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
             print(snapshot)
             
-            let postUser = snapshot.value.objectForKey("username") as! String
+            let postUser = snapshot.value!.objectForKey("username") as! String
             
             
             print("Username: \(postUser)")

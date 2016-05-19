@@ -87,10 +87,10 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
-        Dataonepost.observeEventType(.Value, withBlock: { snapshot in
+        
+         Database.child(post).observeEventType(.Value, withBlock: { snapshot in
             
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 
                 
@@ -116,9 +116,9 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             }
         })
         
-        let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
-        Dataapost.observeEventType(.Value, withBlock: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+       
+        Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 self.replys = []
                 
@@ -190,16 +190,16 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             
             let newreply: Dictionary<String, AnyObject> = [
                 "text": replyText!,
-                "author": self.Database.authData.uid!
+                "author": (FIRAuth.auth()?.currentUser?.displayName)!
             ]
-            let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
-            let firebasenewreply = Dataapost.childByAutoId()
+            
+            let firebasenewreply = Database.child("post/" + post + "/replys").childByAutoId()
             firebasenewreply.setValue(newreply)
             
-            let DataapostReplysCount = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
+           
 var replaycount = postDic["reply"] as! Int
             replaycount = replaycount + 1
-            let firebasenewreplyscount = DataapostReplysCount.childByAppendingPath("reply")
+            let firebasenewreplyscount = Database.child("post/" + post + "/reply")
             firebasenewreplyscount.setValue(replaycount)
             // Send it over to DataService to seal the deal.
            
@@ -234,12 +234,12 @@ var replaycount = postDic["reply"] as! Int
                 returncell = maincell
                 maincell.postLabel!.text = postDic["text"] as! String!
                 
-                let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDic["author"] as? String)
+                let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDic["author"] as? String)!)
                 
-                currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+                currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                     print(snapshot)
                     
-                    let postUser = snapshot.value.objectForKey("username") as! String
+                    let postUser = snapshot.value!.objectForKey("username") as! String
                     
                     // print("Username: \(postUser)")
                     maincell.usernameLabel.text = postUser
@@ -253,15 +253,15 @@ var replaycount = postDic["reply"] as! Int
                 if replys != []{
                     let reply = replys[indexPath.row - 2]
                     let postDictionary = reply as? Dictionary<String, AnyObject>
-                    if postDictionary!["author"] as! String != Database.authData.uid!{
+                    if postDictionary!["author"] as! String != FIRAuth.auth()?.currentUser!.uid{
                         returncell = replycell
                         replycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
+                        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDic["author"] as? String)!)
                         
-                        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+                        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                             print(snapshot)
                             
-                            let postUser = snapshot.value.objectForKey("username") as! String
+                            let postUser = snapshot.value!.objectForKey("username") as! String
                             
                             // print("Username: \(postUser)")
                             replycell.usernameLabel.text = postUser
@@ -271,12 +271,11 @@ var replaycount = postDic["reply"] as! Int
                     }else{
                         returncell = myreplycell
                         myreplycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
-                        
-                        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+                        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDic["author"] as? String)!)
+                        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                             print(snapshot)
                             
-                            let postUser = snapshot.value.objectForKey("username") as! String
+                            let postUser = snapshot.value!.objectForKey("username") as! String
                             
                             // print("Username: \(postUser)")
                             myreplycell.usernameLabel.text = postUser

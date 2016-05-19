@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate,UITextViewDelegate{
     
@@ -26,7 +28,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         super.viewDidLoad()
         
         
-        self.currentUserId = self.Database.authData.uid
+        self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
         
         print("Username: \(self.currentUserId)")
         
@@ -177,7 +179,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             
             // Send it over to DataService to seal the deal.
             
-            let firebaseNewJoke = Datapost.childByAutoId()
+            let firebaseNewJoke = Database.child("post/").childByAutoId()
             
             // setValue() saves to Firebase.
             
