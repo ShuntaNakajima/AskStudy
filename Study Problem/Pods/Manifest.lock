@@ -4,7 +4,7 @@ PODS:
   - SwiftDate (3.0.8)
 
 DEPENDENCIES:
-  - Firebase (>= 2.5.1)
+  - Firebase
   - SlideMenuControllerSwift
   - SwiftDate
 

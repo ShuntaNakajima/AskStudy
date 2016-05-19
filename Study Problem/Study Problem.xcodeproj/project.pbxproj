@@ -41,6 +41,7 @@
 		BC54BB9D1CE4AE720013C0DD /* Study_ProblemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */; };
 		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
 		BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */; };
+		BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */; };
 		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
 		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
@@ -110,6 +111,7 @@
 		BC54BB9E1CE4AE720013C0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
 		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
+		BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
 		BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				BC54BB831CE4AE720013C0DD /* Assets.xcassets */,
 				BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */,
 				BC54BB881CE4AE720013C0DD /* Info.plist */,
+				BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */,
 			);
 			path = "Study Problem";
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */,
 				BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */,
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
@@ -709,7 +713,7 @@
 				INFOPLIST_FILE = "Study Problem/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ShuntaNakajima.Study-Problem";
+				PRODUCT_BUNDLE_IDENTIFIER = com.studyproblem.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -725,7 +729,7 @@
 				INFOPLIST_FILE = "Study Problem/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ShuntaNakajima.Study-Problem";
+				PRODUCT_BUNDLE_IDENTIFIER = com.studyproblem.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
