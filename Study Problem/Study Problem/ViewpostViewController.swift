@@ -52,7 +52,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
         
         // ツールバー
-        toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width, 35.0))
+        toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width, 45.0))
         toolbar.barStyle = .BlackTranslucent
         toolbar.tintColor = UIColor.whiteColor()
         toolbar.backgroundColor = UIColor.blackColor()
@@ -62,7 +62,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         toolbar.items = [buttonGap, buttonGap, button3]
         
         self.view.addSubview(toolbar)
-        myTextView = UITextView(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 35))
+        myTextView = UITextView(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 45))
         
         // 表示する文字を代入する.
         myTextView.text = "Type comment"
@@ -171,14 +171,14 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         }
     }
     func tappedToolBarBtn(){
-        self.view.transform = CGAffineTransformIdentity
+ 
         myTextView.resignFirstResponder()
         
         
         let replyText = myTextView.text
         
         if replyText != "" && replyText != "Type here" {
-            
+                   self.view.transform = CGAffineTransformIdentity
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
             toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 35.0, self.view.bounds.size.width,
