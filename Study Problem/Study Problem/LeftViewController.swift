@@ -9,6 +9,8 @@
 import UIKit
 import SlideMenuControllerSwift
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 enum LeftMenu: Int {
     case Main = 0
     case Post
@@ -25,8 +27,7 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backview: UIImageView!
     @IBOutlet weak var nameLabel:UILabel!
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
+     var Database = FIRDatabase.database().reference()
     
     var menus = ["Main", "Post", "Mypost", "Joinpost", "Follow", "Notice" ,"Setting"]
     var mainViewController: UIViewController!
@@ -47,26 +48,14 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
 //            Database.unauth()
 //        }
         //if NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil && Database.authData == nil {
-        if Database.authData == nil {
+        if FIRAuth.auth()?.currentUser == nil {
             let viewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewControllers")
             self.presentViewController(viewController, animated: true, completion: nil)
             
         }else{
-            //let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-
-            let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(Database.authData.uid)
-            
-            currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
-                print(snapshot)
-                
-                let currentUser = snapshot.value.objectForKey("username") as! String
-                
-                print("Username: \(currentUser)")
-                self.nameLabel.text = currentUser
-                }, withCancelBlock: { error in
-                    print(error.description)
-            })
-            
+       
+                self.nameLabel.text = FIRAuth.auth()?.currentUser?.displayName
+           
         }
         tableView.registerNib(UINib(nibName: "MenusTableViewCell", bundle: nil), forCellReuseIdentifier: "MenusTableViewCell")
         

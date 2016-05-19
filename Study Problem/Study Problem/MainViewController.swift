@@ -9,13 +9,14 @@
 import UIKit
 import SlideMenuControllerSwift
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 import SwiftDate
 
 class MainViewController: UIViewController {
     
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
-    var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    var Database = FIRDatabase.database().reference()
+    
     
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
@@ -29,7 +30,7 @@ class MainViewController: UIViewController {
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        Datapost.observeEventType(.Value, withBlock: { snapshot in
+        Database.child("post").observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
             
@@ -39,7 +40,7 @@ class MainViewController: UIViewController {
             var nib  = UINib(nibName: "postTableViewCell", bundle:nil)
             self.tableView.registerNib(nib, forCellReuseIdentifier:"PostCell")
             
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snapshots {
                     

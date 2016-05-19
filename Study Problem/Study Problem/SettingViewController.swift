@@ -8,10 +8,17 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseInstanceID
+import FirebaseAuth
+
 
 class SettingViewController: UIViewController {
     
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
+    //var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
+    
+    let Database = FIRDatabase.database().reference()
+    let user = FIRAuth.auth()?.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +36,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func logoutbutton(){
-        Database.unauth()
+        try! FIRAuth.auth()!.signOut()
         let viewController:UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewControllers")
         self.presentViewController(viewController, animated: true, completion: nil)
     }

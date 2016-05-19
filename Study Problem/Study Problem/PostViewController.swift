@@ -13,8 +13,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     
     @IBOutlet var textView:UITextView!
     
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    var Database = FIRDatabase.database().reference()
     
     weak var delegate: LeftMenuProtocol?
     
