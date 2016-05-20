@@ -1,5 +1,6 @@
 platform :ios,'9.0'
 use_frameworks!
+target 'Study Problem' do
 pod 'SwiftDate'
 pod 'SlideMenuControllerSwift'
 pod 'Firebase/Core'
@@ -7,3 +8,4 @@ pod 'Firebase/Messaging'
 pod 'Firebase/Database'
 pod 'Firebase'
 pod 'Firebase/Auth'
+end

@@ -202,7 +202,6 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     
     public override func openLeft() {
         guard let _ = leftViewController else { // If leftViewController is nil, then return
-            print("leftViewController is nil")
             return
         }
         
@@ -1005,7 +1004,6 @@ extension UIViewController {
             }
             viewController = viewController?.parentViewController
         }
-        print("viewController is nil")
         return nil;
     }
     
