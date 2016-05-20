@@ -13,9 +13,10 @@ import FirebaseDatabase
 
 
 
+
 class ViewpostViewController: UIViewController,UITextViewDelegate {
     
-    var Database = FIRDatabase.database().reference()
+    var Database = FIRDatabaseReference.init()
     
     
     var post : String!
@@ -33,6 +34,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -88,9 +90,9 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         super.viewWillAppear(animated)
         
         
-         Database.child(post).observeEventType(.Value, withBlock: { snapshot in
+         Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
             
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+            if snapshot.children.allObjects is [FIRDataSnapshot] {
                 
                 
                 
@@ -109,6 +111,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                     //            ]
                     //postディクショなりの内容
                     postDictionary["key"] = key
+                    print(postDictionary)
                     self.postDic = postDictionary
                     self.tableView.reloadData()
                     
@@ -187,10 +190,13 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             myTextView.text = "Type here"
             myTextView.textColor = UIColor.lightGrayColor()
             tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
+            var postedUser : String!
+        
+            
             
             let newreply: Dictionary<String, AnyObject> = [
                 "text": replyText!,
-                "author": (FIRAuth.auth()?.currentUser?.displayName)!
+                "author": (FIRAuth.auth()?.currentUser?.uid)!
             ]
             
             let firebasenewreply = Database.child("post/" + post + "/replys").childByAutoId()

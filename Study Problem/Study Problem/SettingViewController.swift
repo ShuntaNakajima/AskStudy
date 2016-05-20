@@ -8,21 +8,21 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
-import FirebaseInstanceID
 import FirebaseAuth
+import FirebaseDatabase
+
 
 
 class SettingViewController: UIViewController {
     
     //var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     
-    let Database = FIRDatabase.database().reference()
+    var Database = FIRDatabaseReference.init()
     let user = FIRAuth.auth()?.currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Database = FIRDatabase.database().reference()
         // Do any additional setup after loading the view.
     }
     

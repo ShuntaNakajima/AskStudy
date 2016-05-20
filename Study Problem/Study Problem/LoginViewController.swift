@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+
 class LoginViewController: UIViewController {
     var Database = FIRDatabase.database().reference()
     
@@ -44,9 +45,9 @@ class LoginViewController: UIViewController {
         if email != "" && password != "" {
                       // Login with the Firebase's authUser method
             
-            FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
                 
-                if let user = user {
+                if user != nil {
                     
                     // Be sure the correct uid is stored.
                     

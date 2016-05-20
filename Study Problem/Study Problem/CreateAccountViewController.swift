@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
 import FirebaseAuth
+import FirebaseDatabase
+
 class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var Database = FIRDatabase.database().reference()
 
