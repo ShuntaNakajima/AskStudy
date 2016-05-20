@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 
 
-class SettingViewController: UIViewController {
+class SettingViewController: UITableViewController {
     
     //var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     

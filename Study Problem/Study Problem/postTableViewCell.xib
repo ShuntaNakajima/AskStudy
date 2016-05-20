@@ -86,6 +86,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="dateLabel" destination="YMM-FH-cK3" id="cPN-me-YlY"/>
                 <outlet property="profileImage" destination="i2v-dM-7aN" id="Ayy-4q-rEI"/>
                 <outlet property="profileLabel" destination="no2-6P-cnc" id="V9c-x6-FnR"/>
                 <outlet property="replyscountLabel" destination="JO3-rL-F37" id="cZL-N2-l1I"/>

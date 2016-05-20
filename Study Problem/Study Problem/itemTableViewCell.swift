@@ -12,6 +12,7 @@ class itemTableViewCell: UITableViewCell {
     @IBOutlet var ReplycountLabel:UILabel!
     @IBOutlet var IwantknowButton:UIButton!
     @IBOutlet var StateLabel:UILabel!
+    @IBOutlet var DateLable:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
