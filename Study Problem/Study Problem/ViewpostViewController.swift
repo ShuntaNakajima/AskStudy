@@ -255,6 +255,7 @@ var replaycount = postDic["reply"] as! Int
             }else if indexPath.row == 1{
             returncell = itemcell
             itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
+                itemcell.DateLable.text = postDic["date"] as! String!
             }else{
                 if replys != []{
                     let reply = replys[indexPath.row - 2]
