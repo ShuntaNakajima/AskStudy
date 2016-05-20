@@ -111,11 +111,26 @@ class MainViewController: UIViewController {
         let components = cal.components(unitFlags, fromDate: change_date, toDate: now, options: NSCalendarOptions())
         
         print(components.year) // 0
-        print(components.month) //3
-        print(components.day) //10
+        print(components.month) //0
+        print(components.day) //0
         print(components.hour) //0
         print(components.minute) //0
         print(components.second) //
+        if components.year != 0{
+            cell.dateLabel.text = ("\(components.year)y")
+        }else if components.month != 0{
+            cell.dateLabel.text = ("\(components.month)mon")
+        }else if components.day != 0{
+            cell.dateLabel.text = ("\(components.day)d")
+        }else if components.hour != 0{
+            cell.dateLabel.text = ("\(components.hour)h")
+        }else if components.minute != 0{
+            cell.dateLabel.text = ("\(components.minute)m")
+        }else if components.second != 0{
+            cell.dateLabel.text = ("\(components.second)s")
+        }else{
+            cell.dateLabel.text = ("Just")
+        }
         cell.textView.layer.borderWidth = 1.0
         cell.textView.layer.cornerRadius = 5
         let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDictionary!["author"] as? String)!)
