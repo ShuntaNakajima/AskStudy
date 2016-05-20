@@ -15,7 +15,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     
     @IBOutlet var textView:UITextView!
     
-    var Database = FIRDatabase.database().reference()
+    var Database = FIRDatabaseReference.init()
     
     weak var delegate: LeftMenuProtocol?
     
@@ -26,7 +26,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Database = FIRDatabase.database().reference()
         
         self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
         
@@ -166,7 +166,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
-            var date_formatter: NSDateFormatter = NSDateFormatter()
+            let date_formatter: NSDateFormatter = NSDateFormatter()
             date_formatter.locale     = NSLocale(localeIdentifier: "ja")
             date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
             let newJoke: Dictionary<String, AnyObject> = [

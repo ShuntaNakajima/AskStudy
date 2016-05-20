@@ -11,6 +11,7 @@ import SlideMenuControllerSwift
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+
 enum LeftMenu: Int {
     case Main = 0
     case Post
@@ -54,7 +55,20 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
             
         }else{
        
-                self.nameLabel.text = FIRAuth.auth()?.currentUser?.displayName
+            //    self.nameLabel.text = FIRAuth.auth()?.currentUser!.displayName
+            let currentUser = Database.childByAppendingPath("user").childByAppendingPath((FIRAuth.auth()?.currentUser!.uid)!)
+            currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+                print(snapshot)
+                
+                let postUser = snapshot.value!.objectForKey("username") as! String
+                
+                
+                print("Username: \(postUser)")
+                self.nameLabel.text = postUser
+                }, withCancelBlock: { error in
+                    print(error.description)
+            })
+
            
         }
         tableView.registerNib(UINib(nibName: "MenusTableViewCell", bundle: nil), forCellReuseIdentifier: "MenusTableViewCell")
@@ -82,7 +96,7 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
         let settingViewController = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
         self.settingViewController = UINavigationController(rootViewController: settingViewController)
         // self.tableView.registerCellClass(MenuTableViewCell.self)
-        var nib  = UINib(nibName: "MenusTableViewCell", bundle:nil)
+        let nib  = UINib(nibName: "MenusTableViewCell", bundle:nil)
         tableView.registerNib(nib, forCellReuseIdentifier:"MenuCell")
     }
     

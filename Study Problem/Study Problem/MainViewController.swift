@@ -11,11 +11,12 @@ import SlideMenuControllerSwift
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+
 import SwiftDate
 
 class MainViewController: UIViewController {
     
-    var Database = FIRDatabase.database().reference()
+    var Database = FIRDatabaseReference.init()
     
     
     var selectpost : String!
@@ -26,7 +27,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -37,7 +38,7 @@ class MainViewController: UIViewController {
             print(snapshot.value)
             
             self.posts = []
-            var nib  = UINib(nibName: "postTableViewCell", bundle:nil)
+            let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
             self.tableView.registerNib(nib, forCellReuseIdentifier:"PostCell")
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -100,10 +101,10 @@ class MainViewController: UIViewController {
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!
         let postdate = postDictionary!["date"] as! String!
-        var date_formatter: NSDateFormatter = NSDateFormatter()
+        let date_formatter: NSDateFormatter = NSDateFormatter()
         date_formatter.locale     = NSLocale(localeIdentifier: "ja")
         date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        var change_date:NSDate = date_formatter.dateFromString(postdate)!
+        let change_date:NSDate = date_formatter.dateFromString(postdate)!
         let now = NSDate()
         let cal = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
         let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
