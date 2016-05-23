@@ -14,39 +14,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="77.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqg-Dd-GV9">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqg-Dd-GV9">
                         <rect key="frame" x="76" y="8" width="242" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpL-J9-6Gd">
-                        <rect key="frame" x="8" y="8" width="60" height="60"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXc-xK-5NI">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXc-xK-5NI">
                         <rect key="frame" x="76" y="37" width="236" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OrZ-Qo-xdY">
+                        <rect key="frame" x="9" y="9" width="60" height="60"/>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GpL-J9-6Gd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="0W3-67-aFR"/>
                     <constraint firstItem="eqg-Dd-GV9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Ase-Vy-Ev9"/>
                     <constraint firstItem="ZXc-xK-5NI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="EWv-09-k92"/>
+                    <constraint firstItem="eqg-Dd-GV9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="68" id="Gq0-KS-VUY"/>
                     <constraint firstItem="ZXc-xK-5NI" firstAttribute="top" secondItem="eqg-Dd-GV9" secondAttribute="bottom" constant="8" id="NKu-0y-Hyc"/>
-                    <constraint firstItem="ZXc-xK-5NI" firstAttribute="leading" secondItem="GpL-J9-6Gd" secondAttribute="trailing" constant="8" id="Qs7-fp-3Ep"/>
-                    <constraint firstItem="eqg-Dd-GV9" firstAttribute="leading" secondItem="GpL-J9-6Gd" secondAttribute="trailing" constant="8" id="Skt-hg-GPf"/>
-                    <constraint firstItem="ZXc-xK-5NI" firstAttribute="leading" secondItem="GpL-J9-6Gd" secondAttribute="trailing" constant="8" id="TwI-rf-tQZ"/>
+                    <constraint firstItem="ZXc-xK-5NI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="68" id="agI-Xe-7t5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eqg-Dd-GV9" secondAttribute="trailing" constant="-6" id="c5s-2z-iAv"/>
-                    <constraint firstItem="GpL-J9-6Gd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="eeb-31-eTs"/>
+                    <constraint firstItem="OrZ-Qo-xdY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="eWJ-hj-wqK"/>
+                    <constraint firstItem="OrZ-Qo-xdY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="jzT-Gm-DJj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ZXc-xK-5NI" secondAttribute="bottom" constant="12.5" id="kXg-wF-jAI"/>
                     <constraint firstItem="ZXc-xK-5NI" firstAttribute="top" secondItem="eqg-Dd-GV9" secondAttribute="bottom" constant="8" id="ruD-hm-Vg9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="postLabel" destination="ZXc-xK-5NI" id="8WM-Sc-bwV"/>
-                <outlet property="profileImageView" destination="GpL-J9-6Gd" id="aqm-XX-Qf1"/>
+                <outlet property="profileImageView" destination="OrZ-Qo-xdY" id="9LR-Rc-GiM"/>
                 <outlet property="usernameLabel" destination="eqg-Dd-GV9" id="TGO-6u-Tzd"/>
             </connections>
             <point key="canvasLocation" x="431" y="364"/>
