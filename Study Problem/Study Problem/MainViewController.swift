@@ -11,6 +11,7 @@ import SlideMenuControllerSwift
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 import SwiftDate
 
@@ -142,6 +143,29 @@ class MainViewController: UIViewController {
             
             
             print("Username: \(postUser)")
+            let storage = FIRStorage.storage()
+            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+            let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                if error != nil {
+                    // Uh-oh, an error occurred!
+                    print(error)
+                } else {
+                    
+                    let Image = data.flatMap(UIImage.init)
+                    cell.profileImage.layer.cornerRadius=30
+                    cell.profileImage.clipsToBounds=true
+                  
+                    let viewImg = Image!
+                    let resizedSize = CGSizeMake(60, 60)
+                    UIGraphicsBeginImageContext(resizedSize)
+                    viewImg.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+//                    var sv = cell.profileImage.superview!
+//                    sv.removeConstraints(sv.constraints)
+                    cell.profileImage.image = viewImg
+                    
+                }
+            }
             cell.profileLabel.text = postUser
             }, withCancelBlock: { error in
                 print(error.description)

@@ -307,7 +307,8 @@ var replaycount = postDic["reply"] as! Int
         if indexPath.row == 0{
             toreply = postDic["author"] as! String
         }else{
-            toreply = replys[indexPath.row - 1]["author"] as! String
+            toreply = replys[indexPath.row - 2]["author"] as! String
+            myTextView.becomeFirstResponder()
         }
         
         
