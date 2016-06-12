@@ -14,9 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2v-dM-7aN">
-                        <rect key="frame" x="7" y="9" width="60" height="60"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="replys" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSV-1e-kmy">
                         <rect key="frame" x="220" y="82" width="47" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -29,7 +26,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPV-GY-aVJ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPV-GY-aVJ">
                         <rect key="frame" x="75" y="49" width="237" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,7 +44,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="no2-6P-cnc">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="no2-6P-cnc">
                         <rect key="frame" x="75" y="9" width="192" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,6 +56,9 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2v-dM-7aN">
+                        <rect key="frame" x="7" y="9" width="42" height="42"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="20" id="2TY-5g-ddc"/>
@@ -80,7 +80,6 @@
                     <constraint firstAttribute="bottomMargin" secondItem="bJM-xb-M1q" secondAttribute="bottom" constant="0.5" id="crU-jx-RxD"/>
                     <constraint firstItem="HSV-1e-kmy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="215" id="ege-N7-Snh"/>
                     <constraint firstAttribute="bottomMargin" secondItem="JO3-rL-F37" secondAttribute="bottom" constant="0.5" id="fRg-7P-nIZ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="i2v-dM-7aN" secondAttribute="bottom" constant="34.5" id="jjN-qG-Tfp"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="no2-6P-cnc" secondAttribute="bottom" constant="16" id="tRs-88-6dL"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="vlF-Cj-6a3"/>
                 </constraints>

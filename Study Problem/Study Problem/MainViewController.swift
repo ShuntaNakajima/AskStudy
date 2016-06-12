@@ -157,7 +157,7 @@ class MainViewController: UIViewController {
                     cell.profileImage.clipsToBounds=true
                   
                     let viewImg = Image!
-                    let resizedSize = CGSizeMake(60, 60)
+                    let resizedSize = CGSizeMake(30, 30)
                     UIGraphicsBeginImageContext(resizedSize)
                     viewImg.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
 //                    var sv = cell.profileImage.superview!

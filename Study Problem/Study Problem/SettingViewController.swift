@@ -107,7 +107,7 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
     }
     func imageCropViewController(controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
         let viewImg = croppedImage
-        let resizedSize = CGSizeMake(100, 100)
+        let resizedSize = CGSizeMake(60, 60)
         UIGraphicsBeginImageContext(resizedSize)
         viewImg.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
