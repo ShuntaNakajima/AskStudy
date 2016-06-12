@@ -42,16 +42,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Japanese" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0D-sH-HYn">
-                        <rect key="frame" x="75" y="82" width="74" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="IdH-41-Hnc"/>
-                            <constraint firstAttribute="width" constant="74" id="Ln2-LZ-U12"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="no2-6P-cnc">
                         <rect key="frame" x="75" y="9" width="192" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -71,6 +61,16 @@
                             <constraint firstAttribute="width" constant="50" id="6Ud-rb-1E1"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Japanese" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0D-sH-HYn">
+                        <rect key="frame" x="75" y="82" width="109" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="IdH-41-Hnc"/>
+                            <constraint firstAttribute="width" constant="109" id="Ln2-LZ-U12"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="8" id="2TY-5g-ddc"/>
