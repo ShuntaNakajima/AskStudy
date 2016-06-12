@@ -358,12 +358,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC54BBA11CE4AE720013C0DD /* Build configuration list for PBXNativeTarget "Study Problem" */;
 			buildPhases = (
-				167218A5B6773303D2EA38AC /* 📦 Check Pods Manifest.lock */,
+				167218A5B6773303D2EA38AC /* [CP] Check Pods Manifest.lock */,
 				BC54BB751CE4AE720013C0DD /* Sources */,
 				BC54BB761CE4AE720013C0DD /* Frameworks */,
 				BC54BB771CE4AE720013C0DD /* Resources */,
-				EA3871DB0CAEE01E292F6F17 /* 📦 Embed Pods Frameworks */,
-				ED1472372B0DF72554B126F8 /* 📦 Copy Pods Resources */,
+				EA3871DB0CAEE01E292F6F17 /* [CP] Embed Pods Frameworks */,
+				ED1472372B0DF72554B126F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -492,14 +492,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		167218A5B6773303D2EA38AC /* 📦 Check Pods Manifest.lock */ = {
+		167218A5B6773303D2EA38AC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,14 +507,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EA3871DB0CAEE01E292F6F17 /* 📦 Embed Pods Frameworks */ = {
+		EA3871DB0CAEE01E292F6F17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,14 +522,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED1472372B0DF72554B126F8 /* 📦 Copy Pods Resources */ = {
+		ED1472372B0DF72554B126F8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

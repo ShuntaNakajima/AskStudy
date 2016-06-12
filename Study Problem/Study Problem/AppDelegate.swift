@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for custoxmization after application launch.
         // create viewController code...
         FIRApp.configure()
-        
+        FIRDatabase.database().persistenceEnabled = true
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController

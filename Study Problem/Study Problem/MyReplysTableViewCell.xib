@@ -14,20 +14,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTC-wI-sXr">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTC-wI-sXr">
                         <rect key="frame" x="8" y="8" width="247" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-3r-oqg">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-3r-oqg">
                         <rect key="frame" x="8" y="37" width="247" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="veA-BV-g2G">
-                        <rect key="frame" x="263" y="10" width="49" height="49"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="veA-BV-g2G">
+                        <rect key="frame" x="263" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="smz-CB-gpc"/>
+                            <constraint firstAttribute="width" constant="50" id="yQW-eI-PnU"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -36,7 +40,7 @@
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="8" id="L1s-ce-S3F"/>
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="g7P-3C-34M"/>
                     <constraint firstItem="veA-BV-g2G" firstAttribute="leading" secondItem="YTC-wI-sXr" secondAttribute="trailing" constant="8" id="gwZ-1w-HAm"/>
-                    <constraint firstItem="veA-BV-g2G" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hhc-zT-z81"/>
+                    <constraint firstItem="veA-BV-g2G" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="1" id="hhc-zT-z81"/>
                     <constraint firstItem="YTC-wI-sXr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iG1-jw-nN0"/>
                     <constraint firstItem="veA-BV-g2G" firstAttribute="leading" secondItem="CDc-3r-oqg" secondAttribute="trailing" constant="8" id="kmO-4b-Sm2"/>
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="8" id="lqK-8k-hvC"/>

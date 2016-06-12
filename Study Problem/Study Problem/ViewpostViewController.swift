@@ -90,7 +90,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         super.viewWillAppear(animated)
         
         
-         Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
+        Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
             
             if snapshot.children.allObjects is [FIRDataSnapshot] {
                 
@@ -119,7 +119,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             }
         })
         
-       
+        
         Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
@@ -174,14 +174,14 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         }
     }
     func tappedToolBarBtn(){
- 
+        
         myTextView.resignFirstResponder()
         
         
         let replyText = myTextView.text
         
         if replyText != "" && replyText != "Type here" {
-                   self.view.transform = CGAffineTransformIdentity
+            self.view.transform = CGAffineTransformIdentity
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
             toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width,
@@ -190,8 +190,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             myTextView.text = "Type here"
             myTextView.textColor = UIColor.lightGrayColor()
             tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
-            var postedUser : String!
-        
+            let postedUser : String!
             
             
             let newreply: Dictionary<String, AnyObject> = [
@@ -202,13 +201,13 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             let firebasenewreply = Database.child("post/" + post + "/replys").childByAutoId()
             firebasenewreply.setValue(newreply)
             
-           
-var replaycount = postDic["reply"] as! Int
+            
+            var replaycount = postDic["reply"] as! Int
             replaycount = replaycount + 1
             let firebasenewreplyscount = Database.child("post/" + post + "/reply")
             firebasenewreplyscount.setValue(replaycount)
             // Send it over to DataService to seal the deal.
-           
+            
             
             
         }
@@ -229,22 +228,14 @@ var replaycount = postDic["reply"] as! Int
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var returncell = UITableViewCell!()
-        let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
-        let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
-        let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
-        let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
-        returncell = maincell
         if postDic["author"] as? String != nil{
             if indexPath.row == 0{
-                returncell = maincell
+                let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
                 maincell.postLabel!.text = postDic["text"] as! String!
                 
-                let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDic["author"] as? String)!)
+                let currentUser = Database.child("user").child((postDic["author"] as? String)!)
                 
                 currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                    print(snapshot)
-                    
                     let postUser = snapshot.value!.objectForKey("username") as! String
                     
                     // print("Username: \(postUser)")
@@ -252,33 +243,34 @@ var replaycount = postDic["reply"] as! Int
                     }, withCancelBlock: { error in
                         print(error.description)
                 })
+                return maincell
             }else if indexPath.row == 1{
-            returncell = itemcell
-            itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
+                let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
+                itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
                 itemcell.DateLable.text = postDic["date"] as! String!
+                return itemcell
             }else{
                 if replys != []{
                     let reply = replys[indexPath.row - 2]
                     let postDictionary = reply as? Dictionary<String, AnyObject>
-                    if postDictionary!["author"] as! String != FIRAuth.auth()?.currentUser!.uid{
-                        returncell = replycell
+                    if postDictionary!["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
+                        let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
                         replycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDic["author"] as? String)!)
+                        let currentUser = Database.child("user").child((postDic["author"] as? String)!)
                         
                         currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                             print(snapshot)
                             
                             let postUser = snapshot.value!.objectForKey("username") as! String
-                            
-                            // print("Username: \(postUser)")
                             replycell.usernameLabel.text = postUser
                             }, withCancelBlock: { error in
                                 print(error.description)
                         })
+                        return replycell
                     }else{
-                        returncell = myreplycell
+                        let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
                         myreplycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDic["author"] as? String)!)
+                        let currentUser = Database.child("user").child((postDic["author"] as? String)!)
                         currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                             print(snapshot)
                             
@@ -289,19 +281,17 @@ var replaycount = postDic["reply"] as! Int
                             }, withCancelBlock: { error in
                                 print(error.description)
                         })
+                        return myreplycell
                     }
+                }else{
+                    let cell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
+                    return cell
                 }
-                
             }
+        }else{
+            let cell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
+            return cell
         }
-        
-        
-        // We are using a custom cell.
-        
-        
-        // Send the single joke to configureCell() in JokeCellTableViewCell.
-        
-        return returncell
     }
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         if indexPath.row == 0{
@@ -316,18 +306,18 @@ var replaycount = postDic["reply"] as! Int
     }
     func textViewDidChange(textView: UITextView){
         let textViewtext = myTextView.text!
-    
         
-       
+        
+        
         let maxHeight = 140.0  // 入力フィールドの最大サイズ
         let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
         
         if(size.height.native <= maxHeight) {
             myTextView.frame.size.height = size.height
-        
+            
             print(myTextView.text!)
             print(textViewtext)
-         //   let nowheight = toolbar.frame.height
+            //   let nowheight = toolbar.frame.height
             
             toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - size.height, self.view.bounds.size.width, size.height))
             myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, size.height))

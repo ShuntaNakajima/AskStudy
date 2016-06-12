@@ -26,8 +26,12 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OrZ-Qo-xdY">
-                        <rect key="frame" x="9" y="9" width="60" height="60"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OrZ-Qo-xdY">
+                        <rect key="frame" x="9" y="9" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="B5y-h5-Eca"/>
+                            <constraint firstAttribute="height" constant="50" id="qqt-wX-Zo1"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
