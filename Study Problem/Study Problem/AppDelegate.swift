@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // create viewController code...
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
+        //FIRStorage.storage()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController

@@ -11,4 +11,5 @@ pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'RSKImageCropper'
 pod 'SVProgressHUD'
+pod 'RealmSwift'
 end

@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-
+import RealmSwift
 import SwiftDate
 
 class MainViewController: UIViewController {
@@ -66,7 +66,7 @@ class MainViewController: UIViewController {
                     }
                 }
                 
-            }     
+            }
         })
         
         
@@ -111,7 +111,7 @@ class MainViewController: UIViewController {
         let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
         let components = cal.components(unitFlags, fromDate: change_date, toDate: now, options: NSCalendarOptions())
         
-
+        
         if components.year != 0{
             cell.dateLabel.text = ("\(components.year)y")
         }else if components.month != 0{
@@ -129,42 +129,62 @@ class MainViewController: UIViewController {
         }
         cell.textView.layer.borderWidth = 1.0
         cell.textView.layer.cornerRadius = 5
-        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDictionary!["author"] as? String)!)
+        cell.profileImage.layer.cornerRadius=25
+        cell.profileImage.clipsToBounds=true
+        cell.profileImage.image = UIImage(named: "noimage.gif")!
         
-        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-            print(snapshot)
+        var userdata = UserData().readimage((postDictionary!["author"] as? String)!)
+        if userdata.0 == "noset"{
+            let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
             
-            let postUser = snapshot.value!.objectForKey("username") as! String
-            
-            
-            print("Username: \(postUser)")
-            let storage = FIRStorage.storage()
-            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-            let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
-            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                if error != nil {
-                    // Uh-oh, an error occurred!
-                    print(error)
-                } else {
-                    
-                    let Image = data.flatMap(UIImage.init)
-                    cell.profileImage.layer.cornerRadius=25
-                    cell.profileImage.clipsToBounds=true
-                  
-                    let viewImg = Image!
-                    let resizedSize = CGSizeMake(30, 30)
-                    UIGraphicsBeginImageContext(resizedSize)
-                    viewImg.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
-//                    var sv = cell.profileImage.superview!
-//                    sv.removeConstraints(sv.constraints)
-                    cell.profileImage.image = viewImg
-                    
+            currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+                print(snapshot)
+                
+                let postUser = snapshot.value!.objectForKey("username") as! String
+                
+                
+                print("Username: \(postUser)")
+                let storage = FIRStorage.storage()
+                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                    if error != nil {
+                        // Uh-oh, an error occurred!
+                        print(error)
+                    } else {
+                        
+                        
+                        let viewImg = data.flatMap(UIImage.init)
+                        let resizedSize = CGSizeMake(30, 30)
+                        UIGraphicsBeginImageContext(resizedSize)
+                        viewImg!.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+                        //                    var sv = cell.profileImage.superview!
+                        //                    sv.removeConstraints(sv.constraints)
+                        
+                        
+                        cell.profileImage.image = viewImg
+                        let data = UserData()
+                        data.id = (postDictionary!["author"] as! String)
+                        data.username =  postUser
+                        
+                        if let imagedata = UIImagePNGRepresentation(viewImg!) {
+                            data.image = imagedata
+                        }
+                        
+                        data.setimage()
+                    }
                 }
-            }
-            cell.profileLabel.text = postUser
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+                cell.profileLabel.text = postUser
+                
+                }, withCancelBlock: { error in
+                    print(error.description)
+            })
+        }else{
+            let image: UIImage? = UIImage(data: userdata.2)
+            cell.profileLabel.text = userdata.1
+            cell.profileImage.image = image
+            
+        }
         
         return cell
         
@@ -195,7 +215,7 @@ class MainViewController: UIViewController {
     //    }
     
     @IBAction func test(){
-       // print("adfsdadfsdafs")
+        // print("adfsdadfsdafs")
         self.slideMenuController()?.openLeft()
     }
     

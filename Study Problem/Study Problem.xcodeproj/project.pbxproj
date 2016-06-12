@@ -49,6 +49,8 @@
 		BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520BC1CE9B7550027D8EA /* ReplysTableViewCell.xib */; };
 		BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */; };
 		BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */; };
+		BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF71A731D0D25FA00285D07 /* ImageClass.swift */; };
+		BCF71A761D0D3F4700285D07 /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimage.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		BCF520BC1CE9B7550027D8EA /* ReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplysTableViewCell.xib; sourceTree = "<group>"; };
 		BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReplysTableViewCell.swift; sourceTree = "<group>"; };
 		BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplysTableViewCell.xib; sourceTree = "<group>"; };
+		BCF71A731D0D25FA00285D07 /* ImageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClass.swift; sourceTree = "<group>"; };
+		BCF71A751D0D3F4700285D07 /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
 		C53EC0BD776941FBF25FFAE2 /* Pods-Study Problem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Problem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem.release.xcconfig"; sourceTree = "<group>"; };
 		CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Problem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -213,6 +217,7 @@
 		BC1603651CE8563F00402577 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCF71A731D0D25FA00285D07 /* ImageClass.swift */,
 				BC1603661CE8569200402577 /* Post.swift */,
 			);
 			name = Model;
@@ -264,6 +269,7 @@
 				BC1437E71CE6139400448AC0 /* MypostViewController.swift */,
 				BC1437E91CE613A700448AC0 /* JoinpostViewController.swift */,
 				BC1437EB1CE613B200448AC0 /* FollowViewController.swift */,
+				BCF71A751D0D3F4700285D07 /* noimage.gif */,
 				BCF520B51CE9B7050027D8EA /* Cells */,
 				BC1437D21CE60FED00448AC0 /* SlideMenu */,
 				BC1437D11CE60E7400448AC0 /* User */,
@@ -464,6 +470,7 @@
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
 				BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */,
+				BCF71A761D0D3F4700285D07 /* noimage.gif in Resources */,
 				BC1438161CE75B6600448AC0 /* 2.gif in Resources */,
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
 				BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */,
@@ -555,6 +562,7 @@
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
+				BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,
 				BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */,
 				BC1437EE1CE613CA00448AC0 /* SettingViewController.swift in Sources */,
