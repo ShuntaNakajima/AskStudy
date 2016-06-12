@@ -9,12 +9,16 @@
 import UIKit
 import SlideMenuControllerSwift
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
+
+import SwiftDate
 
 class MainViewController: UIViewController {
     
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
-    var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    var Database = FIRDatabaseReference.init()
+    
     
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
@@ -24,21 +28,21 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        Datapost.observeEventType(.Value, withBlock: { snapshot in
+        Database.child("post").observeEventType(.Value, withBlock: { snapshot in
             
             // The snapshot is a current look at our jokes data.
             
             print(snapshot.value)
             
             self.posts = []
-            var nib  = UINib(nibName: "postTableViewCell", bundle:nil)
+            let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
             self.tableView.registerNib(nib, forCellReuseIdentifier:"PostCell")
             
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snapshots {
                     
@@ -95,14 +99,68 @@ class MainViewController: UIViewController {
         // Send the single joke to configureCell() in JokeCellTableViewCell.
         let postDictionary = post as? Dictionary<String, AnyObject>
         cell.textView.text = postDictionary!["text"] as? String
-        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
+        cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
+        cell.subjectLabel.text = postDictionary!["subject"] as? String!
+        let postdate = postDictionary!["date"] as! String!
+        let date_formatter: NSDateFormatter = NSDateFormatter()
+        date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+        date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let change_date:NSDate = date_formatter.dateFromString(postdate)!
+        let now = NSDate()
+        let cal = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+        let components = cal.components(unitFlags, fromDate: change_date, toDate: now, options: NSCalendarOptions())
         
-        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+
+        if components.year != 0{
+            cell.dateLabel.text = ("\(components.year)y")
+        }else if components.month != 0{
+            cell.dateLabel.text = ("\(components.month)mon")
+        }else if components.day != 0{
+            cell.dateLabel.text = ("\(components.day)d")
+        }else if components.hour != 0{
+            cell.dateLabel.text = ("\(components.hour)h")
+        }else if components.minute != 0{
+            cell.dateLabel.text = ("\(components.minute)m")
+        }else if components.second != 0{
+            cell.dateLabel.text = ("\(components.second)s")
+        }else{
+            cell.dateLabel.text = ("Just")
+        }
+        cell.textView.layer.borderWidth = 1.0
+        cell.textView.layer.cornerRadius = 5
+        let currentUser = Database.childByAppendingPath("user").childByAppendingPath((postDictionary!["author"] as? String)!)
+        
+        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
             print(snapshot)
             
-            let postUser = snapshot.value.objectForKey("username") as! String
+            let postUser = snapshot.value!.objectForKey("username") as! String
+            
             
             print("Username: \(postUser)")
+            let storage = FIRStorage.storage()
+            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+            let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                if error != nil {
+                    // Uh-oh, an error occurred!
+                    print(error)
+                } else {
+                    
+                    let Image = data.flatMap(UIImage.init)
+                    cell.profileImage.layer.cornerRadius=25
+                    cell.profileImage.clipsToBounds=true
+                  
+                    let viewImg = Image!
+                    let resizedSize = CGSizeMake(30, 30)
+                    UIGraphicsBeginImageContext(resizedSize)
+                    viewImg.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+//                    var sv = cell.profileImage.superview!
+//                    sv.removeConstraints(sv.constraints)
+                    cell.profileImage.image = viewImg
+                    
+                }
+            }
             cell.profileLabel.text = postUser
             }, withCancelBlock: { error in
                 print(error.description)
@@ -137,7 +195,7 @@ class MainViewController: UIViewController {
     //    }
     
     @IBAction func test(){
-        print("adfsdadfsdafs")
+       // print("adfsdadfsdafs")
         self.slideMenuController()?.openLeft()
     }
     

@@ -8,10 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class ResetPasswordViewController: UIViewController {
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
-    @IBOutlet weak var emailField: UITextField!
+        @IBOutlet weak var emailField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +24,7 @@ class ResetPasswordViewController: UIViewController {
     }
     @IBAction func sendreset(){
         let email = emailField.text
-        DataUser.resetPasswordForUser(email!, withCompletionBlock: { error in
+        FIRAuth.auth()?.sendPasswordResetWithEmail(email!) { error in
             if error != nil {
                 // There was an error processing the request
             } else {
@@ -34,7 +34,7 @@ class ResetPasswordViewController: UIViewController {
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
             }
-        })
+        }
     }
 
     /*

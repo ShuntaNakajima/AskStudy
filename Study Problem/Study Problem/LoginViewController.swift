@@ -8,10 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
+    var Database = FIRDatabase.database().reference()
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     override func viewDidLoad() {
@@ -39,21 +41,17 @@ class LoginViewController: UIViewController {
     @IBAction func tryLogin(sender: AnyObject) {
         let email = emailField.text
         let password = passwordField.text
-        
+    
         if email != "" && password != "" {
+                      // Login with the Firebase's authUser method
             
-            // Login with the Firebase's authUser method
-            
-            DataUser.authUser(email, password: password, withCompletionBlock: { error, authData in
+            FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
                 
-                if error != nil {
-                    print(error)
-                    self.loginErrorAlert("Oops!", message: "Check your username and password.")
-                } else {
+                if user != nil {
                     
                     // Be sure the correct uid is stored.
                     
-                   // NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    // NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     // Enter the app!
                     let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
@@ -64,8 +62,12 @@ class LoginViewController: UIViewController {
                     let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
                     self.presentViewController(slideMenuController, animated: true, completion: nil)
                     //self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
+                   
+                } else {
+                  
+                    self.loginErrorAlert("Oops!", message: "Check your username and password.")
                 }
-            })
+            }
             
         } else {
             

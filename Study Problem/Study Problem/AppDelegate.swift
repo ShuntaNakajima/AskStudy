@@ -8,6 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseInstanceID
+import FirebaseAnalytics
+import FirebaseMessaging
 import SlideMenuControllerSwift
 
 @UIApplicationMain
@@ -21,8 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         SlideMenuOptions.leftViewWidth = 220
-        // Override point for customization after application launch.
+        // Override point for custoxmization after application launch.
         // create viewController code...
+        FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController

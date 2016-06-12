@@ -1,5 +1,14 @@
 platform :ios,'9.0'
 use_frameworks!
+target 'Study Problem' do
 pod 'SwiftDate'
 pod 'SlideMenuControllerSwift'
-pod 'Firebase', '>= 2.5.1'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'Firebase'
+pod 'Firebase/Auth'
+pod 'RSKImageCropper'
+pod 'SVProgressHUD'
+end

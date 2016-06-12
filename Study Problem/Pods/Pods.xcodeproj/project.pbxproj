@@ -1,2808 +1,1440 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>005F32761F5B989C1B45A0D6B9F92811</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>012A7E018F3D34F159894EBD7EACACF9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9838D5AF71125CFA024CACFCA3B78213</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05DFD5157CB077900C93699E30706190</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SlideMenuControllerSwift</string>
-			<key>target</key>
-			<string>0B228E1D5FB6A1363230E981A891A417</string>
-			<key>targetProxy</key>
-			<string>DDA356585EC79309B81F3F3925FE4F56</string>
-		</dict>
-		<key>071F0F169946BBA41A4531CA9BC6DCB3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Firebase-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A0E3E08CE4AA8BE50F840D5AEACDAAA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+StartEnd.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+StartEnd.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0B228E1D5FB6A1363230E981A891A417</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>137812B382F001BA67665AB4D98B2DD6</string>
-			<key>buildPhases</key>
-			<array>
-				<string>45DE141FB5963F6ABCB90F201B641973</string>
-				<string>7CB89456DFB02125DFDD5D66CAA89919</string>
-				<string>7E015E55900ACBC7F42DC96BAD6EB5AF</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SlideMenuControllerSwift</string>
-			<key>productName</key>
-			<string>SlideMenuControllerSwift</string>
-			<key>productReference</key>
-			<string>42DFAECE79C1BFB7175E9D7B652A9696</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>0DEC4D2E22523353DE989CEB8F1E3D84</key>
-		<dict>
-			<key>fileRef</key>
-			<string>89C415DEBC984A8DB66F5FCE5339FE0A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0E21FA886E92CD4DC3F1B821D2F2D84E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1300EF469361377F241C1980A04B79A2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSTimeInterval+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSTimeInterval+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>137812B382F001BA67665AB4D98B2DD6</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>DDF13450D9EB8DC3670E8910DD8C41E4</string>
-				<string>E3A95DB7535112695EF4748DFEA0EF80</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>14B8B9B15ECBE87983FF987239AB2D7B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>843A690C4A272ACCFA5202DC4499C74E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1533BAF8A4FA93571B96DED67DD6D3CA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4D95343EB113AFEE2B7F32DA0AA79B4</string>
-				<string>765944131F231B3088B7F8B21D61EE64</string>
-				<string>42DFAECE79C1BFB7175E9D7B652A9696</string>
-				<string>2D94541751BFFBF99269A5B922F5F22F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>161E99D5EBDC6269AFAE735C0D9DD173</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>184858D246FE41EBA592D5252BC5B026</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SwiftDate-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>191DE2EB9A35585AE0A88BA9F833A1F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EF4EF2161DB4779300C8511F234AE6DE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>19C6A4D1E7A386A286E7D9ABC3D65268</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>path</key>
-			<string>libFirebaseStatic.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1C04A7CD5B70C4561F6D98C882731C65</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C6204446BD9150A17B12E81B4A6F9CA8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1C3EF85CD30E6FF2E51471BD5B3CEB29</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8A4886F4C1D80CB456482B70196B2502</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>1C7E3D1500677C70E504F53A44F9AC32</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FAuthType.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D925BB011B04DDED982C7946571A67A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1C7E3D1500677C70E504F53A44F9AC32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>1D9D7FF5237C8CC91EF58DC45AC274FB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>071F0F169946BBA41A4531CA9BC6DCB3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1DA7E7B9D5AAD8A86D6E89D090B0EE50</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77C49D928448B31FB9A7D5AE5C8D6C4E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1EC8E30681EF7183F8623437A1E3D002</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSLocale+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSLocale+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1FD9110DEE830643B36309FE6FCEE7FD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AB872D5F2BB0B44DAF516B52FAC9C0E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2037B227459F0129342720A5DA2461AD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FirebaseServerValue.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>203B171A756111B0758159295D8DD9E5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+NSDatePort.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+NSDatePort.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>239B10F388840841389B7F09648735B1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F99DA49B4C6EBF572E45B824AEF53E8A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>299DAC4588DBCCD8425F708FEA02F3AD</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B879501728B86D31DDD512986C2BC8A5</string>
-				<string>AA22528AC90779F174C318A5E4DE44E9</string>
-				<string>9218C9A3C067F3668555DEFCA8527447</string>
-				<string>75698B675AFDA11F4DF762D8F348FB2A</string>
-				<string>9F31D0FD4A9E3D16DF9515EEB158E8EC</string>
-				<string>184858D246FE41EBA592D5252BC5B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/SwiftDate</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2BCC458FDD5F692BBB2BFC64BB5701FC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5CE5176205D06FF3FFE3DDDA9291E44B</string>
-				<string>74857149DC1E0D599B8A01A78349A926</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2D94541751BFFBF99269A5B922F5F22F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SwiftDate.framework</string>
-			<key>path</key>
-			<string>SwiftDate.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>2F1496011DBBB75777645194AAAFE92D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E83FD178865C3F0C879CA0727C78298</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>2FDCAAB615C287D16BF7F1F2AA978246</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C23FCF31260D47CEC1494A292DAA1A1E</string>
-				<string>1D925BB011B04DDED982C7946571A67A</string>
-				<string>E60FA42EEC3ECC48701DB55986D25D69</string>
-				<string>E8B534D15D2B25919ACD898217266891</string>
-				<string>239B10F388840841389B7F09648735B1</string>
-				<string>60F9139BDD38565B78214C4FC5F5729D</string>
-				<string>1C3EF85CD30E6FF2E51471BD5B3CEB29</string>
-				<string>2F1496011DBBB75777645194AAAFE92D</string>
-				<string>6646DA26298257396C7FFE141BB84CC3</string>
-				<string>DB05A9DD8244D10C28B6915C514AE15F</string>
-				<string>4D75CF0089B20355B17A851513C4A002</string>
-				<string>191DE2EB9A35585AE0A88BA9F833A1F4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>329FFDDE84F6EA90E418E5CEAE7FFB79</key>
-		<dict>
-			<key>fileRef</key>
-			<string>47009AA222B27C68816885EBAA64CFDA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>34DFA11580397EFB75A9C40C5CC95DE0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FDataSnapshot.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3B95F4EC12AA0E8EA9A82FAB267B770F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A394577B8AFC6714826EB00BDBCCAA2A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3BA6ABB5EED6912FB24957953996B944</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>9B22D5522BE40F9668E1350BFA61A533</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>3D6A0C9EB82CFDD154E3EFD3F6FC67B6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+Equations.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+Equations.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3E83FD178865C3F0C879CA0727C78298</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FirebaseApp.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4038F2343D0A7F7C65D340CE81DCF9E2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D6F67928256E7800D49B92B53A629CBD</string>
-				<string>B0004D65073D57ED7412841027B5B0A3</string>
-				<string>071F0F169946BBA41A4531CA9BC6DCB3</string>
-				<string>6BD1A3FDDC77D9C068C28F1C5A459C2D</string>
-				<string>F29A82FD89B4CE0C7CC390D8B70978D7</string>
-				<string>A0BBCE81AB77D2A8EA46DC4E4E77396A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Firebase</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>41908D71484937272A74AC776D3CE786</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>SwiftDate</string>
-			<key>target</key>
-			<string>E581830C733BE2233310A11605B3C8A4</string>
-			<key>targetProxy</key>
-			<string>C8E1B3DB0785B00C7E7F1DC2D1F60DE7</string>
-		</dict>
-		<key>42DFAECE79C1BFB7175E9D7B652A9696</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SlideMenuControllerSwift.framework</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>45DE141FB5963F6ABCB90F201B641973</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F024EA0A5F755E9C836AD3F56130747C</string>
-				<string>4D93139C2633BCF1EFE83E658989D543</string>
-				<string>474B6A45CB7F7F514B61BC9381E3EA77</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>46E052D320E3B778B76D8393E0BAFE0F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>012A7E018F3D34F159894EBD7EACACF9</string>
-				<string>1D9D7FF5237C8CC91EF58DC45AC274FB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>47009AA222B27C68816885EBAA64CFDA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+Comparisons.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+Comparisons.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>471CE495F1CB7538B5969EB3433BA1FF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>474B6A45CB7F7F514B61BC9381E3EA77</key>
-		<dict>
-			<key>fileRef</key>
-			<string>161E99D5EBDC6269AFAE735C0D9DD173</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>49B346C14D532324DCD14D0FA1347BC6</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>628C2422DA58797615468EA5084795F2</string>
-				<string>832A35C4D4E6795C70EA25ED98E0183E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>4B0EFAAA29109D9A705A27EFFA10FAE2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77C49D928448B31FB9A7D5AE5C8D6C4E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4B54581162B381915B82D5750118D94A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>75698B675AFDA11F4DF762D8F348FB2A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4BD8E27D21B61AD91318AA05512D4812</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8B2278E058C8B9D800FD30B1C88A7AA8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4D75CF0089B20355B17A851513C4A002</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6B5CF43A6BFBE31801F97A21C53CE921</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>4D93139C2633BCF1EFE83E658989D543</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BCD1403D06CE342D1675328AFD2C2EC1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ED203BB71594146DA5CFFEB226BB24D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>76A5809F46AD0ECB44065A66DAB643B5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4F4ADBCF473B17450C274FCFA970100A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>89CF45126079D1301683C17A8DED77D5</string>
-				<string>528AA0237373333E3A641CB5C7740AD2</string>
-				<string>5411A45BEE222CEEE2D4FCF7947FECD0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>50F3F82CD888A4CB9843A66366635493</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>572D68A8936287EF9B880B8C36D18646</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>528AA0237373333E3A641CB5C7740AD2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>76359BF9AA6BD780F6F7BFF0920270ED</string>
-				<string>BCD1403D06CE342D1675328AFD2C2EC1</string>
-				<string>DB9FCD47E32005D0FE13E65942AF44C6</string>
-				<string>5EC555BB652D159E84072C7BFB4D3F63</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SlideMenuControllerSwift</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5411A45BEE222CEEE2D4FCF7947FECD0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F6F8FC781E41EA2AEE82947D7A44F8BA</string>
-				<string>89C415DEBC984A8DB66F5FCE5339FE0A</string>
-				<string>47009AA222B27C68816885EBAA64CFDA</string>
-				<string>5EC53C486AE0E36E23456A68FEBB9B78</string>
-				<string>3D6A0C9EB82CFDD154E3EFD3F6FC67B6</string>
-				<string>868B63AEB107B2B48FAA7E1932B92CA1</string>
-				<string>203B171A756111B0758159295D8DD9E5</string>
-				<string>DD03857B63C665C00216B17DCACB4A7F</string>
-				<string>0A0E3E08CE4AA8BE50F840D5AEACDAAA</string>
-				<string>6A0A94CFBDA3F7E5A829A3C1C0C51EAD</string>
-				<string>563E1F21091AE6A0766FE4CDB5947594</string>
-				<string>624030388B6BE7471EE4B4784F87BEDE</string>
-				<string>9933F1B026790B5DE469A0FDAE08F318</string>
-				<string>91773EC9FD3850CDF018E3EF9C924633</string>
-				<string>AB872D5F2BB0B44DAF516B52FAC9C0E5</string>
-				<string>1EC8E30681EF7183F8623437A1E3D002</string>
-				<string>1300EF469361377F241C1980A04B79A2</string>
-				<string>C954644D5BE8A977CDD05B3E4E6B1D7B</string>
-				<string>76A5809F46AD0ECB44065A66DAB643B5</string>
-				<string>299DAC4588DBCCD8425F708FEA02F3AD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SwiftDate</string>
-			<key>path</key>
-			<string>SwiftDate</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>543FB0352DB1049E15C7C51189A49D6D</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D483B72E99AEF00627125E8AD7D6E3A0</string>
-			<key>buildPhases</key>
-			<array>
-				<string>76B1B8600F32CE2A2CB9A0461BFAEC56</string>
-				<string>3BA6ABB5EED6912FB24957953996B944</string>
-				<string>50F3F82CD888A4CB9843A66366635493</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>E7A4A5B877F4864DC65B0DC880E9E562</string>
-				<string>05DFD5157CB077900C93699E30706190</string>
-				<string>41908D71484937272A74AC776D3CE786</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>productName</key>
-			<string>Pods</string>
-			<key>productReference</key>
-			<string>765944131F231B3088B7F8B21D61EE64</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>563E1F21091AE6A0766FE4CDB5947594</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSCalendar+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSCalendar+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>56F421B34673117FDD9964934DE716FA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>203B171A756111B0758159295D8DD9E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572D68A8936287EF9B880B8C36D18646</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2BCC458FDD5F692BBB2BFC64BB5701FC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>58D3D3464814CC8560221B4EB9FD788F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FAuthData.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5A1BEC15EBA4A8D263A5560585AF8CD7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>894E5DA93A9F359521A89826BE6DA777</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5CE5176205D06FF3FFE3DDDA9291E44B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5EC53C486AE0E36E23456A68FEBB9B78</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+Components.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+Components.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5EC555BB652D159E84072C7BFB4D3F63</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>471CE495F1CB7538B5969EB3433BA1FF</string>
-				<string>E478694218127E689559F068832CAAA2</string>
-				<string>0E21FA886E92CD4DC3F1B821D2F2D84E</string>
-				<string>161E99D5EBDC6269AFAE735C0D9DD173</string>
-				<string>005F32761F5B989C1B45A0D6B9F92811</string>
-				<string>A394577B8AFC6714826EB00BDBCCAA2A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/SlideMenuControllerSwift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>60F85758B54CB0D843A3E97DFFB2F21F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CFNetwork.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CFNetwork.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>60F9139BDD38565B78214C4FC5F5729D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F29A82FD89B4CE0C7CC390D8B70978D7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>61176BD531B381D5D066158F433D66E0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>868B63AEB107B2B48FAA7E1932B92CA1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6166BE40C18BC6BF0EED92CAB212EC33</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>624030388B6BE7471EE4B4784F87BEDE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSDate+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSDate+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>628C2422DA58797615468EA5084795F2</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B0004D65073D57ED7412841027B5B0A3</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Firebase/Firebase-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Firebase/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Firebase/Firebase.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>Firebase</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>6646DA26298257396C7FFE141BB84CC3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2037B227459F0129342720A5DA2461AD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>6670E9814952F7178CB8A548EE59E6E4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6A0A94CFBDA3F7E5A829A3C1C0C51EAD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>67D3ACC029A0D1EDFD117A457EE18BFB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FMutableData.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6A0A94CFBDA3F7E5A829A3C1C0C51EAD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Dictionary+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/Dictionary+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6AB6BB5A45C924CB86F8B8C15826CD60</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>72A6EE27AC81D26B860D2FDA916094C3</string>
-				<string>329FFDDE84F6EA90E418E5CEAE7FFB79</string>
-				<string>B00C5BD6C95E800404573E91F2D5372E</string>
-				<string>7F82A499D4C5D4D22841742EF795CFEB</string>
-				<string>61176BD531B381D5D066158F433D66E0</string>
-				<string>56F421B34673117FDD9964934DE716FA</string>
-				<string>96EE2E9B4803DE65F14BFB27E1AB15EA</string>
-				<string>6F39E7C3BC4815ABB758280AFCDD9FB8</string>
-				<string>0DEC4D2E22523353DE989CEB8F1E3D84</string>
-				<string>6670E9814952F7178CB8A548EE59E6E4</string>
-				<string>DB94E05400A0B5408F4D3AF83E5B381F</string>
-				<string>9F2DB4320BEB898DF22FE14D454D9501</string>
-				<string>A613163D5E00979B6E142A15D95C0D00</string>
-				<string>CE693161278F9CBBB207B4BA258581A2</string>
-				<string>1FD9110DEE830643B36309FE6FCEE7FD</string>
-				<string>8C008DF3C35B59B8F5EEC0BA706B159C</string>
-				<string>C6BCCE880351BF9499A7F393B29C5778</string>
-				<string>CA791576F2AC5012E8AE8C88D9CFD871</string>
-				<string>4ED203BB71594146DA5CFFEB226BB24D</string>
-				<string>4B54581162B381915B82D5750118D94A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6B5CF43A6BFBE31801F97A21C53CE921</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FQuery.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6BD1A3FDDC77D9C068C28F1C5A459C2D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Firebase-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F39E7C3BC4815ABB758280AFCDD9FB8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0A0E3E08CE4AA8BE50F840D5AEACDAAA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708080CB8F3567E0058796E11B9A7082</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>B7AC9326D819482593FE118E915409D7</string>
-			<key>remoteInfo</key>
-			<string>Firebase</string>
-		</dict>
-		<key>72A6EE27AC81D26B860D2FDA916094C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F6F8FC781E41EA2AEE82947D7A44F8BA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>74857149DC1E0D599B8A01A78349A926</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>75698B675AFDA11F4DF762D8F348FB2A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SwiftDate-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75D98FF52E597A11900E131B6C4E1ADA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E8446514FBAD26C0E18F24A5715AEF67</string>
-				<string>79A9DEDC89FE8336BF5FEDAAF75BF7FC</string>
-				<string>D0405803033A2A777B8E4DFA0C1800ED</string>
-				<string>87B213035BAC5F75386F62D3C75D2342</string>
-				<string>894E5DA93A9F359521A89826BE6DA777</string>
-				<string>E7F21354943D9F42A70697D5A5EF72E9</string>
-				<string>CBC0F7C552B739C909B650A0F42F7F38</string>
-				<string>2BCC458FDD5F692BBB2BFC64BB5701FC</string>
-				<string>977577C045EDA9D9D1F46E2598D19FC7</string>
-				<string>DA312349A49333542E6F4B36B329960E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>path</key>
-			<string>Target Support Files/Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>76359BF9AA6BD780F6F7BFF0920270ED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>name</key>
-			<string>Info.plist</string>
-			<key>path</key>
-			<string>Source/Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>765944131F231B3088B7F8B21D61EE64</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods.framework</string>
-			<key>path</key>
-			<string>Pods.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>76A5809F46AD0ECB44065A66DAB643B5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Region.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/Region.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>76B1B8600F32CE2A2CB9A0461BFAEC56</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5A1BEC15EBA4A8D263A5560585AF8CD7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>77C49D928448B31FB9A7D5AE5C8D6C4E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>79A9DEDC89FE8336BF5FEDAAF75BF7FC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7CB89456DFB02125DFDD5D66CAA89919</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>1DA7E7B9D5AAD8A86D6E89D090B0EE50</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>14B8B9B15ECBE87983FF987239AB2D7B</string>
-				<string>4F4ADBCF473B17450C274FCFA970100A</string>
-				<string>1533BAF8A4FA93571B96DED67DD6D3CA</string>
-				<string>B7B80995527643776607AFFA75B91E24</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7E015E55900ACBC7F42DC96BAD6EB5AF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>3B95F4EC12AA0E8EA9A82FAB267B770F</string>
-				<string>AE91823CD2CC79620AC7E17BE3F74EFF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7F82A499D4C5D4D22841742EF795CFEB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3D6A0C9EB82CFDD154E3EFD3F6FC67B6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>832A35C4D4E6795C70EA25ED98E0183E</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B0004D65073D57ED7412841027B5B0A3</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Firebase/Firebase-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Firebase/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Firebase/Firebase.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>Firebase</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>843A690C4A272ACCFA5202DC4499C74E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>60F85758B54CB0D843A3E97DFFB2F21F</string>
-				<string>77C49D928448B31FB9A7D5AE5C8D6C4E</string>
-				<string>C6204446BD9150A17B12E81B4A6F9CA8</string>
-				<string>6166BE40C18BC6BF0EED92CAB212EC33</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>868B63AEB107B2B48FAA7E1932B92CA1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+Formatter.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+Formatter.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>87B213035BAC5F75386F62D3C75D2342</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>894E5DA93A9F359521A89826BE6DA777</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>89C415DEBC984A8DB66F5FCE5339FE0A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>89CF45126079D1301683C17A8DED77D5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9838D5AF71125CFA024CACFCA3B78213</string>
-				<string>58D3D3464814CC8560221B4EB9FD788F</string>
-				<string>1C7E3D1500677C70E504F53A44F9AC32</string>
-				<string>C6AF71309AE68CD0C53885F9AD4732DD</string>
-				<string>34DFA11580397EFB75A9C40C5CC95DE0</string>
-				<string>F99DA49B4C6EBF572E45B824AEF53E8A</string>
-				<string>8A4886F4C1D80CB456482B70196B2502</string>
-				<string>3E83FD178865C3F0C879CA0727C78298</string>
-				<string>2037B227459F0129342720A5DA2461AD</string>
-				<string>67D3ACC029A0D1EDFD117A457EE18BFB</string>
-				<string>6B5CF43A6BFBE31801F97A21C53CE921</string>
-				<string>EF4EF2161DB4779300C8511F234AE6DE</string>
-				<string>D640AD97CA87A8AE34763556E047D2D2</string>
-				<string>4038F2343D0A7F7C65D340CE81DCF9E2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Firebase</string>
-			<key>path</key>
-			<string>Firebase</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8A4886F4C1D80CB456482B70196B2502</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Firebase.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8B2278E058C8B9D800FD30B1C88A7AA8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>184858D246FE41EBA592D5252BC5B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>8C008DF3C35B59B8F5EEC0BA706B159C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1EC8E30681EF7183F8623437A1E3D002</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>91773EC9FD3850CDF018E3EF9C924633</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSDateFormatter+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSDateFormatter+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9218C9A3C067F3668555DEFCA8527447</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>SwiftDate.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>924F8A491C0EC5CBC21D5AC45F703B7D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9218C9A3C067F3668555DEFCA8527447</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SwiftDate/SwiftDate-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SwiftDate/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SwiftDate/SwiftDate.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>SwiftDate</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>96EE2E9B4803DE65F14BFB27E1AB15EA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DD03857B63C665C00216B17DCACB4A7F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>973A09B961EEA28A08E98E5D13FC9292</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77C49D928448B31FB9A7D5AE5C8D6C4E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>977577C045EDA9D9D1F46E2598D19FC7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9838D5AF71125CFA024CACFCA3B78213</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Empty.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9933F1B026790B5DE469A0FDAE08F318</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSDateComponents+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSDateComponents+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9ABB2E2F55D6F47A7D1A9ACD432C4468</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>973A09B961EEA28A08E98E5D13FC9292</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9B22D5522BE40F9668E1350BFA61A533</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77C49D928448B31FB9A7D5AE5C8D6C4E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9F2DB4320BEB898DF22FE14D454D9501</key>
-		<dict>
-			<key>fileRef</key>
-			<string>624030388B6BE7471EE4B4784F87BEDE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9F31D0FD4A9E3D16DF9515EEB158E8EC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SwiftDate-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A0BBCE81AB77D2A8EA46DC4E4E77396A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A1FD1C36A32D92575BA5A58900327FCD</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F85F1C7FD5CE5B40A520ABF49B400F7A</string>
-				<string>924F8A491C0EC5CBC21D5AC45F703B7D</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A394577B8AFC6714826EB00BDBCCAA2A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A613163D5E00979B6E142A15D95C0D00</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9933F1B026790B5DE469A0FDAE08F318</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A7E10F383DCD59079712A57B50DCF88E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E3FBB5B462A14E8ACC9B340227DE4BE1</string>
-				<string>4B0EFAAA29109D9A705A27EFFA10FAE2</string>
-				<string>1C04A7CD5B70C4561F6D98C882731C65</string>
-				<string>E1A883FEBDEED9B85D90D6BE2080F218</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AA22528AC90779F174C318A5E4DE44E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SwiftDate.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AB872D5F2BB0B44DAF516B52FAC9C0E5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSDateInterval.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSDateInterval.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AE91823CD2CC79620AC7E17BE3F74EFF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DB9FCD47E32005D0FE13E65942AF44C6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>B0004D65073D57ED7412841027B5B0A3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Firebase.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B00C5BD6C95E800404573E91F2D5372E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5EC53C486AE0E36E23456A68FEBB9B78</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B7AC9326D819482593FE118E915409D7</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>49B346C14D532324DCD14D0FA1347BC6</string>
-			<key>buildPhases</key>
-			<array>
-				<string>46E052D320E3B778B76D8393E0BAFE0F</string>
-				<string>A7E10F383DCD59079712A57B50DCF88E</string>
-				<string>2FDCAAB615C287D16BF7F1F2AA978246</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Firebase</string>
-			<key>productName</key>
-			<string>Firebase</string>
-			<key>productReference</key>
-			<string>D4D95343EB113AFEE2B7F32DA0AA79B4</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>B7B80995527643776607AFFA75B91E24</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>75D98FF52E597A11900E131B6C4E1ADA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B879501728B86D31DDD512986C2BC8A5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>BA950F6D7C458987A4C01D874C6D4238</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>977577C045EDA9D9D1F46E2598D19FC7</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods/Pods.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BCD1403D06CE342D1675328AFD2C2EC1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>SlideMenuController.swift</string>
-			<key>path</key>
-			<string>Source/SlideMenuController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C23FCF31260D47CEC1494A292DAA1A1E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>58D3D3464814CC8560221B4EB9FD788F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C6204446BD9150A17B12E81B4A6F9CA8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Security.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>C6AF71309AE68CD0C53885F9AD4732DD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FConfig.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C6BCCE880351BF9499A7F393B29C5778</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1300EF469361377F241C1980A04B79A2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C8E1B3DB0785B00C7E7F1DC2D1F60DE7</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>E581830C733BE2233310A11605B3C8A4</string>
-			<key>remoteInfo</key>
-			<string>SwiftDate</string>
-		</dict>
-		<key>C954644D5BE8A977CDD05B3E4E6B1D7B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSTimeZone+SwiftDate.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/NSTimeZone+SwiftDate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CA791576F2AC5012E8AE8C88D9CFD871</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C954644D5BE8A977CDD05B3E4E6B1D7B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBC0F7C552B739C909B650A0F42F7F38</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CE693161278F9CBBB207B4BA258581A2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>91773EC9FD3850CDF018E3EF9C924633</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D0405803033A2A777B8E4DFA0C1800ED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0700</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>1533BAF8A4FA93571B96DED67DD6D3CA</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>B7AC9326D819482593FE118E915409D7</string>
-				<string>543FB0352DB1049E15C7C51189A49D6D</string>
-				<string>0B228E1D5FB6A1363230E981A891A417</string>
-				<string>E581830C733BE2233310A11605B3C8A4</string>
-			</array>
-		</dict>
-		<key>D483B72E99AEF00627125E8AD7D6E3A0</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BA950F6D7C458987A4C01D874C6D4238</string>
-				<string>F53B4BDD6900BC9331DB0F5F1399BCA6</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D4D95343EB113AFEE2B7F32DA0AA79B4</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Firebase.framework</string>
-			<key>path</key>
-			<string>Firebase.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D640AD97CA87A8AE34763556E047D2D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>19C6A4D1E7A386A286E7D9ABC3D65268</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D6F67928256E7800D49B92B53A629CBD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Firebase.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA312349A49333542E6F4B36B329960E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DB05A9DD8244D10C28B6915C514AE15F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>67D3ACC029A0D1EDFD117A457EE18BFB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>DB94E05400A0B5408F4D3AF83E5B381F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>563E1F21091AE6A0766FE4CDB5947594</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DB9FCD47E32005D0FE13E65942AF44C6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SlideMenuControllerSwift.h</string>
-			<key>path</key>
-			<string>Source/SlideMenuControllerSwift.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DD03857B63C665C00216B17DCACB4A7F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DateInRegion+Operations.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/DateInRegion+Operations.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DDA356585EC79309B81F3F3925FE4F56</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>0B228E1D5FB6A1363230E981A891A417</string>
-			<key>remoteInfo</key>
-			<string>SlideMenuControllerSwift</string>
-		</dict>
-		<key>DDF13450D9EB8DC3670E8910DD8C41E4</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>0E21FA886E92CD4DC3F1B821D2F2D84E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SlideMenuControllerSwift/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>SlideMenuControllerSwift</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E1A883FEBDEED9B85D90D6BE2080F218</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6166BE40C18BC6BF0EED92CAB212EC33</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E3A95DB7535112695EF4748DFEA0EF80</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>0E21FA886E92CD4DC3F1B821D2F2D84E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SlideMenuControllerSwift/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>SlideMenuControllerSwift</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E3FBB5B462A14E8ACC9B340227DE4BE1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>60F85758B54CB0D843A3E97DFFB2F21F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E478694218127E689559F068832CAAA2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SlideMenuControllerSwift.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E581830C733BE2233310A11605B3C8A4</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>A1FD1C36A32D92575BA5A58900327FCD</string>
-			<key>buildPhases</key>
-			<array>
-				<string>6AB6BB5A45C924CB86F8B8C15826CD60</string>
-				<string>9ABB2E2F55D6F47A7D1A9ACD432C4468</string>
-				<string>4BD8E27D21B61AD91318AA05512D4812</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SwiftDate</string>
-			<key>productName</key>
-			<string>SwiftDate</string>
-			<key>productReference</key>
-			<string>2D94541751BFFBF99269A5B922F5F22F</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>E60FA42EEC3ECC48701DB55986D25D69</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C6AF71309AE68CD0C53885F9AD4732DD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>E7A4A5B877F4864DC65B0DC880E9E562</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Firebase</string>
-			<key>target</key>
-			<string>B7AC9326D819482593FE118E915409D7</string>
-			<key>targetProxy</key>
-			<string>708080CB8F3567E0058796E11B9A7082</string>
-		</dict>
-		<key>E7F21354943D9F42A70697D5A5EF72E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E8446514FBAD26C0E18F24A5715AEF67</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E8B534D15D2B25919ACD898217266891</key>
-		<dict>
-			<key>fileRef</key>
-			<string>34DFA11580397EFB75A9C40C5CC95DE0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>EF4EF2161DB4779300C8511F234AE6DE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FTransactionResult.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F024EA0A5F755E9C836AD3F56130747C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>76359BF9AA6BD780F6F7BFF0920270ED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F29A82FD89B4CE0C7CC390D8B70978D7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Firebase-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F53B4BDD6900BC9331DB0F5F1399BCA6</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>DA312349A49333542E6F4B36B329960E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods/Pods.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F6F8FC781E41EA2AEE82947D7A44F8BA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Additions.swift</string>
-			<key>path</key>
-			<string>Sources/SwiftDate/Additions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F85F1C7FD5CE5B40A520ABF49B400F7A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9218C9A3C067F3668555DEFCA8527447</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/SwiftDate/SwiftDate-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/SwiftDate/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/SwiftDate/SwiftDate.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>SwiftDate</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F99DA49B4C6EBF572E45B824AEF53E8A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FEventType.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00D685DFC3F36F2FC6977C77BCED7A20 /* UIApplication+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1367B32598679678153D41861CFB2D5C /* UIApplication+RSKImageCropper.m */; };
+		0AB11D5F3064F9BB15E0A4CCEDB06B1E /* SwiftDate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFFB32B26725F0C0A948829DC9F53063 /* SwiftDate-dummy.m */; };
+		1278DB2EDED76E3E31B8DD0459EC5793 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5E88A73B4C864244CC0E0689DA49E /* SlideMenuController.swift */; };
+		13AB1FB4C5008AB794804CCE94120D62 /* SwiftDate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F085773B14FAFE2705FDF368DC1E9DB7 /* SwiftDate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		140EC3E39BB22600BDFA7DF921D24544 /* RSKImageScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E55F0844211CC1A8A74EDE08FFD5DAA6 /* RSKImageScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BB67C26D2DF16B01E3D091847D0273C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */; };
+		20D02B2E7E034EF3574A930B740CFC34 /* NSDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C74A6DEF710E9AA45A69DB21F5ED6D /* NSDateInterval.swift */; };
+		2107B7F32B11DAFD3EF9F2D0BAE2AB70 /* CGGeometry+RSKImageCropper.h in Headers */ = {isa = PBXBuildFile; fileRef = E737FE7180CF35DC49A602AC4089F861 /* CGGeometry+RSKImageCropper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		220BB5F237C9885085B2D563E5524823 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467EF90637942774620B406887E1C3AE /* Additions.swift */; };
+		224DD6A70FC8873A847845771F62BF83 /* RSKImageCropper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3574D37D86DA09CDFAA2BDCEA6D8D6 /* RSKImageCropper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22AD2B1627D9B41B74B720E33D220CEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		2C9B2180F98497428E66A7964C95956D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4C9136B3BB6C26D6C2E149056D86E7C /* SVProgressHUD.bundle */; };
+		2CA264D7262CC335B3E1591BDABB9C87 /* Pods-Study Problem-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B0AC708FDC85BC365612343A13CF639 /* Pods-Study Problem-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F638E483CE87092A42569DE0E9E0340 /* NSDateFormatter+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A8AE2A3704576DAAF3829582AE17F3 /* NSDateFormatter+SwiftDate.swift */; };
+		329C6A80BD841A4113A6604FF297A19D /* DateInRegion+Equations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F3293464618A681D48AAE2DA0A9882 /* DateInRegion+Equations.swift */; };
+		3374F573E64339DC9FCB9FD982CC23FC /* UIApplication+RSKImageCropper.h in Headers */ = {isa = PBXBuildFile; fileRef = 330E64006E121FE7B0740685DFAE3963 /* UIApplication+RSKImageCropper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35F70B74E9E6C757FDFAAA1B1C4E4BC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		36E6E62EE42378AB3252139AEA14631A /* RSKInternalUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = EB597E7FA0A78E4AE9F790B55193F51F /* RSKInternalUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4187439F2A0C392B7A1F3F042E7321F5 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5922ED21122605C72AFF84CCA8C06B /* Region.swift */; };
+		4E1A8B9F169F1D785BCDD802B20D5BF2 /* NSDate+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1253107E4E79D1F36E7B0CB58E3DAF75 /* NSDate+SwiftDate.swift */; };
+		4E2C4E7DA83F13B57AB463D5F41A2117 /* UIImage+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0CF431766A3CE64B605E7928282189 /* UIImage+RSKImageCropper.m */; };
+		52A4A8EC464724B2F4B029B25A7AE224 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB795D08833EE9227C854C535A652B /* SVProgressHUD-dummy.m */; };
+		593BB7318B3FC30AF596D3C702A2F1DA /* RSKImageCropViewController+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 0241A91D3D33C14325C60075594199BA /* RSKImageCropViewController+Protected.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A5B91224B008EBA1BF6AD8B7890A697 /* NSLocale+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5952DE472FDCB0EA8CE4B5F51B7B2A /* NSLocale+SwiftDate.swift */; };
+		5A7F0FFE9E265C300B68ECD0A67D4B36 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2C63968366D3C8A702D750CAB8BA23 /* SVRadialGradientLayer.m */; };
+		5A97772B4DBFC3C61C21B6B03B53480E /* NSCalendar+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7B317E75AEE3BABFCD7912CB92829D /* NSCalendar+SwiftDate.swift */; };
+		5C8A9BB5AF96F061C42E2B4D5F389D8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		60FA7045C5800533F360D5DFC6D81C1B /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED377604BF2EE7D418B4BE719F00F67 /* SVProgressAnimatedView.m */; };
+		643DE0F38CBBDDF80D1A0BB8EFC97540 /* RSKImageCropperStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F169A4247B3F11AFDB9F848659CB853 /* RSKImageCropperStrings.bundle */; };
+		645F366DC475E05E33E540942D7AF79E /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DEE6D0B4311F91617ACB6F3DD479634 /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7339C11383F994A53DB0D643589ABDCE /* RSKImageCropper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C27009F7BDAC2B468A555FACD114839 /* RSKImageCropper-dummy.m */; };
+		73E577AA335A7662C1976DB0A03E0A0C /* UIImage+RSKImageCropper.h in Headers */ = {isa = PBXBuildFile; fileRef = A87FC0A672FF7A8BE55872A285A12A82 /* UIImage+RSKImageCropper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CD6E9206C402EC229B39D968585CF32 /* DateInRegion+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5CFCFBF7FF00879741F4597F3F685 /* DateInRegion+Formatter.swift */; };
+		80AF818E2BEFE37E9B7DD32F0AFE78F9 /* NSTimeInterval+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A5843B3DE2CD60AA9514FE7DE2678 /* NSTimeInterval+SwiftDate.swift */; };
+		88ABB95A743E2B0C814DC30319DF5F43 /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6508A66283BDDE0FE4BC76A2738DA479 /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A6C8ECB8E984C877CF405DCCAF6C413 /* Pods-Study Problem-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B212D86D1987690E0D09A9B5C31B32F /* Pods-Study Problem-dummy.m */; };
+		8D34A78CE5A7694703CFE8A9B591D47C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */; };
+		97D7E30B2FE5CA5F3CC4E3220887B89B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		9B890E41CA234AD8882D8378D8A98020 /* RSKImageCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A40897A2831BD36DABC9694E44236DA /* RSKImageCropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C2A80AE920A0A3E076EC59424DEDD9B /* RSKInternalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A76FD8D1D52C80C5B888F6EF68253D /* RSKInternalUtility.m */; };
+		9EBE278C938D4E88BCC9C356DFD00993 /* SlideMenuControllerSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37C18AC414F0A0E779139E05DF6FE2 /* SlideMenuControllerSwift-dummy.m */; };
+		A801AC1119F8E008F92B1E1D1CCD493B /* SlideMenuControllerSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 846119C220148957317531804393CE6C /* SlideMenuControllerSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8E1F28BDC93FC2DB47A918A0B329028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		AC7A0D04052B81545284A0AFCA6728A6 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6725872E52B42F8664737653A0BDCD52 /* SVProgressHUD.m */; };
+		AEDCBBD8984DDAA925F4FA718D868674 /* NSTimeZone+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DEBA98918A562937773E855F43142 /* NSTimeZone+SwiftDate.swift */; };
+		B9E4FD3018F0C955BFFF060DAF03755D /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B07880C417A1BC97352D2474ADFFBE /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C22821130222A9B518B6039FB937F636 /* Dictionary+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEA06773BCBF2FA47C484DE74D9233 /* Dictionary+SwiftDate.swift */; };
+		C24C628E15C9F55F57AF0FA4836A8228 /* RSKTouchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F5236F8CCBF2F4690D9E0A7B5118BE6 /* RSKTouchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C65EBF1445A50BBCB6C57A2810DA55AE /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = A5D6ED2D99C55920BCFE98860B764D5B /* Info.plist */; };
+		C77FDCB502ABA5339976BBDF008D9BAA /* RSKImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4980DABD558D49A532864B9CE234C /* RSKImageScrollView.m */; };
+		CDCD1938F04A5F0C3BC8D3F50239156E /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A17B92DAE47E46FB926B71548A99303 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D575FAFAFED3FB3266A8F01456EED638 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */; };
+		D6BF9B2567B250B0BFABB1FB2A477544 /* RSKTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3CC2AA0DB9A6BEDE02D8ED8B8B2C95 /* RSKTouchView.m */; };
+		D83CE1D233D441445B02B6A6F9BB1BF0 /* DateInRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478E8856BE7F9D9B2DC17398DFE0E8DD /* DateInRegion.swift */; };
+		DC23EF90FA839319307170857D6EEDFF /* DateInRegion+NSDatePort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934A124BB5356926FDE6496431304357 /* DateInRegion+NSDatePort.swift */; };
+		DE24F86212A9430C1D94A9AFD0A19110 /* DateInRegion+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED72D7AF3A4E68DFBE08FADAA973FB /* DateInRegion+Operations.swift */; };
+		DF8B24A3E6F40726B1457ABB8BE51E42 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0067E2E405D761D628810C2FE353FF0 /* SVIndefiniteAnimatedView.m */; };
+		E1CE772164D1075E0F919FE27DB782C0 /* NSDateComponents+SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89013ADCA591F520351B9F9D03E1C0EB /* NSDateComponents+SwiftDate.swift */; };
+		E6EB2817BAE05C4A49D66A74F9972BB3 /* DateInRegion+Comparisons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5CADFA8E0288F63AF09900ED431B58 /* DateInRegion+Comparisons.swift */; };
+		ED854013CFC05A6CF2B89C2B831925F2 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = F70AC8334991A9748E5F6C74883F8D42 /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF4239CD46751B91A2D6AFEA971E06AB /* RSKImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AEBEF8A00B60603E159DC2C9EB24A4 /* RSKImageCropViewController.m */; };
+		F3D5621C3A8862A1D346D3CD339F0D8B /* DateInRegion+StartEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655BF2CD9F7983A75220752C8333F56 /* DateInRegion+StartEnd.swift */; };
+		FC46FE0E27B720FDC8FDBA28659F5AEF /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4F78B325EFDB0A90671DA307D2EC4 /* DateInRegion+Components.swift */; };
+		FF864D8EF062E44D5C46B9AC3E12CF98 /* CGGeometry+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD4D69E165DD04BA073E6A51EB2C22 /* CGGeometry+RSKImageCropper.m */; };
+		FFFC840D9D58600381DC015DE1F64D64 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = CE64F1CE09F98797965AC78545F95675 /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		426D4635E542CA9A6F49AA3CC7EAFE58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDFF1E0C0DAD42E25BA2FCF344904670;
+			remoteInfo = RSKImageCropper;
+		};
+		468CB93D2AD9E79B76A55CBB2D7C4B5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D952CD966972F502164B41242F60CA1;
+			remoteInfo = SVProgressHUD;
+		};
+		81D711498F0C7F305483F464851345B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30AB87F55DE1E9F00B2EE44C9A76B742;
+			remoteInfo = SlideMenuControllerSwift;
+		};
+		FD0E2F078B611165C535956394A8BD85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 162EFB612A0CF2EF7F08DCB91E84567B;
+			remoteInfo = SwiftDate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0241A91D3D33C14325C60075594199BA /* RSKImageCropViewController+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RSKImageCropViewController+Protected.h"; path = "RSKImageCropper/RSKImageCropViewController+Protected.h"; sourceTree = "<group>"; };
+		02FE67C51D567F1A8B97850974DE7A0C /* SlideMenuControllerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SlideMenuControllerSwift.modulemap; sourceTree = "<group>"; };
+		089159D62B3CD055877FA7D8DB65B32C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0A17B92DAE47E46FB926B71548A99303 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		0C3CC2AA0DB9A6BEDE02D8ED8B8B2C95 /* RSKTouchView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSKTouchView.m; path = RSKImageCropper/RSKTouchView.m; sourceTree = "<group>"; };
+		0E0CF431766A3CE64B605E7928282189 /* UIImage+RSKImageCropper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RSKImageCropper.m"; path = "RSKImageCropper/UIImage+RSKImageCropper.m"; sourceTree = "<group>"; };
+		0F0E4F2AF9AAFC1A6AA7E6BC53FCE392 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F169A4247B3F11AFDB9F848659CB853 /* RSKImageCropperStrings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = RSKImageCropperStrings.bundle; path = RSKImageCropper/RSKImageCropperStrings.bundle; sourceTree = "<group>"; };
+		1253107E4E79D1F36E7B0CB58E3DAF75 /* NSDate+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDate+SwiftDate.swift"; path = "Sources/SwiftDate/NSDate+SwiftDate.swift"; sourceTree = "<group>"; };
+		13255F6DD27D68F0563B2CB48CDEB06E /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		1367B32598679678153D41861CFB2D5C /* UIApplication+RSKImageCropper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+RSKImageCropper.m"; path = "RSKImageCropper/UIApplication+RSKImageCropper.m"; sourceTree = "<group>"; };
+		15AD4D69E165DD04BA073E6A51EB2C22 /* CGGeometry+RSKImageCropper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CGGeometry+RSKImageCropper.m"; path = "RSKImageCropper/CGGeometry+RSKImageCropper.m"; sourceTree = "<group>"; };
+		17379001DF7E200C8D415046F48E6EED /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
+		1AC459A5072789660D35DA87F94D1366 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C37C18AC414F0A0E779139E05DF6FE2 /* SlideMenuControllerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SlideMenuControllerSwift-dummy.m"; sourceTree = "<group>"; };
+		228DEBA98918A562937773E855F43142 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTimeZone+SwiftDate.swift"; path = "Sources/SwiftDate/NSTimeZone+SwiftDate.swift"; sourceTree = "<group>"; };
+		23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		26C74A6DEF710E9AA45A69DB21F5ED6D /* NSDateInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSDateInterval.swift; path = Sources/SwiftDate/NSDateInterval.swift; sourceTree = "<group>"; };
+		28F3293464618A681D48AAE2DA0A9882 /* DateInRegion+Equations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Equations.swift"; path = "Sources/SwiftDate/DateInRegion+Equations.swift"; sourceTree = "<group>"; };
+		293560B5E707C7BD439ECFA2B71C4CE8 /* FIRMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRMessaging.h; path = Headers/Public/FIRMessaging.h; sourceTree = "<group>"; };
+		29FBAB3921AFDDEA544177915BB6BA3D /* Pods-Study Problem-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Study Problem-acknowledgements.plist"; sourceTree = "<group>"; };
+		2A40897A2831BD36DABC9694E44236DA /* RSKImageCropViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSKImageCropViewController.h; path = RSKImageCropper/RSKImageCropViewController.h; sourceTree = "<group>"; };
+		2B0AC708FDC85BC365612343A13CF639 /* Pods-Study Problem-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Study Problem-umbrella.h"; sourceTree = "<group>"; };
+		307E2C2F45855F34D2A7B2E48ABD5F83 /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3174E9F4975BD73EEC11E1C4F9DCC7C8 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		3277E9110732A2A18B6D6EA005EC0DE2 /* RSKImageCropper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RSKImageCropper.modulemap; sourceTree = "<group>"; };
+		330E64006E121FE7B0740685DFAE3963 /* UIApplication+RSKImageCropper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+RSKImageCropper.h"; path = "RSKImageCropper/UIApplication+RSKImageCropper.h"; sourceTree = "<group>"; };
+		33ED72D7AF3A4E68DFBE08FADAA973FB /* DateInRegion+Operations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Operations.swift"; path = "Sources/SwiftDate/DateInRegion+Operations.swift"; sourceTree = "<group>"; };
+		39C2E0671B9C4D04E4B9B6049DC5C33C /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		3DA8E850A98ED19B260908C1086212F8 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Frameworks/FirebaseMessaging.framework; sourceTree = "<group>"; };
+		3DFB0B74CDA5F3D7EE00F6872991465A /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		3E5CADFA8E0288F63AF09900ED431B58 /* DateInRegion+Comparisons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Comparisons.swift"; path = "Sources/SwiftDate/DateInRegion+Comparisons.swift"; sourceTree = "<group>"; };
+		3E63C244B3574A1D284E1C48E864530D /* Pods-Study Problem-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Study Problem-resources.sh"; sourceTree = "<group>"; };
+		422A4C0C7A1507ABBFAE3621DF54EAED /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		467EF90637942774620B406887E1C3AE /* Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Additions.swift; path = Sources/SwiftDate/Additions.swift; sourceTree = "<group>"; };
+		4698382C134F40A25A9F544EB38A6395 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
+		478E8856BE7F9D9B2DC17398DFE0E8DD /* DateInRegion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInRegion.swift; path = Sources/SwiftDate/DateInRegion.swift; sourceTree = "<group>"; };
+		4A4A5843B3DE2CD60AA9514FE7DE2678 /* NSTimeInterval+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTimeInterval+SwiftDate.swift"; path = "Sources/SwiftDate/NSTimeInterval+SwiftDate.swift"; sourceTree = "<group>"; };
+		4F5236F8CCBF2F4690D9E0A7B5118BE6 /* RSKTouchView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSKTouchView.h; path = RSKImageCropper/RSKTouchView.h; sourceTree = "<group>"; };
+		4FAB2B4C9E901069DF1F1021CA8F1063 /* SlideMenuControllerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SlideMenuControllerSwift-prefix.pch"; sourceTree = "<group>"; };
+		5A5922ED21122605C72AFF84CCA8C06B /* Region.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Region.swift; path = Sources/SwiftDate/Region.swift; sourceTree = "<group>"; };
+		615ED729AD86B4280F53F08FE2CE727E /* Pods-Study Problem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Study Problem.debug.xcconfig"; sourceTree = "<group>"; };
+		6508A66283BDDE0FE4BC76A2738DA479 /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		6725872E52B42F8664737653A0BDCD52 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		67C5E88A73B4C864244CC0E0689DA49E /* SlideMenuController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = Source/SlideMenuController.swift; sourceTree = "<group>"; };
+		6A133D5A2990E335599D69F484C7F50A /* RSKImageCropper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RSKImageCropper-prefix.pch"; sourceTree = "<group>"; };
+		6C27009F7BDAC2B468A555FACD114839 /* RSKImageCropper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSKImageCropper-dummy.m"; sourceTree = "<group>"; };
+		6DEE6D0B4311F91617ACB6F3DD479634 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		6E04A587A155015EDD257EC9E13DB3BE /* Pods-Study Problem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Study Problem.release.xcconfig"; sourceTree = "<group>"; };
+		6EFB795D08833EE9227C854C535A652B /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		70FDE9DF3FDC515DE46B9424A845E3E8 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
+		7655BF2CD9F7983A75220752C8333F56 /* DateInRegion+StartEnd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+StartEnd.swift"; path = "Sources/SwiftDate/DateInRegion+StartEnd.swift"; sourceTree = "<group>"; };
+		7A3574D37D86DA09CDFAA2BDCEA6D8D6 /* RSKImageCropper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSKImageCropper.h; path = RSKImageCropper/RSKImageCropper.h; sourceTree = "<group>"; };
+		82CB05DB9B6C5F23892EEEF5497BE758 /* Pods-Study Problem.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Study Problem.modulemap"; sourceTree = "<group>"; };
+		846119C220148957317531804393CE6C /* SlideMenuControllerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SlideMenuControllerSwift-umbrella.h"; sourceTree = "<group>"; };
+		85B5CFCFBF7FF00879741F4597F3F685 /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "Sources/SwiftDate/DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
+		882D3AD6DF8756BBBC4A1F0E7B2FCED6 /* Pods-Study Problem-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Study Problem-acknowledgements.markdown"; sourceTree = "<group>"; };
+		89013ADCA591F520351B9F9D03E1C0EB /* NSDateComponents+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDateComponents+SwiftDate.swift"; path = "Sources/SwiftDate/NSDateComponents+SwiftDate.swift"; sourceTree = "<group>"; };
+		91AEBEF8A00B60603E159DC2C9EB24A4 /* RSKImageCropViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSKImageCropViewController.m; path = RSKImageCropper/RSKImageCropViewController.m; sourceTree = "<group>"; };
+		934A124BB5356926FDE6496431304357 /* DateInRegion+NSDatePort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+NSDatePort.swift"; path = "Sources/SwiftDate/DateInRegion+NSDatePort.swift"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9405D47B42DD2CF292E68150AB285763 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954C3845D64F905625DBA90B10688D19 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
+		96C34E2DA2BCBD38C347667E17563160 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A7B317E75AEE3BABFCD7912CB92829D /* NSCalendar+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSCalendar+SwiftDate.swift"; path = "Sources/SwiftDate/NSCalendar+SwiftDate.swift"; sourceTree = "<group>"; };
+		9B212D86D1987690E0D09A9B5C31B32F /* Pods-Study Problem-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Study Problem-dummy.m"; sourceTree = "<group>"; };
+		A5D6ED2D99C55920BCFE98860B764D5B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
+		A6023C4627C2FB067310B1C20275B7E6 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		A810BAFF3F58BB8C97916CC9D38FD1C1 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlideMenuControllerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A87FC0A672FF7A8BE55872A285A12A82 /* UIImage+RSKImageCropper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+RSKImageCropper.h"; path = "RSKImageCropper/UIImage+RSKImageCropper.h"; sourceTree = "<group>"; };
+		AB2C63968366D3C8A702D750CAB8BA23 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		AEE4980DABD558D49A532864B9CE234C /* RSKImageScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSKImageScrollView.m; path = RSKImageCropper/RSKImageScrollView.m; sourceTree = "<group>"; };
+		B5B07880C417A1BC97352D2474ADFFBE /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
+		BC98734C9547E5A2DF8C4E6B0DA3F9F3 /* SwiftDate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftDate-prefix.pch"; sourceTree = "<group>"; };
+		BE807B0B0262021A3D67693ED850EBE2 /* Pods_Study_Problem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Problem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBC4F78B325EFDB0A90671DA307D2EC4 /* DateInRegion+Components.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Components.swift"; path = "Sources/SwiftDate/DateInRegion+Components.swift"; sourceTree = "<group>"; };
+		CD0EF5ECDA1886916EB65B3B84334931 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		CE64F1CE09F98797965AC78545F95675 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		D0067E2E405D761D628810C2FE353FF0 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		D5A8AE2A3704576DAAF3829582AE17F3 /* NSDateFormatter+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDateFormatter+SwiftDate.swift"; path = "Sources/SwiftDate/NSDateFormatter+SwiftDate.swift"; sourceTree = "<group>"; };
+		D5B99B73A2173E1D051E4540D795DECC /* RSKImageCropper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RSKImageCropper.xcconfig; sourceTree = "<group>"; };
+		DEE261DA98673EBEFBF2022A76C9EE3A /* SlideMenuControllerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SlideMenuControllerSwift.xcconfig; sourceTree = "<group>"; };
+		DEFD5001CE4912092DAF7758AD2EDD13 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		DFFB32B26725F0C0A948829DC9F53063 /* SwiftDate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftDate-dummy.m"; sourceTree = "<group>"; };
+		E185744A4AA5D04226453466DCACD6D7 /* RSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2B4BB383B366078A74EB19F5D67463C /* SwiftDate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftDate.modulemap; sourceTree = "<group>"; };
+		E4C9136B3BB6C26D6C2E149056D86E7C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		E4FB5A93818493115856CEF59F244657 /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
+		E55F0844211CC1A8A74EDE08FFD5DAA6 /* RSKImageScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSKImageScrollView.h; path = RSKImageCropper/RSKImageScrollView.h; sourceTree = "<group>"; };
+		E737FE7180CF35DC49A602AC4089F861 /* CGGeometry+RSKImageCropper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CGGeometry+RSKImageCropper.h"; path = "RSKImageCropper/CGGeometry+RSKImageCropper.h"; sourceTree = "<group>"; };
+		E82DB947C51D44E66B18956566802725 /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
+		EB597E7FA0A78E4AE9F790B55193F51F /* RSKInternalUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSKInternalUtility.h; path = RSKImageCropper/RSKInternalUtility.h; sourceTree = "<group>"; };
+		ED5952DE472FDCB0EA8CE4B5F51B7B2A /* NSLocale+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSLocale+SwiftDate.swift"; path = "Sources/SwiftDate/NSLocale+SwiftDate.swift"; sourceTree = "<group>"; };
+		F085773B14FAFE2705FDF368DC1E9DB7 /* SwiftDate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftDate-umbrella.h"; sourceTree = "<group>"; };
+		F3A76FD8D1D52C80C5B888F6EF68253D /* RSKInternalUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSKInternalUtility.m; path = RSKImageCropper/RSKInternalUtility.m; sourceTree = "<group>"; };
+		F70AC8334991A9748E5F6C74883F8D42 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		F94E1DC53933DE2CABB59679011134A6 /* Pods-Study Problem-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Study Problem-frameworks.sh"; sourceTree = "<group>"; };
+		F9EEA06773BCBF2FA47C484DE74D9233 /* Dictionary+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Dictionary+SwiftDate.swift"; path = "Sources/SwiftDate/Dictionary+SwiftDate.swift"; sourceTree = "<group>"; };
+		FB501AC95826711C25D8C753C4C9DD94 /* SwiftDate.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftDate.xcconfig; sourceTree = "<group>"; };
+		FB83095A7EDE2522C661BB82DF544D4A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FED377604BF2EE7D418B4BE719F00F67 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		FF595ED98524854AE24818A7B73F6078 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		117234C0DA10915762A2D780D9158C02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8E1F28BDC93FC2DB47A918A0B329028 /* Foundation.framework in Frameworks */,
+				1BB67C26D2DF16B01E3D091847D0273C /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B616B95A08736C5914CC8E198F928A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22AD2B1627D9B41B74B720E33D220CEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A80E899537133921B90847BBDA14CE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97D7E30B2FE5CA5F3CC4E3220887B89B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8985D6A23F8B321F1378EDA7C06338F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F70B74E9E6C757FDFAAA1B1C4E4BC9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF1266CFE1F06432811E079FF1C345D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C8A9BB5AF96F061C42E2B4D5F389D8D /* Foundation.framework in Frameworks */,
+				D575FAFAFED3FB3266A8F01456EED638 /* QuartzCore.framework in Frameworks */,
+				8D34A78CE5A7694703CFE8A9B591D47C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		051F03F2A0D22AD02F67ABBD31149C87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EF5ECDA1886916EB65B3B84334931 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		061004453135972871935268A311109E /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				DCB92EBD0BC85B5E0394F157054C439D /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		0C5BB16FA6764EA90F6A963B477DE77D /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				9347DC1484332CE2E27DC992937FEBFC /* Frameworks */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		11CB88AD8D112D786F4E09A1052FB89A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4698382C134F40A25A9F544EB38A6395 /* GoogleIPhoneUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFDE779C6E5D3445E0CB8CCB8D424449 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1EB071471986E4BE23921E5E2945C393 /* FirebaseMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				293560B5E707C7BD439ECFA2B71C4CE8 /* FIRMessaging.h */,
+				59F4779AE73E4EDB81DB3DB5F536B9EA /* Frameworks */,
+			);
+			path = FirebaseMessaging;
+			sourceTree = "<group>";
+		};
+		2BB6B925288FBB2A7C2809BB266F25B5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0F0E4F2AF9AAFC1A6AA7E6BC53FCE392 /* Info.plist */,
+				E4FB5A93818493115856CEF59F244657 /* SVProgressHUD.modulemap */,
+				E82DB947C51D44E66B18956566802725 /* SVProgressHUD.xcconfig */,
+				6EFB795D08833EE9227C854C535A652B /* SVProgressHUD-dummy.m */,
+				3174E9F4975BD73EEC11E1C4F9DCC7C8 /* SVProgressHUD-prefix.pch */,
+				6508A66283BDDE0FE4BC76A2738DA479 /* SVProgressHUD-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		2DFE8ED3BE556292C1933CCBEED26C54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81B0F9B9A4541AB73BB5F75F7A240DE2 /* Firebase */,
+				3EE1333FBEBE3EBDA1F9211F1B8E1459 /* FirebaseAnalytics */,
+				0C5BB16FA6764EA90F6A963B477DE77D /* FirebaseAuth */,
+				DDF27ED188E97B1B249D14919DD8615E /* FirebaseDatabase */,
+				385121C6B657567167578E0A24551192 /* FirebaseInstanceID */,
+				1EB071471986E4BE23921E5E2945C393 /* FirebaseMessaging */,
+				51A0CCA0377953A6F714FE721EE79A27 /* FirebaseStorage */,
+				AE29BC5D5A47C76B493911BCEBDD1CD8 /* GoogleInterchangeUtilities */,
+				D9A0E81863E879BFD5E8E08E88B41FAB /* GoogleIPhoneUtilities */,
+				061004453135972871935268A311109E /* GoogleNetworkingUtilities */,
+				BFF083F816E64C5CC3E85E74DAB418FE /* GoogleSymbolUtilities */,
+				CC66B6B8690182E0FEA83B36E2DA48EF /* GoogleUtilities */,
+				5AB3BA04A30ED4B5B166A8378B185B4F /* RSKImageCropper */,
+				78A226D2AF8BBF918F3D1B0DD94403DD /* SlideMenuControllerSwift */,
+				319144C83F2213F5A7E7E01BAF4D9E40 /* SVProgressHUD */,
+				8A9E8DAECECEA3ACF4A2587967ADF88F /* SwiftDate */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		319144C83F2213F5A7E7E01BAF4D9E40 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				0A17B92DAE47E46FB926B71548A99303 /* SVIndefiniteAnimatedView.h */,
+				D0067E2E405D761D628810C2FE353FF0 /* SVIndefiniteAnimatedView.m */,
+				F70AC8334991A9748E5F6C74883F8D42 /* SVProgressAnimatedView.h */,
+				FED377604BF2EE7D418B4BE719F00F67 /* SVProgressAnimatedView.m */,
+				CE64F1CE09F98797965AC78545F95675 /* SVProgressHUD.h */,
+				6725872E52B42F8664737653A0BDCD52 /* SVProgressHUD.m */,
+				6DEE6D0B4311F91617ACB6F3DD479634 /* SVRadialGradientLayer.h */,
+				AB2C63968366D3C8A702D750CAB8BA23 /* SVRadialGradientLayer.m */,
+				433C43A6B3733F3F1D28B6B75DE98967 /* Resources */,
+				2BB6B925288FBB2A7C2809BB266F25B5 /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		352BA4E4324B09FBC2C0893638D6174D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6023C4627C2FB067310B1C20275B7E6 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		385121C6B657567167578E0A24551192 /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				954C3845D64F905625DBA90B10688D19 /* FIRInstanceID.h */,
+				B53221355EA8E75E01C461BE67A51870 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		3EE1333FBEBE3EBDA1F9211F1B8E1459 /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				352BA4E4324B09FBC2C0893638D6174D /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		433C43A6B3733F3F1D28B6B75DE98967 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4C9136B3BB6C26D6C2E149056D86E7C /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		46E632CFC4FCE459B1919A5CA975C9FD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB83095A7EDE2522C661BB82DF544D4A /* Info.plist */,
+				E2B4BB383B366078A74EB19F5D67463C /* SwiftDate.modulemap */,
+				FB501AC95826711C25D8C753C4C9DD94 /* SwiftDate.xcconfig */,
+				DFFB32B26725F0C0A948829DC9F53063 /* SwiftDate-dummy.m */,
+				BC98734C9547E5A2DF8C4E6B0DA3F9F3 /* SwiftDate-prefix.pch */,
+				F085773B14FAFE2705FDF368DC1E9DB7 /* SwiftDate-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftDate";
+			sourceTree = "<group>";
+		};
+		47998FF238BCEAE75CF50FBAD5612AC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17379001DF7E200C8D415046F48E6EED /* FirebaseStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A52A646FFE4F254BCA4F62E5D465DF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39C2E0671B9C4D04E4B9B6049DC5C33C /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51A0CCA0377953A6F714FE721EE79A27 /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				47998FF238BCEAE75CF50FBAD5612AC5 /* Frameworks */,
+			);
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		59F4779AE73E4EDB81DB3DB5F536B9EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DA8E850A98ED19B260908C1086212F8 /* FirebaseMessaging.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AB3BA04A30ED4B5B166A8378B185B4F /* RSKImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				E737FE7180CF35DC49A602AC4089F861 /* CGGeometry+RSKImageCropper.h */,
+				15AD4D69E165DD04BA073E6A51EB2C22 /* CGGeometry+RSKImageCropper.m */,
+				7A3574D37D86DA09CDFAA2BDCEA6D8D6 /* RSKImageCropper.h */,
+				2A40897A2831BD36DABC9694E44236DA /* RSKImageCropViewController.h */,
+				91AEBEF8A00B60603E159DC2C9EB24A4 /* RSKImageCropViewController.m */,
+				0241A91D3D33C14325C60075594199BA /* RSKImageCropViewController+Protected.h */,
+				E55F0844211CC1A8A74EDE08FFD5DAA6 /* RSKImageScrollView.h */,
+				AEE4980DABD558D49A532864B9CE234C /* RSKImageScrollView.m */,
+				EB597E7FA0A78E4AE9F790B55193F51F /* RSKInternalUtility.h */,
+				F3A76FD8D1D52C80C5B888F6EF68253D /* RSKInternalUtility.m */,
+				4F5236F8CCBF2F4690D9E0A7B5118BE6 /* RSKTouchView.h */,
+				0C3CC2AA0DB9A6BEDE02D8ED8B8B2C95 /* RSKTouchView.m */,
+				330E64006E121FE7B0740685DFAE3963 /* UIApplication+RSKImageCropper.h */,
+				1367B32598679678153D41861CFB2D5C /* UIApplication+RSKImageCropper.m */,
+				A87FC0A672FF7A8BE55872A285A12A82 /* UIImage+RSKImageCropper.h */,
+				0E0CF431766A3CE64B605E7928282189 /* UIImage+RSKImageCropper.m */,
+				76C444CF3D8B3716F6693E44A2030BAC /* Resources */,
+				78403C45846E187EDCC158C3A0E72D6D /* Support Files */,
+			);
+			path = RSKImageCropper;
+			sourceTree = "<group>";
+		};
+		6ABAC136F4E1DBB60A30DBA55DB777A2 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				70FDE9DF3FDC515DE46B9424A845E3E8 /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		76C444CF3D8B3716F6693E44A2030BAC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F169A4247B3F11AFDB9F848659CB853 /* RSKImageCropperStrings.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		78403C45846E187EDCC158C3A0E72D6D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF595ED98524854AE24818A7B73F6078 /* Info.plist */,
+				3277E9110732A2A18B6D6EA005EC0DE2 /* RSKImageCropper.modulemap */,
+				D5B99B73A2173E1D051E4540D795DECC /* RSKImageCropper.xcconfig */,
+				6C27009F7BDAC2B468A555FACD114839 /* RSKImageCropper-dummy.m */,
+				6A133D5A2990E335599D69F484C7F50A /* RSKImageCropper-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RSKImageCropper";
+			sourceTree = "<group>";
+		};
+		78A226D2AF8BBF918F3D1B0DD94403DD /* SlideMenuControllerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6ED2D99C55920BCFE98860B764D5B /* Info.plist */,
+				67C5E88A73B4C864244CC0E0689DA49E /* SlideMenuController.swift */,
+				B5B07880C417A1BC97352D2474ADFFBE /* SlideMenuControllerSwift.h */,
+				7CF68791554643E69C38A182A7AB809E /* Support Files */,
+			);
+			path = SlideMenuControllerSwift;
+			sourceTree = "<group>";
+		};
+		7CF68791554643E69C38A182A7AB809E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AC459A5072789660D35DA87F94D1366 /* Info.plist */,
+				02FE67C51D567F1A8B97850974DE7A0C /* SlideMenuControllerSwift.modulemap */,
+				DEE261DA98673EBEFBF2022A76C9EE3A /* SlideMenuControllerSwift.xcconfig */,
+				1C37C18AC414F0A0E779139E05DF6FE2 /* SlideMenuControllerSwift-dummy.m */,
+				4FAB2B4C9E901069DF1F1021CA8F1063 /* SlideMenuControllerSwift-prefix.pch */,
+				846119C220148957317531804393CE6C /* SlideMenuControllerSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SlideMenuControllerSwift";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				2DFE8ED3BE556292C1933CCBEED26C54 /* Pods */,
+				9E39FA53E575242F0B826185D356AA4C /* Products */,
+				8C9A079EEC0D4EEDEF7604A1050119EC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		81B0F9B9A4541AB73BB5F75F7A240DE2 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				6ABAC136F4E1DBB60A30DBA55DB777A2 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		8A9E8DAECECEA3ACF4A2587967ADF88F /* SwiftDate */ = {
+			isa = PBXGroup;
+			children = (
+				467EF90637942774620B406887E1C3AE /* Additions.swift */,
+				478E8856BE7F9D9B2DC17398DFE0E8DD /* DateInRegion.swift */,
+				3E5CADFA8E0288F63AF09900ED431B58 /* DateInRegion+Comparisons.swift */,
+				CBC4F78B325EFDB0A90671DA307D2EC4 /* DateInRegion+Components.swift */,
+				28F3293464618A681D48AAE2DA0A9882 /* DateInRegion+Equations.swift */,
+				85B5CFCFBF7FF00879741F4597F3F685 /* DateInRegion+Formatter.swift */,
+				934A124BB5356926FDE6496431304357 /* DateInRegion+NSDatePort.swift */,
+				33ED72D7AF3A4E68DFBE08FADAA973FB /* DateInRegion+Operations.swift */,
+				7655BF2CD9F7983A75220752C8333F56 /* DateInRegion+StartEnd.swift */,
+				F9EEA06773BCBF2FA47C484DE74D9233 /* Dictionary+SwiftDate.swift */,
+				9A7B317E75AEE3BABFCD7912CB92829D /* NSCalendar+SwiftDate.swift */,
+				1253107E4E79D1F36E7B0CB58E3DAF75 /* NSDate+SwiftDate.swift */,
+				89013ADCA591F520351B9F9D03E1C0EB /* NSDateComponents+SwiftDate.swift */,
+				D5A8AE2A3704576DAAF3829582AE17F3 /* NSDateFormatter+SwiftDate.swift */,
+				26C74A6DEF710E9AA45A69DB21F5ED6D /* NSDateInterval.swift */,
+				ED5952DE472FDCB0EA8CE4B5F51B7B2A /* NSLocale+SwiftDate.swift */,
+				4A4A5843B3DE2CD60AA9514FE7DE2678 /* NSTimeInterval+SwiftDate.swift */,
+				228DEBA98918A562937773E855F43142 /* NSTimeZone+SwiftDate.swift */,
+				5A5922ED21122605C72AFF84CCA8C06B /* Region.swift */,
+				46E632CFC4FCE459B1919A5CA975C9FD /* Support Files */,
+			);
+			path = SwiftDate;
+			sourceTree = "<group>";
+		};
+		8C9A079EEC0D4EEDEF7604A1050119EC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8FEBDA23D12044F913FA3FF8E1BA77FA /* Pods-Study Problem */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8FEBDA23D12044F913FA3FF8E1BA77FA /* Pods-Study Problem */ = {
+			isa = PBXGroup;
+			children = (
+				9405D47B42DD2CF292E68150AB285763 /* Info.plist */,
+				82CB05DB9B6C5F23892EEEF5497BE758 /* Pods-Study Problem.modulemap */,
+				882D3AD6DF8756BBBC4A1F0E7B2FCED6 /* Pods-Study Problem-acknowledgements.markdown */,
+				29FBAB3921AFDDEA544177915BB6BA3D /* Pods-Study Problem-acknowledgements.plist */,
+				9B212D86D1987690E0D09A9B5C31B32F /* Pods-Study Problem-dummy.m */,
+				F94E1DC53933DE2CABB59679011134A6 /* Pods-Study Problem-frameworks.sh */,
+				3E63C244B3574A1D284E1C48E864530D /* Pods-Study Problem-resources.sh */,
+				2B0AC708FDC85BC365612343A13CF639 /* Pods-Study Problem-umbrella.h */,
+				615ED729AD86B4280F53F08FE2CE727E /* Pods-Study Problem.debug.xcconfig */,
+				6E04A587A155015EDD257EC9E13DB3BE /* Pods-Study Problem.release.xcconfig */,
+			);
+			name = "Pods-Study Problem";
+			path = "Target Support Files/Pods-Study Problem";
+			sourceTree = "<group>";
+		};
+		9347DC1484332CE2E27DC992937FEBFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				422A4C0C7A1507ABBFAE3621DF54EAED /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E39FA53E575242F0B826185D356AA4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE807B0B0262021A3D67693ED850EBE2 /* Pods_Study_Problem.framework */,
+				E185744A4AA5D04226453466DCACD6D7 /* RSKImageCropper.framework */,
+				A810BAFF3F58BB8C97916CC9D38FD1C1 /* SlideMenuControllerSwift.framework */,
+				96C34E2DA2BCBD38C347667E17563160 /* SVProgressHUD.framework */,
+				307E2C2F45855F34D2A7B2E48ABD5F83 /* SwiftDate.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A61AC9DE17FA3550B4F053BE8C0BCA95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DFB0B74CDA5F3D7EE00F6872991465A /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE29BC5D5A47C76B493911BCEBDD1CD8 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				A61AC9DE17FA3550B4F053BE8C0BCA95 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		B53221355EA8E75E01C461BE67A51870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089159D62B3CD055877FA7D8DB65B32C /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFF083F816E64C5CC3E85E74DAB418FE /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				051F03F2A0D22AD02F67ABBD31149C87 /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		C27D631D5B0BDB01773DE5240ED8C71B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13255F6DD27D68F0563B2CB48CDEB06E /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC66B6B8690182E0FEA83B36E2DA48EF /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				C27D631D5B0BDB01773DE5240ED8C71B /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		D9A0E81863E879BFD5E8E08E88B41FAB /* GoogleIPhoneUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				11CB88AD8D112D786F4E09A1052FB89A /* Frameworks */,
+			);
+			path = GoogleIPhoneUtilities;
+			sourceTree = "<group>";
+		};
+		DCB92EBD0BC85B5E0394F157054C439D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD5001CE4912092DAF7758AD2EDD13 /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDF27ED188E97B1B249D14919DD8615E /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				4A52A646FFE4F254BCA4F62E5D465DF6 /* Frameworks */,
+			);
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		DFDE779C6E5D3445E0CB8CCB8D424449 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */,
+				23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */,
+				091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		14E2EE6449993FB1D679FF346836BE6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13AB1FB4C5008AB794804CCE94120D62 /* SwiftDate-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E66C317FE6B64ABF5D99B6CB33110F6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A801AC1119F8E008F92B1E1D1CCD493B /* SlideMenuControllerSwift-umbrella.h in Headers */,
+				B9E4FD3018F0C955BFFF060DAF03755D /* SlideMenuControllerSwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80A3E0F14938DFF75B5B0089191D71ED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA264D7262CC335B3E1591BDABB9C87 /* Pods-Study Problem-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80F6EB01AAB0373B6306171A92881AFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCD1938F04A5F0C3BC8D3F50239156E /* SVIndefiniteAnimatedView.h in Headers */,
+				ED854013CFC05A6CF2B89C2B831925F2 /* SVProgressAnimatedView.h in Headers */,
+				88ABB95A743E2B0C814DC30319DF5F43 /* SVProgressHUD-umbrella.h in Headers */,
+				FFFC840D9D58600381DC015DE1F64D64 /* SVProgressHUD.h in Headers */,
+				645F366DC475E05E33E540942D7AF79E /* SVRadialGradientLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3EF25532A282049B2F1F59756F06833 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2107B7F32B11DAFD3EF9F2D0BAE2AB70 /* CGGeometry+RSKImageCropper.h in Headers */,
+				224DD6A70FC8873A847845771F62BF83 /* RSKImageCropper.h in Headers */,
+				593BB7318B3FC30AF596D3C702A2F1DA /* RSKImageCropViewController+Protected.h in Headers */,
+				9B890E41CA234AD8882D8378D8A98020 /* RSKImageCropViewController.h in Headers */,
+				140EC3E39BB22600BDFA7DF921D24544 /* RSKImageScrollView.h in Headers */,
+				36E6E62EE42378AB3252139AEA14631A /* RSKInternalUtility.h in Headers */,
+				C24C628E15C9F55F57AF0FA4836A8228 /* RSKTouchView.h in Headers */,
+				3374F573E64339DC9FCB9FD982CC23FC /* UIApplication+RSKImageCropper.h in Headers */,
+				73E577AA335A7662C1976DB0A03E0A0C /* UIImage+RSKImageCropper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		162EFB612A0CF2EF7F08DCB91E84567B /* SwiftDate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01A9C791AD558597CEEBAC45F1918C1A /* Build configuration list for PBXNativeTarget "SwiftDate" */;
+			buildPhases = (
+				B9222ABB06146FCCCED548E0BE47D79C /* Sources */,
+				24B616B95A08736C5914CC8E198F928A /* Frameworks */,
+				14E2EE6449993FB1D679FF346836BE6F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDate;
+			productName = SwiftDate;
+			productReference = 307E2C2F45855F34D2A7B2E48ABD5F83 /* SwiftDate.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		29C846C1E5F932885FC5F624C823FE4A /* Pods-Study Problem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6091B4F22D4D1889F95F90634EEAF7A /* Build configuration list for PBXNativeTarget "Pods-Study Problem" */;
+			buildPhases = (
+				D1A9C7FB3835316494889F41E367F1C5 /* Sources */,
+				8985D6A23F8B321F1378EDA7C06338F5 /* Frameworks */,
+				80A3E0F14938DFF75B5B0089191D71ED /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEAE5D37F3A737AB1B6B8782C07D2409 /* PBXTargetDependency */,
+				597501F4936CCDC614808FA20A6D642E /* PBXTargetDependency */,
+				BFAF25AE699D3C9CE1925578BCE3EA9D /* PBXTargetDependency */,
+				B610E28D4C3D3F9472E020A77192AA07 /* PBXTargetDependency */,
+			);
+			name = "Pods-Study Problem";
+			productName = "Pods-Study Problem";
+			productReference = BE807B0B0262021A3D67693ED850EBE2 /* Pods_Study_Problem.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2D952CD966972F502164B41242F60CA1 /* SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2697B2A52FCBBAC0D07A4F4E5600A96 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
+			buildPhases = (
+				AFA91F657DF4A8B88414914077393139 /* Sources */,
+				117234C0DA10915762A2D780D9158C02 /* Frameworks */,
+				80F6EB01AAB0373B6306171A92881AFB /* Headers */,
+				1EF98B22D5CE82919B42A7592CB49E6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVProgressHUD;
+			productName = SVProgressHUD;
+			productReference = 96C34E2DA2BCBD38C347667E17563160 /* SVProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		30AB87F55DE1E9F00B2EE44C9A76B742 /* SlideMenuControllerSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E81FD78BC31E589AC326FC1B0770FD /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwift" */;
+			buildPhases = (
+				0D7942B449AE7F575C22AEAE1512FA97 /* Sources */,
+				5A80E899537133921B90847BBDA14CE1 /* Frameworks */,
+				4E66C317FE6B64ABF5D99B6CB33110F6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlideMenuControllerSwift;
+			productName = SlideMenuControllerSwift;
+			productReference = A810BAFF3F58BB8C97916CC9D38FD1C1 /* SlideMenuControllerSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DDFF1E0C0DAD42E25BA2FCF344904670 /* RSKImageCropper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACB83ADD3A4BD71735EF20CF52796864 /* Build configuration list for PBXNativeTarget "RSKImageCropper" */;
+			buildPhases = (
+				ADF2F9256FDF8DABE7F7BD5E17557A74 /* Sources */,
+				BF1266CFE1F06432811E079FF1C345D4 /* Frameworks */,
+				A3EF25532A282049B2F1F59756F06833 /* Headers */,
+				BF963FC196B472D73AC32501FDE01051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RSKImageCropper;
+			productName = RSKImageCropper;
+			productReference = E185744A4AA5D04226453466DCACD6D7 /* RSKImageCropper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 9E39FA53E575242F0B826185D356AA4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29C846C1E5F932885FC5F624C823FE4A /* Pods-Study Problem */,
+				DDFF1E0C0DAD42E25BA2FCF344904670 /* RSKImageCropper */,
+				30AB87F55DE1E9F00B2EE44C9A76B742 /* SlideMenuControllerSwift */,
+				2D952CD966972F502164B41242F60CA1 /* SVProgressHUD */,
+				162EFB612A0CF2EF7F08DCB91E84567B /* SwiftDate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1EF98B22D5CE82919B42A7592CB49E6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C9B2180F98497428E66A7964C95956D /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF963FC196B472D73AC32501FDE01051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				643DE0F38CBBDDF80D1A0BB8EFC97540 /* RSKImageCropperStrings.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D7942B449AE7F575C22AEAE1512FA97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C65EBF1445A50BBCB6C57A2810DA55AE /* Info.plist in Sources */,
+				1278DB2EDED76E3E31B8DD0459EC5793 /* SlideMenuController.swift in Sources */,
+				9EBE278C938D4E88BCC9C356DFD00993 /* SlideMenuControllerSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADF2F9256FDF8DABE7F7BD5E17557A74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF864D8EF062E44D5C46B9AC3E12CF98 /* CGGeometry+RSKImageCropper.m in Sources */,
+				7339C11383F994A53DB0D643589ABDCE /* RSKImageCropper-dummy.m in Sources */,
+				EF4239CD46751B91A2D6AFEA971E06AB /* RSKImageCropViewController.m in Sources */,
+				C77FDCB502ABA5339976BBDF008D9BAA /* RSKImageScrollView.m in Sources */,
+				9C2A80AE920A0A3E076EC59424DEDD9B /* RSKInternalUtility.m in Sources */,
+				D6BF9B2567B250B0BFABB1FB2A477544 /* RSKTouchView.m in Sources */,
+				00D685DFC3F36F2FC6977C77BCED7A20 /* UIApplication+RSKImageCropper.m in Sources */,
+				4E2C4E7DA83F13B57AB463D5F41A2117 /* UIImage+RSKImageCropper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFA91F657DF4A8B88414914077393139 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF8B24A3E6F40726B1457ABB8BE51E42 /* SVIndefiniteAnimatedView.m in Sources */,
+				60FA7045C5800533F360D5DFC6D81C1B /* SVProgressAnimatedView.m in Sources */,
+				52A4A8EC464724B2F4B029B25A7AE224 /* SVProgressHUD-dummy.m in Sources */,
+				AC7A0D04052B81545284A0AFCA6728A6 /* SVProgressHUD.m in Sources */,
+				5A7F0FFE9E265C300B68ECD0A67D4B36 /* SVRadialGradientLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9222ABB06146FCCCED548E0BE47D79C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				220BB5F237C9885085B2D563E5524823 /* Additions.swift in Sources */,
+				E6EB2817BAE05C4A49D66A74F9972BB3 /* DateInRegion+Comparisons.swift in Sources */,
+				FC46FE0E27B720FDC8FDBA28659F5AEF /* DateInRegion+Components.swift in Sources */,
+				329C6A80BD841A4113A6604FF297A19D /* DateInRegion+Equations.swift in Sources */,
+				7CD6E9206C402EC229B39D968585CF32 /* DateInRegion+Formatter.swift in Sources */,
+				DC23EF90FA839319307170857D6EEDFF /* DateInRegion+NSDatePort.swift in Sources */,
+				DE24F86212A9430C1D94A9AFD0A19110 /* DateInRegion+Operations.swift in Sources */,
+				F3D5621C3A8862A1D346D3CD339F0D8B /* DateInRegion+StartEnd.swift in Sources */,
+				D83CE1D233D441445B02B6A6F9BB1BF0 /* DateInRegion.swift in Sources */,
+				C22821130222A9B518B6039FB937F636 /* Dictionary+SwiftDate.swift in Sources */,
+				5A97772B4DBFC3C61C21B6B03B53480E /* NSCalendar+SwiftDate.swift in Sources */,
+				4E1A8B9F169F1D785BCDD802B20D5BF2 /* NSDate+SwiftDate.swift in Sources */,
+				E1CE772164D1075E0F919FE27DB782C0 /* NSDateComponents+SwiftDate.swift in Sources */,
+				2F638E483CE87092A42569DE0E9E0340 /* NSDateFormatter+SwiftDate.swift in Sources */,
+				20D02B2E7E034EF3574A930B740CFC34 /* NSDateInterval.swift in Sources */,
+				5A5B91224B008EBA1BF6AD8B7890A697 /* NSLocale+SwiftDate.swift in Sources */,
+				80AF818E2BEFE37E9B7DD32F0AFE78F9 /* NSTimeInterval+SwiftDate.swift in Sources */,
+				AEDCBBD8984DDAA925F4FA718D868674 /* NSTimeZone+SwiftDate.swift in Sources */,
+				4187439F2A0C392B7A1F3F042E7321F5 /* Region.swift in Sources */,
+				0AB11D5F3064F9BB15E0A4CCEDB06B1E /* SwiftDate-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1A9C7FB3835316494889F41E367F1C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A6C8ECB8E984C877CF405DCCAF6C413 /* Pods-Study Problem-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		597501F4936CCDC614808FA20A6D642E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVProgressHUD;
+			target = 2D952CD966972F502164B41242F60CA1 /* SVProgressHUD */;
+			targetProxy = 468CB93D2AD9E79B76A55CBB2D7C4B5B /* PBXContainerItemProxy */;
+		};
+		AEAE5D37F3A737AB1B6B8782C07D2409 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RSKImageCropper;
+			target = DDFF1E0C0DAD42E25BA2FCF344904670 /* RSKImageCropper */;
+			targetProxy = 426D4635E542CA9A6F49AA3CC7EAFE58 /* PBXContainerItemProxy */;
+		};
+		B610E28D4C3D3F9472E020A77192AA07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftDate;
+			target = 162EFB612A0CF2EF7F08DCB91E84567B /* SwiftDate */;
+			targetProxy = FD0E2F078B611165C535956394A8BD85 /* PBXContainerItemProxy */;
+		};
+		BFAF25AE699D3C9CE1925578BCE3EA9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SlideMenuControllerSwift;
+			target = 30AB87F55DE1E9F00B2EE44C9A76B742 /* SlideMenuControllerSwift */;
+			targetProxy = 81D711498F0C7F305483F464851345B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		261083E96A1F3F57F041368170F27741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E82DB947C51D44E66B18956566802725 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3403E4891E63023CACD6B2C08314E168 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E82DB947C51D44E66B18956566802725 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		502EFE9DD3A2FADC8B56866D0AD266D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEE261DA98673EBEFBF2022A76C9EE3A /* SlideMenuControllerSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SlideMenuControllerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SlideMenuControllerSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		58AAB0D6794F83E7C3D11451DBE33B5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB501AC95826711C25D8C753C4C9DD94 /* SwiftDate.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftDate/SwiftDate-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftDate/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftDate/SwiftDate.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftDate;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8BFBF903703F8BE09648C73705B2FE49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E04A587A155015EDD257EC9E13DB3BE /* Pods-Study Problem.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Study Problem/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Study Problem/Pods-Study Problem.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Study_Problem;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		95CB6440E68C96D72630A665901EDB1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEE261DA98673EBEFBF2022A76C9EE3A /* SlideMenuControllerSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SlideMenuControllerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SlideMenuControllerSwift/SlideMenuControllerSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SlideMenuControllerSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9F237C1F53887EE3EBE14939B75F20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB501AC95826711C25D8C753C4C9DD94 /* SwiftDate.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftDate/SwiftDate-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftDate/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftDate/SwiftDate.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftDate;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E780150DA1E36442BF6F809795068018 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 615ED729AD86B4280F53F08FE2CE727E /* Pods-Study Problem.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Study Problem/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Study Problem/Pods-Study Problem.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Study_Problem;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F3A51CF0D84FDA3A492B44F5D9BA0E3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5B99B73A2173E1D051E4540D795DECC /* RSKImageCropper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RSKImageCropper/RSKImageCropper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RSKImageCropper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RSKImageCropper/RSKImageCropper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RSKImageCropper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F5DBC98925313B4DB9A02460E0CD66FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5B99B73A2173E1D051E4540D795DECC /* RSKImageCropper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RSKImageCropper/RSKImageCropper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RSKImageCropper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RSKImageCropper/RSKImageCropper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = RSKImageCropper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01A9C791AD558597CEEBAC45F1918C1A /* Build configuration list for PBXNativeTarget "SwiftDate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58AAB0D6794F83E7C3D11451DBE33B5D /* Debug */,
+				C9F237C1F53887EE3EBE14939B75F20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034014829C1E4434983CF3A690C12017 /* Debug */,
+				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2697B2A52FCBBAC0D07A4F4E5600A96 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261083E96A1F3F57F041368170F27741 /* Debug */,
+				3403E4891E63023CACD6B2C08314E168 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6091B4F22D4D1889F95F90634EEAF7A /* Build configuration list for PBXNativeTarget "Pods-Study Problem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E780150DA1E36442BF6F809795068018 /* Debug */,
+				8BFBF903703F8BE09648C73705B2FE49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACB83ADD3A4BD71735EF20CF52796864 /* Build configuration list for PBXNativeTarget "RSKImageCropper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A51CF0D84FDA3A492B44F5D9BA0E3A /* Debug */,
+				F5DBC98925313B4DB9A02460E0CD66FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9E81FD78BC31E589AC326FC1B0770FD /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502EFE9DD3A2FADC8B56866D0AD266D3 /* Debug */,
+				95CB6440E68C96D72630A665901EDB1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

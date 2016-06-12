@@ -8,13 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
-class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate{
+class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate,UITextViewDelegate{
     
     @IBOutlet var textView:UITextView!
     
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+    var Database = FIRDatabaseReference.init()
     
     weak var delegate: LeftMenuProtocol?
     
@@ -25,9 +26,9 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Database = FIRDatabase.database().reference()
         
-        
-        self.currentUserId = self.Database.authData.uid
+        self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
         
         print("Username: \(self.currentUserId)")
         
@@ -36,6 +37,9 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
         textView.layer.cornerRadius = 20.0
+        textView.text = "Type here"
+        textView.textColor = UIColor.lightGrayColor()
+        textView.delegate = self
         let pickerView = UIPickerView()
         
         pickerView.delegate = self
@@ -147,25 +151,35 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         subjectTextfield.text = pickOption[row]
     }
+    func textViewDidBeginEditing(textView: UITextView) {
+        
+        if textView.text == "Type here"{
+            textView.text = ""
+            textView.textColor = UIColor.blackColor()
+        }
+    }
     
     @IBAction func post(){
         let postText = textView.text
         
-        if postText != "" {
+        if postText != "" && subjectTextfield.text != "" {
             
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
-            
+            let date_formatter: NSDateFormatter = NSDateFormatter()
+            date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+            date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
             let newJoke: Dictionary<String, AnyObject> = [
                 "text": postText!,
                 "subject": subjectTextfield.text!,
-                "replay":0,
-                "author": currentUserId
+                "reply":0,
+                "author": currentUserId,
+                "date": date_formatter.stringFromDate(NSDate())
             ]
             
             // Send it over to DataService to seal the deal.
             
-            let firebaseNewJoke = Datapost.childByAutoId()
+            let firebaseNewJoke = Database.child("post/").childByAutoId()
             
             // setValue() saves to Firebase.
             
@@ -173,6 +187,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.Alert)
             let action = UIAlertAction(title: "Ok", style: .Default, handler: {(action: UIAlertAction!) -> Void in
                 // self.delegate?.changeViewController(LeftMenu.Main)
+                self.textView.text = "Type here"
+                self.textView.textColor = UIColor.lightGrayColor()
                 let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
                 let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
                 let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController

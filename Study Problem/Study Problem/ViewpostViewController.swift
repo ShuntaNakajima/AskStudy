@@ -8,44 +8,53 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 
-class ViewpostViewController: UIViewController,UITextFieldDelegate {
 
-    var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
-    var DataUser = Firebase(url: "https://studyproblemfirebase.firebaseio.com/user/")
-    var Datapost = Firebase(url: "https://studyproblemfirebase.firebaseio.com/post/")
+
+class ViewpostViewController: UIViewController,UITextViewDelegate {
+    
+    var Database = FIRDatabaseReference.init()
     
     
     var post : String!
-    var newpost : Firebase!
+    var newpost : FIRDatabase!
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
     var toreply : String!
-
-    var myTextField: UITextField!
-
+    var keyboradheight : CGFloat!
+    
+    var myTextView: UITextView!
+    var toolbar:UIToolbar!
+    
     @IBOutlet var tableView :UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-
-         tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
-        var mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
+        
+        
+        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
+        let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
+        
+        let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
+        self.tableView.registerNib(itemnib, forCellReuseIdentifier: "ItemCell")
         
         let replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(replysnib, forCellReuseIdentifier:"ReplysCell")
         
         let myreplysnib  = UINib(nibName: "MyReplysTableViewCell", bundle:nil)
         self.tableView.registerNib(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
-
+        
         
         // ツールバー
-        let toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 44.0, self.view.bounds.size.width, 44.0))
+        toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width, 45.0))
         toolbar.barStyle = .BlackTranslucent
         toolbar.tintColor = UIColor.whiteColor()
         toolbar.backgroundColor = UIColor.blackColor()
@@ -55,36 +64,35 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         toolbar.items = [buttonGap, buttonGap, button3]
         
         self.view.addSubview(toolbar)
-        myTextField = UITextField(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 44))
+        myTextView = UITextView(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 45))
         
         // 表示する文字を代入する.
-        myTextField.placeholder = "Type comment"
-        myTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+        myTextView.text = "Type comment"
+        
         
         // 枠を表示する.
-        myTextField.borderStyle = UITextBorderStyle.RoundedRect
-        
+        myTextView.layer.borderWidth = 0.5
+        myTextView.font = UIFont.systemFontOfSize(25.5)
         // Delegateを設定する.
-        myTextField.delegate = self
-        
+        myTextView.delegate = self
+        myTextView.text = "Type here"
+        myTextView.textColor = UIColor.lightGrayColor()
         
         // ツールバーに追加する.
-        toolbar.addSubview(self.myTextField)
+        toolbar.addSubview(self.myTextView)
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
-//        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
-
-        // Do any additional setup after loading the view.
+        
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
-        let Dataonepost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/")
-        Dataonepost.observeEventType(.Value, withBlock: { snapshot in
-           
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+        
+        
+        Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
+            
+            if snapshot.children.allObjects is [FIRDataSnapshot] {
                 
                 
                 
@@ -103,6 +111,7 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
                     //            ]
                     //postディクショなりの内容
                     postDictionary["key"] = key
+                    print(postDictionary)
                     self.postDic = postDictionary
                     self.tableView.reloadData()
                     
@@ -110,12 +119,12 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
             }
         })
         
-        let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
-        Dataapost.observeEventType(.Value, withBlock: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-
-                 self.replys = []
-
+        
+        Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                
+                self.replys = []
+                
                 for snap in snapshots {
                     
                     // Make our jokes array for the tableView.
@@ -137,9 +146,9 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
                 }
             }
         })
-
-
-      
+        
+        
+        
     }
     func handleKeyboardWillShowNotification(notification: NSNotification) {
         
@@ -147,42 +156,65 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height)
+        
+        self.keyboradheight = keyboardScreenEndFrame.size.height
+        
         print(keyboardScreenEndFrame.size.height)
         
         self.view.transform = transform
         
-        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 44))
-
+        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 45))
+        
     }
-    
+    func textViewDidBeginEditing(textView: UITextView) {
+        
+        if myTextView.text == "Type here"{
+            myTextView.text = ""
+            myTextView.textColor = UIColor.blackColor()
+        }
+    }
     func tappedToolBarBtn(){
-        self.view.transform = CGAffineTransformIdentity
-        myTextField.resignFirstResponder()
-        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 44))
-     
-            let replyText = myTextField.text
+        
+        myTextView.resignFirstResponder()
+        
+        
+        let replyText = myTextView.text
+        
+        if replyText != "" && replyText != "Type here" {
+            self.view.transform = CGAffineTransformIdentity
+            // Build the new Joke.
+            // AnyObject is needed because of the votes of type Int.
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width,
+                45.0))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, 45))
+            myTextView.text = "Type here"
+            myTextView.textColor = UIColor.lightGrayColor()
+            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
+            let postedUser : String!
             
-            if replyText != "" {
-                
-                // Build the new Joke.
-                // AnyObject is needed because of the votes of type Int.
-                
-                let newreply: Dictionary<String, AnyObject> = [
-                    "text": replyText!,
-                    "author": self.Database.authData.uid!
-                ]
-                let Dataapost = Firebase(url:"\(Datapost)" + "/" + "\(post)" + "/repays/")
-                let firebasenewreply = Dataapost.childByAutoId()
-                firebasenewreply.setValue(newreply)
-                myTextField.text = ""
-                // Send it over to DataService to seal the deal.
-
-                
-            }
+            
+            let newreply: Dictionary<String, AnyObject> = [
+                "text": replyText!,
+                "author": (FIRAuth.auth()?.currentUser?.uid)!
+            ]
+            
+            let firebasenewreply = Database.child("post/" + post + "/replys").childByAutoId()
+            firebasenewreply.setValue(newreply)
+            
+            
+            var replaycount = postDic["reply"] as! Int
+            replaycount = replaycount + 1
+            let firebasenewreplyscount = Database.child("post/" + post + "/reply")
+            firebasenewreplyscount.setValue(replaycount)
+            // Send it over to DataService to seal the deal.
+            
+            
+            
+        }
         
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -190,85 +222,113 @@ class ViewpostViewController: UIViewController,UITextFieldDelegate {
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return replys.count + 1
+        return replys.count + 2
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var returncell = UITableViewCell!()
-        let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
-        let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
-        let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
-        returncell = maincell
         if postDic["author"] as? String != nil{
             if indexPath.row == 0{
-                returncell = maincell
+                let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
                 maincell.postLabel!.text = postDic["text"] as! String!
                 
-                let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDic["author"] as? String)
+                let currentUser = Database.child("user").child((postDic["author"] as? String)!)
                 
-                currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
-                    print(snapshot)
-                    
-                    let postUser = snapshot.value.objectForKey("username") as! String
+                currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+                    let postUser = snapshot.value!.objectForKey("username") as! String
                     
                     // print("Username: \(postUser)")
                     maincell.usernameLabel.text = postUser
                     }, withCancelBlock: { error in
                         print(error.description)
                 })
-                
+                return maincell
+            }else if indexPath.row == 1{
+                let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
+                itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
+                itemcell.DateLable.text = postDic["date"] as! String!
+                return itemcell
             }else{
                 if replys != []{
-                    let reply = replys[indexPath.row - 1]
+                    let reply = replys[indexPath.row - 2]
                     let postDictionary = reply as? Dictionary<String, AnyObject>
-                    if postDictionary!["author"] as! String != Database.authData.uid!{
-                        returncell = replycell
+                    if postDictionary!["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
+                        let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
                         replycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
+                        let currentUser = Database.child("user").child((postDic["author"] as? String)!)
                         
-                        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+                        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                             print(snapshot)
                             
-                            let postUser = snapshot.value.objectForKey("username") as! String
-                            
-                            // print("Username: \(postUser)")
+                            let postUser = snapshot.value!.objectForKey("username") as! String
                             replycell.usernameLabel.text = postUser
                             }, withCancelBlock: { error in
                                 print(error.description)
                         })
+                        return replycell
                     }else{
-                        returncell = myreplycell
+                        let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
                         myreplycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Firebase(url: "\(Database)").childByAppendingPath("user").childByAppendingPath(postDictionary!["author"] as! String)
-                        
-                        currentUser.observeEventType(FEventType.Value, withBlock: { snapshot in
+                        let currentUser = Database.child("user").child((postDic["author"] as? String)!)
+                        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                             print(snapshot)
                             
-                            let postUser = snapshot.value.objectForKey("username") as! String
+                            let postUser = snapshot.value!.objectForKey("username") as! String
                             
                             // print("Username: \(postUser)")
                             myreplycell.usernameLabel.text = postUser
                             }, withCancelBlock: { error in
                                 print(error.description)
                         })
+                        return myreplycell
                     }
+                }else{
+                    let cell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
+                    return cell
                 }
-                
             }
+        }else{
+            let cell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
+            return cell
         }
-        
-        
-        return returncell
     }
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         if indexPath.row == 0{
             toreply = postDic["author"] as! String
         }else{
-            toreply = replys[indexPath.row - 1]["author"] as! String
+            toreply = replys[indexPath.row - 2]["author"] as! String
+            myTextView.becomeFirstResponder()
+        }
+        
+        
+        
+    }
+    func textViewDidChange(textView: UITextView){
+        let textViewtext = myTextView.text!
+        
+        
+        
+        let maxHeight = 140.0  // 入力フィールドの最大サイズ
+        let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
+        
+        if(size.height.native <= maxHeight) {
+            myTextView.frame.size.height = size.height
+            
+            print(myTextView.text!)
+            print(textViewtext)
+            //   let nowheight = toolbar.frame.height
+            
+            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - size.height, self.view.bounds.size.width, size.height))
+            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, size.height))
+            
+            tableView.frame = (frame: CGRect(x: 0, y: keyboradheight!, width: self.view.frame.width, height: self.view.frame.height - keyboradheight! - size.height))
+            
         }
         
         
     }
+    
+    
+    
 }
