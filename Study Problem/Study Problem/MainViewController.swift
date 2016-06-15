@@ -13,7 +13,6 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import RealmSwift
-import SwiftDate
 
 class MainViewController: UIViewController {
     
@@ -133,7 +132,7 @@ class MainViewController: UIViewController {
         cell.profileImage.clipsToBounds=true
         cell.profileImage.image = UIImage(named: "noimage.gif")!
         
-        var userdata = UserData().readimage((postDictionary!["author"] as? String)!)
+        let userdata = UserData().readimage((postDictionary!["author"] as? String)!)
         if userdata.0 == "noset"{
             let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
             

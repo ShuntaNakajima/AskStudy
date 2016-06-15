@@ -117,7 +117,7 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
         
         
         //firebaseにプロフィールイメージをアップロードする
-        let data: NSData = UIImagePNGRepresentation(resizedImage)!
+        let data: NSData = UIImagePNGRepresentation(resizedImage!)!
         let uploadTask = profileRef.putData(data, metadata: metadata) { metadata, error in
             if (error != nil) {
                 // Uh-oh, an error occurred!
