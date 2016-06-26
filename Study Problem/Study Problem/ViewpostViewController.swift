@@ -234,10 +234,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             if indexPath.row == 0{
                 let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
                 maincell.postLabel!.text = postDic["text"] as! String!
-               
-                maincell.profileImageView.layer.cornerRadius=25
-                maincell.profileImageView.clipsToBounds=true
-               maincell.profileImageView.image = UIImage(named: "noimage.gif")!
+              
                 
                 let userdata = UserData().readimage(postDic["author"] as! String!)
                 if userdata.0 == "noset"{
@@ -305,9 +302,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                     if postDictionary!["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
                         let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
                         replycell.postLabel.text = postDictionary!["text"] as? String
-                        replycell.profileImageView.layer.cornerRadius=25
-                        replycell.profileImageView.clipsToBounds=true
-                        replycell.profileImageView.image = UIImage(named: "noimage.gif")!
+                       
                         
                         let userdata = UserData().readimage(postDictionary!["author"] as? String)
                         if userdata.0 == "noset"{
@@ -366,9 +361,6 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                     }else{
                         let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
                         myreplycell.postLabel.text = postDictionary!["text"] as? String
-                        myreplycell.profileImageView.layer.cornerRadius=25
-                        myreplycell.profileImageView.clipsToBounds=true
-                        myreplycell.profileImageView.image = UIImage(named: "noimage.gif")!
                         
                         let userdata = UserData().readimage(postDictionary!["author"] as? String)
                         if userdata.0 == "noset"{
