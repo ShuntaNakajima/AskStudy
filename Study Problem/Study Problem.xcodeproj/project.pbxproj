@@ -33,6 +33,10 @@
 		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
 		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
 		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
+		BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */; };
+		BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */; };
+		BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */; };
+		BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */; };
 		BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* NSdateExtention.swift */; };
 		BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CF1D1F83E000033737 /* MianCellTextView.swift */; };
 		BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */; };
@@ -101,6 +105,10 @@
 		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
 		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
+		BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		BC5127CC1D1F81A900033737 /* NSdateExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSdateExtention.swift; sourceTree = "<group>"; };
 		BC5127CF1D1F83E000033737 /* MianCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MianCellTextView.swift; sourceTree = "<group>"; };
 		BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellUiimageViewClass.swift; sourceTree = "<group>"; };
@@ -239,6 +247,16 @@
 			name = PostTableViewCell;
 			sourceTree = "<group>";
 		};
+		BC46D6C61D1FA13C00F25E5B /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */,
+				BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */,
+				BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
 		BC5127CE1D1F820B00033737 /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +317,8 @@
 				BC1437D21CE60FED00448AC0 /* SlideMenu */,
 				BC1437D11CE60E7400448AC0 /* User */,
 				BC54BB831CE4AE720013C0DD /* Assets.xcassets */,
+				BC46D6C61D1FA13C00F25E5B /* Defaults */,
+				BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */,
 				BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */,
 				BC54BB881CE4AE720013C0DD /* Info.plist */,
 				BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */,
@@ -502,10 +522,13 @@
 				BCF71A761D0D3F4700285D07 /* noimage.gif in Resources */,
 				BC1438161CE75B6600448AC0 /* 2.gif in Resources */,
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
+				BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */,
 				BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */,
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
+				BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */,
 				BC1438121CE74D4E00448AC0 /* MenusTableViewCell.xib in Resources */,
+				BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */,
 				BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */,
 				BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */,
 			);
@@ -595,6 +618,7 @@
 				BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,
 				BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */,
+				BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */,
 				BC1437EE1CE613CA00448AC0 /* SettingViewController.swift in Sources */,
 				BC1437E81CE6139400448AC0 /* MypostViewController.swift in Sources */,
 				BC1437E61CE6138900448AC0 /* PostViewController.swift in Sources */,
