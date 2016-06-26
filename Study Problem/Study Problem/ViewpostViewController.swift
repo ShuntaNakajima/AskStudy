@@ -83,12 +83,6 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
-    }
-    
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
         
         Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
             
@@ -148,6 +142,14 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         })
         
         
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
         
     }
     func handleKeyboardWillShowNotification(notification: NSNotification) {
@@ -167,7 +169,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         
     }
     func textViewDidBeginEditing(textView: UITextView) {
-        
+    
         if myTextView.text == "Type here"{
             myTextView.text = ""
             myTextView.textColor = UIColor.blackColor()
@@ -232,17 +234,64 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             if indexPath.row == 0{
                 let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
                 maincell.postLabel!.text = postDic["text"] as! String!
+               
+                maincell.profileImageView.layer.cornerRadius=25
+                maincell.profileImageView.clipsToBounds=true
+               maincell.profileImageView.image = UIImage(named: "noimage.gif")!
                 
-                let currentUser = Database.child("user").child((postDic["author"] as? String)!)
-                
-                currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                    let postUser = snapshot.value!.objectForKey("username") as! String
+                let userdata = UserData().readimage(postDic["author"] as! String!)
+                if userdata.0 == "noset"{
+                    let currentUser = Database.child("user").child(postDic["author"] as! String!)
                     
-                    // print("Username: \(postUser)")
-                    maincell.usernameLabel.text = postUser
-                    }, withCancelBlock: { error in
-                        print(error.description)
-                })
+                    currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+                        print(snapshot)
+                        
+                        let postUser = snapshot.value!.objectForKey("username") as! String
+                        
+                        
+                        print("Username: \(postUser)")
+                        let storage = FIRStorage.storage()
+                        let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                        let autorsprofileRef = storageRef.child("\((self.postDic["author"] as? String))/profileimage.png")
+                        autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                            if error != nil {
+                                // Uh-oh, an error occurred!
+                                print(error)
+                            } else {
+                                
+                                
+                                let viewImg = data.flatMap(UIImage.init)
+                                let resizedSize = CGSizeMake(30, 30)
+                                UIGraphicsBeginImageContext(resizedSize)
+                                viewImg!.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+                                //                    var sv = cell.profileImage.superview!
+                                //                    sv.removeConstraints(sv.constraints)
+                                
+                                
+                                maincell.profileImageView.image = viewImg
+                                let data = UserData()
+                                data.id = self.postDic["author"] as! String!
+                                data.username =  postUser
+                                
+                                if let imagedata = UIImagePNGRepresentation(viewImg!) {
+                                    data.image = imagedata
+                                }
+                                
+                                data.setimage()
+                            }
+                        }
+                        maincell.usernameLabel.text = postUser
+                        
+                        }, withCancelBlock: { error in
+                            print(error.description)
+                    })
+                }else{
+                    let image: UIImage? = UIImage(data: userdata.2)
+                    maincell.usernameLabel.text = userdata.1
+                    maincell.profileImageView.image = image
+                    
+                }
+
                 return maincell
             }else if indexPath.row == 1{
                 let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
@@ -256,31 +305,123 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                     if postDictionary!["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
                         let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
                         replycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Database.child("user").child((postDic["author"] as? String)!)
+                        replycell.profileImageView.layer.cornerRadius=25
+                        replycell.profileImageView.clipsToBounds=true
+                        replycell.profileImageView.image = UIImage(named: "noimage.gif")!
                         
-                        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                            print(snapshot)
+                        let userdata = UserData().readimage(postDictionary!["author"] as? String)
+                        if userdata.0 == "noset"{
+                            let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
                             
-                            let postUser = snapshot.value!.objectForKey("username") as! String
-                            replycell.usernameLabel.text = postUser
-                            }, withCancelBlock: { error in
-                                print(error.description)
-                        })
+                            currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+                                print(snapshot)
+                                
+                                let postUser = snapshot.value!.objectForKey("username") as! String
+                                
+                                
+                                print("Username: \(postUser)")
+                                let storage = FIRStorage.storage()
+                                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                                let autorsprofileRef = storageRef.child("\(postDictionary!["author"] as? String)/profileimage.png")
+                                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                                    if error != nil {
+                                        // Uh-oh, an error occurred!
+                                        print(error)
+                                    } else {
+                                        
+                                        
+                                        let viewImg = data.flatMap(UIImage.init)
+                                        let resizedSize = CGSizeMake(30, 30)
+                                        UIGraphicsBeginImageContext(resizedSize)
+                                        viewImg!.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+                                        //                    var sv = cell.profileImage.superview!
+                                        //                    sv.removeConstraints(sv.constraints)
+                                        
+                                        
+                                        replycell.profileImageView.image = viewImg
+                                        let data = UserData()
+                                        data.id = (postDictionary!["author"] as? String)!
+                                        data.username =  postUser
+                                        
+                                        if let imagedata = UIImagePNGRepresentation(viewImg!) {
+                                            data.image = imagedata
+                                        }
+                                        
+                                        data.setimage()
+                                    }
+                                }
+                                replycell.usernameLabel.text = postUser
+                                
+                                }, withCancelBlock: { error in
+                                    print(error.description)
+                            })
+                        }else{
+                            let image: UIImage? = UIImage(data: userdata.2)
+                            replycell.usernameLabel.text = userdata.1
+                            replycell.profileImageView.image = image
+                            
+                        }
+
                         return replycell
                     }else{
                         let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
                         myreplycell.postLabel.text = postDictionary!["text"] as? String
-                        let currentUser = Database.child("user").child((postDic["author"] as? String)!)
-                        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                            print(snapshot)
+                        myreplycell.profileImageView.layer.cornerRadius=25
+                        myreplycell.profileImageView.clipsToBounds=true
+                        myreplycell.profileImageView.image = UIImage(named: "noimage.gif")!
+                        
+                        let userdata = UserData().readimage(postDictionary!["author"] as? String)
+                        if userdata.0 == "noset"{
+                            let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
                             
-                            let postUser = snapshot.value!.objectForKey("username") as! String
+                            currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+                                print(snapshot)
+                                
+                                let postUser = snapshot.value!.objectForKey("username") as! String
+                                
+                                
+                                print("Username: \(postUser)")
+                                let storage = FIRStorage.storage()
+                                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                                let autorsprofileRef = storageRef.child("\(postDictionary!["author"] as? String)/profileimage.png")
+                                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                                    if error != nil {
+                                        // Uh-oh, an error occurred!
+                                        print(error)
+                                    } else {
+                                        
+                                        
+                                        let viewImg = data.flatMap(UIImage.init)
+                                        let resizedSize = CGSizeMake(30, 30)
+                                        UIGraphicsBeginImageContext(resizedSize)
+                                        viewImg!.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+                                        //                    var sv = cell.profileImage.superview!
+                                        //                    sv.removeConstraints(sv.constraints)
+                                        
+                                        
+                                        myreplycell.profileImageView.image = viewImg
+                                        let data = UserData()
+                                        data.id = (postDictionary!["author"] as? String)!
+                                        data.username =  postUser
+                                        
+                                        if let imagedata = UIImagePNGRepresentation(viewImg!) {
+                                            data.image = imagedata
+                                        }
+                                        
+                                        data.setimage()
+                                    }
+                                }
+                                myreplycell.usernameLabel.text = postUser
+                                
+                                }, withCancelBlock: { error in
+                                    print(error.description)
+                            })
+                        }else{
+                            let image: UIImage? = UIImage(data: userdata.2)
+                            myreplycell.usernameLabel.text = userdata.1
+                            myreplycell.profileImageView.image = image
                             
-                            // print("Username: \(postUser)")
-                            myreplycell.usernameLabel.text = postUser
-                            }, withCancelBlock: { error in
-                                print(error.description)
-                        })
+                        }
                         return myreplycell
                     }
                 }else{
