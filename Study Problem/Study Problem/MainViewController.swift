@@ -33,7 +33,8 @@ class MainViewController: UIViewController {
         
         Database.child("post").observeEventType(.Value, withBlock: { snapshot in
             
-            // The snapshot is a current look at our jokes data.
+            // The snapshot is a current look at our jok
+          
             
             print(snapshot.value)
             
@@ -106,31 +107,7 @@ class MainViewController: UIViewController {
         date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         let change_date:NSDate = date_formatter.dateFromString(postdate)!
         let now = NSDate()
-        let cal = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-        let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
-        let components = cal.components(unitFlags, fromDate: change_date, toDate: now, options: NSCalendarOptions())
-        
-        
-        if components.year != 0{
-            cell.dateLabel.text = ("\(components.year)y")
-        }else if components.month != 0{
-            cell.dateLabel.text = ("\(components.month)mon")
-        }else if components.day != 0{
-            cell.dateLabel.text = ("\(components.day)d")
-        }else if components.hour != 0{
-            cell.dateLabel.text = ("\(components.hour)h")
-        }else if components.minute != 0{
-            cell.dateLabel.text = ("\(components.minute)m")
-        }else if components.second != 0{
-            cell.dateLabel.text = ("\(components.second)s")
-        }else{
-            cell.dateLabel.text = ("Just")
-        }
-        cell.textView.layer.borderWidth = 1.0
-        cell.textView.layer.cornerRadius = 5
-        cell.profileImage.layer.cornerRadius=25
-        cell.profileImage.clipsToBounds=true
-        cell.profileImage.image = UIImage(named: "noimage.gif")!
+        cell.dateLabel.text = now.offset(change_date)
         
         let userdata = UserData().readimage((postDictionary!["author"] as? String)!)
         if userdata.0 == "noset"{
