@@ -17,8 +17,6 @@ import RealmSwift
 class MainViewController: UIViewController {
     
     var Database = FIRDatabaseReference.init()
-    
-    
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
     @IBOutlet var tableView :UITableView!
@@ -98,7 +96,7 @@ class MainViewController: UIViewController {
         
         // Send the single joke to configureCell() in JokeCellTableViewCell.
         let postDictionary = post as? Dictionary<String, AnyObject>
-        cell.textView.text = postDictionary!["text"] as? String
+        
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!
         let postdate = postDictionary!["date"] as! String!
@@ -108,7 +106,7 @@ class MainViewController: UIViewController {
         let change_date:NSDate = date_formatter.dateFromString(postdate)!
         let now = NSDate()
         cell.dateLabel.text = now.offset(change_date)
-        
+        cell.textView.text = postDictionary!["text"] as? String
         let userdata = UserData().readimage((postDictionary!["author"] as? String)!)
         if userdata.0 == "noset"{
             let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)

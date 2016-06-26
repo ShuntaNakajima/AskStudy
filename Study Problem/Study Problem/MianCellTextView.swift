@@ -12,6 +12,15 @@ class MianCellTextView: UILabel {
     override func drawRect(rect: CGRect) {
         self.updateLayout()
     }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.updateLayout()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder:aDecoder)
+                self.updateLayout()
+    }
     func updateLayout(){
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 5
