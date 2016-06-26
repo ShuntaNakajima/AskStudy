@@ -10,7 +10,7 @@ import UIKit
 
 class postTableViewCell: UITableViewCell {
     
-    @IBOutlet var textView : UILabel!
+    @IBOutlet var textView : MianCellTextView!
     
     @IBOutlet var profileImage: UIImageView!
     

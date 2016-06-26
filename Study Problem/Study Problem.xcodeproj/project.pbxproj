@@ -33,13 +33,16 @@
 		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
 		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
 		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
+		BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */; };
+		BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */; };
+		BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */; };
+		BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */; };
 		BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* NSdateExtention.swift */; };
 		BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CF1D1F83E000033737 /* MianCellTextView.swift */; };
 		BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */; };
 		BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */; };
 		BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB801CE4AE720013C0DD /* Main.storyboard */; };
 		BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB831CE4AE720013C0DD /* Assets.xcassets */; };
-		BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */; };
 		BC54BB921CE4AE720013C0DD /* Study_ProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB911CE4AE720013C0DD /* Study_ProblemTests.swift */; };
 		BC54BB9D1CE4AE720013C0DD /* Study_ProblemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */; };
 		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
@@ -101,6 +104,10 @@
 		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
 		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
+		BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		BC5127CC1D1F81A900033737 /* NSdateExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSdateExtention.swift; sourceTree = "<group>"; };
 		BC5127CF1D1F83E000033737 /* MianCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MianCellTextView.swift; sourceTree = "<group>"; };
 		BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellUiimageViewClass.swift; sourceTree = "<group>"; };
@@ -108,7 +115,6 @@
 		BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC54BB811CE4AE720013C0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC54BB831CE4AE720013C0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC54BB861CE4AE720013C0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC54BB881CE4AE720013C0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC54BB8D1CE4AE720013C0DD /* Study ProblemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Study ProblemTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC54BB911CE4AE720013C0DD /* Study_ProblemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study_ProblemTests.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 		3940EE621CE824E800293067 /* Resorces */ = {
 			isa = PBXGroup;
 			children = (
+				BCF71A751D0D3F4700285D07 /* noimage.gif */,
 				BC1438071CE7364200448AC0 /* gazou.gif */,
 				BC1438151CE75B6600448AC0 /* 2.gif */,
 				BC1438131CE7575A00448AC0 /* 1.gif */,
@@ -232,11 +239,35 @@
 		BC16036E1CE85C8C00402577 /* PostTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				BC5127D11D1F858300033737 /* Class */,
 				BC16036A1CE85C8300402577 /* postTableViewCell.swift */,
 				BC16036B1CE85C8300402577 /* postTableViewCell.xib */,
 			);
 			name = PostTableViewCell;
+			sourceTree = "<group>";
+		};
+		BC46D6C61D1FA13C00F25E5B /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */,
+				BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */,
+				BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
+		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */,
+				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
+				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
+				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
+				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
+				BC1437E71CE6139400448AC0 /* MypostViewController.swift */,
+				BC1437E91CE613A700448AC0 /* JoinpostViewController.swift */,
+				BC1437EB1CE613B200448AC0 /* FollowViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		BC5127CE1D1F820B00033737 /* Extenstions */ = {
@@ -281,25 +312,19 @@
 		BC54BB7B1CE4AE720013C0DD /* Study Problem */ = {
 			isa = PBXGroup;
 			children = (
+				BC46D6C61D1FA13C00F25E5B /* Defaults */,
+				BC1437D11CE60E7400448AC0 /* User */,
+				BC1437D21CE60FED00448AC0 /* SlideMenu */,
+				BCF520B51CE9B7050027D8EA /* Cells */,
+				BC5127D11D1F858300033737 /* Class */,
 				BC5127CE1D1F820B00033737 /* Extenstions */,
 				BC1603651CE8563F00402577 /* Model */,
 				3940EE621CE824E800293067 /* Resorces */,
-				BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */,
-				BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */,
-				BC54BB801CE4AE720013C0DD /* Main.storyboard */,
-				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
-				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
-				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
-				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
-				BC1437E71CE6139400448AC0 /* MypostViewController.swift */,
-				BC1437E91CE613A700448AC0 /* JoinpostViewController.swift */,
-				BC1437EB1CE613B200448AC0 /* FollowViewController.swift */,
-				BCF71A751D0D3F4700285D07 /* noimage.gif */,
-				BCF520B51CE9B7050027D8EA /* Cells */,
-				BC1437D21CE60FED00448AC0 /* SlideMenu */,
-				BC1437D11CE60E7400448AC0 /* User */,
+				BC46D6CF1D1FA7C700F25E5B /* ViewControllers */,
 				BC54BB831CE4AE720013C0DD /* Assets.xcassets */,
-				BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */,
+				BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */,
+				BC54BB801CE4AE720013C0DD /* Main.storyboard */,
+				BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */,
 				BC54BB881CE4AE720013C0DD /* Info.plist */,
 				BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */,
 				BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */,
@@ -502,10 +527,12 @@
 				BCF71A761D0D3F4700285D07 /* noimage.gif in Resources */,
 				BC1438161CE75B6600448AC0 /* 2.gif in Resources */,
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
-				BC54BB871CE4AE720013C0DD /* LaunchScreen.storyboard in Resources */,
+				BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */,
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
+				BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */,
 				BC1438121CE74D4E00448AC0 /* MenusTableViewCell.xib in Resources */,
+				BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */,
 				BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */,
 				BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */,
 			);
@@ -595,6 +622,7 @@
 				BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,
 				BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */,
+				BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */,
 				BC1437EE1CE613CA00448AC0 /* SettingViewController.swift in Sources */,
 				BC1437E81CE6139400448AC0 /* MypostViewController.swift in Sources */,
 				BC1437E61CE6138900448AC0 /* PostViewController.swift in Sources */,
@@ -651,14 +679,6 @@
 				BC54BB811CE4AE720013C0DD /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BC54BB851CE4AE720013C0DD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BC54BB861CE4AE720013C0DD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
