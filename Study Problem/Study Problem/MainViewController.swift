@@ -5,7 +5,6 @@
 //  Created by nakajimashunta on 2016/05/13.
 //  Copyright © 2016年 ShuntaNakajima. All rights reserved.
 //
-
 import UIKit
 import SlideMenuControllerSwift
 import Firebase
@@ -13,14 +12,11 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import RealmSwift
-
 class MainViewController: UIViewController {
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
-    
     @IBOutlet var tableView :UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         Database = FIRDatabase.database().reference()
