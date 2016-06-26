@@ -172,6 +172,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             let newJoke: Dictionary<String, AnyObject> = [
                 "text": postText!,
                 "subject": subjectTextfield.text!,
+                "now" : true,
                 "reply":0,
                 "author": currentUserId,
                 "date": date_formatter.stringFromDate(NSDate())
