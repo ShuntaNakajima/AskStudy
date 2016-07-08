@@ -33,6 +33,8 @@
 		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
 		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
 		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
+		BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */; };
+		BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */; };
 		BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */; };
 		BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */; };
 		BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */; };
@@ -104,6 +106,8 @@
 		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
 		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
+		BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewClass.swift; sourceTree = "<group>"; };
+		BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewControllerTableView.swift; sourceTree = "<group>"; };
 		BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -245,6 +249,24 @@
 			name = PostTableViewCell;
 			sourceTree = "<group>";
 		};
+		BC25AFB41D2E7D5600A9F881 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
+				BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */ = {
+			isa = PBXGroup;
+			children = (
+				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
+				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
+			);
+			name = ViewpostViewCOntroller;
+			sourceTree = "<group>";
+		};
 		BC46D6C61D1FA13C00F25E5B /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,8 +282,8 @@
 			children = (
 				BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */,
 				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
-				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
-				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
+				BC25AFB41D2E7D5600A9F881 /* MainViewController */,
+				BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
 				BC1437E71CE6139400448AC0 /* MypostViewController.swift */,
 				BC1437E91CE613A700448AC0 /* JoinpostViewController.swift */,
@@ -634,9 +656,11 @@
 				BC1437F01CE6140F00448AC0 /* NoticeViewController.swift in Sources */,
 				BC1438111CE74D4E00448AC0 /* MenusTableViewCell.swift in Sources */,
 				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,
+				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,
 				BC1437D61CE610C600448AC0 /* LeftViewController.swift in Sources */,
 				BC1437EC1CE613B200448AC0 /* FollowViewController.swift in Sources */,
 				BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */,
+				BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */,
 				BC1603671CE8569200402577 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
