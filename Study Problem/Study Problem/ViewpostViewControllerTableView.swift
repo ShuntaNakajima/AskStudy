@@ -36,7 +36,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             return maincell
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
             let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
-            if replyImages != []{
+            if replyImages.count == replys.count{
                 replycell.profileImageView.image = self.replyImages[indexPath.row - 2]
             }
             replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
@@ -52,7 +52,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                 myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
             })
-            if replyImages != []{
+            if replyImages.count == replys.count{
                 myreplycell.profileImageView.image = self.replyImages[indexPath.row - 2]
             }
             return myreplycell

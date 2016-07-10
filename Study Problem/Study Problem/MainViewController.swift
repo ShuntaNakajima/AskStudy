@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
                             print(error)
                         } else {
                             let viewImg = data.flatMap(UIImage.init)
-                            self.images.insert(viewImg!,atIndex: 0)
+                            self.images.append(viewImg!)
                             self.tableView.reloadData()
                         }
                     }

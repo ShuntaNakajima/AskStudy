@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        UINavigationBar.appearance().barTintColor = UIColor(red:153, green:250,blue:150,alpha:1)
+        
 
         SlideMenuOptions.leftViewWidth = 220
         // Override point for custoxmization after application launch.
@@ -48,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
-       // slideMenuController.delegate = mainViewController
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
