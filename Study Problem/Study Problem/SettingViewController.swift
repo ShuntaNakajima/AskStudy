@@ -16,7 +16,7 @@ import SVProgressHUD
 
 
 
-class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  ,RSKImageCropViewControllerDelegate, RSKImageCropViewControllerDataSource{
+class SettingViewController: UITableViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate  ,RSKImageCropViewControllerDelegate, RSKImageCropViewControllerDataSource{
     
     //var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     @IBOutlet var profileimage:UIButton!
@@ -30,7 +30,6 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
         profileRef = storageRef.child("\(FIRAuth.auth()?.currentUser!.uid as String!)/profileimage.png")
         profileReforig = storageRef.child("\(FIRAuth.auth()?.currentUser!.uid as String!)/profileimageorig.png")
@@ -75,17 +74,21 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
         self.presentViewController(viewController, animated: true, completion: nil)
     }
     @IBAction func profileimageeditButton(){
-        let sheet: UIActionSheet = UIActionSheet()
-        sheet.delegate = self
-        sheet.addButtonWithTitle("Cancel")
-        sheet.addButtonWithTitle("Take a photo")
-        sheet.addButtonWithTitle("Choose From Liblary")
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .ActionSheet)
+        let cameraAction = UIAlertAction(title: "Take a photo", style: .Default) {
+            action in self.openCamera()
+        }
+        let libraryAction = UIAlertAction(title: "Choose from library", style: .Default) {
+            action in self.openLibrary()
+        }
+        let cancelAction = UIAlertAction(title: "Choose from library", style: .Cancel) {
+            action in
+        }
         
-        // キャンセルボタンのindexを指定
-        sheet.cancelButtonIndex = 0
-        
-        // UIActionSheet表示
-        sheet.showInView(self.view)
+        alertController.addAction(cameraAction)
+        alertController.addAction(libraryAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
         // イメージ表示
@@ -107,7 +110,7 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
     }
     func imageCropViewController(controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
         let viewImg = croppedImage
-        let resizedSize = CGSizeMake(60, 60)
+        let resizedSize = CGSizeMake(50, 50)
         UIGraphicsBeginImageContext(resizedSize)
         viewImg.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -209,21 +212,12 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
     func imageCropViewControllerCustomMovementRect(controller: RSKImageCropViewController) -> CGRect {
         return controller.maskRect
     }
-    func actionSheet(sheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        print("index %d %@", buttonIndex, sheet.buttonTitleAtIndex(buttonIndex))
-        if buttonIndex == 1{
-            openCamera()
-        }else if buttonIndex == 2{
-            
-            openLibrary()
-        }
-    }
     
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             let controller = UIImagePickerController()
             controller.delegate = self
-            controller.sourceType = UIImagePickerControllerSourceType.Camera
+            controller.sourceType = .Camera
             self.presentViewController(controller, animated: true, completion: nil)
         }
     }
@@ -231,7 +225,7 @@ class SettingViewController: UITableViewController,UIActionSheetDelegate, UIImag
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             let controller = UIImagePickerController()
             controller.delegate = self
-            controller.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            controller.sourceType = .PhotoLibrary
             self.presentViewController(controller, animated: true, completion: nil)
         }
         

@@ -12,48 +12,55 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import RealmSwift
+
 class MainViewController: UIViewController {
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
+    var images = [UIImage]()
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier:"PostCell")
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         Database.child("post").observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
             self.posts = []
-            let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
-            self.tableView.registerNib(nib, forCellReuseIdentifier:"PostCell")
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         postDictionary["key"] = key
                         self.posts.insert(postDictionary, atIndex: 0)
-                        self.tableView.reloadData()
+                    }
+                    self.tableView.reloadData()
+                }
+                self.images = []
+                for i in self.posts{
+                    let storage = FIRStorage.storage()
+                    let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                    let autorsprofileRef = storageRef.child("\((i["author"] as? String)!)/profileimage.png")
+                    autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                        if error != nil {
+                            print(error)
+                        } else {
+                            let viewImg = data.flatMap(UIImage.init)
+                            self.images.insert(viewImg!,atIndex: 0)
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
         })
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! postTableViewCell
-        return cell
-    }
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "viewPost") {
             let vpVC: ViewpostViewController = (segue.destinationViewController as? ViewpostViewController)!

@@ -17,6 +17,8 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     var newpost : FIRDatabase!
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
+    var postimage = UIImage()
+    var replyImages = [UIImage]()
     var toreply : String!
     var keyboradheight : CGFloat!
     var myTextView: UITextView!
@@ -56,12 +58,23 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
         Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
             if snapshot.children.allObjects is [FIRDataSnapshot] {
-                print(snapshot)
                 if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                     let key = snapshot.key
                     postDictionary["key"] = key
                     self.postDic = postDictionary
                     self.tableView.reloadData()
+                        if self.postDic["author"] as? String != nil{
+                            let storage = FIRStorage.storage()
+                            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                            let autorsprofileRef = storageRef.child("\(self.postDic["author"] as! String)/profileimage.png")
+                            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                                if error != nil {
+                                } else {
+                                    self.postimage = data.flatMap(UIImage.init)!
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        }
                 }
             }
         })
@@ -74,6 +87,20 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                         postDictionary["key"] = key
                         self.replys.append(postDictionary)
                         self.tableView.reloadData()
+                        for i in self.replys{
+                        if i["author"] as? String != nil{
+                            let storage = FIRStorage.storage()
+                            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                            let autorsprofileRef = storageRef.child("\(i["author"] as! String)/profileimage.png")
+                            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                                if error != nil {
+                                } else {
+                              self.replyImages.insert(data.flatMap(UIImage.init)!,atIndex: 0)
+                                    self.tableView.reloadData()
+                                }
+                            }
+                            }
+                        }
                     }
                 }
             }
@@ -115,81 +142,6 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             replaycount = replaycount + 1
             let firebasenewreplyscount = Database.child("post/" + post + "/reply")
             firebasenewreplyscount.setValue(replaycount)
-        }
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return replys.count + 2
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 1{
-            let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
-            itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
-            itemcell.DateLable.text = postDic["date"] as! String!
-            return itemcell
-        }
-        if indexPath.row == 0{
-            let maincell = tableView.dequeueReusableCellWithIdentifier("postMainCell") as! PostMainTableViewCell
-                if postDic["author"] as? String != nil{
-                    maincell.postLabel!.text = postDic["text"] as! String!
-                    let currentUser = Database.child("user").child(postDic["author"] as! String)
-                    currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                        maincell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
-                    })
-                let storage = FIRStorage.storage()
-                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-                let autorsprofileRef = storageRef.child("\(postDic["author"] as! String)/profileimage.png")
-                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                    if error != nil {
-                        print(error)
-                    } else {
-                        maincell.profileImageView.image = data.flatMap(UIImage.init)                    }
-                }
-            }
-            return maincell
-        }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
-            let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
-            if postDic["author"] as? String != nil{
-                let storage = FIRStorage.storage()
-                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-                let autorsprofileRef = storageRef.child("\(replys[indexPath.row - 2]["author"] as! String)/profileimage.png")
-                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                    if error != nil {
-                    } else {
-                        replycell.profileImageView.image = data.flatMap(UIImage.init)                    }
-                }
-            }
-            replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
-            let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
-            currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                replycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
-            })
-            return replycell
-        }else{
-            let myreplycell = tableView.dequeueReusableCellWithIdentifier("MyReplysCell") as! MyReplysTableViewCell
-            if postDic["author"] as? String != nil{
-                let storage = FIRStorage.storage()
-                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-                let autorsprofileRef = storageRef.child("\(replys[indexPath.row - 2]["author"] as! String)/profileimage.png")
-                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                    if error != nil {
-                    } else {
-                        myreplycell.profileImageView.image = data.flatMap(UIImage.init)                    }
-                }
-            }
-            myreplycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
-            let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
-            currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
-            })
-            return myreplycell
-        }
-    }
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        if indexPath.row == 0{
-            toreply = postDic["author"] as! String
-        }else{
-            toreply = replys[indexPath.row - 2]["author"] as! String
-            myTextView.becomeFirstResponder()
         }
     }
     func textViewDidChange(textView: UITextView){

@@ -25,11 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UINavigationBar.appearance().barTintColor = UIColor(red:153, green:250,blue:150,alpha:1)
+
         SlideMenuOptions.leftViewWidth = 220
         // Override point for custoxmization after application launch.
         // create viewController code...
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
+        
         //FIRStorage.storage()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
