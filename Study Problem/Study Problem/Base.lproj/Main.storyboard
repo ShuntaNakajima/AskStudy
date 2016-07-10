@@ -508,10 +508,10 @@
             </objects>
             <point key="canvasLocation" x="1148" y="408"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Color Navigation View Controller-->
         <scene sceneID="Jhq-rn-N7f">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lMt-Mr-ado" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lMt-Mr-ado" customClass="colorNavigationViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zbj-NH-3bR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -606,7 +606,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hnp-cy-kFi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.6470588235294118" green="0.98039215686274506" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.061523099774187906" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

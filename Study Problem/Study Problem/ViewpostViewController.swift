@@ -81,6 +81,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.replys = []
+                self.replyImages = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
@@ -95,7 +96,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                             autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
                                 if error != nil {
                                 } else {
-                              self.replyImages.insert(data.flatMap(UIImage.init)!,atIndex: 0)
+                              self.replyImages.append(data.flatMap(UIImage.init)!)
                                     self.tableView.reloadData()
                                 }
                             }
