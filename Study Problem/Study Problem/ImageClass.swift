@@ -15,7 +15,6 @@ class UserData: Object {
     dynamic var id:String = ""
     dynamic var username:String = ""
     dynamic var image = NSData()
-
     
     func setimage(){
         let realm = try! Realm()
@@ -24,7 +23,6 @@ class UserData: Object {
         }
     }
    
-    
     func readimage(user:String!) -> (String!,String!, NSData){
         let realm = try! Realm()
         if let user = realm.objects(UserData).filter("id == '\(user)'").first{
