@@ -28,8 +28,8 @@ class MainViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         Database.child("post").observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
-            self.posts = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.images = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
@@ -38,7 +38,6 @@ class MainViewController: UIViewController {
                     }
                     self.tableView.reloadData()
                 }
-                self.images = []
                 for i in self.posts{
                     let storage = FIRStorage.storage()
                     let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")

@@ -33,6 +33,7 @@
 		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
 		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
 		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
+		BC1FB6E91D321D8A004CE534 /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1FB6E81D321D8A004CE534 /* noimage.gif */; };
 		BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */; };
 		BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */; };
 		BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */; };
@@ -58,7 +59,7 @@
 		BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */; };
 		BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */; };
 		BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF71A731D0D25FA00285D07 /* ImageClass.swift */; };
-		BCF71A761D0D3F4700285D07 /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimage.gif */; };
+		BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimages.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
 		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
+		BC1FB6E81D321D8A004CE534 /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
 		BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewClass.swift; sourceTree = "<group>"; };
 		BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewControllerTableView.swift; sourceTree = "<group>"; };
 		BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReplysTableViewCell.swift; sourceTree = "<group>"; };
 		BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplysTableViewCell.xib; sourceTree = "<group>"; };
 		BCF71A731D0D25FA00285D07 /* ImageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClass.swift; sourceTree = "<group>"; };
-		BCF71A751D0D3F4700285D07 /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
+		BCF71A751D0D3F4700285D07 /* noimages.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimages.gif; sourceTree = "<group>"; };
 		C53EC0BD776941FBF25FFAE2 /* Pods-Study Problem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Problem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem.release.xcconfig"; sourceTree = "<group>"; };
 		CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Problem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -181,7 +183,8 @@
 		3940EE621CE824E800293067 /* Resorces */ = {
 			isa = PBXGroup;
 			children = (
-				BCF71A751D0D3F4700285D07 /* noimage.gif */,
+				BC1FB6E81D321D8A004CE534 /* noimage.gif */,
+				BCF71A751D0D3F4700285D07 /* noimages.gif */,
 				BC1438071CE7364200448AC0 /* gazou.gif */,
 				BC1438151CE75B6600448AC0 /* 2.gif */,
 				BC1438131CE7575A00448AC0 /* 1.gif */,
@@ -546,7 +549,8 @@
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
 				BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */,
-				BCF71A761D0D3F4700285D07 /* noimage.gif in Resources */,
+				BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */,
+				BC1FB6E91D321D8A004CE534 /* noimage.gif in Resources */,
 				BC1438161CE75B6600448AC0 /* 2.gif in Resources */,
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
 				BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */,

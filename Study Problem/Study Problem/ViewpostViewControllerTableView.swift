@@ -31,7 +31,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                     maincell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
                 })
-             maincell.imageView!.image = self.postimage
+             maincell.profileImageView.image = self.postimage
             }
             return maincell
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
@@ -52,6 +52,9 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                 myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
             })
+            if replyImages != []{
+                myreplycell.profileImageView.image = self.replyImages[indexPath.row - 2]
+            }
             return myreplycell
         }
     }

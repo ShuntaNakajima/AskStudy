@@ -36,7 +36,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             }, withCancelBlock: { error in
                 print(error.description)
         })
-    if images != []{
+    if posts.count == images.count{
         cell.profileImage.image = images[indexPath.row]
     }
         return cell
