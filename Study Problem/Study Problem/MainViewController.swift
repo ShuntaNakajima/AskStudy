@@ -27,31 +27,16 @@ class MainViewController: UIViewController {
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         Database.child("post").observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
+            self.images = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                self.images = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         postDictionary["key"] = key
                         self.posts.insert(postDictionary, atIndex: 0)
                     }
-                    self.tableView.reloadData()
-                }
-                for i in self.posts{
-                    let storage = FIRStorage.storage()
-                    let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-                    let autorsprofileRef = storageRef.child("\((i["author"] as? String)!)/profileimage.png")
-                    autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                        if error != nil {
-                            print(error)
-                        } else {
-                            let viewImg = data.flatMap(UIImage.init)
-                            self.images.append(viewImg!)
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
+            }
+                self.tableView.reloadData()
             }
         })
         
