@@ -31,14 +31,44 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                     maincell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
                 })
-             maincell.profileImageView.image = self.postimage
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                    var viewImg = UIImage!()
+                    let storage = FIRStorage.storage()
+                    let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                    let autorsprofileRef = storageRef.child("\((self.postDic["author"] as? String)!)/profileimage.png")
+                    autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                        if error != nil {
+                            print(error)
+                        } else {
+                            viewImg = data.flatMap(UIImage.init)
+                            dispatch_async(dispatch_get_main_queue(), {
+                                maincell.profileImageView.image = viewImg;
+                                maincell.layoutSubviews()
+                            });
+                        }
+                    }
+                });
             }
             return maincell
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
             let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
-            if replyImages.count == replys.count{
-                replycell.profileImageView.image = self.replyImages[indexPath.row - 2]
-            }
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                var viewImg = UIImage!()
+                let storage = FIRStorage.storage()
+                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
+                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        viewImg = data.flatMap(UIImage.init)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            replycell.profileImageView.image = viewImg;
+                            replycell.layoutSubviews()
+                        });
+                    }
+                }
+            });
             if postDic["author"] as! String == FIRAuth.auth()?.currentUser!.uid{
                 replycell.setBestAnser.hidden = false
             }else{
@@ -57,9 +87,23 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                 myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
             })
-            if replyImages.count == replys.count{
-                myreplycell.profileImageView.image = self.replyImages[indexPath.row - 2]
-            }
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                var viewImg = UIImage!()
+                let storage = FIRStorage.storage()
+                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
+                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        viewImg = data.flatMap(UIImage.init)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            myreplycell.profileImageView.image = viewImg;
+                            myreplycell.layoutSubviews()
+                        });
+                    }
+                }
+            });
             return myreplycell
         }
     }

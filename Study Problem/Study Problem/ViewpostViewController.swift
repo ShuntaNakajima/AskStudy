@@ -17,8 +17,6 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     var newpost : FIRDatabase!
     var replys = [Dictionary<String, AnyObject>]()
     var postDic = Dictionary<String, AnyObject>()
-    var postimage = UIImage()
-    var replyImages = [UIImage]()
     var toreply : String!
     var keyboradheight : CGFloat!
     var myTextView: UITextView!
@@ -63,47 +61,19 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                     postDictionary["key"] = key
                     self.postDic = postDictionary
                     self.tableView.reloadData()
-                        if self.postDic["author"] as? String != nil{
-                            let storage = FIRStorage.storage()
-                            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-                            let autorsprofileRef = storageRef.child("\(self.postDic["author"] as! String)/profileimage.png")
-                            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                                if error != nil {
-                                } else {
-                                    self.postimage = data.flatMap(UIImage.init)!
-                                    self.tableView.reloadData()
-                                }
-                            }
-                        }
                 }
             }
         })
         Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                self.replys = []
-                self.replyImages = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         postDictionary["key"] = key
                         self.replys.append(postDictionary)
-                        self.tableView.reloadData()
-                        for i in self.replys{
-                        if i["author"] as? String != nil{
-                            let storage = FIRStorage.storage()
-                            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-                            let autorsprofileRef = storageRef.child("\(i["author"] as! String)/profileimage.png")
-                            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-                                if error != nil {
-                                } else {
-                              self.replyImages.append(data.flatMap(UIImage.init)!)
-                                    self.tableView.reloadData()
-                                }
-                            }
-                            }
-                        }
                     }
                 }
+                self.tableView.reloadData()
             }
         })
     }

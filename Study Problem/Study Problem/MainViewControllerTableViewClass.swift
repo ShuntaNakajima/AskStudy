@@ -36,9 +36,23 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             }, withCancelBlock: { error in
                 print(error.description)
         })
-    if posts.count == images.count{
-        cell.profileImage.image = images[indexPath.row]
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        var viewImg = UIImage!()
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+        let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+        autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                viewImg = data.flatMap(UIImage.init)
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.profileImage.image = viewImg;
+                    cell.layoutSubviews()
+                });
+            }
+        }
+         });
         return cell
     }
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
