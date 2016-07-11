@@ -39,6 +39,11 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             if replyImages.count == replys.count{
                 replycell.profileImageView.image = self.replyImages[indexPath.row - 2]
             }
+            if postDic["author"] as! String == FIRAuth.auth()?.currentUser!.uid{
+                replycell.setBestAnser.hidden = false
+            }else{
+                replycell.setBestAnser.hidden = true
+            }
             replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
             let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
