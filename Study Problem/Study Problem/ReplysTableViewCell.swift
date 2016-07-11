@@ -16,6 +16,8 @@ class ReplysTableViewCell: UITableViewCell {
     
     @IBOutlet var postLabel:UILabel!
     
+    @IBOutlet var setBestAnser:UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
