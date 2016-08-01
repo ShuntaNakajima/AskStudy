@@ -10,8 +10,7 @@ import UIKit
 
 class ReplysTableViewCell: UITableViewCell {
     
-    @IBOutlet var profileImageView : UIImageView!
-    
+    @IBOutlet var profileImageView : MainCellUiimageViewClass!    
     @IBOutlet var usernameLabel:UILabel!
     
     @IBOutlet var postLabel:UILabel!
