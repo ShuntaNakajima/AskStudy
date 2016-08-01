@@ -12,7 +12,7 @@ class postTableViewCell: UITableViewCell {
     
     @IBOutlet var textView : MianCellTextView!
     
-    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var profileImage: MainCellUiimageViewClass!
     
     @IBOutlet var profileLabel: UILabel!
     

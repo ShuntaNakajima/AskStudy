@@ -47,7 +47,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             } else {
                 viewImg = data.flatMap(UIImage.init)
                 dispatch_async(dispatch_get_main_queue(), {
-                    cell.profileImage.image = viewImg;
+                    cell.profileImage.setBackgroundImage(viewImg!, forState: UIControlState.Normal)
                     cell.layoutSubviews()
                 });
             }

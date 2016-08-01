@@ -29,10 +29,10 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 maincell.postLabel!.text = postDic["text"] as! String!
                 let currentUser = Database.child("user").child(postDic["author"] as! String)
                 currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                    maincell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
+                    maincell.usernameLabel.text = snapshot.value!.objectForKey("username") as? String
                 })
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                    var viewImg = UIImage!()
+                    var viewImg = UIImage()
                     let storage = FIRStorage.storage()
                     let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
                     let autorsprofileRef = storageRef.child("\((self.postDic["author"] as? String)!)/profileimage.png")
@@ -40,9 +40,9 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                         if error != nil {
                             print(error)
                         } else {
-                            viewImg = data.flatMap(UIImage.init)
+                            viewImg = data.flatMap(UIImage.init)!
                             dispatch_async(dispatch_get_main_queue(), {
-                                maincell.profileImageView.image = viewImg;
+                                maincell.profileImageView.setBackgroundImage(viewImg, forState: UIControlState.Normal)
                                 maincell.layoutSubviews()
                             });
                         }
@@ -53,7 +53,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
             let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                var viewImg = UIImage!()
+                var viewImg = UIImage()
                 let storage = FIRStorage.storage()
                 let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
                 let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
@@ -61,15 +61,15 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                     if error != nil {
                         print(error)
                     } else {
-                        viewImg = data.flatMap(UIImage.init)
+                        viewImg = data.flatMap(UIImage.init)!
                         dispatch_async(dispatch_get_main_queue(), {
-                            replycell.profileImageView.image = viewImg;
+                            replycell.profileImageView.setBackgroundImage(viewImg, forState: UIControlState.Normal)
                             replycell.layoutSubviews()
                         });
                     }
                 }
             });
-            if postDic["author"] as! String == FIRAuth.auth()?.currentUser!.uid{
+            if postDic["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
                 replycell.setBestAnser.hidden = false
             }else{
                 replycell.setBestAnser.hidden = true
@@ -77,7 +77,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
             let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                replycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
+                replycell.usernameLabel.text = snapshot.value!.objectForKey("username") as? String
             })
             return replycell
         }else{
@@ -85,10 +85,10 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             myreplycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
             let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-                myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as! String
+                myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as? String
             })
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                var viewImg = UIImage!()
+                var viewImg = UIImage()
                 let storage = FIRStorage.storage()
                 let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
                 let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
@@ -96,9 +96,9 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                     if error != nil {
                         print(error)
                     } else {
-                        viewImg = data.flatMap(UIImage.init)
+                        viewImg = data.flatMap(UIImage.init)!
                         dispatch_async(dispatch_get_main_queue(), {
-                            myreplycell.profileImageView.image = viewImg;
+                            myreplycell.profileImageView.setBackgroundImage(viewImg, forState: UIControlState.Normal)
                             myreplycell.layoutSubviews()
                         });
                     }

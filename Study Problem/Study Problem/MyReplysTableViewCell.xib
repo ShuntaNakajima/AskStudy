@@ -25,30 +25,28 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="veA-BV-g2G" customClass="MainCellUiimageViewClass" customModule="Study_Problem" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL4-W5-HmZ" customClass="MainCellUiimageViewClass" customModule="Study_Problem" customModuleProvider="target">
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="smz-CB-gpc"/>
-                            <constraint firstAttribute="width" constant="50" id="yQW-eI-PnU"/>
+                            <constraint firstAttribute="width" constant="50" id="Uca-yF-o9V"/>
+                            <constraint firstAttribute="height" constant="50" id="pEG-If-yAw"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="CDc-3r-oqg" secondAttribute="bottom" constant="3.5" id="3EI-xy-2L6"/>
+                    <constraint firstItem="eL4-W5-HmZ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="128" id="7jt-bs-Evz"/>
                     <constraint firstItem="YTC-wI-sXr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="D7O-AN-pXd"/>
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="8" id="L1s-ce-S3F"/>
+                    <constraint firstItem="eL4-W5-HmZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WEX-pA-03y"/>
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="g7P-3C-34M"/>
-                    <constraint firstItem="veA-BV-g2G" firstAttribute="leading" secondItem="YTC-wI-sXr" secondAttribute="trailing" constant="8" id="gwZ-1w-HAm"/>
-                    <constraint firstItem="veA-BV-g2G" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="1" id="hhc-zT-z81"/>
                     <constraint firstItem="YTC-wI-sXr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iG1-jw-nN0"/>
-                    <constraint firstItem="veA-BV-g2G" firstAttribute="leading" secondItem="CDc-3r-oqg" secondAttribute="trailing" constant="8" id="kmO-4b-Sm2"/>
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="8" id="lqK-8k-hvC"/>
-                    <constraint firstItem="veA-BV-g2G" firstAttribute="leading" secondItem="CDc-3r-oqg" secondAttribute="trailing" constant="8" id="t7X-GJ-d17"/>
-                    <constraint firstItem="veA-BV-g2G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="zk7-je-l8h"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="postLabel" destination="CDc-3r-oqg" id="ucq-JW-xp2"/>
-                <outlet property="profileImageView" destination="veA-BV-g2G" id="rSz-E2-NuO"/>
+                <outlet property="profileImageView" destination="eL4-W5-HmZ" id="IzF-ah-Dpw"/>
                 <outlet property="usernameLabel" destination="YTC-wI-sXr" id="7In-JV-tvn"/>
             </connections>
         </tableViewCell>

@@ -52,6 +52,8 @@
 		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
 		BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */; };
 		BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */; };
+		BC8EF8BF1D4F15C700B353F3 /* userDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EF8BE1D4F15C700B353F3 /* userDetailView.swift */; };
+		BC8EF8C11D4F162200B353F3 /* userDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8EF8C01D4F162200B353F3 /* userDetailView.xib */; };
 		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
 		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
@@ -133,6 +135,8 @@
 		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
 		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
 		BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC8EF8BE1D4F15C700B353F3 /* userDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userDetailView.swift; sourceTree = "<group>"; };
+		BC8EF8C01D4F162200B353F3 /* userDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userDetailView.xib; sourceTree = "<group>"; };
 		BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Study Problem-Bridging-Header.h"; sourceTree = "<group>"; };
 		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 				BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */,
 				BC5127CF1D1F83E000033737 /* MianCellTextView.swift */,
 				BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */,
+				BC8EF8BE1D4F15C700B353F3 /* userDetailView.swift */,
+				BC8EF8C01D4F162200B353F3 /* userDetailView.xib */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
 				BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */,
 				BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */,
+				BC8EF8C11D4F162200B353F3 /* userDetailView.xib in Resources */,
 				BC1FB6E91D321D8A004CE534 /* noimage.gif in Resources */,
 				BC1438161CE75B6600448AC0 /* 2.gif in Resources */,
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
@@ -664,6 +671,7 @@
 				BC1437F01CE6140F00448AC0 /* NoticeViewController.swift in Sources */,
 				BC1438111CE74D4E00448AC0 /* MenusTableViewCell.swift in Sources */,
 				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,
+				BC8EF8BF1D4F15C700B353F3 /* userDetailView.swift in Sources */,
 				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,
 				BC1437D61CE610C600448AC0 /* LeftViewController.swift in Sources */,
 				BC1437EC1CE613B200448AC0 /* FollowViewController.swift in Sources */,
