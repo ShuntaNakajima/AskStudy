@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
+    var segueUser = ""
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,19 +39,24 @@ class MainViewController: UIViewController {
                 self.tableView.reloadData()
             }
         })
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "viewPost") {
             let vpVC: ViewpostViewController = (segue.destinationViewController as? ViewpostViewController)!
             vpVC.post = selectpost
         }
+        
     }
     @IBAction func test(){
         self.slideMenuController()?.openLeft()
+    }
+    func showUserData(sender:UIButton){
+        let row = sender.tag
+      segueUser = posts[row]["author"] as! String
+        let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
+        UDMC.UserKey = segueUser
     }
 }

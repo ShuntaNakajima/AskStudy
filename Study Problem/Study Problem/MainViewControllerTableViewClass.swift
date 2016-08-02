@@ -53,6 +53,8 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             }
         }
          });
+    cell.profileImage.tag = indexPath.row
+    cell.profileImage.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
         return cell
     }
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
