@@ -66,6 +66,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         })
         Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.replys = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key

@@ -17,7 +17,6 @@ class MainViewController: UIViewController {
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
-    var images = [UIImage]()
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +26,8 @@ class MainViewController: UIViewController {
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         Database.child("post").observeEventType(.Value, withBlock: { snapshot in
-            self.images = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.posts = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
