@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="144.5"/>
+                <frame key="frameInset" width="320" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="replys" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSV-1e-kmy">
@@ -57,6 +57,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="no2-6P-cnc">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="189" id="9mr-eO-EPb"/>
+                            <constraint firstAttribute="height" constant="23" id="t9x-hS-27S"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -67,7 +71,7 @@
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="8" id="2TY-5g-ddc"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="59" id="33c-95-AHY"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="-3" id="4Yi-9P-Hmc"/>
-                    <constraint firstItem="no2-6P-cnc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-45" id="74B-3w-vWm"/>
+                    <constraint firstItem="no2-6P-cnc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-57" id="74B-3w-vWm"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="-3" id="774-PX-8Hi"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="8" id="BHT-dE-ASt"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="no2-6P-cnc" secondAttribute="bottom" constant="21" id="IMD-LD-Hug"/>
