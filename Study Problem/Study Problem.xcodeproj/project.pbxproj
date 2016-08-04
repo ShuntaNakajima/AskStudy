@@ -45,6 +45,7 @@
 		BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */; };
 		BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */; };
 		BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */; };
+		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */; };
 		BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* NSdateExtention.swift */; };
 		BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CF1D1F83E000033737 /* MianCellTextView.swift */; };
 		BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */; };
@@ -124,6 +125,7 @@
 		BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
+		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonClass.swift; sourceTree = "<group>"; };
 		BC5127CC1D1F81A900033737 /* NSdateExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSdateExtention.swift; sourceTree = "<group>"; };
 		BC5127CF1D1F83E000033737 /* MianCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MianCellTextView.swift; sourceTree = "<group>"; };
 		BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellUiimageViewClass.swift; sourceTree = "<group>"; };
@@ -293,6 +295,8 @@
 		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */,
+				BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */,
 				BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */,
 				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
 				BC25AFB41D2E7D5600A9F881 /* MainViewController */,
@@ -321,8 +325,7 @@
 				BC32D1271D4F913D00086026 /* CustomPresentationController.swift */,
 				BC5127CF1D1F83E000033737 /* MianCellTextView.swift */,
 				BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */,
-				BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */,
-				BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */,
+				BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */,
+				BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */,
 				BC1437F81CE6192A00448AC0 /* ExSlideMenuController.swift in Sources */,

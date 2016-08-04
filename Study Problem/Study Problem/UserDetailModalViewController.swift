@@ -14,18 +14,16 @@ import FirebaseStorage
 
 class UserDetailModalViewController: UIViewController {
 var UserKey = ""
-    @IBOutlet var ProfileImageButton:UIButton!
+    @IBOutlet var ProfileImageButton:ProfileImageButtonClass!
     @IBOutlet var ProfileLabel:UILabel!
+    @IBOutlet var ExitButton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ExitButton.layer.cornerRadius=15
+        ExitButton.layer.masksToBounds=true
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print(UserKey)
-        ProfileImageButton.layer.cornerRadius=40
-        ProfileImageButton.layer.masksToBounds=true
-        ProfileImageButton.setTitle("", forState: UIControlState.Normal)
-        ProfileImageButton.setBackgroundImage(UIImage(named: "noimage.gif")!, forState: .Normal)
          let Database = FIRDatabase.database().reference()
         let User = Database.child("user").child(UserKey)
         User.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
@@ -55,5 +53,7 @@ var UserKey = ""
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    @IBAction func ExitButtonPushed(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
