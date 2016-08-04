@@ -11,11 +11,9 @@ import UIKit
 class ProfileImageButtonClass: UIButton{
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addTarget(self, action: "showUser:", forControlEvents: .TouchUpInside)
         self.updateLayout()
     }
     override func awakeFromNib() {
-        self.addTarget(self, action: "showUser:", forControlEvents: .TouchUpInside)
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

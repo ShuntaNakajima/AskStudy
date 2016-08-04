@@ -17,10 +17,17 @@ var UserKey = ""
     @IBOutlet var ProfileImageButton:ProfileImageButtonClass!
     @IBOutlet var ProfileLabel:UILabel!
     @IBOutlet var ExitButton:UIButton!
+    @IBOutlet var FollowButton:FollowButtonClass!
+    @IBOutlet var FollowIngButton:UIButton!
+    @IBOutlet var FollowerButton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         ExitButton.layer.cornerRadius=15
         ExitButton.layer.masksToBounds=true
+        FollowIngButton.layer.cornerRadius=10
+    FollowIngButton.layer.masksToBounds=true
+        FollowerButton.layer.cornerRadius=10
+        FollowerButton.layer.masksToBounds=true
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,5 +62,8 @@ var UserKey = ""
     }
     @IBAction func ExitButtonPushed(){
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func Follow(){
+            FollowButtonClass().follow(UserKey)
     }
 }
