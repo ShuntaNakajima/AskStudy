@@ -30,9 +30,60 @@ class FollowButtonClass: UIButton {
     }
     func follow(uid:String!){
         Database = FIRDatabase.database().reference()
+        var followingUserfollower = 0
+        var myFollow = 0
+        Database.child("user/" + uid + "/followers").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot.children as? FIRDataSnapshot {
+                followingUserfollower = (snap as! Int)
+            }
+        })
+        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot.children as? FIRDataSnapshot {
+                myFollow = (snap as! Int)
+            }
+        })
         let newFollowChild = Database.child("user/\(uid)/follower/").childByAutoId()
         newFollowChild.setValue("\((FIRAuth.auth()?.currentUser!.uid)!)")
+        let newFollowUserFollowerChild = Database.child("user/\(uid)/followers")
+        newFollowUserFollowerChild.setValue(followingUserfollower + 1)
         let mynewFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follow/").childByAutoId()
          mynewFollowChild.setValue("\(uid)")
+        let follows = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follows")
+        follows.setValue(myFollow + 1)
+    }
+    func unfollow(uid:String!){
+        Database = FIRDatabase.database().reference()
+        let recentUsersQuery = (Database.child("user/" + uid + "/follower/").queryEqualToValue(FIRAuth.auth()?.currentUser!.uid))
+        var key = ""
+        recentUsersQuery.observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot.children as? FIRDataSnapshot {
+                key = snap.key
+            }
+        })
+        Database.child("user/" + uid + "/follower/" + key).removeValue()
+        let myrecentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryEqualToValue(uid))
+        var mykey = ""
+        myrecentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot.children as? FIRDataSnapshot {
+                mykey = snap.key
+            }
+        })
+        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/" + mykey).removeValue()
+        var followingUserfollower = 0
+        var myFollow = 0
+        Database.child("user/" + uid + "/followers").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot.children as? FIRDataSnapshot {
+                followingUserfollower = (snap as! Int)
+            }
+        })
+        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot.children as? FIRDataSnapshot {
+                myFollow = (snap as! Int)
+            }
+        })
+        let newFollowUserFollowerChild = Database.child("user/\(uid)/followers")
+        newFollowUserFollowerChild.setValue(followingUserfollower - 1)
+        let follows = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follows")
+        follows.setValue(myFollow - 1)
     }
 }

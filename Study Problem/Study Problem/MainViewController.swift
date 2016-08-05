@@ -36,8 +36,8 @@ class MainViewController: UIViewController {
                         self.posts.insert(postDictionary, atIndex: 0)
                     }
             }
-                self.tableView.reloadData()
             }
+                self.tableView.reloadData()
         })
     }
     override func didReceiveMemoryWarning() {
