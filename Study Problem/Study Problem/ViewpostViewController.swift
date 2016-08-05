@@ -127,4 +127,15 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             tableView.frame = (frame: CGRect(x: 0, y: keyboradheight!, width: self.view.frame.width, height: self.view.frame.height - keyboradheight! - size.height))
         }
     }
+    func showUserData(sender:UIButton){
+        let row = sender.tag
+        var segueUser = ""
+        if row == 1{}else if row == 0{
+           segueUser = postDic["author"] as! String
+        }else{
+        segueUser = replys[row - 2]["author"] as! String
+        }
+        let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
+        UDMC.UserKey = segueUser
+    }
 }

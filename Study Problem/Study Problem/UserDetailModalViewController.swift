@@ -20,6 +20,7 @@ var UserKey = ""
     @IBOutlet var FollowButton:FollowButtonClass!
     @IBOutlet var FollowIngButton:UIButton!
     @IBOutlet var FollowerButton:UIButton!
+    var mykey = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         ExitButton.layer.cornerRadius=15
@@ -31,11 +32,76 @@ var UserKey = ""
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-         let Database = FIRDatabase.database().reference()
+        loadData()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    @IBAction func ExitButtonPushed(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func Follow(){
+        if mykey == ""{
+            FollowButtonClass().follow(UserKey)
+        }else{
+            FollowButtonClass().unfollow(UserKey)
+        }
+    }
+    func reloadFollowButton(){
+        let Database = FIRDatabase.database().reference()
+        let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild(self.UserKey))
+        recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
+            self.mykey = ""
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshots {
+                    self.mykey = snap.key
+                        }
+            }
+            if self.mykey == ""{
+                self.FollowButton.setTitle("Follow", forState: .Normal)
+                self.FollowButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            }else{
+                self.FollowButton.setTitle("UnFollow", forState: .Normal)
+                self.FollowButton.setTitleColor(UIColor.redColor(), forState: .Normal)
+            }
+            })
+    }
+    func loadData(){
+        let Database = FIRDatabase.database().reference()
         let User = Database.child("user").child(UserKey)
+        Database.child("user/" + self.UserKey + "/followers").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot as? FIRDataSnapshot {
+                var num = snap.value as! Int
+                if num == -1{
+                    num = 0
+                }
+                self.FollowerButton.setTitle(String(num), forState: .Normal)
+                self.reloadFollowButton()
+            }
+        })
+        Database.child("user/" + self.UserKey + "/follows").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot as? FIRDataSnapshot {
+                var num = snap.value as! Int
+                if num == -1{
+                 num = 0
+                }
+                self.FollowIngButton.setTitle(String(num), forState: .Normal)
+            }
+        })
+        reloadFollowButton()
         User.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
             let postUser = snapshot.value!.objectForKey("username") as! String
             self.ProfileLabel.text = postUser
+            let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild(self.UserKey))
+            recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
+                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    for snap in snapshots {
+                        self.mykey = snap.key
+                        self.reloadFollowButton()
+                    }
+                }
+            })
             }, withCancelBlock: { error in
                 print(error.description)
         })
@@ -50,20 +116,10 @@ var UserKey = ""
                 } else {
                     viewImg = data.flatMap(UIImage.init)
                     dispatch_async(dispatch_get_main_queue(), {
-                self.ProfileImageButton.setBackgroundImage(viewImg!, forState: .Normal)
+                        self.ProfileImageButton.setBackgroundImage(viewImg!, forState: .Normal)
                     });
                 }
             }
         });
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func ExitButtonPushed(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    @IBAction func Follow(){
-            FollowButtonClass().follow(UserKey)
     }
 }

@@ -31,6 +31,8 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                     maincell.usernameLabel.text = snapshot.value!.objectForKey("username") as? String
                 })
+                maincell.profileImageView.tag = indexPath.row
+                maincell.profileImageView.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                     var viewImg = UIImage()
                     let storage = FIRStorage.storage()
@@ -52,6 +54,8 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             return maincell
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
             let replycell = tableView.dequeueReusableCellWithIdentifier("ReplysCell") as! ReplysTableViewCell
+            replycell.profileImageView.tag = indexPath.row
+            replycell.profileImageView.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
@@ -87,6 +91,8 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                 myreplycell.usernameLabel.text = snapshot.value!.objectForKey("username") as? String
             })
+            myreplycell.profileImageView.tag = indexPath.row
+            myreplycell.profileImageView.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
