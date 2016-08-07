@@ -42,7 +42,8 @@ var UserKey = ""
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func Follow(){
-        if mykey == ""{
+        if self.UserKey == (FIRAuth.auth()?.currentUser!.uid)!{
+        }else if mykey == ""{
             FollowButtonClass().follow(UserKey)
         }else{
             FollowButtonClass().unfollow(UserKey)
@@ -58,7 +59,10 @@ var UserKey = ""
                     self.mykey = snap.key
                         }
             }
-            if self.mykey == ""{
+            if self.UserKey == (FIRAuth.auth()?.currentUser!.uid)!{
+                self.FollowButton.setTitle("Me", forState: .Normal)
+                self.FollowButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            }else if self.mykey == ""{
                 self.FollowButton.setTitle("Follow", forState: .Normal)
                 self.FollowButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
             }else{
