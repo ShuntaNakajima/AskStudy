@@ -17,6 +17,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
         return replys.count + 2
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let profileimageclass = ProfileImageClass()
         if indexPath.row == 1{
             let itemcell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as! itemTableViewCell
             itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
@@ -42,11 +43,17 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                         if error != nil {
                             print(error)
                         } else {
+                            if profileimageclass.selectFaction((self.postDic["author"] as? String)!).isEmpty{
                             viewImg = data.flatMap(UIImage.init)!
                             dispatch_async(dispatch_get_main_queue(), {
                                 maincell.profileImageView.setBackgroundImage(viewImg, forState: UIControlState.Normal)
                                 maincell.layoutSubviews()
                             });
+                            }else{
+                                let profile = profileimageclass.selectFaction((self.postDic["author"] as? String)!)
+                                maincell.profileImageView.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
+                                maincell.layoutSubviews()
+                            }
                         }
                     }
                 });
@@ -65,11 +72,17 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                     if error != nil {
                         print(error)
                     } else {
+                        if profileimageclass.selectFaction((self.replys[indexPath.row - 2]["author"] as? String)!).isEmpty{
                         viewImg = data.flatMap(UIImage.init)!
                         dispatch_async(dispatch_get_main_queue(), {
                             replycell.profileImageView.setBackgroundImage(viewImg, forState: UIControlState.Normal)
                             replycell.layoutSubviews()
                         });
+                        }else{
+                            let profile = profileimageclass.selectFaction((self.replys[indexPath.row - 2]["author"] as? String)!)
+                            replycell.profileImageView.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
+                            replycell.layoutSubviews()
+                        }
                     }
                 }
             });
@@ -102,11 +115,17 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                     if error != nil {
                         print(error)
                     } else {
+                        if profileimageclass.selectFaction((self.replys[indexPath.row - 2]["author"] as? String)!).isEmpty{
                         viewImg = data.flatMap(UIImage.init)!
                         dispatch_async(dispatch_get_main_queue(), {
                             myreplycell.profileImageView.setBackgroundImage(viewImg, forState: UIControlState.Normal)
                             myreplycell.layoutSubviews()
                         });
+                        }else{
+                            let profile = profileimageclass.selectFaction((self.replys[indexPath.row - 2]["author"] as? String)!)
+                            myreplycell.profileImageView.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
+                            myreplycell.layoutSubviews()
+                        }
                     }
                 }
             });
