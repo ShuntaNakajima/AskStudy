@@ -185,6 +185,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             // setValue() saves to Firebase.
             
             firebaseNewJoke.setValue(newJoke)
+            let firebaseUserPost = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
+            firebaseUserPost.setValue(firebaseNewJoke.key)
             let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.Alert)
             let action = UIAlertAction(title: "Ok", style: .Default, handler: {(action: UIAlertAction!) -> Void in
                 // self.delegate?.changeViewController(LeftMenu.Main)

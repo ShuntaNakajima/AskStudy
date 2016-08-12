@@ -36,23 +36,31 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             }, withCancelBlock: { error in
                 print(error.description)
         })
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-        var viewImg = UIImage!()
-        let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
-        let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
-        autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-                viewImg = data.flatMap(UIImage.init)
-                dispatch_async(dispatch_get_main_queue(), {
-                    cell.profileImage.setBackgroundImage(viewImg!, forState: UIControlState.Normal)
-                    cell.layoutSubviews()
-                });
+    let profileimageclass = ProfileImageClass()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            var viewImg = UIImage!()
+            let storage = FIRStorage.storage()
+            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+            let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                if error != nil {
+                    print(error)
+                } else {
+                    viewImg = data.flatMap(UIImage.init)
+                            if profileimageclass.selectFaction((postDictionary!["author"] as? String)!).isEmpty{
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.profileImage.setBackgroundImage(viewImg!, forState: UIControlState.Normal)
+                        cell.layoutSubviews()
+                        profileimageclass.appendFaction((postDictionary!["author"] as? String)!, img: viewImg)
+                    });
+                            }else{
+                                let profile = profileimageclass.selectFaction((postDictionary!["author"] as? String)!)
+                                cell.profileImage.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
+                                cell.layoutSubviews()
+                    }
+                }
             }
-        }
-         });
+        });
     cell.profileImage.tag = indexPath.row
     cell.profileImage.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
         return cell
@@ -63,6 +71,15 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
         selectpost = postDictionary!["key"] as! String!
         if selectpost != nil {
             performSegueWithIdentifier("viewPost",sender: nil)
+        }
+    }
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.locationInView(tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        if indexPath == nil {
+        } else if recognizer.state == UIGestureRecognizerState.Began  {
+            let anImage = UIImage(named: "star.gif")
+            ToastView.showText("Favorite", image: anImage!)
         }
     }
 }

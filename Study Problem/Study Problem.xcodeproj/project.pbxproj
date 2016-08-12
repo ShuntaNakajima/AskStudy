@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		729810BB871C2C24CAF292B5 /* Pods_Study_Problem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */; };
+		BC0095EA1D5DFE8400FBA347 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0095E91D5DFE8400FBA347 /* ToastView.swift */; };
+		BC0095EC1D5E0BF000FBA347 /* star.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC0095EB1D5E0BF000FBA347 /* star.gif */; };
+		BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */; };
 		BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */; };
 		BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */; };
 		BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */; };
@@ -55,6 +58,9 @@
 		BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC54BB831CE4AE720013C0DD /* Assets.xcassets */; };
 		BC54BB921CE4AE720013C0DD /* Study_ProblemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB911CE4AE720013C0DD /* Study_ProblemTests.swift */; };
 		BC54BB9D1CE4AE720013C0DD /* Study_ProblemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */; };
+		BC5E9E6C1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E9E6B1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift */; };
+		BC5E9E731D5B75E4003C1850 /* ModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E9E711D5B75E4003C1850 /* ModalTableViewCell.swift */; };
+		BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC5E9E721D5B75E4003C1850 /* ModalTableViewCell.xib */; };
 		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
 		BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */; };
 		BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */; };
@@ -67,6 +73,7 @@
 		BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */; };
 		BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF71A731D0D25FA00285D07 /* ImageClass.swift */; };
 		BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimages.gif */; };
+		BCFC646B1D5DC05400997B24 /* ProfileImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC646A1D5DC05400997B24 /* ProfileImageClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +96,9 @@
 /* Begin PBXFileReference section */
 		4F012C46BD228AB7DDA7EE6B /* Pods-Study Problem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Problem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem.debug.xcconfig"; sourceTree = "<group>"; };
 		6576D153FA40607098BB99E6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC0095E91D5DFE8400FBA347 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		BC0095EB1D5E0BF000FBA347 /* star.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = star.gif; sourceTree = "<group>"; };
+		BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +152,9 @@
 		BC54BB981CE4AE720013C0DD /* Study ProblemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Study ProblemUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC54BB9C1CE4AE720013C0DD /* Study_ProblemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study_ProblemUITests.swift; sourceTree = "<group>"; };
 		BC54BB9E1CE4AE720013C0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC5E9E6B1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewControllerTableViewExtension.swift; sourceTree = "<group>"; };
+		BC5E9E711D5B75E4003C1850 /* ModalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTableViewCell.swift; sourceTree = "<group>"; };
+		BC5E9E721D5B75E4003C1850 /* ModalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalTableViewCell.xib; sourceTree = "<group>"; };
 		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
 		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
 		BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -155,6 +168,7 @@
 		BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplysTableViewCell.xib; sourceTree = "<group>"; };
 		BCF71A731D0D25FA00285D07 /* ImageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClass.swift; sourceTree = "<group>"; };
 		BCF71A751D0D3F4700285D07 /* noimages.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimages.gif; sourceTree = "<group>"; };
+		BCFC646A1D5DC05400997B24 /* ProfileImageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageClass.swift; sourceTree = "<group>"; };
 		C53EC0BD776941FBF25FFAE2 /* Pods-Study Problem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Problem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem.release.xcconfig"; sourceTree = "<group>"; };
 		CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Problem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -197,6 +211,7 @@
 		3940EE621CE824E800293067 /* Resorces */ = {
 			isa = PBXGroup;
 			children = (
+				BC0095EB1D5E0BF000FBA347 /* star.gif */,
 				BC1FB6E81D321D8A004CE534 /* noimage.gif */,
 				BCF71A751D0D3F4700285D07 /* noimages.gif */,
 				BC1438071CE7364200448AC0 /* gazou.gif */,
@@ -252,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				BCF71A731D0D25FA00285D07 /* ImageClass.swift */,
+				BCFC646A1D5DC05400997B24 /* ProfileImageClass.swift */,
+				BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */,
 				BC1603661CE8569200402577 /* Post.swift */,
 			);
 			name = Model;
@@ -297,8 +314,7 @@
 		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */,
-				BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */,
+				BC5E9E6D1D5B6ED4003C1850 /* UserDetailModalViewController */,
 				BC1437EF1CE6140F00448AC0 /* NoticeViewController.swift */,
 				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
 				BC25AFB41D2E7D5600A9F881 /* MainViewController */,
@@ -322,6 +338,7 @@
 		BC5127D11D1F858300033737 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				BC0095E91D5DFE8400FBA347 /* ToastView.swift */,
 				BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */,
 				BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */,
 				BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */,
@@ -396,6 +413,25 @@
 			path = "Study ProblemUITests";
 			sourceTree = "<group>";
 		};
+		BC5E9E6D1D5B6ED4003C1850 /* UserDetailModalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */,
+				BC5E9E6B1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift */,
+				BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */,
+			);
+			name = UserDetailModalViewController;
+			sourceTree = "<group>";
+		};
+		BC5E9E701D5B75C5003C1850 /* ModalTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC5E9E711D5B75E4003C1850 /* ModalTableViewCell.swift */,
+				BC5E9E721D5B75E4003C1850 /* ModalTableViewCell.xib */,
+			);
+			name = ModalTableViewCell;
+			sourceTree = "<group>";
+		};
 		BC64FFF21CEC9F0F008E5DB7 /* ItemTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +444,7 @@
 		BCF520B51CE9B7050027D8EA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BC5E9E701D5B75C5003C1850 /* ModalTableViewCell */,
 				BCF520C41CE9B8D20027D8EA /* MyReplysTableViewCell */,
 				BCF520BF1CE9B75A0027D8EA /* ReplysTableViewCell */,
 				BCF520BA1CE9B7270027D8EA /* PostMainTableViewCell */,
@@ -566,6 +603,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */,
+				BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */,
+				BC0095EC1D5E0BF000FBA347 /* star.gif in Resources */,
 				BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */,
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
@@ -660,11 +699,13 @@
 				BC1437FA1CE61A7000448AC0 /* UIApplication.swift in Sources */,
 				BC1437EA1CE613A700448AC0 /* JoinpostViewController.swift in Sources */,
 				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
+				BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
 				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,
 				BCF520BD1CE9B7550027D8EA /* ReplysTableViewCell.swift in Sources */,
 				BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */,
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
+				BCFC646B1D5DC05400997B24 /* ProfileImageClass.swift in Sources */,
 				BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */,
 				BC1437D81CE610D700448AC0 /* RightViewController.swift in Sources */,
 				BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */,
@@ -677,9 +718,11 @@
 				BC1437EE1CE613CA00448AC0 /* SettingViewController.swift in Sources */,
 				BC1437E81CE6139400448AC0 /* MypostViewController.swift in Sources */,
 				BC1437E61CE6138900448AC0 /* PostViewController.swift in Sources */,
+				BC5E9E6C1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift in Sources */,
 				BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */,
 				BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */,
 				BC1438021CE6CB6200448AC0 /* UITableViewExtension.swift in Sources */,
+				BC0095EA1D5DFE8400FBA347 /* ToastView.swift in Sources */,
 				BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */,
 				BC1437D41CE6106B00448AC0 /* ContainerViewController.swift in Sources */,
 				BC32D12E1D5023F400086026 /* CustomAnimatedTransitioning.swift in Sources */,
@@ -691,6 +734,7 @@
 				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,
 				BC1437D61CE610C600448AC0 /* LeftViewController.swift in Sources */,
 				BC1437EC1CE613B200448AC0 /* FollowViewController.swift in Sources */,
+				BC5E9E731D5B75E4003C1850 /* ModalTableViewCell.swift in Sources */,
 				BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */,
 				BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */,
 				BC1603671CE8569200402577 /* Post.swift in Sources */,

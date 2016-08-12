@@ -39,6 +39,11 @@ class MainViewController: UIViewController {
             }
                 self.tableView.reloadData()
         })
+        ProfileImageClass().startReload()
+        var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
+        longPressRecognizer.allowableMovement = 15
+        longPressRecognizer.minimumPressDuration = 0.6
+        tableView.addGestureRecognizer(longPressRecognizer)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,7 +53,6 @@ class MainViewController: UIViewController {
             let vpVC: ViewpostViewController = (segue.destinationViewController as? ViewpostViewController)!
             vpVC.post = selectpost
         }
-        
     }
     @IBAction func test(){
         self.slideMenuController()?.openLeft()

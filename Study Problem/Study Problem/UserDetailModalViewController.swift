@@ -14,21 +14,36 @@ import FirebaseStorage
 
 class UserDetailModalViewController: UIViewController {
 var UserKey = ""
+    var Database = FIRDatabaseReference.init()
     @IBOutlet var ProfileImageButton:ProfileImageButtonClass!
     @IBOutlet var ProfileLabel:UILabel!
     @IBOutlet var ExitButton:UIButton!
     @IBOutlet var FollowButton:FollowButtonClass!
     @IBOutlet var FollowIngButton:UIButton!
     @IBOutlet var FollowerButton:UIButton!
+    @IBOutlet var UserPostButton:UIButton!
+    @IBOutlet var UserGropeButton:UIButton!
     var mykey = ""
+    var postkeys = [String!]()
+    var mypost = [Dictionary<String, AnyObject>]()
+    var selectpost : String!
     override func viewDidLoad() {
         super.viewDidLoad()
         ExitButton.layer.cornerRadius=15
         ExitButton.layer.masksToBounds=true
-        FollowIngButton.layer.cornerRadius=10
+        FollowIngButton.layer.cornerRadius=45
     FollowIngButton.layer.masksToBounds=true
-        FollowerButton.layer.cornerRadius=10
+        FollowerButton.layer.cornerRadius=45
         FollowerButton.layer.masksToBounds=true
+        UserPostButton.layer.cornerRadius=45
+        UserPostButton.layer.masksToBounds=true
+        UserGropeButton.layer.cornerRadius=45
+        UserGropeButton.layer.masksToBounds=true
+        FollowButton.backgroundColor = UIColor.ThemeBlueThin()
+        FollowIngButton.backgroundColor = UIColor.ThemeLightBlueThin()
+        FollowerButton.backgroundColor = UIColor.ThemePurpleThin()
+        UserPostButton.backgroundColor = UIColor.ThemeGreenThin()
+        UserGropeButton.backgroundColor = UIColor.ThemeOrangeThin()
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -94,7 +109,38 @@ var UserKey = ""
             }
         })
         reloadFollowButton()
-        User.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+        Database.child("user/" + self.UserKey + "/follows").observeEventType(.Value, withBlock: { snapshot in
+            if let snap = snapshot as? FIRDataSnapshot {
+                var num = snap.value as! Int
+                if num == -1{
+                    num = 0
+                }
+                self.FollowIngButton.setTitle(String(num), forState: .Normal)
+            }
+        })
+        Database.child("user/" + self.UserKey + "/posts").observeEventType(.Value, withBlock: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+              self.postkeys = []
+                for snap in snapshots {
+                    if let post = snap.value as? String {
+                        self.postkeys.insert(post, atIndex: 0)
+                    }
+                }
+                for post in self.postkeys{
+                    print(post)
+                    Database.child("post/" + post + "/").observeEventType(.Value, withBlock: { snapshot in
+                        if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                            var apost = Dictionary<String, AnyObject>()
+                            for snap in snapshots{
+                                apost[snap.key] = snap.value
+                            }
+                            self.mypost.append(apost)
+                        }
+                    })
+                }
+            }
+        })
+                User.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
             let postUser = snapshot.value!.objectForKey("username") as! String
             self.ProfileLabel.text = postUser
             let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild(self.UserKey))

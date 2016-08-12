@@ -25,7 +25,7 @@ class FollowButtonClass: UIButton {
         self.updateLayout()
     }
     func updateLayout(){
-        self.layer.cornerRadius=10
+        self.layer.cornerRadius=45
         self.layer.masksToBounds=true
     }
     func follow(uid:String!){
