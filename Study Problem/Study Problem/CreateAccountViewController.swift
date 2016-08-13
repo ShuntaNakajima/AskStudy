@@ -98,7 +98,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                         let user = ["provider": password!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0,"rank":5.0]
                         
                         // Seal the deal in DataService.swift.
-                        self.Database.child("users").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
+                        self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
                         let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
                         let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
                         let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
