@@ -81,7 +81,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             if longState == false{
                 longState = true
                 let Database = FIRDatabase.database().reference()
-                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).queryOrderedByChild("stars").queryStartingAtValue(self.posts[indexPath!.row]["key"] as! String!).queryEndingAtValue(self.posts[indexPath!.row]["key"] as! String!)
+                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).queryOrderedByChild("stars").queryEqualToValue(self.posts[indexPath!.row]["key"] as! String!)
                 recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
                     var mykey = ""
                     print(snapshot.value)
