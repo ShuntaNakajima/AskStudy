@@ -13,11 +13,12 @@ import FirebaseDatabase
 import FirebaseStorage
 import RealmSwift
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController,UIGestureRecognizerDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
     var segueUser = ""
+      var longState = false
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,10 @@ class MainViewController: UIViewController {
                 self.tableView.reloadData()
         })
         ProfileImageClass().startReload()
-        var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
-        longPressRecognizer.allowableMovement = 15
-        longPressRecognizer.minimumPressDuration = 0.6
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
+        longPressRecognizer.allowableMovement = 0
+        longPressRecognizer.minimumPressDuration = 0.4
+         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
     }
     override func didReceiveMemoryWarning() {

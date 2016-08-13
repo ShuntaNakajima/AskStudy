@@ -59,7 +59,6 @@ class LeftViewController: UIViewController,LeftMenuProtocol {
             let currentUser = Database.childByAppendingPath("user").childByAppendingPath((FIRAuth.auth()?.currentUser!.uid)!)
             currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
                 print(snapshot)
-                
                 let postUser = snapshot.value!.objectForKey("username") as! String
                 
                 

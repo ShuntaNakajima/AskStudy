@@ -78,8 +78,37 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
         let indexPath = tableView.indexPathForRowAtPoint(point)
         if indexPath == nil {
         } else if recognizer.state == UIGestureRecognizerState.Began  {
-            let anImage = UIImage(named: "star.gif")
-            ToastView.showText("Favorite", image: anImage!)
-        }
+            if longState == false{
+                longState = true
+                let Database = FIRDatabase.database().reference()
+                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryEqualToValue(self.posts[indexPath!.row]["key"] as! String!)
+                recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
+                    var mykey = ""
+                    print(snapshot.value)
+                    if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                        print(snapshots)
+                        for snap in snapshots {
+                            mykey = snap.key
+                        }
+                    }
+            if mykey == ""{
+                if self.longState == true{
+                let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId()
+                newFollowChild.setValue("\(self.posts[indexPath!.row]["key"] as! String!)")
+                let anImage = UIImage(named: "star.gif")
+                ToastView.showText("Star", image: anImage!)
+                    self.longState = false
+                }
+                    }else{
+                if self.longState == true{
+                Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/" + mykey).removeValue()
+                let anImage = UIImage(named: "star.gif")
+                ToastView.showText("UnStar", image: anImage!)
+                    self.longState = false
+                }
+                    }
+                })
+                    }
+    }
     }
 }
