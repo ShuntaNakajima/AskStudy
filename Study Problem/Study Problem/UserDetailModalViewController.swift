@@ -66,7 +66,7 @@ var UserKey = ""
     }
     func reloadFollowButton(){
         let Database = FIRDatabase.database().reference()
-        let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild(self.UserKey))
+        let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild("user").queryEqualToValue(self.UserKey))
         recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
             self.mykey = ""
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -109,15 +109,6 @@ var UserKey = ""
             }
         })
         reloadFollowButton()
-        Database.child("user/" + self.UserKey + "/follows").observeEventType(.Value, withBlock: { snapshot in
-            if let snap = snapshot as? FIRDataSnapshot {
-                var num = snap.value as! Int
-                if num == -1{
-                    num = 0
-                }
-                self.FollowIngButton.setTitle(String(num), forState: .Normal)
-            }
-        })
         Database.child("user/" + self.UserKey + "/posts").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
               self.postkeys = []

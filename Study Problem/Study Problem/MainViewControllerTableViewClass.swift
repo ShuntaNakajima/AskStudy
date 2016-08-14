@@ -81,7 +81,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             if longState == false{
                 longState = true
                 let Database = FIRDatabase.database().reference()
-                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).queryOrderedByChild("stars").queryEqualToValue(self.posts[indexPath!.row]["key"] as! String!)
+                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrderedByChild("userstars").queryEqualToValue(self.posts[indexPath!.row]["key"] as! String!)
                 recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
                     var mykey = ""
                     print(snapshot.value)
@@ -93,15 +93,15 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
                     }
             if mykey == ""{
                 if self.longState == true{
-                let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId()
-                newFollowChild.setValue("\(self.posts[indexPath!.row]["key"] as! String!)")
+                let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
+                newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                 let anImage = UIImage(named: "star.gif")
                 ToastView.showText("Star", image: anImage!)
                     self.longState = false
                 }
                     }else{
                 if self.longState == true{
-                Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/" + mykey).removeValue()
+                Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                 let anImage = UIImage(named: "star.gif")
                 ToastView.showText("UnStar", image: anImage!)
                     self.longState = false
