@@ -16,8 +16,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     @IBOutlet var textView:UITextView!
     
     var Database = FIRDatabaseReference.init()
-    
-    weak var delegate: LeftMenuProtocol?
+
     
     @IBOutlet var subjectTextfield:UITextField!
     
@@ -193,12 +192,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
                 self.textView.text = "Type here"
                 self.textView.textColor = UIColor.lightGrayColor()
                 let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-                let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
-                
-                let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-                let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
-                self.presentViewController(slideMenuController, animated: true, completion: nil)
+                self.presentViewController(mainViewController, animated: true, completion: nil)
             })
             alert.addAction(action)
             presentViewController(alert, animated: true, completion: nil)

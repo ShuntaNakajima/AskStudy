@@ -1,0 +1,32 @@
+//
+//  ChatTableViewCell.swift
+//  Study Problem
+//
+//  Created by nakajimashunta on 2016/08/17.
+//  Copyright © 2016年 ShuntaNakajima. All rights reserved.
+//
+
+import UIKit
+
+class ChatTableViewCell: UITableViewCell {
+    @IBOutlet var profileImage:UIButton!
+    @IBOutlet var profileLabel:UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+        profileImage.imageView!.layer.borderWidth = 10
+        profileImage.imageView!.layer.cornerRadius = 27.5
+        profileImage.layer.cornerRadius=27.5
+        profileImage.layer.masksToBounds=true
+        profileImage.setTitle("", forState: UIControlState.Normal)
+        profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, forState: .Normal)
+        
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+}
