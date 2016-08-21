@@ -1,6 +1,6 @@
 //
 //  MainViewControllerTableViewClass.swift
-//  
+//
 //
 //  Created by nakajimashunta on 2016/07/07.
 //
@@ -16,10 +16,10 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
- func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
- func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! postTableViewCell
         let postDictionary = post as? Dictionary<String, AnyObject>
@@ -36,7 +36,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
             }, withCancelBlock: { error in
                 print(error.description)
         })
-    let profileimageclass = ProfileImageClass()
+        let profileimageclass = ProfileImageClass()
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             var viewImg = UIImage!()
             let storage = FIRStorage.storage()
@@ -47,22 +47,22 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
                     print(error)
                 } else {
                     viewImg = data.flatMap(UIImage.init)
-                            if profileimageclass.selectFaction((postDictionary!["author"] as? String)!).isEmpty{
-                    dispatch_async(dispatch_get_main_queue(), {
-                        cell.profileImage.setBackgroundImage(viewImg!, forState: UIControlState.Normal)
+                    if profileimageclass.selectFaction((postDictionary!["author"] as? String)!).isEmpty{
+                        dispatch_async(dispatch_get_main_queue(), {
+                            cell.profileImage.setBackgroundImage(viewImg!, forState: UIControlState.Normal)
+                            cell.layoutSubviews()
+                            profileimageclass.appendFaction((postDictionary!["author"] as? String)!, img: viewImg)
+                        });
+                    }else{
+                        let profile = profileimageclass.selectFaction((postDictionary!["author"] as? String)!)
+                        cell.profileImage.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
                         cell.layoutSubviews()
-                        profileimageclass.appendFaction((postDictionary!["author"] as? String)!, img: viewImg)
-                    });
-                            }else{
-                                let profile = profileimageclass.selectFaction((postDictionary!["author"] as? String)!)
-                                cell.profileImage.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
-                                cell.layoutSubviews()
                     }
                 }
             }
         });
-    cell.profileImage.tag = indexPath.row
-    cell.profileImage.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
+        cell.profileImage.tag = indexPath.row
+        cell.profileImage.addTarget(self, action: "showUserData:", forControlEvents: .TouchUpInside)
         return cell
     }
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
@@ -91,24 +91,24 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
                             mykey = snap.key
                         }
                     }
-            if mykey == ""{
-                if self.longState == true{
-                let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
-                newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
-                let anImage = UIImage(named: "star.gif")
-                ToastView.showText("Star", image: anImage!)
-                    self.longState = false
-                }
+                    if mykey == ""{
+                        if self.longState == true{
+                            let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
+                            newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
+                            let anImage = UIImage(named: "star.gif")
+                            ToastView.showText("Star", image: anImage!)
+                            self.longState = false
+                        }
                     }else{
-                if self.longState == true{
-                Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
-                let anImage = UIImage(named: "star.gif")
-                ToastView.showText("UnStar", image: anImage!)
-                    self.longState = false
-                }
+                        if self.longState == true{
+                            Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
+                            let anImage = UIImage(named: "star.gif")
+                            ToastView.showText("UnStar", image: anImage!)
+                            self.longState = false
+                        }
                     }
                 })
-                    }
-    }
+            }
+        }
     }
 }

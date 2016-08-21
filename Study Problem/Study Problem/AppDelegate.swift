@@ -19,37 +19,15 @@ import SlideMenuControllerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private func createMenuView() {
-        
-        
-    }
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-
-        SlideMenuOptions.leftViewWidth = 220
-        // Override point for custoxmization after application launch.
-        // create viewController code...
+    override init() {
+        // Firebase Init
         FIRApp.configure()
+    }
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRDatabase.database().persistenceEnabled = true
-        
-        //FIRStorage.storage()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
-        
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-        
-        // UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
-        
-        leftViewController.mainViewController = nvc
-        
-        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
-        slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-        self.window?.rootViewController = slideMenuController
+        let storyboard: UIStoryboard = StoryboardHelper.adjust()
+        window!.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
+        self.window?.makeKeyAndVisible()
         self.window?.makeKeyAndVisible()
         return true
         

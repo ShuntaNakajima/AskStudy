@@ -55,12 +55,7 @@ class LoginViewController: UIViewController {
                     
                     // Enter the app!
                     let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                    let leftViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-                    let rightViewController = self.storyboard!.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
-                    
-                    let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-                    let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
-                    self.presentViewController(slideMenuController, animated: true, completion: nil)
+                    self.presentViewController(mainViewController, animated: true, completion: nil)
                     //self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
                    
                 } else {
