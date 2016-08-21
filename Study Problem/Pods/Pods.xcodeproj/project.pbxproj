@@ -650,7 +650,6 @@
 		CAC305741CFC7EFED5C1B9DE288506B2 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
 		CAD5935B0B950648A51DB2F3C6DBBA28 /* SlideMenuControllerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SlideMenuControllerSwift-prefix.pch"; sourceTree = "<group>"; };
 		CBD71573245D0921DD3214894D711B6F /* RLMQueryUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMQueryUtil.mm; path = Realm/RLMQueryUtil.mm; sourceTree = "<group>"; };
-		CBDF0154CB8D7E1C08C69AB2F9C1CFFA /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
 		CCE42AB7FFC91C393FE287E7FE3A7F2C /* UIView+JSQMessages.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+JSQMessages.m"; path = "JSQMessagesViewController/Categories/UIView+JSQMessages.m"; sourceTree = "<group>"; };
 		CCF66B6B0A38F67AD6ED80345CD441BD /* RLMPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMPlatform.h; path = include/RLMPlatform.h; sourceTree = "<group>"; };
 		CD3EBFB9FD2FC2A56FF51E1F176189F6 /* object_store.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = object_store.cpp; path = Realm/ObjectStore/object_store.cpp; sourceTree = "<group>"; };
@@ -828,7 +827,6 @@
 				23852FA7626531DB9F78582183DDACCF /* GoogleInterchangeUtilities */,
 				10ED0C58AF4B20A5106621A366F79C87 /* GoogleIPhoneUtilities */,
 				E2C48D71721576D96AC7C4069CF76307 /* GoogleNetworkingUtilities */,
-				F0648446C7184662ACF0CCBA65D3ECF9 /* GoogleParsingUtilities */,
 				7D30A411972CE6334EAD0A2D05389DFF /* GoogleSymbolUtilities */,
 				0D7862B09EBF996DCCBC0570E5934F35 /* GoogleUtilities */,
 				8E075D152DE3750248C4E3F93A189654 /* JSQMessagesViewController */,
@@ -1198,14 +1196,6 @@
 			path = "Target Support Files/Pods-Study Problem";
 			sourceTree = "<group>";
 		};
-		912A700EACCF32A59ED1A7EF9AA2499B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CBDF0154CB8D7E1C08C69AB2F9C1CFFA /* GoogleParsingUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9E4452BB1ED72F8FFE0BFCD52B96A868 /* SlideMenuControllerSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -1438,14 +1428,6 @@
 				CB896480486067171B1C5FC69C81C909 /* Frameworks */,
 			);
 			path = FirebaseAuth;
-			sourceTree = "<group>";
-		};
-		F0648446C7184662ACF0CCBA65D3ECF9 /* GoogleParsingUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				912A700EACCF32A59ED1A7EF9AA2499B /* Frameworks */,
-			);
-			path = GoogleParsingUtilities;
 			sourceTree = "<group>";
 		};
 		F374E2AE8E225465F4C36159C4FC5CE1 /* Frameworks */ = {
