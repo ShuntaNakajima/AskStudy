@@ -27,9 +27,10 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats").queryOrderedByChild("user").observeEventType(.Value, withBlock: { snapshot in
+Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats").queryOrderedByChild("user").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 print(snapshots)
+                self.chatRoom = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key

@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
                     // NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     // Enter the app!
-                    let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                    let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationViewController")
                     self.presentViewController(mainViewController, animated: true, completion: nil)
                     //self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
                    

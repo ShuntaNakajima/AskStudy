@@ -69,6 +69,7 @@ var UserKey = ""
         let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild("user").queryEqualToValue(self.UserKey))
         recentUesrsQuery.observeEventType(.Value, withBlock: { snapshot in
             self.mykey = ""
+            
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     self.mykey = snap.key

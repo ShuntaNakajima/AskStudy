@@ -19,7 +19,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var usernameField: UITextField!
 
     @IBOutlet weak var gradeField: UITextField!
-    var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12"]
+    var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12","others"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,21 +93,18 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                 } else {
                     
                     // Create and Login the New User with authUser
-              
-                        
-                        let user = ["provider": password!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0,"rank":5.0]
-                        
-                        // Seal the deal in DataService.swift.
-                        self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
-                        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                        self.presentViewController(mainViewController, animated: true, completion: nil)
-
-                    
-                    
-                    // Store the uid for future access - handy!
-                    //NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
-                    
-                                     //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
+                    user?.sendEmailVerificationWithCompletion({ (error) in
+                        if error == nil {
+                            let user = ["provider": password!, "email": email!, "username": username!, "grade": grade! ,"follows": 0,"followers":0]
+                            
+                            // Seal the deal in DataService.swift.
+                            self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
+                            let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationViewController")
+                            self.presentViewController(mainViewController, animated: true, completion: nil)
+                        }else {
+                            self.signupErrorAlert("Oops!", message: "Plaese check your e-mail address.")
+                        }
+                    })
                 }
             }
             

@@ -47,7 +47,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq4-e2-WZe" customClass="FollowButtonClass" customModule="Study_Problem" customModuleProvider="target">
-                            <frame key="frameInset" minX="95" minY="25" width="90" height="90"/>
+                            <frame key="frameInset" minX="95" minY="76" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Follow">
@@ -58,7 +58,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcO-Kz-DTg">
-                            <frame key="frameInset" minX="182" minY="110" width="90" height="90"/>
+                            <frame key="frameInset" minX="161" minY="200" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="0">
@@ -66,7 +66,7 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKC-XP-Ghp">
-                            <frame key="frameInset" minX="8" minY="110" width="90" height="90"/>
+                            <frame key="frameInset" minX="30" minY="200" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="0">
@@ -74,41 +74,19 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rd-n2-U1n">
-                            <frame key="frameInset" minX="207" minY="136" width="41" height="12"/>
+                            <frame key="frameInset" minX="185" minY="224" width="41" height="12"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62q-j0-3iz">
-                            <frame key="frameInset" minX="38" minY="137" width="31" height="9"/>
+                            <frame key="frameInset" minX="60" minY="227" width="31" height="9"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heX-bJ-A84" customClass="FollowButtonClass" customModule="Study_Problem" customModuleProvider="target">
-                            <frame key="frameInset" minX="158" minY="215" width="90" height="90"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Follow">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="Follow" destination="-1" eventType="touchUpInside" id="lJJ-mX-Yhr"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyi-hl-POn" customClass="FollowButtonClass" customModule="Study_Problem" customModuleProvider="target">
-                            <frame key="frameInset" minX="38" minY="215" width="90" height="90"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Follow">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="Follow" destination="-1" eventType="touchUpInside" id="t5W-qZ-7Gy"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93842032068062831" green="0.93842032068062831" blue="0.93842032068062831" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -123,6 +101,30 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="-525" y="227"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="heX-bJ-A84" customClass="FollowButtonClass" customModule="Study_Problem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <state key="normal" title="Post">
+                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="Follow" destination="-1" eventType="touchUpInside" id="lJJ-mX-Yhr"/>
+            </connections>
+            <point key="canvasLocation" x="-260" y="309"/>
+        </button>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Eyi-hl-POn" customClass="FollowButtonClass" customModule="Study_Problem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <state key="normal" title="Star">
+                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="Follow" destination="-1" eventType="touchUpInside" id="t5W-qZ-7Gy"/>
+            </connections>
+            <point key="canvasLocation" x="-224" y="106"/>
+        </button>
     </objects>
     <resources>
         <image name="gazou.gif" width="3118" height="2154"/>

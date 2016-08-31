@@ -105,7 +105,7 @@ class ChatUserSelectViewController: JSQMessagesViewController {
         self.outgoingBubble = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
         
         Database.child("chatroom").child(ChatRoomId).child("user").queryOrderedByChild("user").observeEventType(.Value, withBlock: { (snapshot) in
-            self.messages = []
+            print(snapshot)
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot]{
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {

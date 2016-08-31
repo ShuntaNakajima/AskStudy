@@ -30,7 +30,7 @@ class MainCellUiimageViewClass: UIButton {
         let modalViewController = UserDetailModalViewController(nibName: "UserDetailModalViewController", bundle: nil)
         modalViewController.modalPresentationStyle = .Custom
         modalViewController.transitioningDelegate = self
-         self.superview!.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
+             self.superview!.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
     }
 }
 extension MainCellUiimageViewClass: UIViewControllerTransitioningDelegate {

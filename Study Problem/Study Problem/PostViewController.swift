@@ -191,7 +191,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
                 // self.delegate?.changeViewController(LeftMenu.Main)
                 self.textView.text = "Type here"
                 self.textView.textColor = UIColor.lightGrayColor()
-                let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationViewController")
                 self.presentViewController(mainViewController, animated: true, completion: nil)
             })
             alert.addAction(action)
@@ -200,6 +200,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             
         }
     }
-    
+    @IBAction func cancel(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }

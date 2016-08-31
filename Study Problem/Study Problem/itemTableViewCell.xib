@@ -20,9 +20,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ8-Ok-soT">
-                        <state key="normal" title="知りたい！"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd/mm/yyyy hh:mm:ss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwn-JX-Wld">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,21 +37,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dQ8-Ok-soT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="0go-CU-eOr"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="dQ8-Ok-soT" secondAttribute="trailing" constant="8" id="22Y-YJ-cAG"/>
                     <constraint firstItem="Iyj-x1-Kyu" firstAttribute="leading" secondItem="Fmq-PH-BBm" secondAttribute="trailing" constant="48" id="3fh-iR-Q7u"/>
                     <constraint firstItem="cwn-JX-Wld" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="8na-t7-Zfj"/>
                     <constraint firstItem="cwn-JX-Wld" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="CY1-y7-mxp"/>
-                    <constraint firstItem="cwn-JX-Wld" firstAttribute="top" secondItem="dQ8-Ok-soT" secondAttribute="bottom" constant="8" id="Cwb-DK-wgM"/>
                     <constraint firstItem="cwn-JX-Wld" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="129" id="F3O-Ks-0PG"/>
-                    <constraint firstItem="dQ8-Ok-soT" firstAttribute="leading" secondItem="uf1-YQ-LMz" secondAttribute="trailing" constant="8" id="P4a-Fy-rcV"/>
                     <constraint firstItem="Fmq-PH-BBm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="V5J-YX-aYW"/>
                     <constraint firstItem="cwn-JX-Wld" firstAttribute="top" secondItem="Iyj-x1-Kyu" secondAttribute="bottom" constant="3.5" id="WUI-Xr-wEp"/>
                     <constraint firstItem="cwn-JX-Wld" firstAttribute="top" secondItem="uf1-YQ-LMz" secondAttribute="bottom" constant="13" id="YJA-0c-jLc"/>
                     <constraint firstItem="Iyj-x1-Kyu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-10" id="aCT-IU-BjV"/>
                     <constraint firstItem="Fmq-PH-BBm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="ajm-ii-51S"/>
                     <constraint firstItem="Iyj-x1-Kyu" firstAttribute="leading" secondItem="Fmq-PH-BBm" secondAttribute="trailing" constant="48" id="bgb-4A-WEz"/>
-                    <constraint firstItem="dQ8-Ok-soT" firstAttribute="leading" secondItem="uf1-YQ-LMz" secondAttribute="trailing" constant="8" id="dbx-2I-ZCU"/>
                     <constraint firstItem="uf1-YQ-LMz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="fYW-46-K0f"/>
                     <constraint firstItem="uf1-YQ-LMz" firstAttribute="leading" secondItem="Iyj-x1-Kyu" secondAttribute="trailing" constant="8" id="gpE-SW-LgQ"/>
                     <constraint firstItem="uf1-YQ-LMz" firstAttribute="leading" secondItem="Iyj-x1-Kyu" secondAttribute="trailing" constant="8" id="m39-F6-lDV"/>
@@ -64,7 +56,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="DateLable" destination="cwn-JX-Wld" id="0yH-Gg-ujV"/>
-                <outlet property="IwantknowButton" destination="dQ8-Ok-soT" id="wk8-0a-4tP"/>
                 <outlet property="ReplycountLabel" destination="uf1-YQ-LMz" id="Acw-SG-0Ri"/>
                 <outlet property="StateLabel" destination="Fmq-PH-BBm" id="bHE-FY-CVq"/>
             </connections>
