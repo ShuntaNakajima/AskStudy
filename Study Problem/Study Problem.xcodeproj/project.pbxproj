@@ -90,12 +90,10 @@
 		BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */; };
 		BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */; };
 		BCF576ED1D649FE500C50BBC /* ChatUserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF576EC1D649FE500C50BBC /* ChatUserAddViewController.swift */; };
-		BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF71A731D0D25FA00285D07 /* ImageClass.swift */; };
 		BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimages.gif */; };
 		BCFBDD851D63363E0032DC6F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD841D63363E0032DC6F /* ChatViewController.swift */; };
 		BCFBDD881D633C940032DC6F /* ChatViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */; };
 		BCFBDD8A1D633D6D0032DC6F /* ChatUserSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD891D633D6D0032DC6F /* ChatUserSelectViewController.swift */; };
-		BCFC646B1D5DC05400997B24 /* ProfileImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC646A1D5DC05400997B24 /* ProfileImageClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,12 +205,10 @@
 		BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReplysTableViewCell.swift; sourceTree = "<group>"; };
 		BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplysTableViewCell.xib; sourceTree = "<group>"; };
 		BCF576EC1D649FE500C50BBC /* ChatUserAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserAddViewController.swift; sourceTree = "<group>"; };
-		BCF71A731D0D25FA00285D07 /* ImageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClass.swift; sourceTree = "<group>"; };
 		BCF71A751D0D3F4700285D07 /* noimages.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimages.gif; sourceTree = "<group>"; };
 		BCFBDD841D63363E0032DC6F /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewControllerTableView.swift; sourceTree = "<group>"; };
 		BCFBDD891D633D6D0032DC6F /* ChatUserSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSelectViewController.swift; sourceTree = "<group>"; };
-		BCFC646A1D5DC05400997B24 /* ProfileImageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageClass.swift; sourceTree = "<group>"; };
 		C53EC0BD776941FBF25FFAE2 /* Pods-Study Problem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Problem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem.release.xcconfig"; sourceTree = "<group>"; };
 		CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Problem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -287,8 +283,6 @@
 		BC1603651CE8563F00402577 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BCF71A731D0D25FA00285D07 /* ImageClass.swift */,
-				BCFC646A1D5DC05400997B24 /* ProfileImageClass.swift */,
 				BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */,
 				BC1603661CE8569200402577 /* Post.swift */,
 			);
@@ -811,13 +805,11 @@
 				BC5484191D648A5D00CD5D5D /* ChatTableViewCell.swift in Sources */,
 				BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */,
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
-				BCFC646B1D5DC05400997B24 /* ProfileImageClass.swift in Sources */,
 				BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */,
 				BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */,
 				BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BCFBDD851D63363E0032DC6F /* ChatViewController.swift in Sources */,
-				BCF71A741D0D25FA00285D07 /* ImageClass.swift in Sources */,
 				BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */,
 				BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */,
 				BC7980741D76C6E600ACAE5C /* ThemeColorViewController.swift in Sources */,
@@ -930,7 +922,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -969,7 +961,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -991,7 +983,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Study Problem/Study Problem-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1011,7 +1003,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Study Problem/Study Problem-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

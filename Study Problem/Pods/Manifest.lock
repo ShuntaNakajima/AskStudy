@@ -1,23 +1,23 @@
 PODS:
-  - Firebase (3.4.0):
-    - Firebase/Core (= 3.4.0)
-  - Firebase/Analytics (3.4.0):
+  - Firebase (3.5.2):
+    - Firebase/Core (= 3.5.2)
+  - Firebase/Analytics (3.5.2):
     - FirebaseAnalytics (~> 3.3)
-  - Firebase/Auth (3.4.0):
+  - Firebase/Auth (3.5.2):
     - Firebase/Analytics
     - FirebaseAuth (= 3.0.4)
-  - Firebase/Core (3.4.0):
+  - Firebase/Core (3.5.2):
     - Firebase/Analytics
-  - Firebase/Database (3.4.0):
+  - Firebase/Database (3.5.2):
     - Firebase/Analytics
     - FirebaseDatabase (= 3.0.2)
-  - Firebase/Messaging (3.4.0):
+  - Firebase/Messaging (3.5.2):
     - Firebase/Analytics
     - FirebaseMessaging (= 1.1.1)
-  - Firebase/Storage (3.4.0):
+  - Firebase/Storage (3.5.2):
     - Firebase/Analytics
-    - FirebaseStorage (= 1.0.2)
-  - FirebaseAnalytics (3.3.0):
+    - FirebaseStorage (= 1.0.3)
+  - FirebaseAnalytics (3.3.1):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
@@ -36,8 +36,8 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleIPhoneUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
-  - FirebaseStorage (1.0.2):
-    - FirebaseAnalytics (~> 3.2)
+  - FirebaseStorage (1.0.3):
+    - FirebaseAnalytics (~> 3.3)
     - GoogleNetworkingUtilities (~> 1.2)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
@@ -55,13 +55,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
-  - Realm (1.0.0):
-    - Realm/Headers (= 1.0.0)
-  - Realm/Headers (1.0.0)
-  - RealmSwift (1.0.0):
-    - Realm (= 1.0.0)
   - RSKImageCropper (1.5.1)
-  - SlideMenuControllerSwift (2.2.0)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -72,19 +66,17 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - JSQMessagesViewController
-  - RealmSwift
   - RSKImageCropper
-  - SlideMenuControllerSwift
   - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Firebase: 754562547af419cc2f4b15247fee419081924bc2
-  FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
+  Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
+  FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: 6bc7cd2ecb875c1a9c0f8b94956398aa3145bbb8
-  FirebaseStorage: fa2a87dee81f682f553af6839daa37a750e65f6a
+  FirebaseStorage: 3992817bf405f5c1a4f8349678d22724cd0ef509
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
@@ -93,12 +85,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
-  RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
   RSKImageCropper: edd65fedb3734332818deb139906d6b7f54b8a44
-  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 2e7ffa415aa3dbe43a161ca775769fc557b7264b
+PODFILE CHECKSUM: f405a492d49f3ec6d3954f0cbb071353c60dbfad
 
 COCOAPODS: 1.0.1

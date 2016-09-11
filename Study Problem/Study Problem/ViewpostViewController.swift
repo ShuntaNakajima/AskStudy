@@ -29,48 +29,48 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
         let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
-        self.tableView.registerNib(mainnib, forCellReuseIdentifier:"postMainCell")
+        self.tableView.register(mainnib, forCellReuseIdentifier:"postMainCell")
         let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
-        self.tableView.registerNib(itemnib, forCellReuseIdentifier: "ItemCell")
+        self.tableView.register(itemnib, forCellReuseIdentifier: "ItemCell")
         let replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
-        self.tableView.registerNib(replysnib, forCellReuseIdentifier:"ReplysCell")
+        self.tableView.register(replysnib, forCellReuseIdentifier:"ReplysCell")
         let myreplysnib  = UINib(nibName: "MyReplysTableViewCell", bundle:nil)
-        self.tableView.registerNib(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
-        toolbar = UIToolbar(frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width, 45.0))
-        toolbar.barStyle = .BlackTranslucent
-        toolbar.tintColor = UIColor.whiteColor()
-        toolbar.backgroundColor = UIColor.blackColor()
-        let button3: UIBarButtonItem = UIBarButtonItem(title: "send", style:.Plain, target: nil, action: #selector(tappedToolBarBtn))
-        let buttonGap: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        self.tableView.register(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
+        toolbar = UIToolbar(frame: CGRect(x:0,y:self.view.bounds.size.height - 45.0,width:self.view.bounds.size.width, height:45.0))
+        toolbar.barStyle = .blackTranslucent
+        toolbar.tintColor = UIColor.white
+        toolbar.backgroundColor = UIColor.black
+        let button3: UIBarButtonItem = UIBarButtonItem(title: "send", style:.plain, target: nil, action: #selector(tappedToolBarBtn))
+        let buttonGap: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         toolbar.items = [buttonGap, buttonGap, button3]
         self.view.addSubview(toolbar)
-        myTextView = UITextView(frame: CGRectMake(0,0 ,self.view.frame.width - 45, 45))
+        myTextView = UITextView(frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: 45))
         myTextView.text = "Type comment"
         myTextView.layer.borderWidth = 0.5
-        myTextView.font = UIFont.systemFontOfSize(25.5)
+        myTextView.font = UIFont.systemFont(ofSize: 25.5)
         myTextView.delegate = self
         myTextView.text = "Type here"
-        myTextView.textColor = UIColor.lightGrayColor()
+        myTextView.textColor = UIColor.lightGray
         toolbar.addSubview(self.myTextView)
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        Database.child("post/" + post).observeEventType(.Value, withBlock: { snapshot in
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        Database.child("post/" + post).observe(.value, with: { (snapshot:FIRDataSnapshot) in
             if snapshot.children.allObjects is [FIRDataSnapshot] {
                 if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                     let key = snapshot.key
-                    postDictionary["key"] = key
+                    postDictionary["key"] = key as AnyObject?
                     self.postDic = postDictionary
                     self.tableView.reloadData()
                 }
             }
         })
-        Database.child("post/" + post + "/replys").observeEventType(.Value, withBlock: { snapshot in
+        Database.child("post/" + post + "/replys").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.replys = []
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        postDictionary["key"] = key
+                        postDictionary["key"] = key as AnyObject?
                         self.replys.append(postDictionary)
                     }
                 }
@@ -80,33 +80,32 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     }
     func handleKeyboardWillShowNotification(notification: NSNotification) {
         let userInfo = notification.userInfo!
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        let transform = CGAffineTransformMakeTranslation(0, -keyboardScreenEndFrame.size.height)
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.size.height)
         self.keyboradheight = keyboardScreenEndFrame.size.height
         self.view.transform = transform
         tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 45))
     }
-    func textViewDidBeginEditing(textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if myTextView.text == "Type here"{
             myTextView.text = ""
-            myTextView.textColor = UIColor.blackColor()
+            myTextView.textColor = UIColor.black
         }
     }
     func tappedToolBarBtn(){
-        myTextView.resignFirstResponder()
         let replyText = myTextView.text
         if replyText != "" && replyText != "Type here" {
-            self.view.transform = CGAffineTransformIdentity
-            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - 45.0, self.view.bounds.size.width,
-                45.0))
-            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, 45))
+            myTextView.resignFirstResponder()
+            self.view.transform = CGAffineTransform.identity
+            toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - 45.0,width: self.view.bounds.size.width,height:45.0))
+            myTextView.frame = (frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: 45))
             myTextView.text = "Type here"
-            myTextView.textColor = UIColor.lightGrayColor()
+            myTextView.textColor = UIColor.lightGray
             tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
             let postedUser : String!
             let newreply: Dictionary<String, AnyObject> = [
-                "text": replyText!,
-                "author": (FIRAuth.auth()?.currentUser?.uid)!
+                "text": replyText! as AnyObject,
+                "author": (FIRAuth.auth()?.currentUser?.uid)! as AnyObject
             ]
             let firebasenewreply = Database.child("post/" + post + "/replys").childByAutoId()
             firebasenewreply.setValue(newreply)
@@ -122,8 +121,8 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
         if(size.height.native <= maxHeight) {
             myTextView.frame.size.height = size.height
-            toolbar.frame = (frame: CGRectMake(0, self.view.bounds.size.height - size.height, self.view.bounds.size.width, size.height))
-            myTextView.frame = (frame: CGRectMake(0,0 ,self.view.frame.width - 45, size.height))
+            toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - size.height,width: self.view.bounds.size.width,height: size.height))
+            myTextView.frame = (frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: size.height))
             tableView.frame = (frame: CGRect(x: 0, y: keyboradheight!, width: self.view.frame.width, height: self.view.frame.height - keyboradheight! - size.height))
         }
     }

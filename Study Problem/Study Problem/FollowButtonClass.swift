@@ -32,12 +32,12 @@ class FollowButtonClass: UIButton {
         Database = FIRDatabase.database().reference()
         var followingUserfollower = 0
         var myFollow = 0
-        Database.child("user/" + uid + "/followers").observeSingleEventOfType(.Value, withBlock: { snapshot in
+        Database.child("user/" + uid + "/followers").observeSingleEvent(of: .value, with: { snapshot in
                 followingUserfollower = (snapshot.value as! Int)
             let newFollowUserFollowerChild = self.Database.child("user/\(uid)/followers")
             newFollowUserFollowerChild.setValue(followingUserfollower + 1)
         })
-        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeSingleEventOfType(.Value, withBlock: { snapshot in
+        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeSingleEvent(of: .value, with: { snapshot in
                 myFollow = (snapshot.value as! Int)
             let follows = self.Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follows")
             follows.setValue(myFollow + 1)
@@ -49,9 +49,9 @@ class FollowButtonClass: UIButton {
     }
     func unfollow(uid:String!){
         Database = FIRDatabase.database().reference()
-        let recentUsersQuery = (Database.child("user/" + uid + "/follower").queryOrderedByChild("user").queryEqualToValue((FIRAuth.auth()?.currentUser!.uid)!))
+        let recentUsersQuery = (Database.child("user/" + uid + "/follower").queryOrdered(byChild: "user").queryEqual(toValue: (FIRAuth.auth()?.currentUser!.uid)!))
         var key = ""
-        recentUsersQuery.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        recentUsersQuery.observeSingleEvent(of: .value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     key = snap.key
@@ -59,9 +59,9 @@ class FollowButtonClass: UIButton {
                 }
             }
         })
-        let myrecentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrderedByChild("user").queryEqualToValue(uid))
+        let myrecentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: "user").queryEqual(toValue: uid))
         var mykey = ""
-        myrecentUesrsQuery.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        myrecentUesrsQuery.observeSingleEvent(of: .value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     mykey = snap.key
@@ -71,12 +71,12 @@ class FollowButtonClass: UIButton {
         })
         var followingUserfollower = 0
         var myFollow = 0
-        Database.child("user/" + uid + "/followers").observeSingleEventOfType(.Value, withBlock: { snapshot in
+        Database.child("user/" + uid + "/followers").observeSingleEvent(of: .value, with: { snapshot in
                 followingUserfollower = (snapshot.value as! Int)
                 let newFollowUserFollowerChild = self.Database.child("user/\(uid)/followers")
                 newFollowUserFollowerChild.setValue(followingUserfollower - 1)
         })
-        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeSingleEventOfType(.Value, withBlock: { snapshot in
+        Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeSingleEvent(of: .value, with: { snapshot in
                 myFollow = (snapshot.value as! Int)
                 let follows = self.Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follows")
                 follows.setValue(myFollow - 1)

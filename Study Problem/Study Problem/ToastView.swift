@@ -51,7 +51,7 @@ class ToastView: UIView {
     static private let FadeInOutDurationInSeconds = 0.4
     
     /// Toastの表示・非表示時のアニメーションのタイプ
-    static private let ToastTransition = UIViewAnimationOptions.TransitionCrossDissolve
+    static private let ToastTransition = UIViewAnimationOptions.transitionCrossDissolve
     
     static private let MaximumImageSize = (32, 32)
     
@@ -65,12 +65,12 @@ class ToastView: UIView {
     /// Toastのテキストの色
     static var toastTextColor: UIColor {
         get {
-            return UIColor.whiteColor()
+            return UIColor.white
         }
     }
     
     /// Toastを非表示にするためのタイマー
-    var hideTimer: NSTimer? = nil
+    var hideTimer: Timer? = nil
     
     // MARK: - Private methods
     
@@ -78,22 +78,22 @@ class ToastView: UIView {
     private func startTimer(duration: ToastDuration) {
         switch duration {
         case .Short:
-            hideTimer = NSTimer(timeInterval: ToastView.ShortDurationInSeconds, target: self, selector: Selector("hideSelf:"), userInfo: nil, repeats: false)
+            hideTimer = Timer(timeInterval: ToastView.ShortDurationInSeconds, target: self, selector: Selector("hideSelf:"), userInfo: nil, repeats: false)
         case .Long:
-            hideTimer = NSTimer(timeInterval: ToastView.LongDurationInSeconds, target: self, selector: Selector("hideSelf:"), userInfo: nil, repeats: false)
+            hideTimer = Timer(timeInterval: ToastView.LongDurationInSeconds, target: self, selector: Selector("hideSelf:"), userInfo: nil, repeats: false)
         }
-        let runLoop = NSRunLoop.currentRunLoop()
-        runLoop.addTimer(hideTimer!, forMode: NSDefaultRunLoopMode)
+        let runLoop = RunLoop.current
+        runLoop.add(hideTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
     /// Toastを非表示にする
-    internal func hideSelf(timer: NSTimer) {
-        if timer.valid {
+    internal func hideSelf(timer: Timer) {
+        if timer.isValid {
             timer.invalidate()
         }
         
-        UIView.transitionWithView(self, duration: ToastView.FadeInOutDurationInSeconds, options: ToastView.ToastTransition, animations: nil, completion: { if $0 { self.removeFromSuperview() } } )
-        self.hidden = true
+        UIView.transition(with: self, duration: ToastView.FadeInOutDurationInSeconds, options: ToastView.ToastTransition, animations: nil, completion: { if $0 { self.removeFromSuperview() } } )
+        self.isHidden = true
     }
     
     // MARK: - Create Toast
@@ -107,54 +107,54 @@ class ToastView: UIView {
          生成したToastのView
      */
     static func showText(text: String, duration: ToastDuration = .Short) -> ToastView? {
-        guard let keyWindow = UIApplication.sharedApplication().keyWindow else {
+        guard let keyWindow = UIApplication.shared.keyWindow else {
             return nil
         }
         guard let targetView = keyWindow.rootViewController?.view else {
             return nil
         }
         
-        let offset = CGPointMake(8, 8)
-        let frame = CGRectMake(keyWindow.frame.origin.x + offset.x, keyWindow.frame.origin.y + offset.y, keyWindow.frame.size.width - offset.x, keyWindow.frame.size.height - offset.y)
+        let offset = CGPoint(x:8,y: 8)
+        let frame = CGRect(x:keyWindow.frame.origin.x + offset.x,y: keyWindow.frame.origin.y + offset.y,width: keyWindow.frame.size.width - offset.x,height: keyWindow.frame.size.height - offset.y)
         let toast = ToastView(frame: frame)
         toast.translatesAutoresizingMaskIntoConstraints = false
         
-        let backgroundView = UIView(frame: CGRectMake(0, 0, toast.frame.size.width, toast.frame.size.height))
+        let backgroundView = UIView(frame: CGRect(x:0,y: 0,width: toast.frame.size.width,height: toast.frame.size.height))
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.backgroundColor = ToastView.toastBackgroundColor
         backgroundView.layer.cornerRadius = 4
         
-        let textLabel = UILabel(frame: CGRectMake(0, 0, toast.frame.size.width, toast.frame.size.height))
+        let textLabel = UILabel(frame: CGRect(x:0,y: 0,width: toast.frame.size.width,height: toast.frame.size.height))
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.numberOfLines = 4
         textLabel.text = text
         textLabel.textColor = toastTextColor
-        textLabel.textAlignment = .Center
+        textLabel.textAlignment = .center
         
         toast.addSubview(backgroundView)
         toast.addSubview(textLabel)
         
         targetView.addSubview(toast)
         
-        let constraints = [NSLayoutConstraint(item: toast, attribute: .Bottom, relatedBy: .Equal, toItem: backgroundView, attribute: .Bottom, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Top, relatedBy: .Equal, toItem: backgroundView, attribute: .Top, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Leading, relatedBy: .Equal, toItem: backgroundView, attribute: .Leading, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Trailing, relatedBy: .Equal, toItem: backgroundView, attribute: .Trailing, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .Equal, toItem: textLabel, attribute: .Bottom, multiplier: 1.0, constant: 10.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .Equal, toItem: textLabel, attribute: .Top, multiplier: 1.0, constant: -10.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .Leading, relatedBy: .Equal, toItem: textLabel, attribute: .Leading, multiplier: 1.0, constant: -10.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .Trailing, relatedBy: .Equal, toItem: textLabel, attribute: .Trailing, multiplier: 1.0, constant: 10.0),
+        let constraints = [NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: backgroundView, attribute: .leading, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: backgroundView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .equal, toItem: textLabel, attribute: .bottom, multiplier: 1.0, constant: 10.0),
+            NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -10.0),
+            NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -10.0),
+            NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .trailing, multiplier: 1.0, constant: 10.0),
             
-            NSLayoutConstraint(item: toast, attribute: .Bottom, relatedBy: .Equal, toItem: targetView, attribute: .BottomMargin, multiplier: 1.0, constant: -12.0),
-            NSLayoutConstraint(item: toast, attribute: .Leading, relatedBy: .Equal, toItem: targetView, attribute: .LeadingMargin, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Trailing, relatedBy: .Equal, toItem: targetView, attribute: .TrailingMargin, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: targetView, attribute: .bottomMargin, multiplier: 1.0, constant: -12.0),
+            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: targetView, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: targetView, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0),
             ]
         
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
         targetView.layoutIfNeeded()
         toast.alpha = 0.0
         
-        UIView.animateWithDuration(FadeInOutDurationInSeconds, delay: 0.0, options: ToastTransition, animations: { toast.alpha = 1.0 }, completion: { if $0 { toast.startTimer(duration) } } )
+        UIView.animate(withDuration: FadeInOutDurationInSeconds, delay: 0.0, options: ToastTransition, animations: { toast.alpha = 1.0 }, completion: { if $0 { toast.startTimer(duration: duration) } } )
         
         return toast
     }
@@ -170,33 +170,33 @@ class ToastView: UIView {
      生成したToastのView
      */
     static func showText(text: String, image: UIImage, imagePosition: ToastImagePosition = .Left, duration: ToastDuration = .Short) -> ToastView? {
-        guard let keyWindow = UIApplication.sharedApplication().keyWindow else {
+        guard let keyWindow = UIApplication.shared.keyWindow else {
             return nil
         }
         guard let targetView = keyWindow.rootViewController?.view else {
             return nil
         }
         
-        let offset = CGPointMake(8, 8)
-        let frame = CGRectMake(keyWindow.frame.origin.x + offset.x, keyWindow.frame.origin.y + offset.y, keyWindow.frame.size.width - offset.x, keyWindow.frame.size.height - offset.y)
+        let offset = CGPoint(x:8,y: 8)
+        let frame = CGRect(x:keyWindow.frame.origin.x + offset.x,y: keyWindow.frame.origin.y + offset.y,width: keyWindow.frame.size.width - offset.x,height: keyWindow.frame.size.height - offset.y)
         let toast = ToastView(frame: frame)
         toast.translatesAutoresizingMaskIntoConstraints = false
         
-        let backgroundView = UIView(frame: CGRectMake(0, 0, toast.frame.size.width, toast.frame.size.height))
+        let backgroundView = UIView(frame: CGRect(x:0,y: 0,width: toast.frame.size.width,height: toast.frame.size.height))
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.backgroundColor = ToastView.toastBackgroundColor
         backgroundView.layer.cornerRadius = 4
         
-        let textLabel = UILabel(frame: CGRectMake(0, 0, toast.frame.size.width, toast.frame.size.height))
+        let textLabel = UILabel(frame: CGRect(x:0,y: 0,width: toast.frame.size.width,height: toast.frame.size.height))
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.numberOfLines = 4
         textLabel.text = text
         textLabel.textColor = toastTextColor
-        textLabel.textAlignment = .Center
+        textLabel.textAlignment = .center
         
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         
         toast.addSubview(backgroundView)
         toast.addSubview(textLabel)
@@ -204,58 +204,58 @@ class ToastView: UIView {
         
         targetView.addSubview(toast)
         
-        var constraints = [NSLayoutConstraint(item: toast, attribute: .Bottom, relatedBy: .Equal, toItem: backgroundView, attribute: .Bottom, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Top, relatedBy: .Equal, toItem: backgroundView, attribute: .Top, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Leading, relatedBy: .Equal, toItem: backgroundView, attribute: .Leading, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Trailing, relatedBy: .Equal, toItem: backgroundView, attribute: .Trailing, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Bottom, relatedBy: .Equal, toItem: targetView, attribute: .BottomMargin, multiplier: 1.0, constant: -12.0),
-            NSLayoutConstraint(item: toast, attribute: .Leading, relatedBy: .Equal, toItem: targetView, attribute: .LeadingMargin, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .Trailing, relatedBy: .Equal, toItem: targetView, attribute: .TrailingMargin, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.0)),
-            NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.1)),
+        var constraints = [NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: backgroundView, attribute: .leading, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: backgroundView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: targetView, attribute: .bottomMargin, multiplier: 1.0, constant: -12.0),
+            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: targetView, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: targetView, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.0)),
+            NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.1)),
         ]
         switch imagePosition {
         case .Top:
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .Equal, toItem: imageView, attribute: .Top, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: imageView, attribute: .CenterX, relatedBy: .Equal, toItem: backgroundView, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: textLabel, attribute: .Top, multiplier: 1.0, constant: -8.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .Equal, toItem: textLabel, attribute: .Bottom, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Leading, relatedBy: .Equal, toItem: textLabel, attribute: .Leading, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Trailing, relatedBy: .Equal, toItem: textLabel, attribute: .Trailing, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .top, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: backgroundView, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .equal, toItem: textLabel, attribute: .bottom, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .trailing, multiplier: 1.0, constant: 10.0))
         case .Bottom:
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .Equal, toItem: textLabel, attribute: .Top, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: textLabel, attribute: .Bottom, relatedBy: .Equal, toItem: imageView, attribute: .Top, multiplier: 1.0, constant: -8.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .CenterX, relatedBy: .Equal, toItem: imageView, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .Equal, toItem: imageView, attribute: .Bottom, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Leading, relatedBy: .Equal, toItem: textLabel, attribute: .Leading, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Trailing, relatedBy: .Equal, toItem: textLabel, attribute: .Trailing, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: textLabel, attribute: .bottom, relatedBy: .equal, toItem: imageView, attribute: .top, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .centerX, relatedBy: .equal, toItem: imageView, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .trailing, multiplier: 1.0, constant: 10.0))
         case .Left:
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .CenterY, relatedBy: .Equal, toItem: imageView, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .CenterY, relatedBy: .Equal, toItem: textLabel, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .GreaterThanOrEqual, toItem: imageView, attribute: .Bottom, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .LessThanOrEqual, toItem: imageView, attribute: .Top, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .GreaterThanOrEqual, toItem: textLabel, attribute: .Bottom, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .LessThanOrEqual, toItem: textLabel, attribute: .Top, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Trailing, relatedBy: .Equal, toItem: textLabel, attribute: .Trailing, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: imageView, attribute: .Trailing, relatedBy: .Equal, toItem: textLabel, attribute: .Leading, multiplier: 1.0, constant: -8.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Leading, relatedBy: .Equal, toItem: imageView, attribute: .Leading, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .centerY, relatedBy: .equal, toItem: imageView, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .centerY, relatedBy: .equal, toItem: textLabel, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: imageView, attribute: .bottom, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .lessThanOrEqual, toItem: imageView, attribute: .top, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: textLabel, attribute: .bottom, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .lessThanOrEqual, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .trailing, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: imageView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: imageView, attribute: .leading, multiplier: 1.0, constant: -10.0))
         case .Right:
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .CenterY, relatedBy: .Equal, toItem: imageView, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .CenterY, relatedBy: .Equal, toItem: textLabel, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .GreaterThanOrEqual, toItem: imageView, attribute: .Bottom, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .LessThanOrEqual, toItem: imageView, attribute: .Top, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Bottom, relatedBy: .GreaterThanOrEqual, toItem: textLabel, attribute: .Bottom, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Top, relatedBy: .LessThanOrEqual, toItem: textLabel, attribute: .Top, multiplier: 1.0, constant: -10.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Trailing, relatedBy: .Equal, toItem: imageView, attribute: .Trailing, multiplier: 1.0, constant: 10.0))
-            constraints.append(NSLayoutConstraint(item: textLabel, attribute: .Trailing, relatedBy: .Equal, toItem: imageView, attribute: .Leading, multiplier: 1.0, constant: -8.0))
-            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .Leading, relatedBy: .Equal, toItem: textLabel, attribute: .Leading, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .centerY, relatedBy: .equal, toItem: imageView, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .centerY, relatedBy: .equal, toItem: textLabel, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: imageView, attribute: .bottom, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .lessThanOrEqual, toItem: imageView, attribute: .top, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: textLabel, attribute: .bottom, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .lessThanOrEqual, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -10.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: imageView, attribute: .trailing, multiplier: 1.0, constant: 10.0))
+            constraints.append(NSLayoutConstraint(item: textLabel, attribute: .trailing, relatedBy: .equal, toItem: imageView, attribute: .leading, multiplier: 1.0, constant: -8.0))
+            constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -10.0))
         }
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
         targetView.layoutIfNeeded()
         
         toast.alpha = 0.0
         
-        UIView.animateWithDuration(FadeInOutDurationInSeconds, delay: 0.0, options: ToastTransition, animations: { toast.alpha = 1.0 }, completion: { if $0 { toast.startTimer(duration) } } )
+        UIView.animate(withDuration: FadeInOutDurationInSeconds, delay: 0.0, options: ToastTransition, animations: { toast.alpha = 1.0 }, completion: { if $0 { toast.startTimer(duration: duration) } } )
         
         return toast
     }

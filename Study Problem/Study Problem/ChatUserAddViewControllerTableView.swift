@@ -11,7 +11,7 @@ import FirebaseStorage
 import FirebaseAuth
 import FirebaseDatabase
 
-extension ChatUserAddViewController{
+extension ChatUserAddViewController:UITableViewDataSource{
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         let user = Users[indexPath.row]
         let firebaseRoomRef = Database.child("chatroom/").childByAutoId()
@@ -25,53 +25,45 @@ extension ChatUserAddViewController{
         let firebaseRef2 = Database.child("user/\(user)/chats/").childByAutoId()
         let chatDetile2 = ["user":(FIRAuth.auth()?.currentUser!.uid)!,"chatroom":firebaseRoomRef.key]
         firebaseRef2.setValue(chatDetile2)
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Users.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = Users[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChatUserCell") as! ChatTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserCell") as! ChatTableViewCell
         print(Users)
-        cell.profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.profileImage.layer.borderColor = UIColor.white.cgColor
         cell.profileImage.layer.cornerRadius=27.5
         cell.profileImage.layer.masksToBounds=true
-        cell.profileImage.setTitle("", forState: UIControlState.Normal)
-        cell.profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, forState: .Normal)
+        cell.profileImage.setTitle("", for: UIControlState.normal)
+        cell.profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
 
-        let currentUser = Database.child("user").child(user)
-        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-            let chatUser = snapshot.value!.objectForKey("username") as! String
+        let currentUser = Database.child("user").child(user!)
+        currentUser.observe(FIRDataEventType.value, with: { snapshot in
+            let chatUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = chatUser
-            }, withCancelBlock: { error in
-                print(error.description)
+            }, withCancel: { (error) in
+                print(error)
         })
-        let profileimageclass = ProfileImageClass()
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            var viewImg = UIImage!()
+        DispatchQueue.global().async(execute: {
+            var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
             let autorsprofileRef = storageRef.child("\(user)/profileimage.png")
-            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
                     print(error)
                 } else {
-                    viewImg = data.flatMap(UIImage.init)
-                    if profileimageclass.selectFaction(user).isEmpty{
-                        dispatch_async(dispatch_get_main_queue(), {
-                            cell.profileImage.setBackgroundImage(viewImg!, forState: UIControlState.Normal)
-                            cell.layoutSubviews()
-                            profileimageclass.appendFaction(user, img: viewImg)
-                        });
-                    }else{
-                        let profile = profileimageclass.selectFaction(user)
-                        cell.profileImage.setBackgroundImage(profile[0].image!, forState: UIControlState.Normal)
+                    viewImg = data.flatMap(UIImage.init)!
+                    DispatchQueue.main.async(execute: {
+                        cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
                         cell.layoutSubviews()
-                    }
+                    });
                 }
             }
         });

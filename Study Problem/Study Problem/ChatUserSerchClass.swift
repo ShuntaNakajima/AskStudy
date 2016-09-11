@@ -13,29 +13,29 @@ import FirebaseDatabase
 extension ChatUserAddViewController{
     func UserSerch(uid:String!){
         let recentUesr = Database.child("user/" + uid + "/follow/")
-        recentUesr.observeEventType(.Value, withBlock: { snapshot in
+        recentUesr.observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap1 in snapshots {
                     if var postDictionary = snap1.value as? Dictionary<String, AnyObject> {
-                       self.FollowerSerch(postDictionary["user"] as! String!)
+                       self.FollowerSerch(uid: postDictionary["user"] as! String!)
                     }
                 }
             }
         })
 }
     func FollowerSerch(uid:String!){
-        let recentUesr = self.Database.child("user/" + uid + "/follower/").queryOrderedByChild("user").queryEqualToValue( (FIRAuth.auth()?.currentUser!.uid)!)
-        recentUesr.observeEventType(.Value, withBlock: { snapshot in
+        let recentUesr = self.Database.child("user/" + uid + "/follower/").queryOrdered(byChild: "user").queryEqual( toValue: (FIRAuth.auth()?.currentUser!.uid)!)
+        recentUesr.observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap2 in snapshots {
                     print(snapshots)
                     if var postDictionary = snap2.value as? Dictionary<String, AnyObject> {
-                        let recentUesr = self.Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/chats/").queryOrderedByChild("user").queryEqualToValue(uid)
-                        recentUesr.observeEventType(.Value, withBlock: { snapshot in
+                        let recentUesr = self.Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/chats/").queryOrdered(byChild: "user").queryEqual(toValue: uid)
+                        recentUesr.observe(.value, with: { snapshot in
                             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                                 print(snapshots)
                                     if snapshots == []{
-                                    self.Users.insert(uid, atIndex: 0)
+                                    self.Users.insert(uid, at: 0)
                                         self.tableView.reloadData()
                                 }
                             }

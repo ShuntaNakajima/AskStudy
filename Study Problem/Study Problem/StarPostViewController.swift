@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-import RealmSwift
 
 class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
     var Database = FIRDatabaseReference.init()
@@ -25,7 +23,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier:"PostCell")
+        self.tableView.register(nib, forCellReuseIdentifier:"PostCell")
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -35,29 +33,25 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").observeEventType(.Value, withBlock: { snapshot in
+        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").observe(.value, with: { snapshot in
             self.posts = []
             self.starposts = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        postDictionary["key"] = key
-                        self.starposts.insert(postDictionary["userstars"] as! String!, atIndex: 0)
-                    }
-                }
-                self.tableView.reloadData()
-                for post in self.starposts{
-                    self.Database.child("post").child(post).observeEventType(.Value, withBlock: { snapshot in
-                        if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
-                            let key = snapshot.key
-                            postDictionary["key"] = key
-                            self.posts.append(postDictionary)
-                        }
-                        self.tableView.reloadData()
+                        postDictionary["key"] = key as AnyObject?
+                        self.Database.child("post").child(postDictionary["userstars"] as! String!).observe(.value, with: { (snapshot:FIRDataSnapshot) in
+                            if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                                let key = snapshot.key
+                                postDictionary["key"] = key as AnyObject?
+                                self.posts.append(postDictionary)
+                            }
+                            self.tableView.reloadData()
                         })
+                    }
                 }
             }
         })
@@ -65,15 +59,15 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "viewStarPost") {
-            let vpVC: ViewpostViewController = (segue.destinationViewController as? ViewpostViewController)!
+            let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
             vpVC.post = selectpost
         }
     }
     @IBAction func Post(){
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("PostViewController") as! PostViewController
-        self.presentViewController(vc, animated: true, completion: nil)
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
+        self.present(vc, animated: true, completion: nil)
     }
     func showUserData(sender:UIButton){
         let row = sender.tag

@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         if email != "" && password != "" {
                       // Login with the Firebase's authUser method
             
-            FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
+            FIRAuth.auth()?.signIn(withEmail: email!, password: password!) { (user, error) in
                 
                 if user != nil {
                     
@@ -54,13 +54,13 @@ class LoginViewController: UIViewController {
                     // NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     // Enter the app!
-                    let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationViewController")
-                    self.presentViewController(mainViewController, animated: true, completion: nil)
+                    let mainViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
+                    self.present(mainViewController, animated: true, completion: nil)
                     //self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
                    
                 } else {
                   
-                    self.loginErrorAlert("Oops!", message: "Check your username and password.")
+                    self.loginErrorAlert(title: "Oops!", message: "Check your username and password.")
                 }
             }
             
@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
             
             // There was a problem
             
-            loginErrorAlert("Oops!", message: "Don't forget to enter your email and password.")
+            loginErrorAlert(title: "Oops!", message: "Don't forget to enter your email and password.")
         }
         
     }
@@ -77,10 +77,10 @@ class LoginViewController: UIViewController {
         
         // Called upon login error to let the user know login didn't work.
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
 }

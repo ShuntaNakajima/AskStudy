@@ -15,25 +15,25 @@ extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSourc
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mypost.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = mypost[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserPostCell") as! ModalTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserPostCell") as! ModalTableViewCell
         let postDictionary = post as? Dictionary<String, AnyObject>
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!
         let postdate = postDictionary!["date"] as! String!
-        let now = NSDate()
-        cell.dateLabel.text = now.offset(postdate.postDate())
+        let now = Date()
+        cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = postDictionary!["text"] as? String
         let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
-        currentUser.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-            let postUser = snapshot.value!.objectForKey("username") as! String
+        currentUser.observe(FIRDataEventType.value, with: { snapshot in
+            let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
-            }, withCancelBlock: { error in
-                print(error.description)
+            }, withCancel: { (error) in
+                print(error)
         })
         return cell
     }
@@ -42,7 +42,7 @@ extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSourc
         let postDictionary = post as? Dictionary<String, AnyObject>
         selectpost = postDictionary!["key"] as! String!
         if selectpost != nil {
-            performSegueWithIdentifier("viewPost",sender: nil)
+            performSegue(withIdentifier: "viewPost",sender: nil)
         }
     }
 }

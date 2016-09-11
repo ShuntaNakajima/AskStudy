@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-import RealmSwift
 import SVProgressHUD
 
 class ChangePasswordViewController: UIViewController {
@@ -24,10 +22,10 @@ class ChangePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Database = FIRDatabase.database().reference()
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observeEventType(.Value, withBlock: { snapshot in
+        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
             if var userDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                 let key = snapshot.key
-                userDictionary["key"] = key
+                userDictionary["key"] = key as AnyObject?
                self.userDic = userDictionary
             }
         })
@@ -42,14 +40,14 @@ class ChangePasswordViewController: UIViewController {
                         print(error)
                         let alert = UIAlertView()
                         alert.title = "The password must be 6 characters long or more."
-                        alert.addButtonWithTitle("OK")
+                        alert.addButton(withTitle: "OK")
                         alert.show();
                         SVProgressHUD.dismiss()
                     } else {
                         self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("provider").setValue(self.newPassword.text!)
                         let alert = UIAlertView()
                         alert.title = "Update Successful!"
-                        alert.addButtonWithTitle("OK")
+                        alert.addButton(withTitle: "OK")
                         alert.show();
                         SVProgressHUD.dismiss()
                     }
@@ -57,14 +55,14 @@ class ChangePasswordViewController: UIViewController {
             }else{
                 let alert = UIAlertView()
                 alert.title = "New password dosen't match. please check it"
-                alert.addButtonWithTitle("OK")
+                alert.addButton(withTitle: "OK")
                 alert.show();
                 SVProgressHUD.dismiss()
             }
         }else{
             let alert = UIAlertView()
             alert.title = "Please check your old password"
-            alert.addButtonWithTitle("OK")
+            alert.addButton(withTitle: "OK")
             alert.show();
             SVProgressHUD.dismiss()
         }

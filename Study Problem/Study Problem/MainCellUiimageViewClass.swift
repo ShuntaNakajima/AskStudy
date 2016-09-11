@@ -10,11 +10,11 @@ import UIKit
 class MainCellUiimageViewClass: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addTarget(self, action: "showUser:", forControlEvents: .TouchUpInside)
+        self.addTarget(self, action:  #selector(MainCellUiimageViewClass.showUser(sender:)), for: .touchUpInside)
         self.updateLayout()
     }
     override func awakeFromNib() {
-        self.addTarget(self, action: "showUser:", forControlEvents: .TouchUpInside)
+        self.addTarget(self, action: #selector(MainCellUiimageViewClass.showUser(sender:)), for: .touchUpInside)
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,19 +23,19 @@ class MainCellUiimageViewClass: UIButton {
     func updateLayout(){
         self.layer.cornerRadius=25
         self.layer.masksToBounds=true
-        self.setTitle("", forState: UIControlState.Normal)
-        self.setBackgroundImage(UIImage(named: "noimage.gif")!, forState: .Normal)
+        self.setTitle("", for: UIControlState.normal)
+        self.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
     }
     func showUser(sender:UIButton){
         let modalViewController = UserDetailModalViewController(nibName: "UserDetailModalViewController", bundle: nil)
-        modalViewController.modalPresentationStyle = .Custom
+        modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
-             self.superview!.window?.rootViewController!.presentViewController(modalViewController, animated: true, completion: nil)
+             self.superview!.window?.rootViewController!.present(modalViewController, animated: true, completion: nil)
     }
 }
 extension MainCellUiimageViewClass: UIViewControllerTransitioningDelegate {
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController?, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return CustomPresentationController(presentedViewController: presented, presentingViewController: presenting)
+        return CustomPresentationController(presentedViewController: presented, presenting: presenting)
     }
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomAnimatedTransitioning(isPresent: true, atButton: self)
