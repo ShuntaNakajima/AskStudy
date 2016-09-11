@@ -8,16 +8,16 @@
 
 import UIKit
 
-extension NSDate {
-    func dateFrom(date:NSDate) -> NSDateComponents{
-        let cal = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-        let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
-        let components = cal.components(unitFlags, fromDate: date, toDate: self, options: NSCalendarOptions())
-        return components
+extension Date {
+    func dateFrom(date:Date) -> NSDateComponents{
+        let cal = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        let unitFlags: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
+        let components = cal.components(unitFlags, from: date as Date, to: self, options: NSCalendar.Options())
+        return components as NSDateComponents
     }
     
-    func offset(toDate: NSDate) -> String{
-        let components = self.dateFrom(toDate)
+    func offset(toDate: Date) -> String{
+        let components = self.dateFrom(date: toDate as Date)
         if components.year != 0{
             return "\(components.year)y"
         }else if components.month != 0{
@@ -36,11 +36,11 @@ extension NSDate {
     }
 }
     extension String {
-    func postDate() -> NSDate{
-        let date_formatter: NSDateFormatter = NSDateFormatter()
-        date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+    func postDate() -> Date{
+        let date_formatter: DateFormatter = DateFormatter()
+        date_formatter.locale     = NSLocale(localeIdentifier: "ja") as Locale!
         date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let change_date:NSDate = date_formatter.dateFromString(self)!
+        let change_date:Date = date_formatter.date(from: self)! as Date
         return change_date
 
     }

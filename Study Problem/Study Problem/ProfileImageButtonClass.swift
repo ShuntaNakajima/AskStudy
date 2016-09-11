@@ -20,12 +20,12 @@ class ProfileImageButtonClass: UIButton{
         self.updateLayout()
     }
     func updateLayout(){
-        self.layer.borderColor = UIColor.whiteColor().CGColor
+        self.layer.borderColor = UIColor.white.cgColor
         self.imageView!.layer.borderWidth = 10
         self.imageView!.layer.cornerRadius = 25
         self.layer.cornerRadius=25
         self.layer.masksToBounds=true
-        self.setTitle("", forState: UIControlState.Normal)
-        self.setBackgroundImage(UIImage(named: "noimage.gif")!, forState: .Normal)
+        self.setTitle("", for: UIControlState.normal)
+        self.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class MianCellTextView: UILabel {
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         self.updateLayout()
     }
     override init(frame: CGRect) {

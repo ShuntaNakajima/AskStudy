@@ -12,6 +12,9 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+
+    
     var Database = FIRDatabase.database().reference()
 
     @IBOutlet weak var emailField: UITextField!
@@ -19,7 +22,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var usernameField: UITextField!
 
     @IBOutlet weak var gradeField: UITextField!
-    var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12"]
+    var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12","others"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,34 +32,34 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         
         gradeField.inputView = pickerView
         
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        let toolBar = UIToolbar(frame: CGRect(x:0,y:self.view.frame.size.height/6,width:self.view.frame.size.width,height:40.0))
         
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
+        toolBar.barStyle = UIBarStyle.blackTranslucent
         
-        toolBar.tintColor = UIColor.whiteColor()
+        toolBar.tintColor = UIColor.white
         
-        toolBar.backgroundColor = UIColor.whiteColor()
+        toolBar.backgroundColor = UIColor.white
         
         
-        let defaultButton = UIBarButtonItem(title: "Grade1", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(tappedToolBarBtn))
+        let defaultButton = UIBarButtonItem(title: "Grade1", style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedToolBarBtn))
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(donePressed))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(donePressed))
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         
         label.font = UIFont(name: "Helvetica", size: 12)
         
-        label.backgroundColor = UIColor.clearColor()
+        label.backgroundColor = UIColor.clear
         
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         
         label.text = "Pick your grade"
         
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         
         let textBtn = UIBarButtonItem(customView: label)
         
@@ -78,42 +81,39 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         let password = passwordField.text
         let grade = gradeField.text
         
-        if username != "" && email != "" && password != "" && gradeField != ""{
+        if username != "" && email != "" && password != "" && grade != ""{
             
             // Set Email and Password for the New User.
             
-            FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
+            FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
                 if error != nil {
                     
                     // There was a problem.
             
-                           self.signupErrorAlert("Oops!", message: "Having some trouble creating your account. Try again.")
+                           self.signupErrorAlert(title: "Oops!", message: "Having some trouble creating your account. Try again.")
                     
                     
                 } else {
                     
                     // Create and Login the New User with authUser
-              
-                        
-                        let user = ["provider": password!, "email": email!, "username": username!, "grade": grade! ,"follow": 0,"follower":0,"rank":5.0]
-                        
-                        // Seal the deal in DataService.swift.
-                        self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
-                        let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                        self.presentViewController(mainViewController, animated: true, completion: nil)
-
-                    
-                    
-                    // Store the uid for future access - handy!
-                    //NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
-                    
-                                     //  self.performSegueWithIdentifier("NewUserLoggedIn", sender: nil)
+                    user?.sendEmailVerification(completion: { (error) in
+                        if error == nil {
+                            let user = ["provider": password!, "email": email!, "username": username!, "grade": grade! ,"follows": 0,"followers":0] as [String : Any]
+                            
+                            // Seal the deal in DataService.swift.
+                            self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
+                            let mainViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
+                            self.present(mainViewController, animated: true, completion: nil)
+                        }else {
+                            self.signupErrorAlert(title: "Oops!", message: "Plaese check your e-mail address.")
+                        }
+                    })
                 }
             }
             
         }else{
             
-            self.signupErrorAlert("Oops!", message: "Don't forget to enter your email, password, and a username.")
+            self.signupErrorAlert(title: "Oops!", message: "Don't forget to enter your email, password, and a username.")
         
         
         }
@@ -122,10 +122,10 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         
         // Called upon signup error to let the user know signup didn't work.
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
         func donePressed(sender: UIBarButtonItem) {
@@ -140,15 +140,14 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
             
             gradeField.resignFirstResponder()
         }
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickOption.count
     }
     
@@ -159,6 +158,4 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gradeField.text = pickOption[row]
     }
-
-
 }

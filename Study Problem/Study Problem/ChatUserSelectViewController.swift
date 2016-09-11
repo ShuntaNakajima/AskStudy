@@ -23,7 +23,7 @@ class ChatUserSelectViewController: JSQMessagesViewController {
     var outgoingAvatar: JSQMessagesAvatarImage!
     
     func setupFirebase() {
-        Database.child("chatroom").child(ChatRoomId).child("chat").queryLimitedToLast(25).observeEventType(.Value, withBlock: { (snapshot) in
+        Database.child("chatroom").child(ChatRoomId).child("chat").queryLimited(toLast: 25).observe(.value, with: { (snapshot) in
             self.messages = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot]{
                 for snap in snapshots {
@@ -33,7 +33,7 @@ class ChatUserSelectViewController: JSQMessagesViewController {
             let sender = postDictionary["from"] as? String
             let name = postDictionary["name"] as? String
             let message = JSQMessage(senderId: sender, displayName: name, text: text)
-            self.messages?.append(message)
+            self.messages?.append(message!)
             self.finishReceivingMessage()
                         }
                     }
@@ -52,48 +52,36 @@ class ChatUserSelectViewController: JSQMessagesViewController {
         Database = FIRDatabase.database().reference()
         
         //自分のsenderId, senderDisokayNameを設定
-        let profileimageclass = ProfileImageClass()
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            var viewImg = UIImage!()
+      DispatchQueue.global().async(execute: {
+            var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
             let autorsprofileRef = storageRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)/profileimage.png")
-            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
                     print(error)
                 } else {
-                    viewImg = data.flatMap(UIImage.init)
-                    if profileimageclass.selectFaction((FIRAuth.auth()?.currentUser!.uid)!).isEmpty{
-                        dispatch_async(dispatch_get_main_queue(), {
-                            profileimageclass.appendFaction((FIRAuth.auth()?.currentUser!.uid)!, img: viewImg)
+                    viewImg = data.flatMap(UIImage.init)!
+                        DispatchQueue.main.async(execute: {
+                            self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: viewImg, diameter: 60)
                         });
-                    }else{
-                        let profile = profileimageclass.selectFaction((FIRAuth.auth()?.currentUser!.uid)!)
-                         self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage((profile[0].image!), diameter: 60)
-                    }
                 }
-            }
-        });
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            var viewImg = UIImage!()
+            }});
+       DispatchQueue.global().async(execute: {
+            var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
             let autorsprofileRef = storageRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)/profileimage.png")
-            autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
                     print(error)
                 } else {
-                    viewImg = data.flatMap(UIImage.init)
-                    if profileimageclass.selectFaction((FIRAuth.auth()?.currentUser!.uid)!).isEmpty{
-                        dispatch_async(dispatch_get_main_queue(), {
-                            profileimageclass.appendFaction((FIRAuth.auth()?.currentUser!.uid)!, img: viewImg)
-                        });
-                    }else{
-                        let profile = profileimageclass.selectFaction((FIRAuth.auth()?.currentUser!.uid)!)
-                        self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage((profile[0].image!), diameter: 60)
-                    }
+                    viewImg = data.flatMap(UIImage.init)!
+                    DispatchQueue.main.async(execute: {
+                        self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: viewImg, diameter: 60)
+                    });
                 }
-            }
+        }
         });
         self.senderId = (FIRAuth.auth()?.currentUser!.uid)!
         self.senderDisplayName = (FIRAuth.auth()?.currentUser!.uid)!
@@ -101,33 +89,28 @@ class ChatUserSelectViewController: JSQMessagesViewController {
         //吹き出しの設定
         
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        self.incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
-        self.outgoingBubble = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
+        self.incomingBubble = bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        self.outgoingBubble = bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
         
-        Database.child("chatroom").child(ChatRoomId).child("user").queryOrderedByChild("user").observeEventType(.Value, withBlock: { (snapshot) in
-            self.messages = []
+        Database.child("chatroom").child(ChatRoomId).child("user").queryOrdered(byChild: "user").observe(.value, with: { (snapshot) in
+            print(snapshot)
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot]{
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         if postDictionary["uesr"] as! String! != (FIRAuth.auth()?.currentUser!.uid)!{
-                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                                var viewImg = UIImage!()
+                            DispatchQueue.main.async(execute: {
+                                var viewImg = UIImage()
                                 let storage = FIRStorage.storage()
-                                let storageRef = storage.referenceForURL("gs://studyproblemfirebase.appspot.com")
+                                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
                                 let autorsprofileRef = storageRef.child("\(postDictionary["uesr"] as! String!)/profileimage.png")
-                                autorsprofileRef.dataWithMaxSize(1 * 1028 * 1028) { (data, error) -> Void in
+                                autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                                     if error != nil {
                                         print(error)
                                     } else {
-                                        viewImg = data.flatMap(UIImage.init)
-                                        if profileimageclass.selectFaction((postDictionary["uesr"] as! String!)!).isEmpty{
-                                            dispatch_async(dispatch_get_main_queue(), {
-                                                profileimageclass.appendFaction(postDictionary["uesr"] as! String!, img: viewImg)
-                                            });
-                                        }else{
-                                            let profile = profileimageclass.selectFaction((postDictionary["uesr"] as! String!)!)
-                                            self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage((profile[0].image!), diameter: 60)
-                                        }
+                                        viewImg = data.flatMap(UIImage.init)!
+                                        DispatchQueue.main.async(execute: {
+                                            self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: viewImg, diameter: 60)
+                                        });
                                     }
                                 }
                             });
@@ -147,25 +130,25 @@ class ChatUserSelectViewController: JSQMessagesViewController {
     }
     
     //Sendボタンが押された時に呼ばれる
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+     func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         
         //メッセジの送信処理を完了する(画面上にメッセージが表示される)
-        self.finishReceivingMessageAnimated(true)
+        self.finishReceivingMessage(animated: true)
         
         //firebaseにデータを送信、保存する
         let post1 = ["from": senderId, "name": senderDisplayName, "text":text]
         let post1Ref = Database.child("chatroom").child(ChatRoomId).child("chat").childByAutoId()
         post1Ref.setValue(post1)
-         self.finishSendingMessageAnimated(true)
+         self.finishSendingMessage(animated: true)
     }
     
     //アイテムごとに参照するメッセージデータを返す
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+  func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
         return self.messages?[indexPath.item]
     }
     
     //アイテムごとのMessageBubble(背景)を返す
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+ func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = self.messages?[indexPath.item]
         if message?.senderId == self.senderId {
             return self.outgoingBubble
@@ -174,7 +157,7 @@ class ChatUserSelectViewController: JSQMessagesViewController {
     }
     
     //アイテムごとにアバター画像を返す
-    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+ func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         let message = self.messages?[indexPath.item]
         if message?.senderId == self.senderId {
             return self.outgoingAvatar
@@ -183,7 +166,7 @@ class ChatUserSelectViewController: JSQMessagesViewController {
     }
     
     //アイテムの総数を返す
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (self.messages?.count)!
     }
 

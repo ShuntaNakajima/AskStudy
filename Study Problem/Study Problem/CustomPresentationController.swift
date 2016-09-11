@@ -19,38 +19,38 @@ final class CustomPresentationController: UIPresentationController {
         
         overlayView.frame = containerView.bounds
         overlayView.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "overlayViewDidTouch:")]
-        overlayView.backgroundColor = UIColor.blackColor()
+        overlayView.backgroundColor = UIColor.black
         overlayView.alpha = 0.0
-        containerView.insertSubview(overlayView, atIndex: 0)
-        
-        presentedViewController.transitionCoordinator()?.animateAlongsideTransition({ [weak self] context in
+        containerView.insertSubview(overlayView, at: 0)
+        self.containerView
+        presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] context in
             self?.overlayView.alpha = 0.7
             }, completion: nil)
     }
     
     // 非表示トランジション開始前に呼ばれる
     override func dismissalTransitionWillBegin() {
-        presentedViewController.transitionCoordinator()?.animateAlongsideTransition({ [weak self] context in
+        presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] context in
             self?.overlayView.alpha = 0.0
             }, completion: nil)
     }
     
     // 非表示トランジション開始後に呼ばれる
-    override func dismissalTransitionDidEnd(completed: Bool) {
+    override func dismissalTransitionDidEnd(_ completed: Bool) {
         if completed {
             overlayView.removeFromSuperview()
         }
     }
     
     let margin = (x: CGFloat(40), y: CGFloat(33))
-    override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+    func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
         return CGSize(width: parentSize.width - margin.x, height: parentSize.height - margin.y)
     }
     
-    override func frameOfPresentedViewInContainerView() -> CGRect {
-        var presentedViewFrame = CGRectZero
+    override var frameOfPresentedViewInContainerView: CGRect {
+        var presentedViewFrame = CGRect.zero
         let containerBounds = containerView!.bounds
-        let childContentSize = sizeForChildContentContainer(presentedViewController, withParentContainerSize: containerBounds.size)
+        let childContentSize = sizeForChildContentContainer(container: presentedViewController, withParentContainerSize: containerBounds.size)
         presentedViewFrame.size = childContentSize
         presentedViewFrame.origin.x = margin.x / 2.0
         presentedViewFrame.origin.y = margin.y / 2.0
@@ -61,7 +61,7 @@ final class CustomPresentationController: UIPresentationController {
     // レイアウト開始前に呼ばれる
     override func containerViewWillLayoutSubviews() {
         overlayView.frame = containerView!.bounds
-        presentedView()!.frame = frameOfPresentedViewInContainerView()
+        presentedView!.frame = frameOfPresentedViewInContainerView
     }
     
     // レイアウト開始後に呼ばれる
@@ -70,6 +70,6 @@ final class CustomPresentationController: UIPresentationController {
     
     // overlayViewをタップしたときに呼ばれる
     func overlayViewDidTouch(sender: AnyObject) {
-        presentedViewController.dismissViewControllerAnimated(true, completion: nil)
+        presentedViewController.dismiss(animated: true, completion: nil)
     }
 }

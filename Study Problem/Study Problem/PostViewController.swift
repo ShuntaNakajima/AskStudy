@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate,UITextViewDelegate{
+
     
     @IBOutlet var textView:UITextView!
     
@@ -32,12 +33,12 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         print("Username: \(self.currentUserId)")
         
         
-        textView.layer.borderColor = UIColor.blackColor().CGColor
+        textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
         textView.layer.cornerRadius = 20.0
         textView.text = "Type here"
-        textView.textColor = UIColor.lightGrayColor()
+        textView.textColor = UIColor.lightGray
         textView.delegate = self
         let pickerView = UIPickerView()
         
@@ -45,34 +46,34 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         subjectTextfield.inputView = pickerView
         
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        let toolBar = UIToolbar(frame: CGRect(x:0,y: self.view.frame.size.height/6,width: self.view.frame.size.width,height: 40.0))
         
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
+        toolBar.barStyle = UIBarStyle.blackTranslucent
         
-        toolBar.tintColor = UIColor.whiteColor()
+        toolBar.tintColor = UIColor.white
         
-        toolBar.backgroundColor = UIColor.whiteColor()
+        toolBar.backgroundColor = UIColor.white
         
         
-        let defaultButton = UIBarButtonItem(title: "Japanese", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(tappedToolBarBtn))
+        let defaultButton = UIBarButtonItem(title: "Japanese", style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedToolBarBtn))
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(donePressed))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(donePressed))
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         
         label.font = UIFont(name: "Helvetica", size: 12)
         
-        label.backgroundColor = UIColor.clearColor()
+        label.backgroundColor = UIColor.clear
         
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         
         label.text = "Pick Subject"
         
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         
         let textBtn = UIBarButtonItem(customView: label)
         
@@ -80,21 +81,21 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         subjectTextfield.inputAccessoryView = toolBar
         
-        let toolBarKeyBoard = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        let toolBarKeyBoard = UIToolbar(frame: CGRect(x:0,y: self.view.frame.size.height/6,width: self.view.frame.size.width,height: 40.0))
         
         toolBarKeyBoard.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         
-        toolBarKeyBoard.barStyle = UIBarStyle.BlackTranslucent
+        toolBarKeyBoard.barStyle = UIBarStyle.blackTranslucent
         
-        toolBarKeyBoard.tintColor = UIColor.whiteColor()
+        toolBarKeyBoard.tintColor = UIColor.white
         
-        toolBarKeyBoard.backgroundColor = UIColor.whiteColor()
+        toolBarKeyBoard.backgroundColor = UIColor.white
         
         
         
-        let doneButtonKey = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(donePressedKey))
+        let doneButtonKey = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(donePressedKey))
         
-        let flexSpaces = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        let flexSpaces = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
         
         
@@ -108,10 +109,6 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func openlefts(){
-        self.slideMenuController()?.openLeft()
     }
     
     func donePressedKey(sender: UIBarButtonItem){
@@ -131,15 +128,15 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         subjectTextfield.resignFirstResponder()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickOption.count
     }
     
@@ -154,7 +151,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         if textView.text == "Type here"{
             textView.text = ""
-            textView.textColor = UIColor.blackColor()
+            textView.textColor = UIColor.black
         }
     }
     
@@ -165,16 +162,16 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             
             // Build the new Joke.
             // AnyObject is needed because of the votes of type Int.
-            let date_formatter: NSDateFormatter = NSDateFormatter()
-            date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+            let date_formatter: DateFormatter = DateFormatter()
+            date_formatter.locale     = NSLocale(localeIdentifier: "ja") as Locale!
             date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
             let newJoke: Dictionary<String, AnyObject> = [
-                "text": postText!,
-                "subject": subjectTextfield.text!,
-                "now" : true,
-                "reply":0,
-                "author": currentUserId,
-                "date": date_formatter.stringFromDate(NSDate())
+                "text": postText! as AnyObject,
+                "subject": subjectTextfield.text! as AnyObject,
+                "now" : true as AnyObject,
+                "reply":0 as AnyObject,
+                "author": currentUserId as AnyObject,
+                "date": date_formatter.string(from: NSDate() as Date) as AnyObject
             ]
             
             // Send it over to DataService to seal the deal.
@@ -186,20 +183,22 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             firebaseNewJoke.setValue(newJoke)
             let firebaseUserPost = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
             firebaseUserPost.setValue(firebaseNewJoke.key)
-            let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default, handler: {(action: UIAlertAction!) -> Void in
+            let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: {(action: UIAlertAction!) -> Void in
                 // self.delegate?.changeViewController(LeftMenu.Main)
                 self.textView.text = "Type here"
-                self.textView.textColor = UIColor.lightGrayColor()
-                let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                self.presentViewController(mainViewController, animated: true, completion: nil)
+                self.textView.textColor = UIColor.lightGray
+                let mainViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
+                self.present(mainViewController, animated: true, completion: nil)
             })
             alert.addAction(action)
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             
             
         }
     }
-    
+    @IBAction func cancel(){
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

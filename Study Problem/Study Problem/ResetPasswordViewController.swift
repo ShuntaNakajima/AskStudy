@@ -24,15 +24,15 @@ class ResetPasswordViewController: UIViewController {
     }
     @IBAction func sendreset(){
         let email = emailField.text
-        FIRAuth.auth()?.sendPasswordResetWithEmail(email!) { error in
+        FIRAuth.auth()?.sendPasswordReset(withEmail: email!) { error in
             if error != nil {
                 // There was an error processing the request
             } else {
                 // Password reset sent successfully
-                let alert = UIAlertController(title: "Dane!", message: "Send your password reset", preferredStyle: UIAlertControllerStyle.Alert)
-                let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                let alert = UIAlertController(title: "Dane!", message: "Send your password reset", preferredStyle: UIAlertControllerStyle.alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

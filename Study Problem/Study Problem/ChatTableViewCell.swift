@@ -13,13 +13,13 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet var profileLabel:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+        profileImage.layer.borderColor = UIColor.white.cgColor
         profileImage.imageView!.layer.borderWidth = 10
         profileImage.imageView!.layer.cornerRadius = 27.5
         profileImage.layer.cornerRadius=27.5
         profileImage.layer.masksToBounds=true
-        profileImage.setTitle("", forState: UIControlState.Normal)
-        profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, forState: .Normal)
+        profileImage.setTitle("", for: UIControlState.normal)
+        profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
         
     }
 
