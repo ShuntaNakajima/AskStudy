@@ -55,10 +55,8 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             }
             self.tableView.reloadData()
         })
-        
     }
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         profileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
             if error != nil {
@@ -70,6 +68,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
                 self.profileimage.setBackgroundImage(Image!, for: .normal)
             }
         }
+        self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
     }
     
     override func didReceiveMemoryWarning() {

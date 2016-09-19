@@ -91,6 +91,7 @@
 		BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */; };
 		BCF576ED1D649FE500C50BBC /* ChatUserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF576EC1D649FE500C50BBC /* ChatUserAddViewController.swift */; };
 		BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimages.gif */; };
+		BCF8D6C51D9022E000FF0BB5 /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8D6C41D9022E000FF0BB5 /* ThemeButton.swift */; };
 		BCFBDD851D63363E0032DC6F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD841D63363E0032DC6F /* ChatViewController.swift */; };
 		BCFBDD881D633C940032DC6F /* ChatViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */; };
 		BCFBDD8A1D633D6D0032DC6F /* ChatUserSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD891D633D6D0032DC6F /* ChatUserSelectViewController.swift */; };
@@ -206,6 +207,7 @@
 		BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplysTableViewCell.xib; sourceTree = "<group>"; };
 		BCF576EC1D649FE500C50BBC /* ChatUserAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserAddViewController.swift; sourceTree = "<group>"; };
 		BCF71A751D0D3F4700285D07 /* noimages.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimages.gif; sourceTree = "<group>"; };
+		BCF8D6C41D9022E000FF0BB5 /* ThemeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		BCFBDD841D63363E0032DC6F /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewControllerTableView.swift; sourceTree = "<group>"; };
 		BCFBDD891D633D6D0032DC6F /* ChatUserSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSelectViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				BC0095E91D5DFE8400FBA347 /* ToastView.swift */,
 				BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */,
 				BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */,
+				BCF8D6C41D9022E000FF0BB5 /* ThemeButton.swift */,
 				BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */,
 				BC32D1271D4F913D00086026 /* CustomPresentationController.swift */,
 				BC5127CF1D1F83E000033737 /* MianCellTextView.swift */,
@@ -406,12 +409,12 @@
 				BC5127CE1D1F820B00033737 /* Extenstions */,
 				BC1603651CE8563F00402577 /* Model */,
 				3940EE621CE824E800293067 /* Resorces */,
+				BC78AECD1D8FCE8400FB6BD7 /* ThemeColor */,
 				BC46D6CF1D1FA7C700F25E5B /* ViewControllers */,
 				BC54BB831CE4AE720013C0DD /* Assets.xcassets */,
 				BCC8672C1D771A25003251B3 /* AppIcon.appiconset */,
 				BC54BB7C1CE4AE720013C0DD /* AppDelegate.swift */,
 				BC54BB801CE4AE720013C0DD /* Main.storyboard */,
-				BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */,
 				BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */,
 				BC54BB881CE4AE720013C0DD /* Info.plist */,
 				BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */,
@@ -464,6 +467,14 @@
 				BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */,
 			);
 			name = ItemTableViewCell;
+			sourceTree = "<group>";
+		};
+		BC78AECD1D8FCE8400FB6BD7 /* ThemeColor */ = {
+			isa = PBXGroup;
+			children = (
+				BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */,
+			);
+			name = ThemeColor;
 			sourceTree = "<group>";
 		};
 		BC79806E1D75C6A000ACAE5C /* StarPostViewController */ = {
@@ -798,6 +809,7 @@
 				BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */,
 				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
 				BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */,
+				BCF8D6C51D9022E000FF0BB5 /* ThemeButton.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
 				BCD17A651D655D500050A8EB /* ChatUserSerchClass.swift in Sources */,
 				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,

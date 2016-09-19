@@ -28,9 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
         self.window?.makeKeyAndVisible()
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = UIColor.ThemeRed()
-         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        UITabBar.appearance().tintColor = UIColor.ThemeRed()
         return true
         
     }

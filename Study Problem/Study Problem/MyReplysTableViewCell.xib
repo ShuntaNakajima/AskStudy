@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-3r-oqg">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-3r-oqg">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -34,14 +34,15 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="CDc-3r-oqg" secondAttribute="bottom" constant="3.5" id="3EI-xy-2L6"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CDc-3r-oqg" secondAttribute="bottom" constant="-8" id="3EI-xy-2L6"/>
                     <constraint firstItem="eL4-W5-HmZ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="128" id="7jt-bs-Evz"/>
                     <constraint firstItem="YTC-wI-sXr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="D7O-AN-pXd"/>
-                    <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="8" id="L1s-ce-S3F"/>
+                    <constraint firstItem="eL4-W5-HmZ" firstAttribute="leading" secondItem="CDc-3r-oqg" secondAttribute="trailing" constant="8" id="HiH-Hv-ySE"/>
+                    <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="2.5" id="L1s-ce-S3F"/>
                     <constraint firstItem="eL4-W5-HmZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WEX-pA-03y"/>
                     <constraint firstItem="CDc-3r-oqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="g7P-3C-34M"/>
                     <constraint firstItem="YTC-wI-sXr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iG1-jw-nN0"/>
-                    <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="8" id="lqK-8k-hvC"/>
+                    <constraint firstItem="CDc-3r-oqg" firstAttribute="top" secondItem="YTC-wI-sXr" secondAttribute="bottom" constant="2.5" id="lqK-8k-hvC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

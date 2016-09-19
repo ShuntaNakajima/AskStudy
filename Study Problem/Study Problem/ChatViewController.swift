@@ -49,6 +49,7 @@ Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toChatView") {

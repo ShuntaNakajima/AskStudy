@@ -27,7 +27,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
+        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
         let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.register(mainnib, forCellReuseIdentifier:"postMainCell")
         let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
@@ -36,7 +36,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         self.tableView.register(replysnib, forCellReuseIdentifier:"ReplysCell")
         let myreplysnib  = UINib(nibName: "MyReplysTableViewCell", bundle:nil)
         self.tableView.register(myreplysnib, forCellReuseIdentifier:"MyReplysCell")
-        toolbar = UIToolbar(frame: CGRect(x:0,y:self.view.bounds.size.height - 45.0,width:self.view.bounds.size.width, height:45.0))
+        toolbar = UIToolbar(frame: CGRect(x:0,y:self.view.bounds.size.height - 30.0,width:self.view.bounds.size.width, height:30.0))
         toolbar.barStyle = .blackTranslucent
         toolbar.tintColor = UIColor.white
         toolbar.backgroundColor = UIColor.black
@@ -44,10 +44,9 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let buttonGap: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         toolbar.items = [buttonGap, buttonGap, button3]
         self.view.addSubview(toolbar)
-        myTextView = UITextView(frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: 45))
-        myTextView.text = "Type comment"
+        myTextView = UITextView(frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: 30))
         myTextView.layer.borderWidth = 0.5
-        myTextView.font = UIFont.systemFont(ofSize: 25.5)
+        myTextView.font = UIFont.systemFont(ofSize: 15)
         myTextView.delegate = self
         myTextView.text = "Type here"
         myTextView.textColor = UIColor.lightGray
@@ -84,7 +83,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let transform = CGAffineTransform(translationX: 0, y: -keyboardScreenEndFrame.size.height)
         self.keyboradheight = keyboardScreenEndFrame.size.height
         self.view.transform = transform
-        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 45))
+        tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 30))
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if myTextView.text == "Type here"{
@@ -97,12 +96,11 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         if replyText != "" && replyText != "Type here" {
             myTextView.resignFirstResponder()
             self.view.transform = CGAffineTransform.identity
-            toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - 45.0,width: self.view.bounds.size.width,height:45.0))
-            myTextView.frame = (frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: 45))
+            toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - 30.0,width: self.view.bounds.size.width,height:30.0))
+            myTextView.frame = (frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: 30))
             myTextView.text = "Type here"
             myTextView.textColor = UIColor.lightGray
-            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 45))
-            let postedUser : String!
+            tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
             let newreply: Dictionary<String, AnyObject> = [
                 "text": replyText! as AnyObject,
                 "author": (FIRAuth.auth()?.currentUser?.uid)! as AnyObject
@@ -115,8 +113,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
             firebasenewreplyscount.setValue(replaycount)
         }
     }
-    func textViewDidChange(textView: UITextView){
-        let textViewtext = myTextView.text!
+    func textViewDidChange(_ textView: UITextView){
         let maxHeight = 140.0
         let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
         if(size.height.native <= maxHeight) {

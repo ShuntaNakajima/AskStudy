@@ -32,6 +32,10 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
      reload()

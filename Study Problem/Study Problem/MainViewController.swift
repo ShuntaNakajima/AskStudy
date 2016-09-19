@@ -48,6 +48,39 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
             let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
             self.present(viewController, animated: true, completion: nil)
         }
+        let color = UserDefaults.standard
+        let colorop : String? = color.object(forKey: "id") as! String?
+        if let color = colorop{
+            switch color{
+            case "yellow":
+                UITabBar.appearance().tintColor = UIColor.ThemeYellow()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeYellow()
+            case "lightblue":
+                UITabBar.appearance().tintColor = UIColor.ThemeLightBlue()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeLightBlue()
+            case "blue":
+                UITabBar.appearance().tintColor = UIColor.ThemeBlue()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
+            case "red":
+                UITabBar.appearance().tintColor = UIColor.ThemeRed()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeRed()
+            case "green":
+                UITabBar.appearance().tintColor = UIColor.ThemeGreen()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeGreen()
+            case "orange":
+                UITabBar.appearance().tintColor = UIColor.ThemeOrange()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeOrange()
+            case "purple":
+                UITabBar.appearance().tintColor = UIColor.ThemePurple()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemePurple()
+            default:
+                UITabBar.appearance().tintColor = UIColor.ThemeBlue()
+                UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
+            }
+            self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
+            self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
+        }
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
