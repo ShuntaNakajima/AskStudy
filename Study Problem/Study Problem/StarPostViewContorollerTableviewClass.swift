@@ -60,7 +60,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         cell.profileImage.addTarget(self, action: "showUserData:", for: .touchUpInside)
         return cell
     }
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+    func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
         selectpost = postDictionary!["key"] as! String!
