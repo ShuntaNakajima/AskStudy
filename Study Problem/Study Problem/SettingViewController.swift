@@ -34,7 +34,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         emailTextField.delegate = self
         tableView.isScrollEnabled = false
         let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
-        profileRef = storageRef.child("\(FIRAuth.auth()?.currentUser!.uid as String!)/profileimage.png")
+        profileRef = storageRef.child("\((FIRAuth.auth()?.currentUser!.uid as String!)!)/profileimage.png")
         profileReforig = storageRef.child("\(FIRAuth.auth()?.currentUser!.uid as String!)/profileimageorig.png")
         profileimage.setBackgroundImage(profileImages, for: .normal)
         profileimage.layer.cornerRadius=35
@@ -46,16 +46,16 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         Database = FIRDatabase.database().reference()
         // Do any additional setup after loading the view.
         Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
-                    if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
-                        let key = snapshot.key
-                        postDictionary["key"] = key as AnyObject?
-                        self.userDic = postDictionary
-                        self.usernameTextField.text = self.userDic["username"] as! String?
-                        self.emailTextField.text = self.userDic["email"] as! String?
-                    }
-                self.tableView.reloadData()
-            })
-
+            if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                let key = snapshot.key
+                postDictionary["key"] = key as AnyObject?
+                self.userDic = postDictionary
+                self.usernameTextField.text = self.userDic["username"] as! String?
+                self.emailTextField.text = self.userDic["email"] as! String?
+            }
+            self.tableView.reloadData()
+        })
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -76,7 +76,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         // キーボードを閉じる
         textField.resignFirstResponder()
         
@@ -105,7 +105,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
         // イメージ表示
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -120,10 +120,12 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         self.dismiss(animated: true, completion: nil)
         
     }
-    func imageCropViewControllerDidCancelCrop(controller: RSKImageCropViewController) {
+    func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
         self.navigationController?.popViewController(animated: true)
     }
-    func imageCropViewController(controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
+    func imageCropViewController(_ controller: RSKImageCropViewController, willCropImage originalImage: UIImage) {
+    }
+    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
         let viewImg = croppedImage
         let resizedSize = CGSize(width:50,height: 50)
         UIGraphicsBeginImageContext(resizedSize)
@@ -250,18 +252,18 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         let user = FIRAuth.auth()?.currentUser
         user?.updateEmail(emailTextField.text!) { error in
             if let error = error {
-               print(error)
-                 SVProgressHUD.dismiss()
+                print(error)
+                SVProgressHUD.dismiss()
             } else {
-                            self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("username").setValue(self.usernameTextField?.text!)
-                        self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("email").setValue(self.emailTextField.text!)
-                        let alert = UIAlertView()
-                        alert.title = "Update Successful!"
-                        alert.addButton(withTitle: "OK")
-                        alert.show();
-                        SVProgressHUD.dismiss()
+                self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("username").setValue(self.usernameTextField?.text!)
+                self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("email").setValue(self.emailTextField.text!)
+                let alert = UIAlertView()
+                alert.title = "Update Successful!"
+                alert.addButton(withTitle: "OK")
+                alert.show();
+                SVProgressHUD.dismiss()
+            }
+            
         }
-
     }
-}
 }

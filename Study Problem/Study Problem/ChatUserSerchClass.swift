@@ -17,14 +17,14 @@ extension ChatUserAddViewController{
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap1 in snapshots {
                     if var postDictionary = snap1.value as? Dictionary<String, AnyObject> {
-                       self.FollowerSerch(uid: postDictionary["user"] as! String!)
+                       self.FollowerSerch(uid: (postDictionary["user"] as! String!)!)
                     }
                 }
             }
         })
 }
     func FollowerSerch(uid:String!){
-        let recentUesr = self.Database.child("user/" + uid + "/follower/").queryOrdered(byChild: "user").queryEqual( toValue: (FIRAuth.auth()?.currentUser!.uid)!)
+        let recentUesr = self.Database.child("user/" + uid! + "/follower/").queryOrdered(byChild: "user").queryEqual( toValue: (FIRAuth.auth()?.currentUser!.uid)!)
         recentUesr.observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap2 in snapshots {

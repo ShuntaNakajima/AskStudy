@@ -18,7 +18,7 @@ final class CustomPresentationController: UIPresentationController {
         }
         
         overlayView.frame = containerView.bounds
-        overlayView.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "overlayViewDidTouch:")]
+        overlayView.gestureRecognizers = [UITapGestureRecognizer(target: self, action:#selector(CustomPresentationController.overlayViewDidTouch(sender:)))]
         overlayView.backgroundColor = UIColor.black
         overlayView.alpha = 0.0
         containerView.insertSubview(overlayView, at: 0)
@@ -43,14 +43,14 @@ final class CustomPresentationController: UIPresentationController {
     }
     
     let margin = (x: CGFloat(40), y: CGFloat(33))
-    func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
         return CGSize(width: parentSize.width - margin.x, height: parentSize.height - margin.y)
     }
     
-    override var frameOfPresentedViewInContainerView: CGRect {
+    override var frameOfPresentedViewInContainerView : CGRect {
         var presentedViewFrame = CGRect.zero
         let containerBounds = containerView!.bounds
-        let childContentSize = sizeForChildContentContainer(container: presentedViewController, withParentContainerSize: containerBounds.size)
+        let childContentSize = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
         presentedViewFrame.size = childContentSize
         presentedViewFrame.origin.x = margin.x / 2.0
         presentedViewFrame.origin.y = margin.y / 2.0

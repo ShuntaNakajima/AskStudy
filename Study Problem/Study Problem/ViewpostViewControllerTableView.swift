@@ -14,7 +14,11 @@ import FirebaseDatabase
 
 extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return replys.count + 2
+        if postDic.count == 0 {
+        return 0
+        } else{
+        return self.replys.count + 2
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 1{
@@ -32,7 +36,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                     maincell.usernameLabel.text = (snapshot.value! as! AnyObject)["username"] as! String
                 })
                 maincell.profileImageView.tag = indexPath.row
-                maincell.profileImageView.addTarget(self, action: "showUserData:", for: .touchUpInside)
+                maincell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
                     var viewImg = UIImage()
                     let storage = FIRStorage.storage()
                     let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
@@ -51,7 +55,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
             let replycell = tableView.dequeueReusableCell(withIdentifier: "ReplysCell") as! ReplysTableViewCell
             replycell.profileImageView.tag = indexPath.row
-            replycell.profileImageView.addTarget(self, action: "showUserData:", for: .touchUpInside)
+            replycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
                 let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
@@ -85,7 +89,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             })
             
             myreplycell.profileImageView.tag = indexPath.row
-            myreplycell.profileImageView.addTarget(self, action: "showUserData:", for: .touchUpInside)
+            myreplycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
                 let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
@@ -101,8 +105,9 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             return myreplycell
         }
     }
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        if indexPath.row == 0{
+    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ didSelectRowAttable: UITableView, didSelectRowAt indexPath:IndexPath) {
+        if indexPath.row == 1{
+    }else if indexPath.row == 0{
             toreply = postDic["author"] as! String
         }else{
             toreply = replys[indexPath.row - 2]["author"] as! String

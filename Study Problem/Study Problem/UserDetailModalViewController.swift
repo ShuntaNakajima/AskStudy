@@ -118,6 +118,7 @@ class UserDetailModalViewController: UIViewController {
                         self.postkeys.insert(post, at: 0)
                     }
                 }
+                if self.postkeys.isEmpty{}else{
                 let post = self.postkeys[0]
                 print(post)
                 Database.child("post/" + post! + "/").observe(.value, with: { snapshot in
@@ -129,6 +130,7 @@ class UserDetailModalViewController: UIViewController {
                         self.mypost.append(apost)
                     }
                 })
+                }
             }
         })
         User.observe(FIRDataEventType.value, with: { snapshot in

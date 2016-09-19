@@ -34,14 +34,14 @@ class MainCellUiimageViewClass: UIButton {
     }
 }
 extension MainCellUiimageViewClass: UIViewControllerTransitioningDelegate {
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController?, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return CustomPresentationController(presentedViewController: presented, presenting: presenting)
+    func presentationController(forPresented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return CustomPresentationController(presentedViewController: forPresented, presenting: presenting)
     }
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source sourceControllersource: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomAnimatedTransitioning(isPresent: true, atButton: self)
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomAnimatedTransitioning(isPresent: false, atButton: self)
     }
 }

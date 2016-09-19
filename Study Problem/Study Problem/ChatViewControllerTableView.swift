@@ -14,7 +14,7 @@ import FirebaseStorage
 import FirebaseDatabase
 
 extension ChatViewController:UITableViewDataSource{
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +48,7 @@ extension ChatViewController:UITableViewDataSource{
             }})
         return cell
     }
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:IndexPath) {
+    @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
     selectedChatRoomId = (chatRoom[indexPath.row]["chatroom"] as? String!)!
          performSegue(withIdentifier: "toChatView", sender: self)
     }

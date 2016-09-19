@@ -78,9 +78,9 @@ class ToastView: UIView {
     private func startTimer(duration: ToastDuration) {
         switch duration {
         case .Short:
-            hideTimer = Timer(timeInterval: ToastView.ShortDurationInSeconds, target: self, selector: Selector("hideSelf:"), userInfo: nil, repeats: false)
+            hideTimer = Timer(timeInterval: ToastView.ShortDurationInSeconds, target: self, selector: #selector(ToastView.hideSelf(timer:)), userInfo: nil, repeats: false)
         case .Long:
-            hideTimer = Timer(timeInterval: ToastView.LongDurationInSeconds, target: self, selector: Selector("hideSelf:"), userInfo: nil, repeats: false)
+            hideTimer = Timer(timeInterval: ToastView.LongDurationInSeconds, target: self, selector: #selector(ToastView.hideSelf(timer:)), userInfo: nil, repeats: false)
         }
         let runLoop = RunLoop.current
         runLoop.add(hideTimer!, forMode: RunLoopMode.defaultRunLoopMode)
