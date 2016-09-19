@@ -15,7 +15,6 @@ import FirebaseStorage
 class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
-    var starposts = [String!]()
     var posts = [Dictionary<String, AnyObject>]()
     var segueUser = ""
     var longState = false
@@ -27,23 +26,25 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(StarPostViewController.cellLongPressed(recognizer:)))
         longPressRecognizer.allowableMovement = 0
         longPressRecognizer.minimumPressDuration = 0.4
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").observe(.value, with: { snapshot in
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+     reload()
+    }
+    func reload(){
+        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").observeSingleEvent(of: .value, with: { snapshot in
             self.posts = []
-            self.starposts = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         postDictionary["key"] = key as AnyObject?
-                        self.Database.child("post").child(postDictionary["userstars"] as! String!).observe(.value, with: { (snapshot:FIRDataSnapshot) in
+                        self.Database.child("post").child(postDictionary["userstars"] as! String!).observeSingleEvent(of:.value, with: { (snapshot:FIRDataSnapshot) in
                             if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                                 let key = snapshot.key
                                 postDictionary["key"] = key as AnyObject?

@@ -96,7 +96,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
                         if self.longState == true{
                             Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                             let anImage = UIImage(named: "star.gif")
-                             ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                             ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }

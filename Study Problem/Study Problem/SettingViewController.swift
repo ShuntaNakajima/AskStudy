@@ -76,7 +76,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         // キーボードを閉じる
         textField.resignFirstResponder()
         
@@ -105,7 +105,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
         // イメージ表示
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage

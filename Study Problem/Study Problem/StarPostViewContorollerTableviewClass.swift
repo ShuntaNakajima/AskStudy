@@ -57,7 +57,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
             }
         });
         cell.profileImage.tag = indexPath.row
-        cell.profileImage.addTarget(self, action: "showUserData:", for: .touchUpInside)
+        cell.profileImage.addTarget(self, action: #selector(StarPostViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
@@ -66,6 +66,50 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         selectpost = postDictionary!["key"] as! String!
         if selectpost != nil {
             performSegue(withIdentifier: "viewStarPost",sender: nil)
+        }
+    }
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        if indexPath == nil {
+        } else if recognizer.state == UIGestureRecognizerState.began  {
+            if longState == false{
+                longState = true
+                let Database = FIRDatabase.database().reference()
+                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
+                recentUesrsQuery.observe(.value, with: { snapshot in
+                    var mykey = ""
+                    print(snapshot.value)
+                    if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                        print(snapshots)
+                        for snap in snapshots {
+                            mykey = snap.key
+                        }
+                    }
+                    if mykey == ""{
+                        if self.longState == true{
+                            let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
+                            newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
+                            let anImage = UIImage(named: "star.gif")
+                            ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                            self.longState = false
+                        }
+                    }else{
+                        if self.longState == true{
+                            Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
+                            if self.posts.count == 1{
+                                self.posts = []
+                                self.tableView.reloadData()
+                            }else{
+                                self.reload()
+                            }
+                            let anImage = UIImage(named: "star.gif")
+                            ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                            self.longState = false
+                        }
+                    }
+                })
+            }
         }
     }
 }
