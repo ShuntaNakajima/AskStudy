@@ -12,28 +12,29 @@ import FirebaseAuth
 import FirebaseDatabase
 
 extension ChatUserAddViewController:UITableViewDataSource{
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+     @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath){
         let user = Users[indexPath.row]
+        guard let userStr = user else{return}
         let firebaseRoomRef = Database.child("chatroom/").childByAutoId()
         let firebaseRoomUser = firebaseRoomRef.child("user").childByAutoId().child("user")
         firebaseRoomUser.setValue((FIRAuth.auth()?.currentUser!.uid)!)
          let firebaseRoomUser2 = firebaseRoomRef.child("user").childByAutoId().child("user")
         firebaseRoomUser2.setValue(user)
         let firebaseRef = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/chats/").childByAutoId()
-        let chatDetile = ["user":user,"chatroom":firebaseRoomRef.key]
+        let chatDetile = ["user":user!,"chatroom":firebaseRoomRef.key] as [String : Any]
     firebaseRef.setValue(chatDetile)
-        let firebaseRef2 = Database.child("user/\(user)/chats/").childByAutoId()
-        let chatDetile2 = ["user":(FIRAuth.auth()?.currentUser!.uid)!,"chatroom":firebaseRoomRef.key]
+        let firebaseRef2 = Database.child("user/\(userStr)/chats/").childByAutoId()
+        let chatDetile2 = ["user":(FIRAuth.auth()?.currentUser!.uid)!,"chatroom":firebaseRoomRef.key] as [String : Any]
         firebaseRef2.setValue(chatDetile2)
         self.navigationController?.popViewController(animated: true)
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Users.count
     }
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = Users[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserCell") as! ChatTableViewCell
         print(Users)
@@ -42,7 +43,7 @@ extension ChatUserAddViewController:UITableViewDataSource{
         cell.profileImage.layer.masksToBounds=true
         cell.profileImage.setTitle("", for: UIControlState.normal)
         cell.profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
-
+        
         let currentUser = Database.child("user").child(user!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let chatUser = (snapshot.value! as AnyObject)["username"] as! String

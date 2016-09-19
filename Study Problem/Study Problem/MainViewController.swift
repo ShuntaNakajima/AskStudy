@@ -18,6 +18,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
     var posts = [Dictionary<String, AnyObject>]()
     var segueUser = ""
     var longState = false
+    var refreshControl:UIRefreshControl!
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,20 +31,12 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        Database.child("post").observe(.value, with: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                self.posts = []
-                for snap in snapshots {
-                    if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        postDictionary["key"] = key as AnyObject?
-                        self.posts.insert(postDictionary, at: 0)
-                    }
-                }
-            }
-            self.tableView.reloadData()
-        })
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
+        reloadData()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Reload")
+        self.refreshControl.addTarget(self, action: #selector(MainViewController.refresh), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(refreshControl)
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.cellLongPressed(recognizer:)))
         longPressRecognizer.allowableMovement = 0
         longPressRecognizer.minimumPressDuration = 0.4
         longPressRecognizer.delegate = self
@@ -70,10 +63,29 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
         self.present(vc, animated: true, completion: nil)
     }
+    func reloadData(){
+        Database.child("post").observe(.value, with: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.posts = []
+                for snap in snapshots {
+                    if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        postDictionary["key"] = key as AnyObject?
+                        self.posts.insert(postDictionary, at: 0)
+                    }
+                }
+                self.refreshControl.endRefreshing()
+            }
+            self.tableView.reloadData()
+        })
+    }
     func showUserData(sender:UIButton){
         let row = sender.tag
         segueUser = posts[row]["author"] as! String
         let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
         UDMC.UserKey = self.segueUser
     }
+    func refresh(){
+        reloadData()
+        }
 }

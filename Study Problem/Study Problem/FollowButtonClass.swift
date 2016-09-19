@@ -34,7 +34,7 @@ class FollowButtonClass: UIButton {
         var myFollow = 0
         Database.child("user/" + uid + "/followers").observeSingleEvent(of: .value, with: { snapshot in
                 followingUserfollower = (snapshot.value as! Int)
-            let newFollowUserFollowerChild = self.Database.child("user/\(uid)/followers")
+            let newFollowUserFollowerChild = self.Database.child("user/" + uid + "/followers")
             newFollowUserFollowerChild.setValue(followingUserfollower + 1)
         })
         Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeSingleEvent(of: .value, with: { snapshot in
@@ -42,10 +42,10 @@ class FollowButtonClass: UIButton {
             let follows = self.Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follows")
             follows.setValue(myFollow + 1)
         })
-        let newFollowChild = Database.child("user/\(uid)/follower/").childByAutoId().child("user")
+        let newFollowChild = Database.child("user/" + uid + "/follower/").childByAutoId().child("user")
         newFollowChild.setValue("\((FIRAuth.auth()?.currentUser!.uid)!)")
         let mynewFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/follow/").childByAutoId().child("user")
-         mynewFollowChild.setValue("\(uid)")
+         mynewFollowChild.setValue(uid)
     }
     func unfollow(uid:String!){
         Database = FIRDatabase.database().reference()
@@ -73,7 +73,7 @@ class FollowButtonClass: UIButton {
         var myFollow = 0
         Database.child("user/" + uid + "/followers").observeSingleEvent(of: .value, with: { snapshot in
                 followingUserfollower = (snapshot.value as! Int)
-                let newFollowUserFollowerChild = self.Database.child("user/\(uid)/followers")
+                let newFollowUserFollowerChild = self.Database.child("user/" + uid + "/followers")
                 newFollowUserFollowerChild.setValue(followingUserfollower - 1)
         })
         Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follows").observeSingleEvent(of: .value, with: { snapshot in
