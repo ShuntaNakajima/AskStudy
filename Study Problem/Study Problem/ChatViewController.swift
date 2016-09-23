@@ -11,8 +11,9 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import DZNEmptyDataSet
 
-class ChatViewController: UIViewController,UITableViewDelegate {
+class ChatViewController: UIViewController,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource {
     @IBOutlet var tableView:UITableView!
     @IBOutlet var addUserButton:UIBarButtonItem!
     var selectedChatRoomId = String()
@@ -27,6 +28,9 @@ class ChatViewController: UIViewController,UITableViewDelegate {
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
 Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats").queryOrdered(byChild: "user").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 print(snapshots)
@@ -56,5 +60,31 @@ Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats")
             let chatView = (segue.destination as? ChatUserSelectViewController)!
             chatView.ChatRoomId = selectedChatRoomId
         }
+    }
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "star.gif")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "You don't have any Chats"
+        let font = UIFont.systemFont(ofSize: 14.0, weight: 2.0)
+        return NSAttributedString(
+            string: str,
+            attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
+        )
+    }
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        let str = "How to add Chat?"
+        let font = UIFont.systemFont(ofSize: 10.0, weight: 2.0)
+        return NSAttributedString(
+            string: str,
+            attributes: [NSFontAttributeName: font,NSForegroundColorAttributeName: UIColor.white]
+        )
+    }
+    func emptyDataSetDidTapButton(_ scrollView: UIScrollView!) {
+        let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
+        self.present(viewController, animated: true, completion: nil)
+    }
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return UINavigationBar.appearance().barTintColor
     }
 }

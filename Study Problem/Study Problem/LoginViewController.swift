@@ -11,33 +11,41 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,CAAnimationDelegate {
     var Database = FIRDatabase.database().reference()
-    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    var fromColors = [Any?]()
+     var gradient : CAGradientLayer?
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  let currentuser = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-        
-        // Do any additional setup after loading the view.
+        self.gradient = CAGradientLayer()
+        self.gradient?.frame = self.view.bounds
+        self.gradient?.colors = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.view.layer.insertSublayer(self.gradient!, at: 0)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        animateLayer()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+     func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
+        animateLayer()
     }
-    */
+    func animateLayer(){
+        let toColors: [AnyObject] = [ UIColor.ThemeBlue().cgColor, UIColor.ThemeLightBlue().cgColor]
+        let fromColors: [AnyObject] = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.gradient?.colors = toColors
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "colors")
+        animation.fromValue = fromColors
+        animation.toValue = toColors
+        animation.duration = 18.00
+        animation.isRemovedOnCompletion = true
+        animation.fillMode = kCAFillModeForwards
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.autoreverses = true
+        animation.repeatCount = 10
+        animation.delegate = self
+        self.gradient?.add(animation, forKey:"animateGradient")
+    }
     @IBAction func tryLogin(sender: AnyObject) {
         let email = emailField.text
         let password = passwordField.text

@@ -11,8 +11,9 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import DZNEmptyDataSet
 
-class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
+class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : String!
     var posts = [Dictionary<String, AnyObject>]()
@@ -26,6 +27,9 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(StarPostViewController.cellLongPressed(recognizer:)))
         longPressRecognizer.allowableMovement = 0
         longPressRecognizer.minimumPressDuration = 0.4
@@ -34,6 +38,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        reload()
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +64,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
                     }
                 }
             }
+            self.tableView.reloadData()
         })
     }
     override func didReceiveMemoryWarning() {
@@ -79,5 +85,31 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate{
         segueUser = posts[row]["author"] as! String
         let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
         UDMC.UserKey = segueUser
+    }
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "StarBIg.png")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "You don't have any stars"
+        let font = UIFont.systemFont(ofSize: 14.0, weight: 2.0)
+        return NSAttributedString(
+            string: str,
+            attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
+        )
+    }
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        let str = "What is star?"
+        let font = UIFont.systemFont(ofSize: 10.0, weight: 2.0)
+        return NSAttributedString(
+            string: str,
+            attributes: [NSFontAttributeName: font,NSForegroundColorAttributeName: UIColor.white]
+        )
+    }
+    func emptyDataSetDidTapButton(_ scrollView: UIScrollView!) {
+        let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
+        self.present(viewController, animated: true, completion: nil)
+    }
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return UINavigationBar.appearance().barTintColor
     }
 }

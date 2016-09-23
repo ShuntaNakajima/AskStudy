@@ -63,6 +63,8 @@
 		BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79806F1D75C6C900ACAE5C /* StarPostViewController.swift */; };
 		BC7980721D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */; };
 		BC7980741D76C6E600ACAE5C /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */; };
+		BC7A20371D94A90F0033F758 /* StarBIg.png in Resources */ = {isa = PBXBuildFile; fileRef = BC7A20361D94A90F0033F758 /* StarBIg.png */; };
+		BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */; };
 		BCA052411D76CD8100B24A5E /* StarMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523D1D76CD8100B24A5E /* StarMenu.gif */; };
 		BCA052421D76CD8100B24A5E /* Setting.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523E1D76CD8100B24A5E /* Setting.gif */; };
 		BCA052431D76CD8100B24A5E /* Main.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523F1D76CD8100B24A5E /* Main.gif */; };
@@ -82,6 +84,7 @@
 		BCC867471D771A25003251B3 /* Icon-App-76x76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC867391D771A25003251B3 /* Icon-App-76x76@3x.png */; };
 		BCC867481D771A25003251B3 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC8673A1D771A25003251B3 /* Icon-App-83.5x83.5@2x.png */; };
 		BCD17A651D655D500050A8EB /* ChatUserSerchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD17A641D655D500050A8EB /* ChatUserSerchClass.swift */; };
+		BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE33D351D92D652004CF5D3 /* SearchViewController.swift */; };
 		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
 		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
@@ -92,6 +95,7 @@
 		BCF576ED1D649FE500C50BBC /* ChatUserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF576EC1D649FE500C50BBC /* ChatUserAddViewController.swift */; };
 		BCF71A761D0D3F4700285D07 /* noimages.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF71A751D0D3F4700285D07 /* noimages.gif */; };
 		BCF8D6C51D9022E000FF0BB5 /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8D6C41D9022E000FF0BB5 /* ThemeButton.swift */; };
+		BCF8D6C71D915B8D00FF0BB5 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8D6C61D915B8D00FF0BB5 /* AnimationView.swift */; };
 		BCFBDD851D63363E0032DC6F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD841D63363E0032DC6F /* ChatViewController.swift */; };
 		BCFBDD881D633C940032DC6F /* ChatViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */; };
 		BCFBDD8A1D633D6D0032DC6F /* ChatUserSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBDD891D633D6D0032DC6F /* ChatUserSelectViewController.swift */; };
@@ -178,6 +182,8 @@
 		BC79806F1D75C6C900ACAE5C /* StarPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPostViewController.swift; sourceTree = "<group>"; };
 		BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPostViewContorollerTableviewClass.swift; sourceTree = "<group>"; };
 		BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
+		BC7A20361D94A90F0033F758 /* StarBIg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarBIg.png; sourceTree = "<group>"; };
+		BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableviewClass.swift; sourceTree = "<group>"; };
 		BCA0523D1D76CD8100B24A5E /* StarMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = StarMenu.gif; sourceTree = "<group>"; };
 		BCA0523E1D76CD8100B24A5E /* Setting.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Setting.gif; sourceTree = "<group>"; };
 		BCA0523F1D76CD8100B24A5E /* Main.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Main.gif; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 		BCC867391D771A25003251B3 /* Icon-App-76x76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@3x.png"; sourceTree = "<group>"; };
 		BCC8673A1D771A25003251B3 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
 		BCD17A641D655D500050A8EB /* ChatUserSerchClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSerchClass.swift; sourceTree = "<group>"; };
+		BCE33D351D92D652004CF5D3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Study Problem-Bridging-Header.h"; sourceTree = "<group>"; };
 		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +215,7 @@
 		BCF576EC1D649FE500C50BBC /* ChatUserAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserAddViewController.swift; sourceTree = "<group>"; };
 		BCF71A751D0D3F4700285D07 /* noimages.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimages.gif; sourceTree = "<group>"; };
 		BCF8D6C41D9022E000FF0BB5 /* ThemeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
+		BCF8D6C61D915B8D00FF0BB5 /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		BCFBDD841D63363E0032DC6F /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewControllerTableView.swift; sourceTree = "<group>"; };
 		BCFBDD891D633D6D0032DC6F /* ChatUserSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSelectViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +259,7 @@
 				BC42818C1D77086100D5F66E /* Setting@2x.gif */,
 				BC42818D1D77086100D5F66E /* StarMenu@2x.gif */,
 				BC42818E1D77086100D5F66E /* Main@2x.gif */,
+				BC7A20361D94A90F0033F758 /* StarBIg.png */,
 				BC42818F1D77086100D5F66E /* Chat@2x.gif */,
 				BC1FB6E81D321D8A004CE534 /* noimage.gif */,
 				BC4281881D76D1D600D5F66E /* Chat.gif */,
@@ -276,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */,
+				BCF8D6C61D915B8D00FF0BB5 /* AnimationView.swift */,
 				BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */,
 				BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */,
 			);
@@ -340,6 +350,7 @@
 				BC25AFB41D2E7D5600A9F881 /* MainViewController */,
 				BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
+				BC7A20381D94B10F0033F758 /* SearchViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -484,6 +495,15 @@
 				BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */,
 			);
 			name = StarPostViewController;
+			sourceTree = "<group>";
+		};
+		BC7A20381D94B10F0033F758 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BCE33D351D92D652004CF5D3 /* SearchViewController.swift */,
+				BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */,
+			);
+			name = SearchViewController;
 			sourceTree = "<group>";
 		};
 		BCB72A1F1D649A1900234B15 /* ChatUserAddViewController */ = {
@@ -695,6 +715,7 @@
 				BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */,
 				BCC8673D1D771A25003251B3 /* Icon-App-29x29@2x.png in Resources */,
 				BCC8673F1D771A25003251B3 /* Icon-App-40x40@1x.png in Resources */,
+				BC7A20371D94A90F0033F758 /* StarBIg.png in Resources */,
 				BCC867441D771A25003251B3 /* Icon-App-60x60@3x.png in Resources */,
 				BCC867451D771A25003251B3 /* Icon-App-76x76@1x.png in Resources */,
 				BCA052421D76CD8100B24A5E /* Setting.gif in Resources */,
@@ -810,10 +831,12 @@
 				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
 				BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */,
 				BCF8D6C51D9022E000FF0BB5 /* ThemeButton.swift in Sources */,
+				BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
 				BCD17A651D655D500050A8EB /* ChatUserSerchClass.swift in Sources */,
 				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,
 				BCF520BD1CE9B7550027D8EA /* ReplysTableViewCell.swift in Sources */,
+				BCF8D6C71D915B8D00FF0BB5 /* AnimationView.swift in Sources */,
 				BC5484191D648A5D00CD5D5D /* ChatTableViewCell.swift in Sources */,
 				BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */,
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
@@ -837,6 +860,7 @@
 				BC1437E41CE6137B00448AC0 /* MainViewController.swift in Sources */,
 				BCB72A211D649A4000234B15 /* ChatUserAddViewControllerTableView.swift in Sources */,
 				BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */,
+				BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */,
 				BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */,
 				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,
 				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,

@@ -10,4 +10,5 @@ pod 'Firebase/Auth'
 pod 'RSKImageCropper'
 pod 'SVProgressHUD'
 pod 'JSQMessagesViewController'
+pod 'DZNEmptyDataSet'
 end

@@ -42,12 +42,17 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            if FIRAuth.auth()?.currentUser == nil{
+                let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
+                self.present(viewController, animated: true, completion: nil)
+            }
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if FIRAuth.auth()?.currentUser == nil{
-            let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
-            self.present(viewController, animated: true, completion: nil)
-        }
         let color = UserDefaults.standard
         let colorop : String? = color.object(forKey: "id") as! String?
         if let color = colorop{

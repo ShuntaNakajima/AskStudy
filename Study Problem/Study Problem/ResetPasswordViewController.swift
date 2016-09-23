@@ -10,14 +10,39 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: UIViewController ,CAAnimationDelegate{
         @IBOutlet weak var emailField: UITextField!
+    var fromColors = [Any?]()
+    var gradient : CAGradientLayer?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.gradient = CAGradientLayer()
+        self.gradient?.frame = self.view.bounds
+        self.gradient?.colors = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.view.layer.insertSublayer(self.gradient!, at: 0)
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        animateLayer()
+    }
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
+        animateLayer()
+    }
+    func animateLayer(){
+        let toColors: [AnyObject] = [ UIColor.ThemeBlue().cgColor, UIColor.ThemeLightBlue().cgColor]
+        let fromColors: [AnyObject] = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.gradient?.colors = toColors
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "colors")
+        animation.fromValue = fromColors
+        animation.toValue = toColors
+        animation.duration = 18.00
+        animation.isRemovedOnCompletion = true
+        animation.fillMode = kCAFillModeForwards
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.autoreverses = true
+        animation.repeatCount = 10
+        animation.delegate = self
+        self.gradient?.add(animation, forKey:"animateGradient")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,7 +61,9 @@ class ResetPasswordViewController: UIViewController {
             }
         }
     }
-
+    @IBAction func backbuttonPushed(segue:UIStoryboardSegue){
+        
+    }
     /*
     // MARK: - Navigation
 

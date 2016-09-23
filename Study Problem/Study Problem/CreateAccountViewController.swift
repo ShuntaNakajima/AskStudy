@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,CAAnimationDelegate {
     
 
     
@@ -23,7 +23,8 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
 
     @IBOutlet weak var gradeField: UITextField!
     var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12","others"]
-
+    var fromColors = [Any?]()
+    var gradient : CAGradientLayer?
     override func viewDidLoad() {
         super.viewDidLoad()
         let pickerView = UIPickerView()
@@ -69,11 +70,32 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
 
 
         // Do any additional setup after loading the view.
+        self.gradient = CAGradientLayer()
+        self.gradient?.frame = self.view.bounds
+        self.gradient?.colors = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.view.layer.insertSublayer(self.gradient!, at: 0)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        animateLayer()
+    }
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
+        animateLayer()
+    }
+    func animateLayer(){
+        let toColors: [AnyObject] = [ UIColor.ThemeBlue().cgColor, UIColor.ThemeLightBlue().cgColor]
+        let fromColors: [AnyObject] = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.gradient?.colors = toColors
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "colors")
+        animation.fromValue = fromColors
+        animation.toValue = toColors
+        animation.duration = 18.00
+        animation.isRemovedOnCompletion = true
+        animation.fillMode = kCAFillModeForwards
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.autoreverses = true
+        animation.repeatCount = 10
+        animation.delegate = self
+        self.gradient?.add(animation, forKey:"animateGradient")
     }
     @IBAction func createAccount(sender: AnyObject) {
         let username = usernameField.text
