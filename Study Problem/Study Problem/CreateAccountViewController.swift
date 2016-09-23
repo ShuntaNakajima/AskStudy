@@ -124,8 +124,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                             
                             // Seal the deal in DataService.swift.
                             self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
-                            let mainViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
-                            self.present(mainViewController, animated: true, completion: nil)
+                            self.dismiss(animated: true, completion: nil)
                         }else {
                             self.signupErrorAlert(title: "Oops!", message: "Plaese check your e-mail address.")
                         }

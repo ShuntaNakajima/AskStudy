@@ -26,7 +26,7 @@ extension ChatUserAddViewController:UITableViewDataSource{
         let firebaseRef2 = Database.child("user/\(userStr)/chats/").childByAutoId()
         let chatDetile2 = ["user":(FIRAuth.auth()?.currentUser!.uid)!,"chatroom":firebaseRoomRef.key] as [String : Any]
         firebaseRef2.setValue(chatDetile2)
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController!.popViewController(animated: true)
     }
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

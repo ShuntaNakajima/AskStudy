@@ -29,7 +29,7 @@ extension ChatUserAddViewController{
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap2 in snapshots {
                     print(snapshots)
-                    if var postDictionary = snap2.value as? Dictionary<String, AnyObject> {
+                    if (snap2.value as? Dictionary<String, AnyObject>) != nil {
                         let recentUesr = self.Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/chats/").queryOrdered(byChild: "user").queryEqual(toValue: uid)
                         recentUesr.observe(.value, with: { snapshot in
                             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {

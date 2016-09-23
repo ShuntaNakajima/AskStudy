@@ -116,7 +116,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView){
         let maxHeight = 140.0
         let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
-        if(size.height.native <= maxHeight) {
+        if (size.height.native <= maxHeight) {
             myTextView.frame.size.height = size.height
             toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - size.height,width: self.view.bounds.size.width,height: size.height))
             myTextView.frame = (frame: CGRect(x:0,y:0 ,width:self.view.frame.width - 45,height: size.height))

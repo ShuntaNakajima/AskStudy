@@ -225,7 +225,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         
     }
     
-    func imageCropViewControllerCustomMovementRect(controller: RSKImageCropViewController) -> CGRect {
+    func imageCropViewControllerCustomMovementRect(_ controller: RSKImageCropViewController) -> CGRect {
         return controller.maskRect
     }
     
@@ -256,10 +256,10 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             } else {
                 self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("username").setValue(self.usernameTextField?.text!)
                 self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("email").setValue(self.emailTextField.text!)
-                let alert = UIAlertView()
-                alert.title = "Update Successful!"
-                alert.addButton(withTitle: "OK")
-                alert.show();
+                let alert = UIAlertController(title: "Update Successful!", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
                 SVProgressHUD.dismiss()
             }
             

@@ -38,32 +38,32 @@ class ChangePasswordViewController: UIViewController {
                 user?.updatePassword(newPassword.text!) { error in
                     if let error = error {
                         print(error)
-                        let alert = UIAlertView()
-                        alert.title = "The password must be 6 characters long or more."
-                        alert.addButton(withTitle: "OK")
-                        alert.show();
+                        let alertController = UIAlertController(title: "The password must be 6 characters long or more.", message: "", preferredStyle: .alert)
+                        let otherAction = UIAlertAction(title: "OK", style: .default)
+                        alertController.addAction(otherAction)
+                        self.present(alertController, animated: true, completion: nil)
                         SVProgressHUD.dismiss()
                     } else {
                         self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("provider").setValue(self.newPassword.text!)
-                        let alert = UIAlertView()
-                        alert.title = "Update Successful!"
-                        alert.addButton(withTitle: "OK")
-                        alert.show();
-                        SVProgressHUD.dismiss()
+                        let alertController = UIAlertController(title: "Update Successful!", message: "", preferredStyle: .alert)
+                        let otherAction = UIAlertAction(title: "OK", style: .default)
+                        alertController.addAction(otherAction)
+                        self.present(alertController, animated: true, completion: nil)
+
                     }
                 }
             }else{
-                let alert = UIAlertView()
-                alert.title = "New password dosen't match. please check it"
-                alert.addButton(withTitle: "OK")
-                alert.show();
+                let alertController = UIAlertController(title: "New password dosen't match. please check it", message: "", preferredStyle: .alert)
+                let otherAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(otherAction)
+                self.present(alertController, animated: true, completion: nil)
                 SVProgressHUD.dismiss()
             }
         }else{
-            let alert = UIAlertView()
-            alert.title = "Please check your old password"
-            alert.addButton(withTitle: "OK")
-            alert.show();
+            let alertController = UIAlertController(title: "Please check your old password", message: "", preferredStyle: .alert)
+            let otherAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(otherAction)
+            self.present(alertController, animated: true, completion: nil)
             SVProgressHUD.dismiss()
         }
     }

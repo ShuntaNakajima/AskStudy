@@ -62,8 +62,7 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
                     // NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     // Enter the app!
-                    let mainViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
-                    self.present(mainViewController, animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                     //self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
                    
                 } else {

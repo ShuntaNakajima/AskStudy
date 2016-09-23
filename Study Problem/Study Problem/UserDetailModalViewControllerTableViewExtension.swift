@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSource{
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +37,7 @@ extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSourc
         })
         return cell
     }
-    func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+    func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         let post = mypost[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
         selectpost = postDictionary!["key"] as! String!

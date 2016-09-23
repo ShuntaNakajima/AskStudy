@@ -54,7 +54,7 @@ class ResetPasswordViewController: UIViewController ,CAAnimationDelegate{
                 // There was an error processing the request
             } else {
                 // Password reset sent successfully
-                let alert = UIAlertController(title: "Dane!", message: "Send your password reset", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Done!", message: "Send your password reset", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)

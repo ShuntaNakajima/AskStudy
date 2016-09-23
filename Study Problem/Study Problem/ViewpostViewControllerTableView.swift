@@ -33,7 +33,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 maincell.postLabel!.text = postDic["text"] as! String!
                 let currentUser = Database.child("user").child(postDic["author"] as! String)
                 currentUser.observe(FIRDataEventType.value, with: { snapshot in
-                    maincell.usernameLabel.text = (snapshot.value! as! AnyObject)["username"] as! String
+                    maincell.usernameLabel.text = (snapshot.value! as AnyObject)["username"] as? String
                 })
                 maincell.profileImageView.tag = indexPath.row
                 maincell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
@@ -77,7 +77,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
             let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observe(.value, with: { (snapshot: FIRDataSnapshot) in
-                replycell.usernameLabel.text! = (snapshot.value! as! AnyObject)["username"] as! String
+                replycell.usernameLabel.text! = (snapshot.value! as AnyObject)["username"] as! String
             })
             return replycell
         }else{
@@ -85,7 +85,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             myreplycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
             let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observe(.value, with: { (snapshot: FIRDataSnapshot) in
-                myreplycell.usernameLabel.text! = (snapshot.value! as! AnyObject)["username"] as! String
+                myreplycell.usernameLabel.text! = (snapshot.value! as AnyObject)["username"] as! String
             })
             
             myreplycell.profileImageView.tag = indexPath.row
