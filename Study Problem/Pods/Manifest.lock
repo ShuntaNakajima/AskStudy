@@ -1,4 +1,5 @@
 PODS:
+  - BubbleTransition (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - Firebase (3.6.0):
     - Firebase/Core (= 3.6.0)
@@ -56,6 +57,7 @@ PODS:
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
+  - BubbleTransition (~> 2.0.0)
   - DZNEmptyDataSet
   - Firebase
   - Firebase/Auth
@@ -68,6 +70,7 @@ DEPENDENCIES:
   - SVProgressHUD
 
 SPEC CHECKSUMS:
+  BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
@@ -86,6 +89,6 @@ SPEC CHECKSUMS:
   RSKImageCropper: edd65fedb3734332818deb139906d6b7f54b8a44
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 7ba0fad28cc811c4ef71f2778d20d1798ac9ffd6
+PODFILE CHECKSUM: 5204ce978c0dee023a6511034a3b23d5deb421f1
 
 COCOAPODS: 1.0.1

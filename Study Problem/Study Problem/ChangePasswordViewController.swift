@@ -56,7 +56,7 @@ class ChangePasswordViewController: UIViewController {
                             let otherAction = UIAlertAction(title: "OK", style: .default)
                             alertController.addAction(otherAction)
                             self.present(alertController, animated: true, completion: nil)
-                            
+                            SVProgressHUD.dismiss()
                         }
                     }
                 }else{

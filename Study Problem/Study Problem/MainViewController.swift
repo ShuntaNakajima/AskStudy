@@ -10,8 +10,8 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-
-class MainViewController: UIViewController,UIGestureRecognizerDelegate{
+import BubbleTransition
+class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : Dictionary<String, AnyObject> = [:]
     var selectpostID : String!
@@ -19,7 +19,9 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
     var segueUser = ""
     var longState = false
     var refreshControl:UIRefreshControl!
+    let transition = BubbleTransition()
     @IBOutlet var tableView :UITableView!
+    @IBOutlet var postButton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         if FIRAuth.auth()?.currentUser == nil{
@@ -41,6 +43,9 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
         longPressRecognizer.minimumPressDuration = 0.4
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
+        postButton.layer.cornerRadius=30
+        postButton.layer.masksToBounds=true
+        postButton.setTitle("", for: UIControlState.normal)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -55,6 +60,8 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
         super.viewWillAppear(animated)
         let color = UserDefaults.standard
         let colorop : String? = color.object(forKey: "id") as! String?
+        UITabBar.appearance().tintColor = UIColor.ThemeBlue()
+        UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
         if let color = colorop{
             switch color{
             case "yellow":
@@ -85,7 +92,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
             self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
             self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         }
-
+postButton.backgroundColor = UITabBar.appearance().tintColor
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -95,11 +102,23 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate{
             let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
             vpVC.postDic = selectpost
             vpVC.post = selectpostID
+        }else if (segue.identifier == "toPost"){
+            let controller = segue.destination
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .custom
         }
     }
-    @IBAction func Post(){
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
-        self.present(vc, animated: true, completion: nil)
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = postButton.center
+        transition.bubbleColor = UITabBar.appearance().tintColor
+        return transition
+    }
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?{
+        transition.transitionMode = .dismiss
+        transition.startingPoint = postButton.center
+        transition.bubbleColor = UITabBar.appearance().tintColor
+        return transition
     }
     func reloadData(){
         Database.child("post").observe(.value, with: { snapshot in

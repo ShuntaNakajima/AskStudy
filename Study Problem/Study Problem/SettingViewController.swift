@@ -104,7 +104,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : AnyObject]) {
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // イメージ表示
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -132,10 +132,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         let metadata = FIRStorageMetadata()
-        
-        
-        
-        //firebaseにプロフィールイメージをアップロードする
+         //firebaseにプロフィールイメージをアップロードする
         let data: NSData = UIImagePNGRepresentation(resizedImage!)! as NSData
         let uploadTask = profileRef.put(data as Data, metadata: metadata) { metadata, error in
             if (error != nil) {

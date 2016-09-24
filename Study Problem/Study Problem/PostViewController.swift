@@ -23,7 +23,10 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     
     var currentUserId = ""
     var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.backgroundColor = UITabBar.appearance().tintColor
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         Database = FIRDatabase.database().reference()

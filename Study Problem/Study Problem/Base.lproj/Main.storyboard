@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewControllers" id="gIB-4X-MeV" customClass="LoginViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2x-Jj-cuG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="center" minimumFontSize="17" id="Uc7-FD-zLw">
@@ -84,7 +84,7 @@
             <objects>
                 <viewController id="dZH-Qc-bbm" customClass="ResetPasswordViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5b-mN-tTu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="E-mail" textAlignment="center" minimumFontSize="17" id="NgF-tb-H8m">
@@ -140,7 +140,7 @@
             <objects>
                 <viewController id="Kgj-P9-Rh0" customClass="CreateAccountViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rhJ-z9-hht">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fqK-ln-Z4g">
@@ -216,7 +216,7 @@
             <objects>
                 <viewController storyboardIdentifier="JoinpostViewController" id="002-SD-BaY" customClass="StarPostViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1cR-MM-m3r">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BXU-mJ-4f6">
@@ -246,7 +246,7 @@
             <objects>
                 <viewController storyboardIdentifier="MypostViewController" id="geZ-eo-Yaj" customClass="ChatViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="500-cE-Yk2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jP6-Q0-zVr">
@@ -280,7 +280,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="Snp-xe-FG3" customClass="ChatUserAddViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Kj-Km-JUB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="FGN-wx-BXn">
@@ -311,7 +311,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="ahI-kk-i6y" customClass="ChatUserSelectViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gP2-IQ-NAp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -324,9 +324,9 @@
         <!--Post View Controller-->
         <scene sceneID="gDg-qm-qMO">
             <objects>
-                <viewController storyboardIdentifier="PostViewController" id="0eO-ot-Ymr" customClass="PostViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" hidesBottomBarWhenPushed="YES" id="0eO-ot-Ymr" customClass="PostViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9tt-VT-qmk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="select" textAlignment="center" minimumFontSize="17" id="n23-kA-ZNh">
@@ -392,7 +392,7 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="O4W-2I-fZe">
@@ -407,9 +407,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G3B-hn-n73">
                                 <frame key="frameInset" minX="250" minY="450" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Post.gif"/>
+                                <state key="normal" backgroundImage="post.gif"/>
                                 <connections>
-                                    <action selector="Post" destination="BYZ-38-t0r" eventType="touchUpInside" id="OWE-NX-UPU"/>
+                                    <segue destination="0eO-ot-Ymr" kind="modal" identifier="toPost" id="c3e-EJ-qep"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -424,6 +424,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="postButton" destination="G3B-hn-n73" id="o35-9t-Ohn"/>
                         <outlet property="tableView" destination="O4W-2I-fZe" id="y16-NT-v9G"/>
                         <segue destination="44f-VP-Xsd" kind="push" identifier="viewPost" id="kmm-RN-9aq"/>
                     </connections>
@@ -445,7 +446,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="44f-VP-Xsd" customClass="ViewpostViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oVy-Hk-gtf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Bv-TQ-Pl1">
@@ -474,7 +475,7 @@
             <objects>
                 <viewController id="Tpu-6N-rob" customClass="SearchViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w81-ob-9ct">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="h92-pl-Bec">
@@ -580,7 +581,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="vPf-7A-NzF" customClass="ChangePasswordViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GKR-kR-61y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Old Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VTm-hK-xwG">
@@ -652,7 +653,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SettingViewController" id="yHl-SS-m6w" customClass="SettingViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CiR-GA-OJ8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.91764705879999997" green="0.9161326152" blue="0.909469784" alpha="1" colorSpace="calibratedRGB"/>
@@ -851,7 +852,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="6ND-S6-sIn" customClass="ThemeColorViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhy-aA-OIg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="toSetting.png" id="CtZ-gU-ZK9">
@@ -981,15 +982,15 @@
     <resources>
         <image name="Chat.gif" width="30" height="30"/>
         <image name="Main.gif" width="30" height="30"/>
-        <image name="Post.gif" width="200" height="200"/>
         <image name="Setting.gif" width="30" height="30"/>
         <image name="StarMenu.gif" width="30" height="30"/>
+        <image name="post.gif" width="200" height="200"/>
         <image name="toSetting.png" width="1457" height="1457"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+        <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kmm-RN-9aq"/>

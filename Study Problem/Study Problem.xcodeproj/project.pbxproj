@@ -37,7 +37,6 @@
 		BC4281911D77086100D5F66E /* StarMenu@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818D1D77086100D5F66E /* StarMenu@2x.gif */; };
 		BC4281921D77086100D5F66E /* Main@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818E1D77086100D5F66E /* Main@2x.gif */; };
 		BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818F1D77086100D5F66E /* Chat@2x.gif */; };
-		BC436C751D6B3729002B3C7B /* Post.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC436C741D6B3729002B3C7B /* Post.gif */; };
 		BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */; };
 		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */; };
 		BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */; };
@@ -62,6 +61,7 @@
 		BC7980741D76C6E600ACAE5C /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */; };
 		BC7A20371D94A90F0033F758 /* StarBIg.png in Resources */ = {isa = PBXBuildFile; fileRef = BC7A20361D94A90F0033F758 /* StarBIg.png */; };
 		BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */; };
+		BC9547B71D96525200D8D5DD /* post.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC9547B61D96525200D8D5DD /* post.gif */; };
 		BCA052411D76CD8100B24A5E /* StarMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523D1D76CD8100B24A5E /* StarMenu.gif */; };
 		BCA052421D76CD8100B24A5E /* Setting.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523E1D76CD8100B24A5E /* Setting.gif */; };
 		BCA052431D76CD8100B24A5E /* Main.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523F1D76CD8100B24A5E /* Main.gif */; };
@@ -151,7 +151,6 @@
 		BC42818D1D77086100D5F66E /* StarMenu@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "StarMenu@2x.gif"; sourceTree = "<group>"; };
 		BC42818E1D77086100D5F66E /* Main@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Main@2x.gif"; sourceTree = "<group>"; };
 		BC42818F1D77086100D5F66E /* Chat@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Chat@2x.gif"; sourceTree = "<group>"; };
-		BC436C741D6B3729002B3C7B /* Post.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Post.gif; sourceTree = "<group>"; };
 		BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonClass.swift; sourceTree = "<group>"; };
 		BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowButtonClass.swift; sourceTree = "<group>"; };
@@ -182,6 +181,7 @@
 		BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
 		BC7A20361D94A90F0033F758 /* StarBIg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarBIg.png; sourceTree = "<group>"; };
 		BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableviewClass.swift; sourceTree = "<group>"; };
+		BC9547B61D96525200D8D5DD /* post.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = post.gif; sourceTree = "<group>"; };
 		BCA0523D1D76CD8100B24A5E /* StarMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = StarMenu.gif; sourceTree = "<group>"; };
 		BCA0523E1D76CD8100B24A5E /* Setting.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Setting.gif; sourceTree = "<group>"; };
 		BCA0523F1D76CD8100B24A5E /* Main.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Main.gif; sourceTree = "<group>"; };
@@ -265,10 +265,10 @@
 				BC7A20361D94A90F0033F758 /* StarBIg.png */,
 				BC42818F1D77086100D5F66E /* Chat@2x.gif */,
 				BC1FB6E81D321D8A004CE534 /* noimage.gif */,
+				BC9547B61D96525200D8D5DD /* post.gif */,
 				BC4281881D76D1D600D5F66E /* Chat.gif */,
 				BCF71A751D0D3F4700285D07 /* noimages.gif */,
 				BC1438071CE7364200448AC0 /* gazou.gif */,
-				BC436C741D6B3729002B3C7B /* Post.gif */,
 				BC1438151CE75B6600448AC0 /* 2.gif */,
 				BC1438131CE7575A00448AC0 /* 1.gif */,
 			);
@@ -720,6 +720,7 @@
 				BCEDA1471D95500E006F05D5 /* Default-736h@3x.png in Resources */,
 				BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */,
 				BCC8673D1D771A25003251B3 /* Icon-App-29x29@2x.png in Resources */,
+				BC9547B71D96525200D8D5DD /* post.gif in Resources */,
 				BCEDA1461D95500E006F05D5 /* Default-667h@2x.png in Resources */,
 				BCEDA1451D95500E006F05D5 /* Default-568h@2x.png in Resources */,
 				BCC8673F1D771A25003251B3 /* Icon-App-40x40@1x.png in Resources */,
@@ -751,7 +752,6 @@
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
 				BCA052431D76CD8100B24A5E /* Main.gif in Resources */,
-				BC436C751D6B3729002B3C7B /* Post.gif in Resources */,
 				BC4281921D77086100D5F66E /* Main@2x.gif in Resources */,
 				BCC8673E1D771A25003251B3 /* Icon-App-29x29@3x.png in Resources */,
 				BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */,
