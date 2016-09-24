@@ -20,8 +20,8 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
         let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
         let postDictionary = post as? Dictionary<String, AnyObject>
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!

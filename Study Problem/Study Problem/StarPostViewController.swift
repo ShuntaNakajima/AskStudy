@@ -43,7 +43,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-     reload()
+   //  reload()
     }
     func reload(){
         Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").observeSingleEvent(of: .value, with: { snapshot in

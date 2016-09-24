@@ -32,40 +32,42 @@ class ChangePasswordViewController: UIViewController {
     }
     @IBAction func done(){
         SVProgressHUD.show()
-        if userDic["provider"] as! String? == oldPassword.text{
-            if newPassword.text! == newPasswordAgain.text! && newPassword.text! != ""{
-                let user = FIRAuth.auth()?.currentUser
-                user?.updatePassword(newPassword.text!) { error in
-                    if let error = error {
-                        print(error)
-                        let alertController = UIAlertController(title: "The password must be 6 characters long or more.", message: "", preferredStyle: .alert)
-                        let otherAction = UIAlertAction(title: "OK", style: .default)
-                        alertController.addAction(otherAction)
-                        self.present(alertController, animated: true, completion: nil)
-                        SVProgressHUD.dismiss()
-                    } else {
-                        self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("provider").setValue(self.newPassword.text!)
-                        let alertController = UIAlertController(title: "Update Successful!", message: "", preferredStyle: .alert)
-                        let otherAction = UIAlertAction(title: "OK", style: .default)
-                        alertController.addAction(otherAction)
-                        self.present(alertController, animated: true, completion: nil)
-
-                    }
-                }
-            }else{
-                let alertController = UIAlertController(title: "New password dosen't match. please check it", message: "", preferredStyle: .alert)
+        let credential = FIREmailPasswordAuthProvider.credential(withEmail: userDic["email"] as! String, password: oldPassword.text!)
+        FIRAuth.auth()?.currentUser?.reauthenticate(with: credential, completion: { (error) in
+            if error != nil{
+                let alertController = UIAlertController(title: "Please check your old password", message: "", preferredStyle: .alert)
                 let otherAction = UIAlertAction(title: "OK", style: .default)
                 alertController.addAction(otherAction)
                 self.present(alertController, animated: true, completion: nil)
                 SVProgressHUD.dismiss()
+            }else{
+                if self.newPassword.text! == self.newPasswordAgain.text! && self.newPassword.text! != ""{
+                    let user = FIRAuth.auth()?.currentUser
+                    user?.updatePassword(self.newPassword.text!) { error in
+                        if let error = error {
+                            print(error)
+                            let alertController = UIAlertController(title: "The password must be 6 characters long or more.", message: "", preferredStyle: .alert)
+                            let otherAction = UIAlertAction(title: "OK", style: .default)
+                            alertController.addAction(otherAction)
+                            self.present(alertController, animated: true, completion: nil)
+                            SVProgressHUD.dismiss()
+                        } else {
+                            let alertController = UIAlertController(title: "Update Successful!", message: "", preferredStyle: .alert)
+                            let otherAction = UIAlertAction(title: "OK", style: .default)
+                            alertController.addAction(otherAction)
+                            self.present(alertController, animated: true, completion: nil)
+                            
+                        }
+                    }
+                }else{
+                    let alertController = UIAlertController(title: "New password dosen't match. please check it", message: "", preferredStyle: .alert)
+                    let otherAction = UIAlertAction(title: "OK", style: .default)
+                    alertController.addAction(otherAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    SVProgressHUD.dismiss()
+                }
             }
-        }else{
-            let alertController = UIAlertController(title: "Please check your old password", message: "", preferredStyle: .alert)
-            let otherAction = UIAlertAction(title: "OK", style: .default)
-            alertController.addAction(otherAction)
-            self.present(alertController, animated: true, completion: nil)
-            SVProgressHUD.dismiss()
-        }
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

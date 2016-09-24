@@ -62,8 +62,8 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         let post = posts[indexPath.row]
-        let postDictionary = post as? Dictionary<String, AnyObject>
-        selectpost = postDictionary!["key"] as! String!
+        let postDictionary = post
+        selectpost = postDictionary["key"] as! String!
         if selectpost != nil {
             performSegue(withIdentifier: "viewStarPost",sender: nil)
         }

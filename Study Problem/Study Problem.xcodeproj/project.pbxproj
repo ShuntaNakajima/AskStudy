@@ -38,9 +38,6 @@
 		BC4281921D77086100D5F66E /* Main@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818E1D77086100D5F66E /* Main@2x.gif */; };
 		BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818F1D77086100D5F66E /* Chat@2x.gif */; };
 		BC436C751D6B3729002B3C7B /* Post.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC436C741D6B3729002B3C7B /* Post.gif */; };
-		BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */; };
-		BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */; };
-		BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */; };
 		BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */; };
 		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */; };
 		BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */; };
@@ -85,6 +82,10 @@
 		BCC867481D771A25003251B3 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC8673A1D771A25003251B3 /* Icon-App-83.5x83.5@2x.png */; };
 		BCD17A651D655D500050A8EB /* ChatUserSerchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD17A641D655D500050A8EB /* ChatUserSerchClass.swift */; };
 		BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE33D351D92D652004CF5D3 /* SearchViewController.swift */; };
+		BCEDA1451D95500E006F05D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCEDA1421D95500E006F05D5 /* Default-568h@2x.png */; };
+		BCEDA1461D95500E006F05D5 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCEDA1431D95500E006F05D5 /* Default-667h@2x.png */; };
+		BCEDA1471D95500E006F05D5 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCEDA1441D95500E006F05D5 /* Default-736h@3x.png */; };
+		BCEDA1491D955107006F05D5 /* toSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = BCEDA1481D955107006F05D5 /* toSetting.png */; };
 		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
 		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
@@ -151,9 +152,6 @@
 		BC42818E1D77086100D5F66E /* Main@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Main@2x.gif"; sourceTree = "<group>"; };
 		BC42818F1D77086100D5F66E /* Chat@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Chat@2x.gif"; sourceTree = "<group>"; };
 		BC436C741D6B3729002B3C7B /* Post.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Post.gif; sourceTree = "<group>"; };
-		BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
-		BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		BC46D6CA1D1FA13C00F25E5B /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonClass.swift; sourceTree = "<group>"; };
 		BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowButtonClass.swift; sourceTree = "<group>"; };
@@ -204,6 +202,10 @@
 		BCC8673A1D771A25003251B3 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
 		BCD17A641D655D500050A8EB /* ChatUserSerchClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserSerchClass.swift; sourceTree = "<group>"; };
 		BCE33D351D92D652004CF5D3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BCEDA1421D95500E006F05D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BCEDA1431D95500E006F05D5 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		BCEDA1441D95500E006F05D5 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		BCEDA1481D955107006F05D5 /* toSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toSetting.png; sourceTree = "<group>"; };
 		BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Study Problem-Bridging-Header.h"; sourceTree = "<group>"; };
 		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		3940EE621CE824E800293067 /* Resorces */ = {
 			isa = PBXGroup;
 			children = (
+				BCEDA1481D955107006F05D5 /* toSetting.png */,
 				BC0095EB1D5E0BF000FBA347 /* star.gif */,
 				BCA0523D1D76CD8100B24A5E /* StarMenu.gif */,
 				BCA0523E1D76CD8100B24A5E /* Setting.gif */,
@@ -326,16 +329,6 @@
 				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
 			);
 			name = ViewpostViewCOntroller;
-			sourceTree = "<group>";
-		};
-		BC46D6C61D1FA13C00F25E5B /* Defaults */ = {
-			isa = PBXGroup;
-			children = (
-				BC46D6C71D1FA13C00F25E5B /* Default-568h@2x.png */,
-				BC46D6C81D1FA13C00F25E5B /* Default-667h@2x.png */,
-				BC46D6C91D1FA13C00F25E5B /* Default-736h@3x.png */,
-			);
-			path = Defaults;
 			sourceTree = "<group>";
 		};
 		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
@@ -413,7 +406,7 @@
 		BC54BB7B1CE4AE720013C0DD /* Study Problem */ = {
 			isa = PBXGroup;
 			children = (
-				BC46D6C61D1FA13C00F25E5B /* Defaults */,
+				BCEDA1411D95500E006F05D5 /* Defalts */,
 				BC1437D11CE60E7400448AC0 /* User */,
 				BCF520B51CE9B7050027D8EA /* Cells */,
 				BC5127D11D1F858300033737 /* Class */,
@@ -535,6 +528,17 @@
 				BCC8673A1D771A25003251B3 /* Icon-App-83.5x83.5@2x.png */,
 			);
 			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		BCEDA1411D95500E006F05D5 /* Defalts */ = {
+			isa = PBXGroup;
+			children = (
+				BCEDA1421D95500E006F05D5 /* Default-568h@2x.png */,
+				BCEDA1431D95500E006F05D5 /* Default-667h@2x.png */,
+				BCEDA1441D95500E006F05D5 /* Default-736h@3x.png */,
+			);
+			name = Defalts;
+			path = aaa;
 			sourceTree = "<group>";
 		};
 		BCF520B51CE9B7050027D8EA /* Cells */ = {
@@ -710,10 +714,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC4281911D77086100D5F66E /* StarMenu@2x.gif in Resources */,
+				BCEDA1491D955107006F05D5 /* toSetting.png in Resources */,
 				BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */,
 				BC54841A1D648A5D00CD5D5D /* ChatTableViewCell.xib in Resources */,
+				BCEDA1471D95500E006F05D5 /* Default-736h@3x.png in Resources */,
 				BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */,
 				BCC8673D1D771A25003251B3 /* Icon-App-29x29@2x.png in Resources */,
+				BCEDA1461D95500E006F05D5 /* Default-667h@2x.png in Resources */,
+				BCEDA1451D95500E006F05D5 /* Default-568h@2x.png in Resources */,
 				BCC8673F1D771A25003251B3 /* Icon-App-40x40@1x.png in Resources */,
 				BC7A20371D94A90F0033F758 /* StarBIg.png in Resources */,
 				BCC867441D771A25003251B3 /* Icon-App-60x60@3x.png in Resources */,
@@ -740,7 +748,6 @@
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
 				BCC867461D771A25003251B3 /* Icon-App-76x76@2x.png in Resources */,
 				BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */,
-				BC46D6CB1D1FA13C00F25E5B /* Default-568h@2x.png in Resources */,
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
 				BCA052431D76CD8100B24A5E /* Main.gif in Resources */,
@@ -748,8 +755,6 @@
 				BC4281921D77086100D5F66E /* Main@2x.gif in Resources */,
 				BCC8673E1D771A25003251B3 /* Icon-App-29x29@3x.png in Resources */,
 				BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */,
-				BC46D6CD1D1FA13C00F25E5B /* Default-736h@3x.png in Resources */,
-				BC46D6CC1D1FA13C00F25E5B /* Default-667h@2x.png in Resources */,
 				BCC8673C1D771A25003251B3 /* Icon-App-29x29@1x.png in Resources */,
 				BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */,
 				BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */,
@@ -1008,6 +1013,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1029,6 +1035,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
