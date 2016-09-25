@@ -9,7 +9,7 @@
 import UIKit
 
 class ChatTableViewCell: UITableViewCell {
-    @IBOutlet var profileImage:UIButton!
+    @IBOutlet var profileImage:MainCellUiimageViewClass!
     @IBOutlet var profileLabel:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

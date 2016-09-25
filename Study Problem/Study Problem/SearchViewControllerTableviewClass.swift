@@ -55,7 +55,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
             }
         });
         cell.profileImage.tag = indexPath.row
-        cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
+        cell.profileImage.addTarget(self, action: #selector(SearchViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
          }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserCell") as! ChatTableViewCell
@@ -65,7 +65,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                 let storage = FIRStorage.storage()
                 let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
                 let key = post["key"] as? String!
-                let autorsprofileRef = storageRef.child("\(key!)/profileimage.png")
+                let autorsprofileRef = storageRef.child("\(key!!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                     if error != nil {
                         print(error)
@@ -79,21 +79,25 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                 }
             });
             cell.profileImage.tag = indexPath.row
-            cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
+            cell.profileImage.addTarget(self, action: #selector(SearchViewController.showUserData(sender:)), for: .touchUpInside)
             return cell
 
         }
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
+        if segucon.selectedSegmentIndex == 0{
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
         selectpost = postDictionary!
         selectpostID = postDictionary!["key"] as! String!
         if selectpost != nil {
-            performSegue(withIdentifier: "viewPost",sender: nil)
+            searchBar.resignFirstResponder()
+            performSegue(withIdentifier: "viewSarchPost",sender: nil)
+        }
         }
     }
     func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        if segucon.selectedSegmentIndex == 0{
         let point = recognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         if indexPath == nil {
@@ -130,5 +134,14 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                 })
             }
         }
+    }
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "No result"
+        let font = UIFont.systemFont(ofSize: 14.0, weight: 2.0)
+        return NSAttributedString(
+            string: str,
+            attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
+        )
     }
 }

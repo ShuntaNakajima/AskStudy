@@ -21,6 +21,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     var refreshControl:UIRefreshControl!
     var selectpost : Dictionary<String, AnyObject> = [:]
     var selectpostID : String!
+    var segueUser = ""
     @IBOutlet var tableView :UITableView!
     @IBOutlet var segucon:UISegmentedControl!
     override func viewDidLoad() {
@@ -40,13 +41,14 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
         tableView.tableFooterView = UIView()
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Reload")
-        self.refreshControl.addTarget(self, action: #selector(MainViewController.refresh), for: UIControlEvents.valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(SearchViewController.refresh), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl)
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.cellLongPressed(recognizer:)))
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SearchViewController.cellLongPressed(recognizer:)))
         longPressRecognizer.allowableMovement = 0
         longPressRecognizer.minimumPressDuration = 0.4
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
+        segucon.addTarget(self, action: #selector(SearchViewController.segmentedControlChanged(sender:)), for: UIControlEvents.valueChanged)
     }
     private func setupSearchBar() {
         if let navigationBarFrame = navigationController?.navigationBar.bounds {
@@ -65,23 +67,26 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {// textDidChange
         print(searchText)
+        reload(searchText: searchText)
+    }
+    func reload(searchText:String){
         self.tableView.contentOffset = CGPoint(x:0,y: -self.tableView.contentInset.top)
         if segucon.selectedSegmentIndex == 0{
-        Database.child("post").queryOrdered(byChild: "text").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
-            self.posts = []
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                for snap in snapshots {
-                    if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        print(snap)
-                        let key:String! = snapshot.key
-                        postDictionary["key"] = key as AnyObject?
-                        self.posts.append(postDictionary)
-                        self.tableView.reloadData()
+            Database.child("post").queryOrdered(byChild: "text").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
+                self.posts = []
+                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    for snap in snapshots {
+                        if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print(snap)
+                            let key:String! = snapshot.key
+                            postDictionary["key"] = key as AnyObject?
+                            self.posts.append(postDictionary)
+                            self.tableView.reloadData()
+                        }
                     }
                 }
-            }
-            self.tableView.reloadData()
-        })
+                self.tableView.reloadData()
+            })
         }else{
             Database.child("user").queryOrdered(byChild: "username").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
                 self.posts = []
@@ -107,5 +112,29 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {// clicked serch button
         searchBar.resignFirstResponder()
         self.view.endEditing(true)
+    }
+    func segmentedControlChanged(sender: UISegmentedControl) {
+        reload(searchText: searchBar.text!)
+    }
+    func refresh(){
+        reload(searchText: searchBar.text!)
+        self.refreshControl.endRefreshing()
+    }
+    func showUserData(sender:UIButton){
+        let row = sender.tag
+        if segucon.selectedSegmentIndex == 0{
+            segueUser = posts[row]["author"] as! String
+        }else{
+            segueUser = posts[row]["key"] as! String
+        }
+        let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
+        UDMC.UserKey = self.segueUser
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "viewSarchPost") {
+            let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
+            vpVC.postDic = selectpost
+            vpVC.post = selectpostID
+        }
     }
 }
