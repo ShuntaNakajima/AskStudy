@@ -20,12 +20,16 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
 
     
     @IBOutlet var subjectTextfield:UITextField!
+    @IBOutlet var closebutton:UIButton!
+    @IBOutlet var postbutton:UIButton!
     
     var currentUserId = ""
     var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UITabBar.appearance().tintColor
+        self.closebutton.setTitleColor(UITabBar.appearance().tintColor, for: .normal)
+        self.postbutton.setTitleColor(UITabBar.appearance().tintColor, for: .normal)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,10 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
         
         print("Username: \(self.currentUserId)")
-        
+        closebutton.layer.cornerRadius=30
+        closebutton.layer.masksToBounds=true
+        postbutton.layer.cornerRadius=25
+        postbutton.layer.masksToBounds=true
         
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1
@@ -43,6 +50,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         textView.text = "Type here"
         textView.textColor = UIColor.lightGray
         textView.delegate = self
+        
         let pickerView = UIPickerView()
         
         pickerView.delegate = self
@@ -202,5 +210,4 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     @IBAction func cancel(){
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

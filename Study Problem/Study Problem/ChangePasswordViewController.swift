@@ -52,11 +52,9 @@ class ChangePasswordViewController: UIViewController {
                             self.present(alertController, animated: true, completion: nil)
                             SVProgressHUD.dismiss()
                         } else {
-                            let alertController = UIAlertController(title: "Update Successful!", message: "", preferredStyle: .alert)
-                            let otherAction = UIAlertAction(title: "OK", style: .default)
-                            alertController.addAction(otherAction)
-                            self.present(alertController, animated: true, completion: nil)
-                            SVProgressHUD.dismiss()
+                            SVProgressHUD.showSuccess(withStatus: "Update Successful!")
+                            let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+                            DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
                         }
                     }
                 }else{

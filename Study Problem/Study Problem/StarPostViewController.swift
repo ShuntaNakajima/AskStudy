@@ -106,7 +106,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
         )
     }
     func emptyDataSetDidTapButton(_ scrollView: UIScrollView!) {
-        let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
+        let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "StarDetial")
         self.present(viewController, animated: true, completion: nil)
     }
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
