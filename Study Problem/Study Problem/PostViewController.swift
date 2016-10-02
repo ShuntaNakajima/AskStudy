@@ -45,8 +45,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1
-        textView.layer.masksToBounds = true
-        textView.layer.cornerRadius = 20.0
+        //textView.layer.masksToBounds = true
+      //  textView.layer.cornerRadius = 20.0
         textView.text = "Type here"
         textView.textColor = UIColor.lightGray
         textView.delegate = self

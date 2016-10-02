@@ -31,19 +31,6 @@ class UserDetailModalViewController: UIViewController {
         super.viewDidLoad()
         ExitButton.layer.cornerRadius=15
         ExitButton.layer.masksToBounds=true
-        FollowIngButton.layer.cornerRadius=45
-        FollowIngButton.layer.masksToBounds=true
-        FollowerButton.layer.cornerRadius=45
-        FollowerButton.layer.masksToBounds=true
-        UserPostButton.layer.cornerRadius=45
-        UserPostButton.layer.masksToBounds=true
-        UserGropeButton.layer.cornerRadius=45
-        UserGropeButton.layer.masksToBounds=true
-        FollowButton.backgroundColor = UIColor.ThemeBlueThin()
-        FollowIngButton.backgroundColor = UIColor.ThemeLightBlueThin()
-        FollowerButton.backgroundColor = UIColor.ThemePurpleThin()
-        UserPostButton.backgroundColor = UIColor.ThemeGreenThin()
-        UserGropeButton.backgroundColor = UIColor.ThemeOrangeThin()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

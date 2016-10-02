@@ -127,7 +127,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                             
                             // Seal the deal in DataService.swift.
                             self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
-                            self.dismiss(animated: true, completion: nil)
+                            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                         }else {
                             self.signupErrorAlert(title: "Oops!", message: "Plaese check your e-mail address.")
                         }
@@ -181,5 +181,9 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gradeField.text = pickOption[row]
+    }
+    
+    @IBAction func back(){
+        self.dismiss(animated: true, completion: nil)
     }
 }

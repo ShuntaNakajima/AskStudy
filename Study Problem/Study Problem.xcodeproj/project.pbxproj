@@ -10,6 +10,11 @@
 		729810BB871C2C24CAF292B5 /* Pods_Study_Problem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */; };
 		BC0095EA1D5DFE8400FBA347 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0095E91D5DFE8400FBA347 /* ToastView.swift */; };
 		BC0095EC1D5E0BF000FBA347 /* star.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC0095EB1D5E0BF000FBA347 /* star.gif */; };
+		BC01985A1D97F14E00E39160 /* AskStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0198591D97F14E00E39160 /* AskStudy.png */; };
+		BC01985C1D97FEA800E39160 /* StarImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC01985B1D97FEA800E39160 /* StarImage.png */; };
+		BC01985E1D98004C00E39160 /* StarterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01985D1D98004C00E39160 /* StarterPageViewController.swift */; };
+		BC0198661D98049000E39160 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0198651D98049000E39160 /* Start.png */; };
+		BC0198681D98069200E39160 /* Starts.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0198671D98069200E39160 /* Starts.png */; };
 		BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */; };
 		BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */; };
 		BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */; };
@@ -136,6 +141,11 @@
 		6576D153FA40607098BB99E6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0095E91D5DFE8400FBA347 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		BC0095EB1D5E0BF000FBA347 /* star.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = star.gif; sourceTree = "<group>"; };
+		BC0198591D97F14E00E39160 /* AskStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AskStudy.png; sourceTree = "<group>"; };
+		BC01985B1D97FEA800E39160 /* StarImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarImage.png; sourceTree = "<group>"; };
+		BC01985D1D98004C00E39160 /* StarterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarterPageViewController.swift; sourceTree = "<group>"; };
+		BC0198651D98049000E39160 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
+		BC0198671D98069200E39160 /* Starts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starts.png; sourceTree = "<group>"; };
 		BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -278,15 +288,19 @@
 		3940EE621CE824E800293067 /* Resorces */ = {
 			isa = PBXGroup;
 			children = (
+				BC0198651D98049000E39160 /* Start.png */,
 				BCE4251F1D9795B800F49F1D /* Pacifico.ttf */,
+				BC0198671D98069200E39160 /* Starts.png */,
 				BCEDA1481D955107006F05D5 /* toSetting.png */,
 				BC0095EB1D5E0BF000FBA347 /* star.gif */,
 				BCA0523D1D76CD8100B24A5E /* StarMenu.gif */,
 				BCA0523E1D76CD8100B24A5E /* Setting.gif */,
 				BCE4251D1D97897700F49F1D /* SelectSubject.gif */,
 				BCA0523F1D76CD8100B24A5E /* Main.gif */,
+				BC01985B1D97FEA800E39160 /* StarImage.png */,
 				BC42818C1D77086100D5F66E /* Setting@2x.gif */,
 				BC42818D1D77086100D5F66E /* StarMenu@2x.gif */,
+				BC0198591D97F14E00E39160 /* AskStudy.png */,
 				BC42818E1D77086100D5F66E /* Main@2x.gif */,
 				BC7A20361D94A90F0033F758 /* StarBIg.png */,
 				BC42818F1D77086100D5F66E /* Chat@2x.gif */,
@@ -364,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */,
+				BC01985D1D98004C00E39160 /* StarterPageViewController.swift */,
 				BCE425161D9779B000F49F1D /* Setting */,
 				BC79806E1D75C6A000ACAE5C /* StarPostViewController */,
 				BC5E9E6D1D5B6ED4003C1850 /* UserDetailModalViewController */,
@@ -771,6 +786,7 @@
 				BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */,
 				BCC7C5E11D979EB0002AF37E /* Icon-App-29x29@2x.png in Resources */,
 				BC9547B71D96525200D8D5DD /* post.gif in Resources */,
+				BC0198661D98049000E39160 /* Start.png in Resources */,
 				BCC7C5E61D979EB0002AF37E /* Icon-App-57x57@1x.png in Resources */,
 				BC7A20371D94A90F0033F758 /* StarBIg.png in Resources */,
 				BCC7C5EC1D979EB0002AF37E /* Icon-App-76x76@3x.png in Resources */,
@@ -778,7 +794,9 @@
 				BC0095EC1D5E0BF000FBA347 /* star.gif in Resources */,
 				BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */,
 				BCC7C5DE1D979EB0002AF37E /* Icon-App-20x20@2x.png in Resources */,
+				BC01985A1D97F14E00E39160 /* AskStudy.png in Resources */,
 				BCC7C5F21D97A0C4002AF37E /* Default-667h@2x.png in Resources */,
+				BC0198681D98069200E39160 /* Starts.png in Resources */,
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
 				BCC7C5EA1D979EB0002AF37E /* Icon-App-76x76@1x.png in Resources */,
@@ -801,6 +819,7 @@
 				BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */,
 				BCC9E0A31D97B0E600D05897 /* ChatsBig.png in Resources */,
 				BCC7C5EB1D979EB0002AF37E /* Icon-App-76x76@2x.png in Resources */,
+				BC01985C1D97FEA800E39160 /* StarImage.png in Resources */,
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BCC7C5E71D979EB0002AF37E /* Icon-App-60x60@1x.png in Resources */,
 				BCC7C5DD1D979EB0002AF37E /* Icon-App-20x20@1x.png in Resources */,
@@ -920,6 +939,7 @@
 				BC1437E41CE6137B00448AC0 /* MainViewController.swift in Sources */,
 				BCB72A211D649A4000234B15 /* ChatUserAddViewControllerTableView.swift in Sources */,
 				BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */,
+				BC01985E1D98004C00E39160 /* StarterPageViewController.swift in Sources */,
 				BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */,
 				BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */,
 				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,

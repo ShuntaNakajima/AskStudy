@@ -24,12 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRDatabase.database().persistenceEnabled = true
+    let pageviewControl = UIPageControl.appearance()
+    pageviewControl.backgroundColor = UIColor.clear
         let storyboard: UIStoryboard = StoryboardHelper.adjust()
         window!.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
         self.window?.makeKeyAndVisible()
         UINavigationBar.appearance().tintColor = UIColor.white
+    let ud = UserDefaults.standard
+    let dic = ["firstLaunch": true]
+    ud.register(defaults: dic)
         return true
-        
     }
     
 

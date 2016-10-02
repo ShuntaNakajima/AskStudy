@@ -50,7 +50,12 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            if FIRAuth.auth()?.currentUser == nil{
+            let ud = UserDefaults.standard
+            if ud.bool(forKey: "firstLaunch") {
+                ud.set(false, forKey: "firstLaunch")
+                let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "PageViewController")
+                self.present(viewController, animated: true, completion: nil)
+            }else if FIRAuth.auth()?.currentUser == nil{
                 let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
                 self.present(viewController, animated: true, completion: nil)
             }

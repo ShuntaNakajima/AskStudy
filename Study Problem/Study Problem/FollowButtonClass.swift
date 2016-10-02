@@ -25,9 +25,7 @@ class FollowButtonClass: UIButton {
         self.updateLayout()
     }
     func updateLayout(){
-        self.layer.cornerRadius=45
-        self.layer.masksToBounds=true
-    }
+           }
     func follow(uid:String!){
         Database = FIRDatabase.database().reference()
         var followingUserfollower = 0
