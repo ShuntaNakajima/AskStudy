@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+
 class ViewpostViewController: UIViewController,UITextViewDelegate {
     var Database = FIRDatabaseReference.init()
     var post : String!
@@ -27,7 +28,6 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
         let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
         self.tableView.register(mainnib, forCellReuseIdentifier:"postMainCell")
         let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
@@ -58,6 +58,14 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                 if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                     let key = snapshot.key
                     postDictionary["key"] = key as AnyObject?
+                     guard let BestAnswer = postDictionary["BestAnswer"] as? String else{return}
+                   if BestAnswer == ""{
+                    self.toolbar.isHidden = false
+                    self.tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
+                   }else{
+                    self.toolbar.isHidden = true
+                    self.tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+                    }
                     self.postDic = postDictionary
                     self.tableView.reloadData()
                 }

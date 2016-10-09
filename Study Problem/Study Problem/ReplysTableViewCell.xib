@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="69.5"/>
+                <frame key="frameInset" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDE-Fp-woN">
@@ -22,9 +22,10 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amn-7Z-xgV">
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="0Z8-Pa-guU"/>
-                            <constraint firstAttribute="width" constant="30" id="NLh-a2-Now"/>
+                            <constraint firstAttribute="height" constant="38" id="0Z8-Pa-guU"/>
+                            <constraint firstAttribute="width" constant="38" id="NLh-a2-Now"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
                         <state key="normal" title="☆"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0W-mI-V9C" customClass="MainCellUiimageViewClass" customModule="Study_Problem" customModuleProvider="target">
@@ -48,13 +49,13 @@
                     <constraint firstItem="C0W-mI-V9C" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-127" id="1vG-9V-LHK"/>
                     <constraint firstItem="2pQ-rW-eym" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="1zT-Pi-KWH"/>
                     <constraint firstItem="Amn-7Z-xgV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="1zl-DQ-ASX"/>
+                    <constraint firstItem="Amn-7Z-xgV" firstAttribute="leading" secondItem="yDE-Fp-woN" secondAttribute="trailing" id="2g8-40-4nZ"/>
                     <constraint firstItem="yDE-Fp-woN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3A9-QG-Kkf"/>
                     <constraint firstItem="Amn-7Z-xgV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="8JM-u0-i9D"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2pQ-rW-eym" secondAttribute="trailing" constant="67" id="Bop-tR-QbD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Amn-7Z-xgV" secondAttribute="trailing" constant="-6" id="Bsx-MM-Byg"/>
                     <constraint firstItem="2pQ-rW-eym" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="CzK-6h-lrD"/>
                     <constraint firstItem="Amn-7Z-xgV" firstAttribute="leading" secondItem="2pQ-rW-eym" secondAttribute="trailing" constant="8" id="F3n-Hs-nTb"/>
-                    <constraint firstItem="yDE-Fp-woN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="F60-8I-0Jh"/>
                     <constraint firstItem="yDE-Fp-woN" firstAttribute="top" secondItem="2pQ-rW-eym" secondAttribute="bottom" constant="11" id="Jtg-cC-YQA"/>
                     <constraint firstItem="yDE-Fp-woN" firstAttribute="top" secondItem="2pQ-rW-eym" secondAttribute="bottom" constant="8" id="KGg-Q3-b01"/>
                     <constraint firstAttribute="bottomMargin" secondItem="yDE-Fp-woN" secondAttribute="bottom" constant="0.5" id="Lkv-8c-J2M"/>
@@ -64,7 +65,7 @@
                     <constraint firstItem="yDE-Fp-woN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Tv1-Um-FQX"/>
                     <constraint firstItem="2pQ-rW-eym" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="V4Q-BG-DqW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="yDE-Fp-woN" secondAttribute="bottom" constant="0.5" id="XyN-CS-cfc"/>
-                    <constraint firstItem="Amn-7Z-xgV" firstAttribute="leading" secondItem="2pQ-rW-eym" secondAttribute="trailing" constant="37" id="ayR-up-j6w"/>
+                    <constraint firstItem="Amn-7Z-xgV" firstAttribute="leading" secondItem="2pQ-rW-eym" secondAttribute="trailing" constant="29" id="ayR-up-j6w"/>
                     <constraint firstItem="2pQ-rW-eym" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="b7Y-Ny-IaN"/>
                     <constraint firstItem="yDE-Fp-woN" firstAttribute="top" secondItem="Amn-7Z-xgV" secondAttribute="bottom" constant="6" id="bOf-xf-KHD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="yDE-Fp-woN" secondAttribute="bottom" constant="0.5" id="cFL-ZT-CEw"/>
@@ -89,12 +90,6 @@
                         <exclude reference="b7Y-Ny-IaN"/>
                         <exclude reference="lqg-g8-3eu"/>
                         <exclude reference="mMf-fI-JGy"/>
-                        <exclude reference="1zl-DQ-ASX"/>
-                        <exclude reference="Bsx-MM-Byg"/>
-                        <exclude reference="F3n-Hs-nTb"/>
-                        <exclude reference="LuM-zn-VHZ"/>
-                        <exclude reference="giE-BI-zvi"/>
-                        <exclude reference="wdj-em-maN"/>
                         <exclude reference="3A9-QG-Kkf"/>
                         <exclude reference="Jtg-cC-YQA"/>
                         <exclude reference="KGg-Q3-b01"/>
@@ -108,6 +103,12 @@
                         <exclude reference="pnh-zx-DnU"/>
                         <exclude reference="qlw-tR-coT"/>
                         <exclude reference="rVV-Iq-RK1"/>
+                        <exclude reference="1zl-DQ-ASX"/>
+                        <exclude reference="Bsx-MM-Byg"/>
+                        <exclude reference="F3n-Hs-nTb"/>
+                        <exclude reference="LuM-zn-VHZ"/>
+                        <exclude reference="giE-BI-zvi"/>
+                        <exclude reference="wdj-em-maN"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

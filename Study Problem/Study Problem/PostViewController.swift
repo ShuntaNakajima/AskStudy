@@ -10,19 +10,21 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import Photos
+import AVKit
+import DKImagePickerController
 
 class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate,UITextViewDelegate{
-
-    
     @IBOutlet var textView:UITextView!
     
     var Database = FIRDatabaseReference.init()
-
+    
     
     @IBOutlet var subjectTextfield:UITextField!
     @IBOutlet var closebutton:UIButton!
     @IBOutlet var postbutton:UIButton!
-    
+    @IBOutlet var previewView: UICollectionView?
+    var assets: [DKAsset]?
     var currentUserId = ""
     var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +38,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         Database = FIRDatabase.database().reference()
         
         self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
-        
+        previewView?.delegate = self
+        previewView?.dataSource = self
         print("Username: \(self.currentUserId)")
         closebutton.layer.cornerRadius=30
         closebutton.layer.masksToBounds=true
@@ -46,7 +49,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1
         //textView.layer.masksToBounds = true
-      //  textView.layer.cornerRadius = 20.0
+        //  textView.layer.cornerRadius = 20.0
         textView.text = "Type here"
         textView.textColor = UIColor.lightGray
         textView.delegate = self
@@ -182,7 +185,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
                 "now" : true as AnyObject,
                 "reply":0 as AnyObject,
                 "author": currentUserId as AnyObject,
-                "date": date_formatter.string(from: NSDate() as Date) as AnyObject
+                "date": date_formatter.string(from: NSDate() as Date) as AnyObject,
+                "BestAnswer": "" as AnyObject
             ]
             
             // Send it over to DataService to seal the deal.
@@ -210,4 +214,121 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     @IBAction func cancel(){
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func addButton(sender: AnyObject) {
+        showImagePickerWithAssetType(
+            .allPhotos,
+            sourceType: .both,
+            maxSelectableCount: 4,
+            allowsLandscape: false,
+            singleSelect: false
+    )}
+   }
+extension PostViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    func showImagePickerWithAssetType(_ assetType: DKImagePickerControllerAssetType,
+                                      sourceType: DKImagePickerControllerSourceType = .both,
+                                      maxSelectableCount: Int,
+                                      allowsLandscape: Bool,
+                                      singleSelect: Bool) {
+        
+        let pickerController = DKImagePickerController()
+        
+        // Custom camera
+        //		pickerController.UIDelegate = CustomUIDelegate()
+        //		pickerController.modalPresentationStyle = .OverCurrentContext
+        
+        pickerController.assetType = assetType
+        pickerController.allowsLandscape = allowsLandscape
+        pickerController.maxSelectableCount = maxSelectableCount
+        pickerController.sourceType = sourceType
+        pickerController.singleSelect = singleSelect
+        
+        //		pickerController.showsCancelButton = true
+        //		pickerController.showsEmptyAlbums = false
+        //		pickerController.defaultAssetGroup = PHAssetCollectionSubtype.SmartAlbumFavorites
+        
+        // Clear all the selected assets if you used the picker controller as a single instance.
+        //		pickerController.defaultSelectedAssets = nil
+        
+        pickerController.defaultSelectedAssets = self.assets
+        
+        pickerController.didSelectAssets = { [unowned self] (assets: [DKAsset]) in
+            print("didSelectAssets")
+            
+            self.assets = assets
+            self.previewView?.reloadData()
+        }
+        
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            pickerController.modalPresentationStyle = .formSheet
+        }
+        
+        self.present(pickerController, animated: true) {}
+    }
+    
+    func playVideo(_ asset: AVAsset) {
+        let avPlayerItem = AVPlayerItem(asset: asset)
+        
+        let avPlayer = AVPlayer(playerItem: avPlayerItem)
+        let player = AVPlayerViewController()
+        player.player = avPlayer
+        
+        avPlayer.play()
+        
+        self.present(player, animated: true, completion: nil)
+    }
+    
+    // MARK: - UITableViewDataSource, UITableViewDelegate methods
+    
+    struct Demo {
+        static let titles = [
+            ["Pick All", "Pick photos only", "Pick videos only", "Pick All (only photos or videos)"],
+            ["Take a picture"],
+            ["Hides camera"],
+            ["Allows landscape"],
+            ["Single select"]
+        ]
+        static let types: [DKImagePickerControllerAssetType] = [.allAssets, .allPhotos, .allVideos, .allAssets]
+    }
+    
+    
+    // MARK: - UICollectionViewDataSource, UICollectionViewDelegate methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.assets?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let asset = self.assets![indexPath.row]
+        var cell: UICollectionViewCell?
+        var imageView: UIImageView?
+        
+        if asset.isVideo {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellVideo", for: indexPath)
+            imageView = cell?.contentView.viewWithTag(1) as? UIImageView
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellImage", for: indexPath)
+            imageView = cell?.contentView.viewWithTag(1) as? UIImageView
+        }
+        
+        if let cell = cell, let imageView = imageView {
+            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            let tag = indexPath.row + 1
+            cell.tag = tag
+            asset.fetchImageWithSize(layout.itemSize.toPixel(), completeBlock: { image, info in
+                if cell.tag == tag {
+                    imageView.image = image
+                }
+            })
+        }
+        return cell!
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let asset = self.assets![indexPath.row]
+        asset.fetchAVAssetWithCompleteBlock { (avAsset, info) in
+            DispatchQueue.main.async(execute: { () in
+                self.playVideo(avAsset!)
+            })
+        }
+    }
 }
+

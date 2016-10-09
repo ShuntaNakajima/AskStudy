@@ -28,6 +28,7 @@
 		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
 		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
 		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
+		BC19B23E1DAA083D009D2498 /* BestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC19B23D1DAA083D009D2498 /* BestAnswer.swift */; };
 		BC1FB6E91D321D8A004CE534 /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1FB6E81D321D8A004CE534 /* noimage.gif */; };
 		BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */; };
 		BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */; };
@@ -36,6 +37,7 @@
 		BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */; };
 		BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */; };
 		BC32D12E1D5023F400086026 /* CustomAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */; };
+		BC366D561DAA2F5700797B3A /* PickImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC366D551DAA2F5700797B3A /* PickImageViewController.swift */; };
 		BC4281891D76D1D600D5F66E /* Chat.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC4281881D76D1D600D5F66E /* Chat.gif */; };
 		BC42818B1D76D4FF00D5F66E /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42818A1D76D4FF00D5F66E /* ChangePasswordViewController.swift */; };
 		BC4281901D77086100D5F66E /* Setting@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818C1D77086100D5F66E /* Setting@2x.gif */; };
@@ -159,6 +161,7 @@
 		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
 		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
+		BC19B23D1DAA083D009D2498 /* BestAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestAnswer.swift; sourceTree = "<group>"; };
 		BC1FB6E81D321D8A004CE534 /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
 		BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorNavigationViewController.swift; sourceTree = "<group>"; };
 		BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewClass.swift; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 		BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewController.swift; sourceTree = "<group>"; };
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
 		BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		BC366D551DAA2F5700797B3A /* PickImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickImageViewController.swift; sourceTree = "<group>"; };
 		BC4281881D76D1D600D5F66E /* Chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Chat.gif; sourceTree = "<group>"; };
 		BC42818A1D76D4FF00D5F66E /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		BC42818C1D77086100D5F66E /* Setting@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Setting@2x.gif"; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 			children = (
 				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
 				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
+				BC19B23D1DAA083D009D2498 /* BestAnswer.swift */,
 			);
 			name = ViewpostViewCOntroller;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				BC25AFB41D2E7D5600A9F881 /* MainViewController */,
 				BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
+				BC366D551DAA2F5700797B3A /* PickImageViewController.swift */,
 				BC7A20381D94B10F0033F758 /* SearchViewController */,
 			);
 			name = ViewControllers;
@@ -939,10 +945,12 @@
 				BC1437E41CE6137B00448AC0 /* MainViewController.swift in Sources */,
 				BCB72A211D649A4000234B15 /* ChatUserAddViewControllerTableView.swift in Sources */,
 				BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */,
+				BC19B23E1DAA083D009D2498 /* BestAnswer.swift in Sources */,
 				BC01985E1D98004C00E39160 /* StarterPageViewController.swift in Sources */,
 				BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */,
 				BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */,
 				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,
+				BC366D561DAA2F5700797B3A /* PickImageViewController.swift in Sources */,
 				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,
 				BC5E9E731D5B75E4003C1850 /* ModalTableViewCell.swift in Sources */,
 				BCE4251A1D9779F100F49F1D /* ChangeDisplayNameViewController.swift in Sources */,
