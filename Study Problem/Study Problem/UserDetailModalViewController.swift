@@ -137,7 +137,7 @@ class UserDetailModalViewController: UIViewController {
         DispatchQueue.global().async(execute: {
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
             let autorsprofileRef = storageRef.child("\(self.UserKey)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {

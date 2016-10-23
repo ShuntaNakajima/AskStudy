@@ -33,6 +33,7 @@
 		BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */; };
 		BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */; };
 		BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */; };
+		BC28B8801DAB440A0010DA17 /* Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = BC28B87F1DAB440A0010DA17 /* Photo.png */; };
 		BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1271D4F913D00086026 /* CustomPresentationController.swift */; };
 		BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */; };
 		BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */; };
@@ -63,6 +64,8 @@
 		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
 		BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */; };
 		BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */; };
+		BC708E731DBC943F005D8529 /* OnePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC708E721DBC943F005D8529 /* OnePhotoView.swift */; };
+		BC708E751DBC9488005D8529 /* OnePhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC708E741DBC9488005D8529 /* OnePhotoView.xib */; };
 		BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79806F1D75C6C900ACAE5C /* StarPostViewController.swift */; };
 		BC7980721D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */; };
 		BC7980741D76C6E600ACAE5C /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */; };
@@ -105,6 +108,15 @@
 		BCE4251E1D97897700F49F1D /* SelectSubject.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCE4251D1D97897700F49F1D /* SelectSubject.gif */; };
 		BCE425201D9795DE00F49F1D /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCE4251F1D9795B800F49F1D /* Pacifico.ttf */; };
 		BCEDA1491D955107006F05D5 /* toSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = BCEDA1481D955107006F05D5 /* toSetting.png */; };
+		BCF3E4EE1DBC587B00BC056D /* OneImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3E4ED1DBC587B00BC056D /* OneImageView.xib */; };
+		BCF3E4F01DBC589900BC056D /* TwoImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3E4EF1DBC589900BC056D /* TwoImageView.xib */; };
+		BCF3E4F21DBC58A400BC056D /* ThreeImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3E4F11DBC58A400BC056D /* ThreeImageView.xib */; };
+		BCF3E4F41DBC58EC00BC056D /* FourImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3E4F31DBC58EC00BC056D /* FourImageView.xib */; };
+		BCF3E4F61DBC605900BC056D /* OneImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3E4F51DBC605900BC056D /* OneImageView.swift */; };
+		BCF3E4F81DBC606300BC056D /* TwoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3E4F71DBC606300BC056D /* TwoImageView.swift */; };
+		BCF3E4FA1DBC606D00BC056D /* ThreeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3E4F91DBC606D00BC056D /* ThreeImageView.swift */; };
+		BCF3E4FC1DBC607900BC056D /* FourImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3E4FB1DBC607900BC056D /* FourImageView.swift */; };
+		BCF3E4FE1DBC631C00BC056D /* ShowImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3E4FD1DBC631C00BC056D /* ShowImageDelegate.swift */; };
 		BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */; };
 		BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */; };
 		BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */; };
@@ -166,6 +178,7 @@
 		BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorNavigationViewController.swift; sourceTree = "<group>"; };
 		BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewClass.swift; sourceTree = "<group>"; };
 		BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewControllerTableView.swift; sourceTree = "<group>"; };
+		BC28B87F1DAB440A0010DA17 /* Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photo.png; sourceTree = "<group>"; };
 		BC32D1271D4F913D00086026 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewController.swift; sourceTree = "<group>"; };
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
@@ -202,6 +215,8 @@
 		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
 		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
 		BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC708E721DBC943F005D8529 /* OnePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnePhotoView.swift; path = PhotoView/OnePhotoView.swift; sourceTree = "<group>"; };
+		BC708E741DBC9488005D8529 /* OnePhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePhotoView.xib; path = PhotoView/OnePhotoView.xib; sourceTree = "<group>"; };
 		BC79806F1D75C6C900ACAE5C /* StarPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPostViewController.swift; sourceTree = "<group>"; };
 		BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPostViewContorollerTableviewClass.swift; sourceTree = "<group>"; };
 		BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +260,15 @@
 		BCE4251F1D9795B800F49F1D /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		BCEDA1481D955107006F05D5 /* toSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toSetting.png; sourceTree = "<group>"; };
 		BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Study Problem-Bridging-Header.h"; sourceTree = "<group>"; };
+		BCF3E4ED1DBC587B00BC056D /* OneImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneImageView.xib; sourceTree = "<group>"; };
+		BCF3E4EF1DBC589900BC056D /* TwoImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoImageView.xib; sourceTree = "<group>"; };
+		BCF3E4F11DBC58A400BC056D /* ThreeImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeImageView.xib; sourceTree = "<group>"; };
+		BCF3E4F31DBC58EC00BC056D /* FourImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourImageView.xib; sourceTree = "<group>"; };
+		BCF3E4F51DBC605900BC056D /* OneImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneImageView.swift; sourceTree = "<group>"; };
+		BCF3E4F71DBC606300BC056D /* TwoImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoImageView.swift; sourceTree = "<group>"; };
+		BCF3E4F91DBC606D00BC056D /* ThreeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeImageView.swift; sourceTree = "<group>"; };
+		BCF3E4FB1DBC607900BC056D /* FourImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourImageView.swift; sourceTree = "<group>"; };
+		BCF3E4FD1DBC631C00BC056D /* ShowImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageDelegate.swift; sourceTree = "<group>"; };
 		BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewController.swift; sourceTree = "<group>"; };
 		BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMainTableViewCell.swift; sourceTree = "<group>"; };
 		BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -293,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0198651D98049000E39160 /* Start.png */,
+				BC28B87F1DAB440A0010DA17 /* Photo.png */,
 				BCE4251F1D9795B800F49F1D /* Pacifico.ttf */,
 				BC0198671D98069200E39160 /* Starts.png */,
 				BCEDA1481D955107006F05D5 /* toSetting.png */,
@@ -418,6 +443,7 @@
 				BC5127CF1D1F83E000033737 /* MianCellTextView.swift */,
 				BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */,
 				BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */,
+				BCF3E4FD1DBC631C00BC056D /* ShowImageDelegate.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -456,6 +482,7 @@
 		BC54BB7B1CE4AE720013C0DD /* Study Problem */ = {
 			isa = PBXGroup;
 			children = (
+				BCF3E4EC1DBC56FE00BC056D /* ImageView */,
 				BCEDA1411D95500E006F05D5 /* Defalts */,
 				BC1437D11CE60E7400448AC0 /* User */,
 				BCF520B51CE9B7050027D8EA /* Cells */,
@@ -604,6 +631,23 @@
 			);
 			name = Defalts;
 			path = aaa;
+			sourceTree = "<group>";
+		};
+		BCF3E4EC1DBC56FE00BC056D /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3E4ED1DBC587B00BC056D /* OneImageView.xib */,
+				BCF3E4F51DBC605900BC056D /* OneImageView.swift */,
+				BCF3E4F71DBC606300BC056D /* TwoImageView.swift */,
+				BCF3E4F91DBC606D00BC056D /* ThreeImageView.swift */,
+				BCF3E4FB1DBC607900BC056D /* FourImageView.swift */,
+				BCF3E4EF1DBC589900BC056D /* TwoImageView.xib */,
+				BCF3E4F11DBC58A400BC056D /* ThreeImageView.xib */,
+				BCF3E4F31DBC58EC00BC056D /* FourImageView.xib */,
+				BC708E721DBC943F005D8529 /* OnePhotoView.swift */,
+				BC708E741DBC9488005D8529 /* OnePhotoView.xib */,
+			);
+			name = ImageView;
 			sourceTree = "<group>";
 		};
 		BCF520B51CE9B7050027D8EA /* Cells */ = {
@@ -783,7 +827,10 @@
 				BCE425201D9795DE00F49F1D /* Pacifico.ttf in Resources */,
 				BC4281911D77086100D5F66E /* StarMenu@2x.gif in Resources */,
 				BCC7C5E91D979EB0002AF37E /* Icon-App-60x60@3x.png in Resources */,
+				BCF3E4EE1DBC587B00BC056D /* OneImageView.xib in Resources */,
 				BCEDA1491D955107006F05D5 /* toSetting.png in Resources */,
+				BCF3E4F01DBC589900BC056D /* TwoImageView.xib in Resources */,
+				BC708E751DBC9488005D8529 /* OnePhotoView.xib in Resources */,
 				BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */,
 				BCC7C5E21D979EB0002AF37E /* Icon-App-29x29@3x.png in Resources */,
 				BCC7C5E81D979EB0002AF37E /* Icon-App-60x60@2x.png in Resources */,
@@ -809,7 +856,10 @@
 				BC4281901D77086100D5F66E /* Setting@2x.gif in Resources */,
 				BCC7C5E51D979EB0002AF37E /* Icon-App-40x40@3x.png in Resources */,
 				BCF520B91CE9B71F0027D8EA /* PostMainTableViewCell.xib in Resources */,
+				BCF3E4F41DBC58EC00BC056D /* FourImageView.xib in Resources */,
+				BCF3E4F21DBC58A400BC056D /* ThreeImageView.xib in Resources */,
 				BCE4251E1D97897700F49F1D /* SelectSubject.gif in Resources */,
+				BC28B8801DAB440A0010DA17 /* Photo.png in Resources */,
 				BCC7C5F11D97A0C4002AF37E /* Default-568h@2x.png in Resources */,
 				BCC7C5E01D979EB0002AF37E /* Icon-App-29x29@1x.png in Resources */,
 				BCC7C5F31D97A0C4002AF37E /* Default-736h@3x.png in Resources */,
@@ -913,9 +963,11 @@
 				BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */,
 				BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */,
 				BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */,
+				BCF3E4F81DBC606300BC056D /* TwoImageView.swift in Sources */,
 				BCF8D6C51D9022E000FF0BB5 /* ThemeButton.swift in Sources */,
 				BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */,
 				BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */,
+				BCF3E4FE1DBC631C00BC056D /* ShowImageDelegate.swift in Sources */,
 				BCD17A651D655D500050A8EB /* ChatUserSerchClass.swift in Sources */,
 				BCF520B41CE8A8330027D8EA /* ViewpostViewController.swift in Sources */,
 				BCF520BD1CE9B7550027D8EA /* ReplysTableViewCell.swift in Sources */,
@@ -930,6 +982,7 @@
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BCE425181D9779DC00F49F1D /* ChangeEmailViewController.swift in Sources */,
 				BCFBDD851D63363E0032DC6F /* ChatViewController.swift in Sources */,
+				BCF3E4FC1DBC607900BC056D /* FourImageView.swift in Sources */,
 				BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */,
 				BC46D6CE1D1FA13C00F25E5B /* StoryboardHelper.swift in Sources */,
 				BC7980741D76C6E600ACAE5C /* ThemeColorViewController.swift in Sources */,
@@ -954,9 +1007,12 @@
 				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,
 				BC5E9E731D5B75E4003C1850 /* ModalTableViewCell.swift in Sources */,
 				BCE4251A1D9779F100F49F1D /* ChangeDisplayNameViewController.swift in Sources */,
+				BC708E731DBC943F005D8529 /* OnePhotoView.swift in Sources */,
+				BCF3E4FA1DBC606D00BC056D /* ThreeImageView.swift in Sources */,
 				BCFBDD881D633C940032DC6F /* ChatViewControllerTableView.swift in Sources */,
 				BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */,
 				BCF576ED1D649FE500C50BBC /* ChatUserAddViewController.swift in Sources */,
+				BCF3E4F61DBC605900BC056D /* OneImageView.swift in Sources */,
 				BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */,
 				BC1603671CE8569200402577 /* Post.swift in Sources */,
 			);

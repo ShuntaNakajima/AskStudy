@@ -32,7 +32,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isScrollEnabled = false
-        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
         profileRef = storageRef.child("\((FIRAuth.auth()?.currentUser!.uid as String!)!)/profileimage.png")
         profileReforig = storageRef.child("\(FIRAuth.auth()?.currentUser!.uid as String!)/profileimageorig.png")
         profileimage.setBackgroundImage(profileImages, for: .normal)

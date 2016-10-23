@@ -40,7 +40,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
         DispatchQueue.global().async(execute:{
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
             let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
@@ -63,7 +63,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
             DispatchQueue.global().async(execute:{
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
-                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
                 let key = post["key"] as? String!
                 let autorsprofileRef = storageRef.child("\(key!!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in

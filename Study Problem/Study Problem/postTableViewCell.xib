@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="107" id="KGk-i7-Jjw" customClass="postTableViewCell" customModule="Study_Problem" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="243" id="KGk-i7-Jjw" customClass="postTableViewCell" customModule="Study_Problem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="144"/>
+                <frame key="frameInset" width="320" height="280"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="replys" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSV-1e-kmy">
@@ -65,28 +65,39 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlc-jF-NLH">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="4ug-kL-cE0"/>
+                            <constraint firstAttribute="width" constant="320" id="Xov-Uc-EDM"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1Vj-gp-gKC"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="8" id="2TY-5g-ddc"/>
+                    <constraint firstItem="Tlc-jF-NLH" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="11.5" id="2dy-K0-r4f"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="59" id="33c-95-AHY"/>
-                    <constraint firstItem="JO3-rL-F37" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="-3" id="4Yi-9P-Hmc"/>
                     <constraint firstItem="no2-6P-cnc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-57" id="74B-3w-vWm"/>
-                    <constraint firstItem="JO3-rL-F37" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="-3" id="774-PX-8Hi"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="8" id="BHT-dE-ASt"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="no2-6P-cnc" secondAttribute="bottom" constant="21" id="IMD-LD-Hug"/>
-                    <constraint firstItem="HSV-1e-kmy" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="-3" id="Iqu-MU-OXo"/>
+                    <constraint firstItem="HSV-1e-kmy" firstAttribute="top" secondItem="Tlc-jF-NLH" secondAttribute="bottom" constant="5.5" id="J9N-Yh-oNA"/>
+                    <constraint firstAttribute="bottom" secondItem="Tlc-jF-NLH" secondAttribute="bottom" constant="31.5" id="KfV-MA-zfe"/>
                     <constraint firstAttribute="bottomMargin" secondItem="HSV-1e-kmy" secondAttribute="bottom" constant="-2.5" id="N34-Iz-7fo"/>
+                    <constraint firstItem="Tlc-jF-NLH" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="11.5" id="Qph-9A-fQb"/>
                     <constraint firstItem="no2-6P-cnc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="TAr-qm-e19"/>
                     <constraint firstItem="tNj-ug-88d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UnU-4O-4zB"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Xa4-eJ-U8a"/>
                     <constraint firstItem="XtY-Eb-yai" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aJY-Is-eE6"/>
                     <constraint firstItem="tNj-ug-88d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="aM0-ds-ZAC"/>
+                    <constraint firstItem="Tlc-jF-NLH" firstAttribute="centerX" secondItem="bPV-GY-aVJ" secondAttribute="centerX" id="dCy-OY-sv3"/>
                     <constraint firstItem="HSV-1e-kmy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="212" id="ege-N7-Snh"/>
                     <constraint firstAttribute="bottomMargin" secondItem="JO3-rL-F37" secondAttribute="bottom" constant="-2.5" id="fRg-7P-nIZ"/>
+                    <constraint firstItem="Tlc-jF-NLH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kOY-va-ZlE"/>
+                    <constraint firstItem="JO3-rL-F37" firstAttribute="top" secondItem="Tlc-jF-NLH" secondAttribute="bottom" constant="5.5" id="qyy-4b-7nu"/>
+                    <constraint firstItem="XtY-Eb-yai" firstAttribute="top" secondItem="Tlc-jF-NLH" secondAttribute="bottom" constant="5.5" id="slh-d3-VgN"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="no2-6P-cnc" secondAttribute="bottom" constant="21" id="tRs-88-6dL"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="vlF-Cj-6a3"/>
-                    <constraint firstItem="XtY-Eb-yai" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="-3" id="xe8-Vy-nun"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -96,8 +107,9 @@
                 <outlet property="replyscountLabel" destination="JO3-rL-F37" id="cZL-N2-l1I"/>
                 <outlet property="subjectLabel" destination="XtY-Eb-yai" id="5RX-b5-uGk"/>
                 <outlet property="textView" destination="bPV-GY-aVJ" id="oP2-jx-8DZ"/>
+                <outlet property="view" destination="Tlc-jF-NLH" id="jIv-Jb-ent"/>
             </connections>
-            <point key="canvasLocation" x="431" y="270.5"/>
+            <point key="canvasLocation" x="431" y="338.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -45,7 +45,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 maincell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
-                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
                 let autorsprofileRef = storageRef.child("\((self.postDic["author"] as? String)!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                     if error != nil {
@@ -64,7 +64,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             replycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
             let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
@@ -110,7 +110,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             myreplycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
             let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {

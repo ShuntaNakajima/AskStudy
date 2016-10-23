@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import BubbleTransition
+import JTSImageViewController
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : Dictionary<String, AnyObject> = [:]
@@ -97,7 +98,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
             self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
             self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         }
-postButton.backgroundColor = UITabBar.appearance().tintColor
+        postButton.backgroundColor = UITabBar.appearance().tintColor
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -149,5 +150,6 @@ postButton.backgroundColor = UITabBar.appearance().tintColor
     }
     func refresh(){
         reloadData()
-        }
+    }
 }
+

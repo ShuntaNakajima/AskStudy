@@ -13,4 +13,5 @@ pod 'JSQMessagesViewController'
 pod 'DZNEmptyDataSet'
 pod 'BubbleTransition', '~> 2.0.0'
 pod 'DKImagePickerController'
+pod 'JTSImageViewController'
 end

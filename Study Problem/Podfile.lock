@@ -60,6 +60,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - JTSImageViewController (1.5.1)
   - RSKImageCropper (1.5.1)
   - SVProgressHUD (2.0.3)
 
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - JSQMessagesViewController
+  - JTSImageViewController
   - RSKImageCropper
   - SVProgressHUD
 
@@ -96,9 +98,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   RSKImageCropper: edd65fedb3734332818deb139906d6b7f54b8a44
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 06d281bc28b131fa19e5e567c0dc5b522e336303
+PODFILE CHECKSUM: 6989274fc62436beaf9dc8818aec1fa194073ff9
 
 COCOAPODS: 1.0.1

@@ -23,6 +23,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
          let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
+        cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!
         let postdate = postDictionary!["date"] as! String!
@@ -39,7 +40,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
         DispatchQueue.global().async(execute:{
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
             let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {

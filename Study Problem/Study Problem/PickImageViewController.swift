@@ -11,6 +11,7 @@ import Photos
 import AVKit
 import DKImagePickerController
 
+
 class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var previewView: UICollectionView?
@@ -115,30 +116,38 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             let tag = indexPath.row + 1
             cell.tag = tag
-            asset.fetchImageWithSize(layout.itemSize.toPixel(), completeBlock: { image, info in
-                if cell.tag == tag {
-                    imageView.image = image
-                }
-            })
+//            asset.fetchImageWithSize(layout.itemSize.toPixel(), completeBlock: { image, info in
+//                if cell.tag == tag {
+                    imageView.image = cropImageToSquare(image: (asset as? UIImage)!)
+//                }
+//            })
         }
         
         return cell!
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let asset = self.assets![indexPath.row]
-        asset.fetchAVAssetWithCompleteBlock { (avAsset, info) in
-            DispatchQueue.main.async(execute: { () in
-                self.playVideo(avAsset!)
-            })
-        }
+         // let nytPhoto = NYTPhoto(image: asset as? UIImage, imageData: nil, placeholderImage: nil, attributedCaptionTitle: nil, 
     }
     @IBAction func image(){
-        showImagePickerWithAssetType(
-            .allPhotos,
+        showImagePickerWithAssetType(            .allPhotos,
             sourceType: .both,
             maxSelectableCount: 4,
             allowsLandscape: false,
             singleSelect: true
         )
+    }
+    func cropImageToSquare(image: UIImage) -> UIImage? {
+        if image.size.width > image.size.height {
+            let cropCGImageRef = image.cgImage!.cropping(to: CGRect(x:image.size.width/2 - image.size.height/2,y: 0,width: image.size.height,height: image.size.height))
+            
+            return UIImage(cgImage: cropCGImageRef!)
+        } else if image.size.width < image.size.height {
+            let cropCGImageRef = image.cgImage!.cropping(to: CGRect(x:0,y: 0,width: image.size.width,height: image.size.width))
+            
+            return UIImage(cgImage: cropCGImageRef!)
+        } else {
+            return image
+        }
     }
 }

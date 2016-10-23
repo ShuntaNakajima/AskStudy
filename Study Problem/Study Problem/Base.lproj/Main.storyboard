@@ -553,22 +553,10 @@
                                     <action selector="post" destination="0eO-ot-Ymr" eventType="touchUpInside" id="nTh-FU-D0G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lDT-U6-Wrf">
-                                <frame key="frameInset" minX="52" minY="486" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.7278286637931034" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="写真">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonWithSender:" destination="0eO-ot-Ymr" eventType="touchUpInside" id="7e3-ed-W0E"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="hW0-qg-maB">
                                 <frame key="frameInset" minY="220" width="320" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6IP-kA-Ifq">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6IP-kA-Ifq">
                                     <size key="itemSize" width="124" height="124"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -576,7 +564,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="CellImage" id="aXn-jG-bq6">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                        <rect key="frame" x="0.0" y="2" width="124" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
@@ -591,6 +579,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lDT-U6-Wrf">
+                                <frame key="frameInset" minX="54" minY="435" width="47" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="Photo.png"/>
+                                <connections>
+                                    <action selector="addButtonWithSender:" destination="0eO-ot-Ymr" eventType="touchUpInside" id="7e3-ed-W0E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -604,6 +600,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="closebutton" destination="AfK-i5-6ig" id="WRD-Uj-G4j"/>
+                        <outlet property="photobutton" destination="lDT-U6-Wrf" id="ZEy-il-Huf"/>
                         <outlet property="postbutton" destination="agL-js-UoH" id="Lxl-2A-MKN"/>
                         <outlet property="previewView" destination="hW0-qg-maB" id="c2P-qa-BcB"/>
                         <outlet property="subjectTextfield" destination="n23-kA-ZNh" id="2N7-B2-nWD"/>
@@ -1303,6 +1300,7 @@
     <resources>
         <image name="Chat.gif" width="30" height="30"/>
         <image name="Main.gif" width="30" height="30"/>
+        <image name="Photo.png" width="935" height="720"/>
         <image name="Setting.gif" width="30" height="30"/>
         <image name="StarBIg.png" width="120" height="120"/>
         <image name="StarMenu.gif" width="30" height="30"/>
