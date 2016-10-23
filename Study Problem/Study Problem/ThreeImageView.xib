@@ -14,25 +14,22 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-AG-chc">
                     <frame key="frameInset" minX="18" width="140" height="150"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IU1-09-vJx">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IU1-09-vJx">
                     <frame key="frameInset" minX="166" width="140" height="73"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="950-Xc-Wwg">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="950-Xc-Wwg">
                     <frame key="frameInset" minX="166" minY="77" width="140" height="73"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outletCollection property="imageViews" destination="z5T-AG-chc" id="xzI-Jq-ymq"/>
-                <outletCollection property="imageViews" destination="IU1-09-vJx" id="VPs-P3-dhU"/>
-                <outletCollection property="imageViews" destination="950-Xc-Wwg" id="yS8-BK-aRD"/>
+                <outletCollection property="imageViews" destination="z5T-AG-chc" collectionClass="NSMutableArray" id="xzI-Jq-ymq"/>
+                <outletCollection property="imageViews" destination="IU1-09-vJx" collectionClass="NSMutableArray" id="VPs-P3-dhU"/>
+                <outletCollection property="imageViews" destination="950-Xc-Wwg" collectionClass="NSMutableArray" id="yS8-BK-aRD"/>
             </connections>
         </view>
     </objects>

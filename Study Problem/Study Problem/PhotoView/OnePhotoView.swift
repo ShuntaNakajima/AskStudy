@@ -7,31 +7,41 @@
 //
 
 import UIKit
+import JTSImageViewController
 
 class OnePhotoView: UIView {
 
-    @IBOutlet var ImageViews: UIButton!
-    var delegate :ShowImageDelegate!
+    @IBOutlet var imageViews:[UIButton]!
+    var delegate:ShowImageDelegate!
+    var viewcontroller:UIViewController!
+    var images = [UIImage]()
+    
     override init(frame: CGRect) {
-        super.init(frame:frame)
-        self.setup()
+        super.init(frame: frame)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    private func setup(){
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(show))
-        //ImageViews.forEach({$0.addGestureRecognizer(tapGestureRecognizer)})
-        ImageViews.addGestureRecognizer(tapGestureRecognizer)
-    }
-    @objc private func show(){
-        delegate.show()
     }
     class func instance() -> OnePhotoView{
         return UINib(nibName: "OnePhotoView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! OnePhotoView
     }
-    func setImage(images:[UIImage]){
-        ImageViews.setBackgroundImage(images[0], for: .normal)
+    func setImage(images:[UIImage],on:UIViewController){
+        viewcontroller = on
+        self.images = images
+        for (index,image) in images.enumerated(){
+            imageViews[index].setBackgroundImage(image, for: .normal)
+            imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
+        }
     }
-
+    func showImage(index:UIImageView){
+        print(index.tag)
+        let imageInfo = JTSImageInfo()
+        let animage = images[index.tag]
+        imageInfo.image = animage
+        imageInfo.referenceRect = (self.imageViews[index.tag].frame)
+        imageInfo.referenceView = self.imageViews[index.tag].superview
+        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: JTSImageViewControllerMode.image, backgroundStyle: JTSImageViewControllerBackgroundOptions.blurred)
+        imageViewer?.show(from: viewcontroller, transition: JTSImageViewControllerTransition.fromOriginalPosition)
+    }
 }

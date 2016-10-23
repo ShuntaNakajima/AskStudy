@@ -57,15 +57,15 @@ class postTableViewCell: UITableViewCell {
                             switch photos{
                             case 1:
                                 let nib = OnePhotoView.instance()
-                                nib.setImage(images: imagePhotos)
+                                nib.setImage(images: imagePhotos,on:on)
                                 self.view.addSubview(nib)
                             case 2:
                                 let nib = TwoView.instance()
-                                nib.setImage(images: imagePhotos)
+                                nib.setImage(images: imagePhotos,on:on)
                                 self.view.addSubview(nib)
                             case 3:
                                 let nib = ThreeView.instance()
-                                nib.setImage(images: imagePhotos)
+                                nib.setImage(images: imagePhotos,on:on)
                                 self.view.addSubview(nib)
                             case 4:
                                 let nib = FourView.instance()
