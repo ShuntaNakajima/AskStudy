@@ -62,6 +62,9 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
   - JTSImageViewController (1.5.1)
   - RSKImageCropper (1.5.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -77,6 +80,7 @@ DEPENDENCIES:
   - JSQMessagesViewController
   - JTSImageViewController
   - RSKImageCropper
+  - SDWebImage
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -100,8 +104,9 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   RSKImageCropper: edd65fedb3734332818deb139906d6b7f54b8a44
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 6989274fc62436beaf9dc8818aec1fa194073ff9
+PODFILE CHECKSUM: f58ef35004d44dc1af3855621f88ee389a8de816
 
 COCOAPODS: 1.0.1

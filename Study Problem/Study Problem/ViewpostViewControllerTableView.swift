@@ -23,7 +23,6 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 1{
             let itemcell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! itemTableViewCell
-            itemcell.ReplycountLabel!.text = String(postDic["reply"] as! Int!)
             itemcell.DateLable.text = postDic["date"] as! String!
          let BestAnswer = postDic["BestAnswer"] as? String
             if BestAnswer == ""{
@@ -34,30 +33,46 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             return itemcell
         }
         if indexPath.row == 0{
-            let maincell = tableView.dequeueReusableCell(withIdentifier: "postMainCell") as! PostMainTableViewCell
-            if postDic["author"] as? String != nil{
-                maincell.postLabel!.text = postDic["text"] as! String!
-                let currentUser = Database.child("user").child(postDic["author"] as! String)
-                currentUser.observe(FIRDataEventType.value, with: { snapshot in
-                    maincell.usernameLabel.text = (snapshot.value! as AnyObject)["username"] as? String
-                })
-                maincell.profileImageView.tag = indexPath.row
-                maincell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+            let postDictionary = postDic
+            for i in cell.view.subviews{
+                i.removeFromSuperview()
+            }
+            cell.replyscountLabel.text = String(postDictionary["reply"] as! Int!)
+            cell.subjectLabel.text = postDictionary["subject"] as? String!
+            let postdate = postDictionary["date"] as! String!
+            let now = Date()
+            cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
+            cell.textView.text = postDictionary["text"] as? String
+            let currentUser = Database.child("user").child((postDictionary["author"] as? String)!)
+            currentUser.observe(FIRDataEventType.value, with: { snapshot in
+                let postUser = (snapshot.value! as AnyObject)["username"] as! String
+                cell.profileLabel.text = postUser
+            }, withCancel: { (error) in
+                print(error)
+            })
+            DispatchQueue.global().async(execute:{
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
                 let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-                let autorsprofileRef = storageRef.child("\((self.postDic["author"] as? String)!)/profileimage.png")
+                let autorsprofileRef = storageRef.child("\((postDictionary["author"] as? String)!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                     if error != nil {
                         print(error)
                     } else {
                         viewImg = data.flatMap(UIImage.init)!
-                        maincell.profileImageView.setBackgroundImage(viewImg, for: UIControlState.normal)
-                        maincell.layoutSubviews()
+                        DispatchQueue.main.async(execute: {
+                            cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
+                            cell.layoutSubviews()
+                        });
                     }
                 }
-            }
-            return maincell
+            });
+            cell.view.translatesAutoresizingMaskIntoConstraints = false
+            cell.setNib(photos: postDictionary["Photo"] as! Int,key:postDictionary["key"] as! String,on:self)
+            cell.profileImage.tag = indexPath.row
+            cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
+            return cell
         }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
             let replycell = tableView.dequeueReusableCell(withIdentifier: "ReplysCell") as! ReplysTableViewCell
             replycell.profileImageView.tag = indexPath.row

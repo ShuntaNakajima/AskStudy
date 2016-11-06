@@ -21,6 +21,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     var longState = false
     var refreshControl:UIRefreshControl!
     let transition = BubbleTransition()
+    var number = 10
     @IBOutlet var tableView :UITableView!
     @IBOutlet var postButton:UIButton!
     override func viewDidLoad() {
@@ -127,7 +128,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         return transition
     }
     func reloadData(){
-        Database.child("post").observe(.value, with: { snapshot in
+        Database.child("post").queryLimited(toLast: UInt(number)).observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.posts = []
                 for snap in snapshots {

@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseAuth
 import FirebaseDatabase
 
-extension MainViewController:UITableViewDataSource,UITableViewDelegate{
+extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -23,6 +23,10 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
          let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
+        for i in cell.view.subviews{
+            i.removeFromSuperview()
+        }
+        cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!
@@ -103,6 +107,16 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
                     }
                 })
             }
+        }
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = tableView.contentOffset.y + tableView.frame.height
+        let x = tableView.contentOffset.x
+        let offset = CGPoint(x:x,y:y)
+        let indexPath = tableView.indexPathForRow(at: offset)
+        if indexPath?.row == number - 1{
+            number = number + 10
+            reloadData()
         }
     }
 }

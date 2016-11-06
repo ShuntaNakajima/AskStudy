@@ -12,7 +12,7 @@ class TwoView: UIView {
     @IBOutlet var imageViews:[UIButton]!
     var delegate:ShowImageDelegate!
     var viewcontroller:UIViewController!
-    var images = [UIImage]()
+    var images = [URL]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,19 +24,29 @@ class TwoView: UIView {
     class func instance() -> TwoView{
         return UINib(nibName: "TwoImageView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! TwoView
     }
-    func setImage(images:[UIImage],on:UIViewController){
+    func setImage(images:[URL],on:UIViewController){
         viewcontroller = on
         self.images = images
         for (index,image) in images.enumerated(){
-            imageViews[index].setBackgroundImage(image, for: .normal)
+            imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
+            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
+            imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
+        }
+    }
+    func resetview(on:UIViewController){
+        viewcontroller = on
+        var imags = [UIImage]()
+        for _ in 0...1 {imags.append(UIImage(named: "Gay.png")!)}
+        for (index,image) in images.enumerated(){
+            imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
+            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
             imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }
     }
     func showImage(index:UIImageView){
         print(index.tag)
         let imageInfo = JTSImageInfo()
-        let animage = images[index.tag]
-        imageInfo.image = animage
+        imageInfo.image = imageViews[index.tag].currentBackgroundImage
         imageInfo.referenceRect = (self.imageViews[index.tag].frame)
         imageInfo.referenceView = self.imageViews[index.tag].superview
         let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: JTSImageViewControllerMode.image, backgroundStyle: JTSImageViewControllerBackgroundOptions.blurred)

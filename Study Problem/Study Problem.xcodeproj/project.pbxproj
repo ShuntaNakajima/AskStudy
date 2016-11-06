@@ -71,6 +71,7 @@
 		BC7980741D76C6E600ACAE5C /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */; };
 		BC7A20371D94A90F0033F758 /* StarBIg.png in Resources */ = {isa = PBXBuildFile; fileRef = BC7A20361D94A90F0033F758 /* StarBIg.png */; };
 		BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */; };
+		BC9178AB1DCEF3990001134B /* Gay.png in Resources */ = {isa = PBXBuildFile; fileRef = BC9178AA1DCEF3990001134B /* Gay.png */; };
 		BC9547B71D96525200D8D5DD /* post.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC9547B61D96525200D8D5DD /* post.gif */; };
 		BC9967FB1D97B4FB001E3AA1 /* StarDtialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */; };
 		BCA052411D76CD8100B24A5E /* StarMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523D1D76CD8100B24A5E /* StarMenu.gif */; };
@@ -222,6 +223,7 @@
 		BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
 		BC7A20361D94A90F0033F758 /* StarBIg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarBIg.png; sourceTree = "<group>"; };
 		BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableviewClass.swift; sourceTree = "<group>"; };
+		BC9178AA1DCEF3990001134B /* Gay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gay.png; sourceTree = "<group>"; };
 		BC9547B61D96525200D8D5DD /* post.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = post.gif; sourceTree = "<group>"; };
 		BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarDtialViewController.swift; sourceTree = "<group>"; };
 		BCA0523D1D76CD8100B24A5E /* StarMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = StarMenu.gif; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				BC0198651D98049000E39160 /* Start.png */,
 				BC28B87F1DAB440A0010DA17 /* Photo.png */,
 				BCE4251F1D9795B800F49F1D /* Pacifico.ttf */,
+				BC9178AA1DCEF3990001134B /* Gay.png */,
 				BC0198671D98069200E39160 /* Starts.png */,
 				BCEDA1481D955107006F05D5 /* toSetting.png */,
 				BC0095EB1D5E0BF000FBA347 /* star.gif */,
@@ -874,6 +877,7 @@
 				BCF520BE1CE9B7550027D8EA /* ReplysTableViewCell.xib in Resources */,
 				BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */,
 				BCC9E0A31D97B0E600D05897 /* ChatsBig.png in Resources */,
+				BC9178AB1DCEF3990001134B /* Gay.png in Resources */,
 				BCC7C5EB1D979EB0002AF37E /* Icon-App-76x76@2x.png in Resources */,
 				BC01985C1D97FEA800E39160 /* StarImage.png in Resources */,
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,

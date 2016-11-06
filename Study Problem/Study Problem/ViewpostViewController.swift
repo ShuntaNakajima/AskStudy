@@ -28,8 +28,8 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        let mainnib  = UINib(nibName: "PostMainTableViewCell", bundle:nil)
-        self.tableView.register(mainnib, forCellReuseIdentifier:"postMainCell")
+        let mainnib  = UINib(nibName: "postTableViewCell", bundle:nil)
+        self.tableView.register(mainnib, forCellReuseIdentifier:"PostCell")
         let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
         self.tableView.register(itemnib, forCellReuseIdentifier: "ItemCell")
         let replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
