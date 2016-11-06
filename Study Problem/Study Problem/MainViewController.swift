@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import BubbleTransition
+import JTSImageViewController
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : Dictionary<String, AnyObject> = [:]
@@ -20,6 +21,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     var longState = false
     var refreshControl:UIRefreshControl!
     let transition = BubbleTransition()
+    var number = 10
     @IBOutlet var tableView :UITableView!
     @IBOutlet var postButton:UIButton!
     override func viewDidLoad() {
@@ -50,7 +52,12 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            if FIRAuth.auth()?.currentUser == nil{
+            let ud = UserDefaults.standard
+            if ud.bool(forKey: "firstLaunch") {
+                ud.set(false, forKey: "firstLaunch")
+                let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "PageViewController")
+                self.present(viewController, animated: true, completion: nil)
+            }else if FIRAuth.auth()?.currentUser == nil{
                 let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
                 self.present(viewController, animated: true, completion: nil)
             }
@@ -92,7 +99,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
             self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
             self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         }
-postButton.backgroundColor = UITabBar.appearance().tintColor
+        postButton.backgroundColor = UITabBar.appearance().tintColor
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -121,7 +128,7 @@ postButton.backgroundColor = UITabBar.appearance().tintColor
         return transition
     }
     func reloadData(){
-        Database.child("post").observe(.value, with: { snapshot in
+        Database.child("post").queryLimited(toLast: UInt(number)).observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.posts = []
                 for snap in snapshots {
@@ -144,5 +151,6 @@ postButton.backgroundColor = UITabBar.appearance().tintColor
     }
     func refresh(){
         reloadData()
-        }
+    }
 }
+

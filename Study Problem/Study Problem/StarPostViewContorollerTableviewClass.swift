@@ -23,9 +23,12 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+        let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
+        for i in cell.view.subviews{
+            i.removeFromSuperview()
+        }
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
         cell.subjectLabel.text = postDictionary!["subject"] as? String!
         let postdate = postDictionary!["date"] as! String!
@@ -36,13 +39,13 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
-            }, withCancel: { (error: Error) in
-                print(error)
+        }, withCancel: { (error) in
+            print(error)
         })
         DispatchQueue.global().async(execute:{
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
             let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
@@ -56,8 +59,10 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
                 }
             }
         });
+        cell.view.translatesAutoresizingMaskIntoConstraints = false
+        cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
         cell.profileImage.tag = indexPath.row
-        cell.profileImage.addTarget(self, action: #selector(StarPostViewController.showUserData(sender:)), for: .touchUpInside)
+        cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {

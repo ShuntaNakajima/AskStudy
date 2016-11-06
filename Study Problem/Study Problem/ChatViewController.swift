@@ -31,7 +31,10 @@ class ChatViewController: UIViewController,UITableViewDelegate,DZNEmptyDataSetDe
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
-Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats").queryOrdered(byChild: "user").observe(.value, with: { snapshot in
+reload()
+    }
+    func reload(){
+        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats").queryOrdered(byChild: "user").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 print(snapshots)
                 self.chatRoom = []
@@ -43,7 +46,7 @@ Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats")
                     }
                 }
                 print(self.chatRoom)
-                 self.tableView.reloadData()
+                self.tableView.reloadData()
             }
         })
     }
@@ -54,6 +57,7 @@ Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats")
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
+        reload()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toChatView") {
@@ -62,7 +66,7 @@ Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats")
         }
     }
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "star.gif")
+        return UIImage(named: "ChatsBig.png")
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "You don't have any Chats"
@@ -72,14 +76,14 @@ Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("chats")
             attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
         )
     }
-    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-        let str = "How to add Chat?"
-        let font = UIFont.systemFont(ofSize: 10.0, weight: 2.0)
-        return NSAttributedString(
-            string: str,
-            attributes: [NSFontAttributeName: font,NSForegroundColorAttributeName: UIColor.white]
-        )
-    }
+//    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+//        let str = "How to add Chat?"
+//        let font = UIFont.systemFont(ofSize: 10.0, weight: 2.0)
+//        return NSAttributedString(
+//            string: str,
+//            attributes: [NSFontAttributeName: font,NSForegroundColorAttributeName: UIColor.white]
+//        )
+//    }
     func emptyDataSetDidTapButton(_ scrollView: UIScrollView!) {
         let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainNavigationViewController")
         self.present(viewController, animated: true, completion: nil)

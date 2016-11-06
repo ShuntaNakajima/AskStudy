@@ -15,11 +15,12 @@ import RSKImageCropper
 import SVProgressHUD
 
 class SettingViewController: UITableViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate  ,RSKImageCropViewControllerDelegate, RSKImageCropViewControllerDataSource,UITextFieldDelegate{
-    
     //var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     @IBOutlet var profileimage:UIButton!
-    @IBOutlet var usernameTextField:UITextField!
-    @IBOutlet var emailTextField:UITextField!
+    @IBOutlet var emailTextField:UILabel!
+    @IBOutlet var usernameTextField:UILabel!
+    @IBOutlet var usernameTextFieldincell:UILabel!
+     @IBOutlet var gradeTextField:UILabel!
     var Database = FIRDatabaseReference.init()
     let user = FIRAuth.auth()?.currentUser
     let storage = FIRStorage.storage()
@@ -30,10 +31,8 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.delegate = self
-        emailTextField.delegate = self
         tableView.isScrollEnabled = false
-        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com")
+        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
         profileRef = storageRef.child("\((FIRAuth.auth()?.currentUser!.uid as String!)!)/profileimage.png")
         profileReforig = storageRef.child("\(FIRAuth.auth()?.currentUser!.uid as String!)/profileimageorig.png")
         profileimage.setBackgroundImage(profileImages, for: .normal)
@@ -51,7 +50,9 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
                 postDictionary["key"] = key as AnyObject?
                 self.userDic = postDictionary
                 self.usernameTextField.text = self.userDic["username"] as! String?
+                self.usernameTextFieldincell.text = self.userDic["username"] as! String?
                 self.emailTextField.text = self.userDic["email"] as! String?
+                self.gradeTextField.text = self.userDic["grade"] as! String?
             }
             self.tableView.reloadData()
         })
@@ -75,30 +76,22 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        // キーボードを閉じる
-        textField.resignFirstResponder()
-        
-        return true
-    }
-    
     @IBAction func logoutbutton(){
         try! FIRAuth.auth()!.signOut()
         let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
         self.present(viewController, animated: true, completion: nil)
     }
     @IBAction func profileimageeditButton(){
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Change ProfileImage", message: "", preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Take a photo", style: .default) {
             action in self.openCamera()
         }
         let libraryAction = UIAlertAction(title: "Choose from library", style: .default) {
             action in self.openLibrary()
         }
-        let cancelAction = UIAlertAction(title: "Choose from library", style: .cancel) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
             action in
         }
-        
         alertController.addAction(cameraAction)
         alertController.addAction(libraryAction)
         alertController.addAction(cancelAction)
@@ -106,21 +99,18 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
     }
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // イメージ表示
-        
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let imageCropVC: RSKImageCropViewController = RSKImageCropViewController(image: image, cropMode: RSKImageCropMode.circle)
         imageCropVC.delegate = self // 必須（下で実装）
         imageCropVC.dataSource = self
+        imageCropVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(imageCropVC, animated: true)
-        
-        let efitco = SettingViewController()
-        efitco.hidesBottomBarWhenPushed = true
         // 選択画面閉じる
         self.dismiss(animated: true, completion: nil)
         
     }
     func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     func imageCropViewController(_ controller: RSKImageCropViewController, willCropImage originalImage: UIImage) {
     }
@@ -179,7 +169,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             }
             
         }
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
         
@@ -242,24 +232,5 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             self.present(controller, animated: true, completion: nil)
         }
         
-    }
-    @IBAction func updateProfile(){
-        SVProgressHUD.show()
-        let user = FIRAuth.auth()?.currentUser
-        user?.updateEmail(emailTextField.text!) { error in
-            if let error = error {
-                print(error)
-                SVProgressHUD.dismiss()
-            } else {
-                self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("username").setValue(self.usernameTextField?.text!)
-                self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("email").setValue(self.emailTextField.text!)
-                let alert = UIAlertController(title: "Update Successful!", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-                SVProgressHUD.dismiss()
-            }
-            
-        }
     }
 }
