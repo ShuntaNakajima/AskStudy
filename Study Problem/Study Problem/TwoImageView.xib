@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,20 +14,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-ao-5pK">
-                    <frame key="frameInset" minX="18" width="140" height="151"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-ao-5pK">
+                    <rect key="frame" x="18" y="0.0" width="140" height="150"/>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXF-tS-sAh">
-                    <frame key="frameInset" minX="163" width="140" height="150"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXF-tS-sAh">
+                    <rect key="frame" x="163" y="0.0" width="140" height="150"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCa-b6-RnP">
+                    <rect key="frame" x="158" y="0.0" width="5" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="1gW-yk-9lU"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1Nk-ao-5pK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2rD-cG-Lb7"/>
+                <constraint firstAttribute="bottom" secondItem="1Nk-ao-5pK" secondAttribute="bottom" id="9pe-AR-pGz"/>
+                <constraint firstAttribute="bottom" secondItem="MXF-tS-sAh" secondAttribute="bottom" id="Dns-Mw-IGM"/>
+                <constraint firstItem="OCa-b6-RnP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="O95-uT-iJE"/>
+                <constraint firstItem="OCa-b6-RnP" firstAttribute="leading" secondItem="1Nk-ao-5pK" secondAttribute="trailing" id="OfN-Dc-CmK"/>
+                <constraint firstAttribute="bottom" secondItem="OCa-b6-RnP" secondAttribute="bottom" id="S7t-n5-nN7"/>
+                <constraint firstItem="MXF-tS-sAh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UvH-HZ-MVJ"/>
+                <constraint firstItem="1Nk-ao-5pK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="abl-qA-7Oz"/>
+                <constraint firstAttribute="trailing" secondItem="MXF-tS-sAh" secondAttribute="trailing" constant="17" id="je2-DZ-17T"/>
+                <constraint firstItem="MXF-tS-sAh" firstAttribute="leading" secondItem="OCa-b6-RnP" secondAttribute="trailing" id="p1g-Ar-X6y"/>
+                <constraint firstItem="OCa-b6-RnP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uSN-cS-jgI"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outletCollection property="imageViews" destination="1Nk-ao-5pK" id="V5L-5N-l5I"/>
-                <outletCollection property="imageViews" destination="MXF-tS-sAh" id="cj3-ZR-zWK"/>
+                <outletCollection property="imageViews" destination="1Nk-ao-5pK" collectionClass="NSMutableArray" id="V5L-5N-l5I"/>
+                <outletCollection property="imageViews" destination="MXF-tS-sAh" collectionClass="NSMutableArray" id="cj3-ZR-zWK"/>
             </connections>
         </view>
     </objects>

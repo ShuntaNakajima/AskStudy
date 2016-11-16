@@ -39,6 +39,7 @@ class postTableViewCell: UITableViewCell {
             case 1:
                 let nib = OnePhotoView.instance()
                // nib.resetview(on: on)
+                nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
                     //DispatchQueue.global().async(execute:{
@@ -61,6 +62,7 @@ class postTableViewCell: UITableViewCell {
             case 2:
                 let nib = TwoView.instance()
              //   nib.resetview(on: on)
+                nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
                    // DispatchQueue.global().async(execute:{
@@ -83,6 +85,7 @@ class postTableViewCell: UITableViewCell {
             case 3:
                 let nib = ThreeView.instance()
                // nib.resetview(on: on)
+                nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
                  //   DispatchQueue.global().async(execute:{
@@ -105,6 +108,7 @@ class postTableViewCell: UITableViewCell {
             case 4:
                 let nib = FourView.instance()
                // nib.resetview(on: on)
+                nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
                  //   DispatchQueue.global().async(execute:{

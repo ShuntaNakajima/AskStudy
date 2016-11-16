@@ -30,7 +30,7 @@ class FourView: UIView {
         self.images = images
         for (index,image) in images.enumerated(){
             imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
-            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
+            imageViews[index].sd_setBackgroundImage(with: image, for: .normal, placeholderImage: UIImage(named:"Gay.png"))
             imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }
     }
