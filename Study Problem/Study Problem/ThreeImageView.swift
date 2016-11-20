@@ -8,11 +8,12 @@
 
 import UIKit
 import JTSImageViewController
+import SDWebImage
 class ThreeView: UIView {
     @IBOutlet var imageViews:[UIButton]!
     var delegate:ShowImageDelegate!
     var viewcontroller:UIViewController!
-    var images = [URL]()
+    var images = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,25 +25,24 @@ class ThreeView: UIView {
     class func instance() -> ThreeView{
         return UINib(nibName: "ThreeImageView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ThreeView
     }
-    func setImage(images:[URL],on:UIViewController){
+    func cancelReload(){
+        for (index,image) in images.enumerated(){
+            imageViews[index].sd_cancelImageLoad(for: .normal)
+        }
+    }
+    func setImage(images:[String],on:UIViewController){
         viewcontroller = on
         self.images = images
         for (index,image) in images.enumerated(){
             imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
-            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
+            SDWebImageManager.shared().imageCache.queryDiskCache(forKey: image
+                , done: { (image,type: SDImageCacheType) -> Void in
+                    self.imageViews[index].setBackgroundImage(image, for: .normal)
+            })
             imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }
     }
-    func resetview(on:UIViewController){
-        viewcontroller = on
-        var imags = [UIImage]()
-        for _ in 0...2 {imags.append(UIImage(named: "Gay.png")!)}
-        for (index,image) in images.enumerated(){
-            imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
-            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
-            imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
-        }
-    }
+
     func showImage(index:UIImageView){
         print(index.tag)
         let imageInfo = JTSImageInfo()

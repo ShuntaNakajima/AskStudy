@@ -14,12 +14,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOO-9q-WPZ">
+                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOO-9q-WPZ">
                     <rect key="frame" x="16" y="0.0" width="288" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="HOO-9q-WPZ" secondAttribute="bottom" id="Aub-l7-nhA"/>
+                <constraint firstItem="HOO-9q-WPZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LlP-Qd-eyo"/>
+                <constraint firstAttribute="trailing" secondItem="HOO-9q-WPZ" secondAttribute="trailing" constant="16" id="OaJ-q0-fns"/>
+                <constraint firstItem="HOO-9q-WPZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Rh2-0S-U6e"/>
+                <constraint firstItem="HOO-9q-WPZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Rvb-5X-wPc"/>
+                <constraint firstItem="HOO-9q-WPZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="k6u-B4-jHg"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outletCollection property="imageViews" destination="HOO-9q-WPZ" collectionClass="NSMutableArray" id="5oY-Z4-HFo"/>

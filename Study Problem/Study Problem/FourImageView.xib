@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,24 +14,57 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYr-Uj-vp8">
-                    <frame key="frameInset" minX="16" width="140" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYr-Uj-vp8">
+                    <rect key="frame" x="16" y="0.0" width="140" height="73"/>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUA-gc-oeP">
-                    <frame key="frameInset" minX="16" minY="77" width="140" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUA-gc-oeP">
+                    <rect key="frame" x="16" y="77" width="140" height="73"/>
                 </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-Xh-Hhb">
-                    <frame key="frameInset" minX="164" width="140" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-Xh-Hhb">
+                    <rect key="frame" x="164" y="0.0" width="140" height="73"/>
                 </button>
-                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-BA-35L">
-                    <frame key="frameInset" minX="164" minY="77" width="140" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-BA-35L">
+                    <rect key="frame" x="164" y="77" width="140" height="73"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaC-N6-7eu">
+                    <rect key="frame" x="156" y="0.0" width="8" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="pmR-Dh-Q8D"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qi-4e-xWg">
+                    <rect key="frame" x="0.0" y="73" width="320" height="4"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="4" id="Uft-LZ-O9n"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0TL-Xh-Hhb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5KB-8X-0xy"/>
+                <constraint firstAttribute="trailing" secondItem="0TL-Xh-Hhb" secondAttribute="trailing" constant="16" id="7g4-HY-Tbp"/>
+                <constraint firstItem="QaC-N6-7eu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BMX-pO-XJv"/>
+                <constraint firstAttribute="bottom" secondItem="ACf-BA-35L" secondAttribute="bottom" id="BtD-OA-gY6"/>
+                <constraint firstItem="QaC-N6-7eu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BtY-Vd-rjY"/>
+                <constraint firstItem="QaC-N6-7eu" firstAttribute="leading" secondItem="DUA-gc-oeP" secondAttribute="trailing" id="Cji-xo-IUB"/>
+                <constraint firstItem="9Qi-4e-xWg" firstAttribute="top" secondItem="0TL-Xh-Hhb" secondAttribute="bottom" id="DQM-PS-38p"/>
+                <constraint firstAttribute="bottom" secondItem="DUA-gc-oeP" secondAttribute="bottom" id="FYo-P5-goj"/>
+                <constraint firstAttribute="trailing" secondItem="ACf-BA-35L" secondAttribute="trailing" constant="16" id="NW0-hb-rBM"/>
+                <constraint firstItem="9Qi-4e-xWg" firstAttribute="top" secondItem="bYr-Uj-vp8" secondAttribute="bottom" id="P88-Cx-Npe"/>
+                <constraint firstItem="9Qi-4e-xWg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xjk-NT-UBL"/>
+                <constraint firstItem="bYr-Uj-vp8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yoj-ZM-vfi"/>
+                <constraint firstItem="QaC-N6-7eu" firstAttribute="leading" secondItem="bYr-Uj-vp8" secondAttribute="trailing" id="a4G-5n-Kfn"/>
+                <constraint firstItem="DUA-gc-oeP" firstAttribute="top" secondItem="9Qi-4e-xWg" secondAttribute="bottom" id="aCn-MN-oZB"/>
+                <constraint firstItem="DUA-gc-oeP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="icT-Lb-hGI"/>
+                <constraint firstItem="0TL-Xh-Hhb" firstAttribute="leading" secondItem="QaC-N6-7eu" secondAttribute="trailing" id="jB4-jN-PkX"/>
+                <constraint firstAttribute="bottom" secondItem="QaC-N6-7eu" secondAttribute="bottom" id="jfK-Ll-eVx"/>
+                <constraint firstAttribute="trailing" secondItem="9Qi-4e-xWg" secondAttribute="trailing" id="lDM-NH-eHW"/>
+                <constraint firstItem="ACf-BA-35L" firstAttribute="leading" secondItem="QaC-N6-7eu" secondAttribute="trailing" id="lfF-Xu-n45"/>
+                <constraint firstItem="ACf-BA-35L" firstAttribute="top" secondItem="9Qi-4e-xWg" secondAttribute="bottom" id="s6g-BZ-ino"/>
+                <constraint firstItem="9Qi-4e-xWg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vaN-Df-GrA"/>
+                <constraint firstItem="bYr-Uj-vp8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xHg-oF-3AN"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outletCollection property="imageViews" destination="bYr-Uj-vp8" collectionClass="NSMutableArray" id="xOS-UZ-W6b"/>
