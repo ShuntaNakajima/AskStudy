@@ -32,8 +32,25 @@ class postTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        for (index,i) in self.view.subviews.enumerated(){
+            print(i)
+        switch i{
+        case is OnePhotoView: let nib = self.view.subviews[index] as! OnePhotoView
+            nib.cancelReload()
+        case is TwoView: let nib = self.view.subviews[index] as! TwoView
+        nib.cancelReload()
+        case is ThreeView: let nib = self.view.subviews[index] as! ThreeView
+        nib.cancelReload()
+        case is FourView: let nib = self.view.subviews[index] as! FourView
+        nib.cancelReload()
+        default:break
+        }
+        }
+    }
     func setNib(photos:Int,key:String,on:UIViewController){
-        var imagePhotos = [URL]()
+        var imagePhotos = [String!]()
         if photos != 0{
             switch photos{
             case 1:
@@ -42,22 +59,8 @@ class postTableViewCell: UITableViewCell {
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
-                    //DispatchQueue.global().async(execute:{
-                        let storage = FIRStorage.storage()
-                        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
-                        let autorsprofileRef = storageRef.child("\(key)/\(i).png")
-                        autorsprofileRef.downloadURL{(URL,error) -> Void in
-                            if error != nil {
-                                print(error)
-                            } else {
-                                print(URL!)
-                           //     DispatchQueue.main.async(execute: {
-                                    imagePhotos.append(URL!)
-                                    nib.setImage(images: imagePhotos,on:on)
-                            //    })
-                            }
-                        }
-                   // })
+                    imagePhotos.append("\(key)/\(i)")
+                    nib.setImage(images: imagePhotos,on:on)
                 }
             case 2:
                 let nib = TwoView.instance()
@@ -65,22 +68,8 @@ class postTableViewCell: UITableViewCell {
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
-                   // DispatchQueue.global().async(execute:{
-                        let storage = FIRStorage.storage()
-                        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
-                        let autorsprofileRef = storageRef.child("\(key)/\(i).png")
-                        autorsprofileRef.downloadURL{(URL,error) -> Void in
-                            if error != nil {
-                                print(error)
-                            } else {
-                                print(URL!)
-                           //     DispatchQueue.main.async(execute: {
-                                    imagePhotos.append(URL!)
-                                    nib.setImage(images: imagePhotos,on:on)
-                           //     })
-                            }
-                        }
-                    //})
+                    imagePhotos.append("\(key)/\(i)")
+                    nib.setImage(images: imagePhotos,on:on)
                 }
             case 3:
                 let nib = ThreeView.instance()
@@ -88,22 +77,8 @@ class postTableViewCell: UITableViewCell {
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
-                 //   DispatchQueue.global().async(execute:{
-                        let storage = FIRStorage.storage()
-                        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
-                        let autorsprofileRef = storageRef.child("\(key)/\(i).png")
-                        autorsprofileRef.downloadURL{(URL,error) -> Void in
-                            if error != nil {
-                                print(error)
-                            } else {
-                                print(URL!)
-                              //DispatchQueue.main.async(execute: {
-                                    imagePhotos.append(URL!)
-                                    nib.setImage(images: imagePhotos,on:on)
-                             //   })
-                            }
-                        }
-                   // })
+                    imagePhotos.append("\(key)/\(i)")
+                    nib.setImage(images: imagePhotos,on:on)
                 }
             case 4:
                 let nib = FourView.instance()
@@ -111,22 +86,8 @@ class postTableViewCell: UITableViewCell {
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
-                 //   DispatchQueue.global().async(execute:{
-                        let storage = FIRStorage.storage()
-                        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
-                        let autorsprofileRef = storageRef.child("\(key)/\(i).png")
-                        autorsprofileRef.downloadURL{(URL,error) -> Void in
-                            if error != nil {
-                                print(error)
-                            } else {
-                                print(URL!)
-                         //       DispatchQueue.main.async(execute: {
-                                    imagePhotos.append(URL!)
-                                    nib.setImage(images: imagePhotos,on:on)
-                     //           })
-                            }
-                        }
-                    //})
+                    imagePhotos.append("\(key)/\(i)")
+                    nib.setImage(images: imagePhotos,on:on)
                 }
             default:
                 break

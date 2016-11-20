@@ -20,12 +20,12 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! postTableViewCell
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
-        for i in cell.view.subviews{
-            i.removeFromSuperview()
-        }
+//        for i in cell.view.subviews{
+//            i.removeFromSuperview()
+//        }
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)

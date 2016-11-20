@@ -15,7 +15,7 @@ class OnePhotoView: UIView {
     @IBOutlet var imageViews:[UIButton]!
     var delegate:ShowImageDelegate!
     var viewcontroller:UIViewController!
-    var images = [URL]()
+    var images = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,22 +28,20 @@ class OnePhotoView: UIView {
     class func instance() -> OnePhotoView{
         return UINib(nibName: "OnePhotoView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! OnePhotoView
     }
-    func setImage(images:[URL],on:UIViewController){
+    func cancelReload(){
+        for (index,image) in images.enumerated(){
+            imageViews[index].sd_cancelImageLoad(for: .normal)
+        }
+    }
+    func setImage(images:[String],on:UIViewController){
         viewcontroller = on
         self.images = images
         for (index,image) in images.enumerated(){
-            imageViews[index].imageView?.contentMode = UIViewContentMode.redraw
-            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
-            imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
-        }
-    }
-    func resetview(on:UIViewController){
-        viewcontroller = on
-        var imags = [UIImage]()
-        imags.append(UIImage(named: "Gay.png")!)
-        for (index,image) in images.enumerated(){
-            imageViews[index].imageView?.contentMode = UIViewContentMode.redraw
-            imageViews[index].sd_setBackgroundImage(with: image, for: .normal)
+            imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
+            SDWebImageManager.shared().imageCache.queryDiskCache(forKey: image
+                , done: { (image,type: SDImageCacheType) -> Void in
+                    self.imageViews[index].setBackgroundImage(image, for: .normal)
+            })
             imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }
     }

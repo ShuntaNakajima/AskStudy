@@ -12,6 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 import BubbleTransition
 import JTSImageViewController
+import SVProgressHUD
+import SDWebImage
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : Dictionary<String, AnyObject> = [:]
@@ -35,7 +37,6 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        reloadData()
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Reload")
         self.refreshControl.addTarget(self, action: #selector(MainViewController.refresh), for: UIControlEvents.valueChanged)
@@ -65,6 +66,8 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.isHidden = true
+        SVProgressHUD.show()
         let color = UserDefaults.standard
         let colorop : String? = color.object(forKey: "id") as! String?
         UITabBar.appearance().tintColor = UIColor.ThemeBlue()
@@ -100,6 +103,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
             self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         }
         postButton.backgroundColor = UITabBar.appearance().tintColor
+        reloadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -128,18 +132,10 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         return transition
     }
     func reloadData(){
-        Database.child("post").queryLimited(toLast: UInt(number)).observe(.value, with: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                self.posts = []
-                for snap in snapshots {
-                    if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        postDictionary["key"] = key as AnyObject?
-                        self.posts.insert(postDictionary, at: 0)
-                    }
-                }
-                self.refreshControl.endRefreshing()
-            }
+      DataCacheNetwork().loadCache(limit: number, success: {posts in
+        self.posts = posts
+            SVProgressHUD.dismiss()
+            self.tableView.isHidden = false
             self.tableView.reloadData()
         })
     }
