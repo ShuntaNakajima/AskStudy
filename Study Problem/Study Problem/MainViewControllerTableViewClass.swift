@@ -11,6 +11,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseAuth
 import FirebaseDatabase
+import SVProgressHUD
 
 extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -114,9 +115,14 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let x = tableView.contentOffset.x
         let offset = CGPoint(x:x,y:y)
         let indexPath = tableView.indexPathForRow(at: offset)
-        if indexPath?.row == number - 1{
-            number = number + 10
-            reloadData()
+        if indexPath?.row == number - 5{
+           number = number + 1
+           // SVProgressHUD.show()
+            reloadData(success: {_ in})
+        }
+        if indexPath?.row == realnumber - 1{
+            realnumber = number
+            tableView.reloadData()
         }
     }
 }

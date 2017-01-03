@@ -51,7 +51,6 @@ class DataCacheNetwork{
                             imagePhotos.append(URL!)
                             pass.append("\(i["key"]!)/\(j)")
                         }
-                        DispatchQueue.global().async {
                             for (index,url) in imagePhotos.enumerated(){
                                 SDWebImageManager.shared().downloadImage(with: url,
                                                                          options: SDWebImageOptions.cacheMemoryOnly,
@@ -60,14 +59,11 @@ class DataCacheNetwork{
                                                                             SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
                                                                             print(pass[index])
                                 })
-                            }
-                            DispatchQueue.main.async {
-                                  success(posts)
-                            }
                         }
                     }
                 }
             }
+            success(posts)
         })
     }
 }

@@ -40,6 +40,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
         super.viewWillAppear(animated)
         reload()
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
+        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
