@@ -8,10 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
-import SDWebImage
+import WebImage
 
 class postTableViewCell: UITableViewCell {
     

@@ -10,7 +10,7 @@ import Firebase
 import BubbleTransition
 import JTSImageViewController
 import SVProgressHUD
-import SDWebImage
+import WebImage
 
 class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIViewControllerTransitioningDelegate {
     

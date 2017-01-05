@@ -8,7 +8,8 @@
 
 import UIKit
 import JTSImageViewController
-import SDWebImage
+import WebImage
+
 class TwoView: UIView {
     @IBOutlet var imageViews:[UIButton]!
     var delegate:ShowImageDelegate!

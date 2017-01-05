@@ -8,7 +8,7 @@
 
 import UIKit
 import JTSImageViewController
-import SDWebImage
+import WebImage
 
 class OnePhotoView: UIView {
     
