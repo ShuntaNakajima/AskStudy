@@ -50,11 +50,11 @@ class ChangeEmailViewController: UIViewController, UITextFieldDelegate {
                 
             } else {
                 
-                guard let text: String = emailTextField.text else {
+                guard let text: String = self.emailTextField.text else {
                     
                     return
                 }
-                databaseReference.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("email").setValue(text)
+                self.databaseReference.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("email").setValue(text)
                 SVProgressHUD.showSuccess(withStatus: "Update Successful!")
                 let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
                 DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })

@@ -14,7 +14,7 @@ class ChangeDisplayNameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var usernameTextField: UITextField!
     
-    var userDic: [String: AnyObject] = []
+    var userDic: [String: AnyObject] = [:]
     let databaseReference: FIRDatabaseReference = FIRDatabase.database().reference()
     
     override func viewDidLoad() {

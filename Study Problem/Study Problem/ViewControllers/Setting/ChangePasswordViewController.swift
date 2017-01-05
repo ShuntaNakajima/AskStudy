@@ -51,7 +51,7 @@ class ChangePasswordViewController: UIViewController {
                 SVProgressHUD.dismiss()
             }else{
                 
-                guard let newPassword: String = newPasswordField.text, let newPasswordAgain: String = newPasswordAgainField.text else {
+                guard let newPassword: String = self.newPasswordField.text, let newPasswordAgain: String = self.newPasswordAgainField.text else {
                     
                     let alertController = UIAlertController(title: "New password dosen't match. please check it", message: "", preferredStyle: .alert)
                     let otherAction = UIAlertAction(title: "OK", style: .default)

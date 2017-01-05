@@ -20,7 +20,7 @@ class SettingViewController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet var gradeLabel:UILabel!
     
     let ref: FIRDatabaseReference = FIRDatabase.database().reference()
-    let user: FIRUser = FIRAuth.auth()?.currentUser
+    let user: FIRUser? = FIRAuth.auth()?.currentUser
     let storage: FIRStorage = FIRStorage.storage()
     var profileImage: UIImage!
     var profileRef: FIRStorageReference!
@@ -41,14 +41,15 @@ class SettingViewController: UITableViewController, UIImagePickerControllerDeleg
         profileImageButton.layer.borderColor = UIColor.white.cgColor
         
         ref.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
+            
             if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                 let key = snapshot.key
                 postDictionary["key"] = key as AnyObject?
                 self.userDic = postDictionary
-                self.usernameTextField.text = self.userDic["username"] as! String?
-                self.usernameTextFieldincell.text = self.userDic["username"] as! String?
-                self.emailTextField.text = self.userDic["email"] as! String?
-                self.gradeTextField.text = self.userDic["grade"] as! String?
+                self.usernameLabel.text = self.userDic["username"] as! String?
+                self.usernameInGrayLabel.text = self.userDic["username"] as! String?
+                self.emailLabel.text = self.userDic["email"] as! String?
+                self.gradeLabel.text = self.userDic["grade"] as! String?
             }
             self.tableView.reloadData()
         })
@@ -60,11 +61,11 @@ class SettingViewController: UITableViewController, UIImagePickerControllerDeleg
         profileRef.data(withMaxSize: 1 * 1028 * 1028) { data, error in
             if error != nil {
                 
-                print(error)
+                print("\(error?.localizedDescription)")
             } else {
                 
-                let Image = data.flatMap(UIImage.init)
-                self.profileimage.setBackgroundImage(Image!, for: .normal)
+                let image = data.flatMap(UIImage.init)
+                self.profileImageButton.setBackgroundImage(image!, for: .normal)
             }
         }
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
@@ -87,7 +88,9 @@ class SettingViewController: UITableViewController, UIImagePickerControllerDeleg
             _ in self.openLibrary()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.actions = [cameraAction, libraryAction, cancelAction]
+        alertController.addAction(cameraAction)
+        alertController.addAction(libraryAction)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
     
@@ -158,7 +161,7 @@ class SettingViewController: UITableViewController, UIImagePickerControllerDeleg
                 SVProgressHUD.showSuccess(withStatus: "Successful!")
                 let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
                 DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
-                self.profileimage.setBackgroundImage(resizedImage, for: .normal)
+                self.profileImageButton.setBackgroundImage(resizedImage, for: .normal)
             }
             
         }
@@ -168,8 +171,7 @@ class SettingViewController: UITableViewController, UIImagePickerControllerDeleg
     func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
         
         let width: CGFloat = self.view.frame.width
-        let height: CGFloat = self.view.frame.width
-        let maskSize: CGSize = CGSize(width: self.view.frame.width, height: height)
+        let maskSize: CGSize = CGSize(width: width, height: width)
         
         let viewWidth: CGFloat = controller.view.frame.width
         let viewHeight: CGFloat = controller.view.frame.height
