@@ -1,0 +1,4 @@
+github "andreamazz/BubbleTransition" "2.0.1"
+github "dzenbot/DZNEmptyDataSet" "v1.8.1"
+github "rs/SDWebImage" "3.8.2"
+github "SVProgressHUD/SVProgressHUD" "2.1.2"
