@@ -1066,11 +1066,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="emailTextField" destination="D0q-Ic-XS2" id="ZMX-v4-ryC"/>
-                        <outlet property="gradeTextField" destination="3T1-Et-IBk" id="27K-VF-VNR"/>
-                        <outlet property="profileimage" destination="h8W-GU-UGQ" id="QY8-rC-P8h"/>
-                        <outlet property="usernameTextField" destination="eBD-gr-qgY" id="dMd-Ln-QXI"/>
-                        <outlet property="usernameTextFieldincell" destination="p6B-0P-lIW" id="nZ4-Pf-X06"/>
+                        <outlet property="emailLabel" destination="D0q-Ic-XS2" id="fPA-c2-Kzo"/>
+                        <outlet property="gradeLabel" destination="3T1-Et-IBk" id="ZQQ-AC-7Av"/>
+                        <outlet property="profileImageButton" destination="h8W-GU-UGQ" id="t0C-bU-Ucg"/>
+                        <outlet property="usernameInGrayLabel" destination="p6B-0P-lIW" id="UiT-Or-lKj"/>
+                        <outlet property="usernameLabel" destination="eBD-gr-qgY" id="zzP-Jt-DL0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Or7-QK-Ghw" userLabel="First Responder" sceneMemberID="firstResponder"/>
