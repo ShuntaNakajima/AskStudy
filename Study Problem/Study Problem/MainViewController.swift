@@ -7,41 +7,41 @@
 //
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import BubbleTransition
 import JTSImageViewController
 import SVProgressHUD
 import SDWebImage
-class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
-    var Database = FIRDatabaseReference.init()
-    var selectpost : Dictionary<String, AnyObject> = [:]
+
+class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIViewControllerTransitioningDelegate {
+    
+    let ref: FIRDatabaseReference = FIRDatabase.database().reference()
+    var selectedPost : Dictionary<String, AnyObject> = [:]
     var selectpostID : String!
-    var posts = [Dictionary<String, AnyObject>]()
-    var segueUser = ""
-    var longState = false
-    var refreshControl:UIRefreshControl!
-    let transition = BubbleTransition()
-    var number = 10
+    var posts: [Dictionary<String, AnyObject>] = []
+    var longState: Bool = false
+    let transition: BubbleTransition = BubbleTransition()
+    var limitNumber: Int = 10
+    
     @IBOutlet var tableView :UITableView!
     @IBOutlet var postButton:UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if FIRAuth.auth()?.currentUser == nil{
             let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
             self.present(viewController, animated: true, completion: nil)
         }
-        let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
+        let nib: UINib = UINib(nibName: "postTableViewCell", bundle:nil)
         self.tableView.register(nib, forCellReuseIdentifier:"PostCell")
-        Database = FIRDatabase.database().reference()
+        
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Reload")
-        self.refreshControl.addTarget(self, action: #selector(MainViewController.refresh), for: UIControlEvents.valueChanged)
+        
+        let refreshControl: UIRefreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Reload")
+        refreshControl.addTarget(self, action: #selector(reloadData), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl)
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.cellLongPressed(recognizer:)))
+        let longPressRecognizer: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed(recognizer:)))
         longPressRecognizer.allowableMovement = 0
         longPressRecognizer.minimumPressDuration = 0.4
         longPressRecognizer.delegate = self
@@ -52,27 +52,33 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            let ud = UserDefaults.standard
+            
+            let ud: UserDefaults = UserDefaults.standard
             if ud.bool(forKey: "firstLaunch") {
+                
                 ud.set(false, forKey: "firstLaunch")
-                let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "PageViewController")
+                let viewController: UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "PageViewController")
                 self.present(viewController, animated: true, completion: nil)
-            }else if FIRAuth.auth()?.currentUser == nil{
-                let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
+            }else if FIRAuth.auth()?.currentUser == nil {
+                
+                let viewController: UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
                 self.present(viewController, animated: true, completion: nil)
             }
         }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.tableView.isHidden = true
         SVProgressHUD.show()
-        let color = UserDefaults.standard
-        let colorop : String? = color.object(forKey: "id") as! String?
+        let userDefaults: UserDefaults = UserDefaults.standard
+        let themeColorString: String? = userDefaults.string(forKey: "id")
         UITabBar.appearance().tintColor = UIColor.ThemeBlue()
         UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
-        if let color = colorop{
+        
+        if let color: String = themeColorString {
             switch color{
             case "yellow":
                 UITabBar.appearance().tintColor = UIColor.ThemeYellow()
@@ -99,54 +105,58 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
                 UITabBar.appearance().tintColor = UIColor.ThemeBlue()
                 UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
             }
-            self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
-            self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         }
         postButton.backgroundColor = UITabBar.appearance().tintColor
         reloadData()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if (segue.identifier == "viewPost") {
-            let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
-            vpVC.postDic = selectpost
+            
+            let vpVC: ViewpostViewController = segue.destination as! ViewpostViewController
+            vpVC.postDic = selectedPost
             vpVC.post = selectpostID
-        }else if (segue.identifier == "toPost"){
+        }else if (segue.identifier == "toPost") {
+            
             let controller = segue.destination
             controller.transitioningDelegate = self
             controller.modalPresentationStyle = .custom
         }
     }
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present
         transition.startingPoint = postButton.center
         transition.bubbleColor = UITabBar.appearance().tintColor
         return transition
     }
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?{
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
         transition.transitionMode = .dismiss
         transition.startingPoint = postButton.center
         transition.bubbleColor = UITabBar.appearance().tintColor
         return transition
     }
-    func reloadData(){
-      DataCacheNetwork().loadCache(limit: number, success: {posts in
-        self.posts = posts
+    
+    func reloadData() {
+        
+        DataCacheNetwork().loadCache(limit: limitNumber, success: { posts in
+            
+            self.posts = posts
             SVProgressHUD.dismiss()
             self.tableView.isHidden = false
             self.tableView.reloadData()
         })
     }
-    func showUserData(sender:UIButton){
+    
+    func showUserData(sender:UIButton) {
+        
         let row = sender.tag
-        segueUser = posts[row]["author"] as! String
-        let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
-        UDMC.UserKey = self.segueUser
-    }
-    func refresh(){
-        reloadData()
+        let segueUser = posts[row]["author"] as! String
+        let viewcontroller: UserDetailModalViewController = self.presentedViewController as! UserDetailModalViewController
+        viewcontroller.UserKey = segueUser
     }
 }
 
