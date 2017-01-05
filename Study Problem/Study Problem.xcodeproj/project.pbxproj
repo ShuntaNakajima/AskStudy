@@ -232,8 +232,8 @@
 		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
 		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
 		BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BC708E721DBC943F005D8529 /* OnePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnePhotoView.swift; path = OnePhotoView.swift; sourceTree = "<group>"; };
-		BC708E741DBC9488005D8529 /* OnePhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnePhotoView.xib; path = OnePhotoView.xib; sourceTree = "<group>"; };
+		BC708E721DBC943F005D8529 /* OnePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnePhotoView.swift; sourceTree = "<group>"; };
+		BC708E741DBC9488005D8529 /* OnePhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnePhotoView.xib; sourceTree = "<group>"; };
 		BC79806F1D75C6C900ACAE5C /* StarPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPostViewController.swift; sourceTree = "<group>"; };
 		BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPostViewContorollerTableviewClass.swift; sourceTree = "<group>"; };
 		BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
@@ -275,7 +275,6 @@
 		BCE4251D1D97897700F49F1D /* SelectSubject.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = SelectSubject.gif; sourceTree = "<group>"; };
 		BCE4251F1D9795B800F49F1D /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		BCEDA1481D955107006F05D5 /* toSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toSetting.png; sourceTree = "<group>"; };
-		BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Study Problem-Bridging-Header.h"; sourceTree = "<group>"; };
 		BCF3E4ED1DBC587B00BC056D /* OneImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneImageView.xib; sourceTree = "<group>"; };
 		BCF3E4EF1DBC589900BC056D /* TwoImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoImageView.xib; sourceTree = "<group>"; };
 		BCF3E4F11DBC58A400BC056D /* ThreeImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeImageView.xib; sourceTree = "<group>"; };
@@ -365,7 +364,6 @@
 				BC0095EB1D5E0BF000FBA347 /* star.gif */,
 				BCEDA1481D955107006F05D5 /* toSetting.png */,
 			);
-			name = Resorces;
 			path = Resorces;
 			sourceTree = "<group>";
 		};
@@ -394,7 +392,6 @@
 				BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */,
 				BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */,
 			);
-			name = User;
 			path = User;
 			sourceTree = "<group>";
 		};
@@ -404,7 +401,6 @@
 				BC1603661CE8569200402577 /* Post.swift */,
 				BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -414,7 +410,6 @@
 				BC16036A1CE85C8300402577 /* postTableViewCell.swift */,
 				BC16036B1CE85C8300402577 /* postTableViewCell.xib */,
 			);
-			name = PostTableViewCell;
 			path = PostTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -424,7 +419,6 @@
 				BC1437E31CE6137B00448AC0 /* MainViewController.swift */,
 				BC25AFB51D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift */,
 			);
-			name = MainViewController;
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
@@ -435,7 +429,6 @@
 				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
 				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
 			);
-			name = ViewpostViewCOntroller;
 			path = ViewpostViewCOntroller;
 			sourceTree = "<group>";
 		};
@@ -455,7 +448,6 @@
 				BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */,
 				BC01985D1D98004C00E39160 /* StarterPageViewController.swift */,
 			);
-			name = ViewControllers;
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -464,7 +456,6 @@
 			children = (
 				BC5127CC1D1F81A900033737 /* NSdateExtention.swift */,
 			);
-			name = Extenstions;
 			path = Extenstions;
 			sourceTree = "<group>";
 		};
@@ -482,7 +473,6 @@
 				BC0095E91D5DFE8400FBA347 /* ToastView.swift */,
 				BC1FB6EC1D3225CB004CE534 /* colorNavigationViewController.swift */,
 			);
-			name = Class;
 			path = Class;
 			sourceTree = "<group>";
 		};
@@ -492,7 +482,6 @@
 				BC5484171D648A5D00CD5D5D /* ChatTableViewCell.swift */,
 				BC5484181D648A5D00CD5D5D /* ChatTableViewCell.xib */,
 			);
-			name = ChatTableViewCell;
 			path = ChatTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -539,7 +528,6 @@
 				BC54BB881CE4AE720013C0DD /* Info.plist */,
 				BC51CD0F1DD7E0E1002D3223 /* Launch Screen.storyboard */,
 				BC54BB801CE4AE720013C0DD /* Main.storyboard */,
-				BCEF1D4E1CEF015A001FBE37 /* Study Problem-Bridging-Header.h */,
 			);
 			path = "Study Problem";
 			sourceTree = "<group>";
@@ -569,7 +557,6 @@
 				BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */,
 				BC5E9E6B1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift */,
 			);
-			name = UserDetailModalViewController;
 			path = UserDetailModalViewController;
 			sourceTree = "<group>";
 		};
@@ -579,7 +566,6 @@
 				BC5E9E711D5B75E4003C1850 /* ModalTableViewCell.swift */,
 				BC5E9E721D5B75E4003C1850 /* ModalTableViewCell.xib */,
 			);
-			name = ModalTableViewCell;
 			path = ModalTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -589,7 +575,6 @@
 				BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */,
 				BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */,
 			);
-			name = ItemTableViewCell;
 			path = ItemTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -598,7 +583,6 @@
 			children = (
 				BC7980731D76C6E600ACAE5C /* ThemeColorViewController.swift */,
 			);
-			name = ThemeColor;
 			path = ThemeColor;
 			sourceTree = "<group>";
 		};
@@ -608,7 +592,6 @@
 				BC7980711D75C6D900ACAE5C /* StarPostViewContorollerTableviewClass.swift */,
 				BC79806F1D75C6C900ACAE5C /* StarPostViewController.swift */,
 			);
-			name = StarPostViewController;
 			path = StarPostViewController;
 			sourceTree = "<group>";
 		};
@@ -618,7 +601,6 @@
 				BCE33D351D92D652004CF5D3 /* SearchViewController.swift */,
 				BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */,
 			);
-			name = SearchViewController;
 			path = SearchViewController;
 			sourceTree = "<group>";
 		};
@@ -629,7 +611,6 @@
 				BCB72A201D649A4000234B15 /* ChatUserAddViewControllerTableView.swift */,
 				BCD17A641D655D500050A8EB /* ChatUserSerchClass.swift */,
 			);
-			name = ChatUserAddViewController;
 			path = ChatUserAddViewController;
 			sourceTree = "<group>";
 		};
@@ -666,7 +647,6 @@
 				BC42818A1D76D4FF00D5F66E /* ChangePasswordViewController.swift */,
 				BC1437ED1CE613CA00448AC0 /* SettingViewController.swift */,
 			);
-			name = Setting;
 			path = Setting;
 			sourceTree = "<group>";
 		};
@@ -677,7 +657,6 @@
 				BC51CD121DD7E1E7002D3223 /* Default-667h@2x.png */,
 				BC51CD131DD7E1E7002D3223 /* Default-736h@3x.png */,
 			);
-			name = Defalts;
 			path = Defalts;
 			sourceTree = "<group>";
 		};
@@ -695,7 +674,6 @@
 				BCF3E4F71DBC606300BC056D /* TwoImageView.swift */,
 				BCF3E4EF1DBC589900BC056D /* TwoImageView.xib */,
 			);
-			name = ImageView;
 			path = ImageView;
 			sourceTree = "<group>";
 		};
@@ -710,7 +688,6 @@
 				BC16036E1CE85C8C00402577 /* PostTableViewCell */,
 				BCF520BF1CE9B75A0027D8EA /* ReplysTableViewCell */,
 			);
-			name = Cells;
 			path = Cells;
 			sourceTree = "<group>";
 		};
@@ -720,7 +697,6 @@
 				BCF520B61CE9B71F0027D8EA /* PostMainTableViewCell.swift */,
 				BCF520B71CE9B71F0027D8EA /* PostMainTableViewCell.xib */,
 			);
-			name = PostMainTableViewCell;
 			path = PostMainTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -730,7 +706,6 @@
 				BCF520BB1CE9B7550027D8EA /* ReplysTableViewCell.swift */,
 				BCF520BC1CE9B7550027D8EA /* ReplysTableViewCell.xib */,
 			);
-			name = ReplysTableViewCell;
 			path = ReplysTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -740,7 +715,6 @@
 				BCF520C01CE9B8CB0027D8EA /* MyReplysTableViewCell.swift */,
 				BCF520C11CE9B8CB0027D8EA /* MyReplysTableViewCell.xib */,
 			);
-			name = MyReplysTableViewCell;
 			path = MyReplysTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -751,7 +725,6 @@
 				BCFBDD841D63363E0032DC6F /* ChatViewController.swift */,
 				BCFBDD871D633C940032DC6F /* ChatViewControllerTableView.swift */,
 			);
-			name = ChatViewController;
 			path = ChatViewController;
 			sourceTree = "<group>";
 		};
