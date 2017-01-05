@@ -8,41 +8,45 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import SVProgressHUD
 
-class ChangeDisplayNameViewController: UIViewController,UITextFieldDelegate {
+class ChangeDisplayNameViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet var usernameTextField:UITextField!
+    @IBOutlet var usernameTextField: UITextField!
     
-    var userDic=Dictionary<String, AnyObject>()
-    var Database = FIRDatabaseReference.init()
+    var userDic: [String: AnyObject] = []
+    let databaseReference: FIRDatabaseReference = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Database = FIRDatabase.database().reference()
+
         usernameTextField.delegate = self
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
-            if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
+        
+        databaseReference.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
+            
+            if var postDictionary: [String: AnyObject] = snapshot.value as? Dictionary<String, AnyObject> {
                 let key = snapshot.key
                 postDictionary["key"] = key as AnyObject?
                 self.userDic = postDictionary
-                self.usernameTextField.text = self.userDic["username"] as! String?
+                self.usernameTextField.text = self.userDic["username"] as? String
             }
         })
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        // キーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return true
     }
     
     @IBAction func changeName(){
+        
         SVProgressHUD.show()
-        self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("username").setValue(self.usernameTextField?.text!)
+        guard let text: String = usernameTextField.text else {
+            
+            return
+        }
+        databaseReference.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("username").setValue(text)
         SVProgressHUD.showSuccess(withStatus: "Update Successful!")
         let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
