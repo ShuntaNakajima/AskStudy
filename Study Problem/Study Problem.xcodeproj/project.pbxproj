@@ -80,7 +80,7 @@
 		BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */; };
 		BC9178AB1DCEF3990001134B /* Gay.png in Resources */ = {isa = PBXBuildFile; fileRef = BC9178AA1DCEF3990001134B /* Gay.png */; };
 		BC9547B71D96525200D8D5DD /* post.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC9547B61D96525200D8D5DD /* post.gif */; };
-		BC9967FB1D97B4FB001E3AA1 /* StarDtialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */; };
+		BC9967FB1D97B4FB001E3AA1 /* StarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9967FA1D97B4FB001E3AA1 /* StarDetailViewController.swift */; };
 		BCA052411D76CD8100B24A5E /* StarMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523D1D76CD8100B24A5E /* StarMenu.gif */; };
 		BCA052421D76CD8100B24A5E /* Setting.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523E1D76CD8100B24A5E /* Setting.gif */; };
 		BCA052431D76CD8100B24A5E /* Main.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCA0523F1D76CD8100B24A5E /* Main.gif */; };
@@ -241,7 +241,7 @@
 		BC7A20391D94B1590033F758 /* SearchViewControllerTableviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableviewClass.swift; sourceTree = "<group>"; };
 		BC9178AA1DCEF3990001134B /* Gay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gay.png; sourceTree = "<group>"; };
 		BC9547B61D96525200D8D5DD /* post.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = post.gif; sourceTree = "<group>"; };
-		BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarDtialViewController.swift; sourceTree = "<group>"; };
+		BC9967FA1D97B4FB001E3AA1 /* StarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarDetailViewController.swift; sourceTree = "<group>"; };
 		BCA0523D1D76CD8100B24A5E /* StarMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = StarMenu.gif; sourceTree = "<group>"; };
 		BCA0523E1D76CD8100B24A5E /* Setting.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Setting.gif; sourceTree = "<group>"; };
 		BCA0523F1D76CD8100B24A5E /* Main.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Main.gif; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 				BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */,
 				BC366D551DAA2F5700797B3A /* PickImageViewController.swift */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
-				BC9967FA1D97B4FB001E3AA1 /* StarDtialViewController.swift */,
+				BC9967FA1D97B4FB001E3AA1 /* StarDetailViewController.swift */,
 				BC01985D1D98004C00E39160 /* StarterPageViewController.swift */,
 			);
 			path = ViewControllers;
@@ -1023,7 +1023,7 @@
 				BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */,
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
 				BCA3210C1DE167FB001C7A50 /* DataCacheNetwork.swift in Sources */,
-				BC9967FB1D97B4FB001E3AA1 /* StarDtialViewController.swift in Sources */,
+				BC9967FB1D97B4FB001E3AA1 /* StarDetailViewController.swift in Sources */,
 				BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */,
 				BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */,
 				BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */,
