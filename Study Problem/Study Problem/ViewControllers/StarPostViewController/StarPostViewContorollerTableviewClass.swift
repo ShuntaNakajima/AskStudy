@@ -23,7 +23,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
         for i in cell.view.subviews{

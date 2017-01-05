@@ -33,7 +33,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             return itemcell
         }
         if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
             let postDictionary = postDic
             for i in cell.view.subviews{
                 i.removeFromSuperview()
@@ -58,7 +58,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 let autorsprofileRef = storageRef.child("\((postDictionary["author"] as? String)!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                     if error != nil {
-                        print(error)
+                        print("\(error)")
                     } else {
                         viewImg = data.flatMap(UIImage.init)!
                         DispatchQueue.main.async(execute: {
@@ -83,7 +83,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
-                    print(error)
+                    print("\(error)")
                 } else {
                     viewImg = data.flatMap(UIImage.init)!
                     replycell.profileImageView.setBackgroundImage(viewImg, for: UIControlState.normal)

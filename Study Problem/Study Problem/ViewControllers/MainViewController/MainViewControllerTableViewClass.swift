@@ -17,7 +17,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate, UIScro
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: postTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! postTableViewCell
+        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post: [String: AnyObject] = posts[indexPath.row]
         
         cell.view.translatesAutoresizingMaskIntoConstraints = false

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import WebImage
 
-class postTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
     
     @IBOutlet var textView : MianCellTextView!
     @IBOutlet var profileImage: MainCellUiimageViewClass!
