@@ -7,25 +7,29 @@
 //
 
 import UIKit
-class MainCellUiimageViewClass: UIButton {
+class MainCellButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addTarget(self, action:  #selector(MainCellUiimageViewClass.showUser(sender:)), for: .touchUpInside)
+        self.addTarget(self, action:  #selector(showUser(sender:)), for: .touchUpInside)
         self.updateLayout()
     }
+    
     override func awakeFromNib() {
-        self.addTarget(self, action: #selector(MainCellUiimageViewClass.showUser(sender:)), for: .touchUpInside)
+        self.addTarget(self, action: #selector(showUser(sender:)), for: .touchUpInside)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.updateLayout()
     }
+    
     func updateLayout(){
         self.layer.cornerRadius=25
         self.layer.masksToBounds=true
         self.setTitle("", for: UIControlState.normal)
         self.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
     }
+    
     func showUser(sender:UIButton){
         let modalViewController = UserDetailModalViewController(nibName: "UserDetailModalViewController", bundle: nil)
         modalViewController.modalPresentationStyle = .custom
@@ -33,10 +37,12 @@ class MainCellUiimageViewClass: UIButton {
              self.superview!.window?.rootViewController!.present(modalViewController, animated: true, completion: nil)
     }
 }
-extension MainCellUiimageViewClass: UIViewControllerTransitioningDelegate {
+extension MainCellButton: UIViewControllerTransitioningDelegate {
+    
     func presentationController(forPresented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return CustomPresentationController(presentedViewController: forPresented, presenting: presenting)
     }
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source sourceControllersource: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CustomAnimatedTransitioning(isPresent: true, atButton: self)
     }

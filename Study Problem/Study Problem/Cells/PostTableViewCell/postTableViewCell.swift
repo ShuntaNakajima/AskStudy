@@ -13,7 +13,7 @@ import WebImage
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet var textView : MianCellTextView!
-    @IBOutlet var profileImage: MainCellUiimageViewClass!
+    @IBOutlet var profileImage: MainCellButton!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var replyscountLabel : UILabel!
     @IBOutlet var subjectLabel:UILabel!

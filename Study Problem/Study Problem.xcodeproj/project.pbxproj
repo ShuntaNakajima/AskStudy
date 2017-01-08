@@ -49,11 +49,11 @@
 		BC4281911D77086100D5F66E /* StarMenu@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818D1D77086100D5F66E /* StarMenu@2x.gif */; };
 		BC4281921D77086100D5F66E /* Main@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818E1D77086100D5F66E /* Main@2x.gif */; };
 		BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818F1D77086100D5F66E /* Chat@2x.gif */; };
-		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */; };
+		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButton.swift */; };
 		BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */; };
 		BC5127CD1D1F81A900033737 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* Date+Extention.swift */; };
 		BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CF1D1F83E000033737 /* MianCellTextView.swift */; };
-		BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */; };
+		BC5127D31D1F968C00033737 /* MainCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellButton.swift */; };
 		BC51CD101DD7E0E1002D3223 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC51CD0F1DD7E0E1002D3223 /* Launch Screen.storyboard */; };
 		BC51CD141DD7E1E7002D3223 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC51CD111DD7E1E7002D3223 /* Default-568h@2x.png */; };
 		BC51CD151DD7E1E7002D3223 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC51CD121DD7E1E7002D3223 /* Default-667h@2x.png */; };
@@ -174,7 +174,7 @@
 		BC01985D1D98004C00E39160 /* StarterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarterPageViewController.swift; sourceTree = "<group>"; };
 		BC0198651D98049000E39160 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		BC0198671D98069200E39160 /* Starts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starts.png; sourceTree = "<group>"; };
-		BC07E4DD1D5CA85F00AC9B6D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BC07E4DD1D5CA85F00AC9B6D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -204,11 +204,11 @@
 		BC42818D1D77086100D5F66E /* StarMenu@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "StarMenu@2x.gif"; sourceTree = "<group>"; };
 		BC42818E1D77086100D5F66E /* Main@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Main@2x.gif"; sourceTree = "<group>"; };
 		BC42818F1D77086100D5F66E /* Chat@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Chat@2x.gif"; sourceTree = "<group>"; };
-		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonClass.swift; sourceTree = "<group>"; };
+		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButton.swift; sourceTree = "<group>"; };
 		BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowButtonClass.swift; sourceTree = "<group>"; };
 		BC5127CC1D1F81A900033737 /* Date+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		BC5127CF1D1F83E000033737 /* MianCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MianCellTextView.swift; sourceTree = "<group>"; };
-		BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellUiimageViewClass.swift; sourceTree = "<group>"; };
+		BC5127D21D1F968C00033737 /* MainCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellButton.swift; sourceTree = "<group>"; };
 		BC51CD0F1DD7E0E1002D3223 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BC51CD111DD7E1E7002D3223 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BC51CD121DD7E1E7002D3223 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
@@ -465,9 +465,9 @@
 				BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */,
 				BC32D1271D4F913D00086026 /* CustomPresentationController.swift */,
 				BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */,
-				BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */,
+				BC5127D21D1F968C00033737 /* MainCellButton.swift */,
 				BC5127CF1D1F83E000033737 /* MianCellTextView.swift */,
-				BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */,
+				BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButton.swift */,
 				BCF3E4FD1DBC631C00BC056D /* ShowImageDelegate.swift */,
 				BCF8D6C41D9022E000FF0BB5 /* ThemeButton.swift */,
 				BC0095E91D5DFE8400FBA347 /* ToastView.swift */,
@@ -1026,7 +1026,7 @@
 				BC9967FB1D97B4FB001E3AA1 /* StarDetailViewController.swift in Sources */,
 				BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */,
 				BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */,
-				BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */,
+				BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButton.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,
 				BCE425181D9779DC00F49F1D /* ChangeEmailViewController.swift in Sources */,
 				BCFBDD851D63363E0032DC6F /* ChatViewController.swift in Sources */,
@@ -1037,7 +1037,7 @@
 				BC1437EE1CE613CA00448AC0 /* SettingViewController.swift in Sources */,
 				BC1437E61CE6138900448AC0 /* PostViewController.swift in Sources */,
 				BC5E9E6C1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift in Sources */,
-				BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */,
+				BC5127D31D1F968C00033737 /* MainCellButton.swift in Sources */,
 				BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */,
 				BC0095EA1D5DFE8400FBA347 /* ToastView.swift in Sources */,
 				BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */,
