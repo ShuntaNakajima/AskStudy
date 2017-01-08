@@ -11,7 +11,7 @@ import Firebase
 
 class UserDetailModalViewController: UIViewController {
     
-    @IBOutlet var profileImageButton: ProfileImageButtonClass!
+    @IBOutlet var profileImageButton: ProfileImageButton!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var exitButton: UIButton!
     @IBOutlet var followButton: FollowButtonClass!
