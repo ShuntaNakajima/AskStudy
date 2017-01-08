@@ -11,16 +11,16 @@ import Firebase
 
 class UserDetailModalViewController: UIViewController {
     
-    var userKey = ""
-    let ref: FIRDatabaseReference = FIRDatabase.database().reference()
     @IBOutlet var profileImageButton: ProfileImageButtonClass!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var exitButton: UIButton!
     @IBOutlet var followButton: FollowButtonClass!
-    @IBOutlet var followIngButton: UIButton!
+    @IBOutlet var followingButton: UIButton!
     @IBOutlet var followerButton: UIButton!
     @IBOutlet var userPostButton: UIButton!
     @IBOutlet var userGropeButton: UIButton!
+    var userKey = ""
+    let ref: FIRDatabaseReference = FIRDatabase.database().reference()
     var myKey: String = ""
     var postKeys: [String] = []
     var myPosts: [[String: AnyObject]] = []
@@ -84,23 +84,23 @@ class UserDetailModalViewController: UIViewController {
         
         let userRef = ref.child("user").child(userKey)
         ref.child("user/" + self.userKey + "/followers").observe(.value, with: { snapshot in
-            if let snap = snapshot as? FIRDataSnapshot {
-                var num = snap.value as! Int
-                if num == -1{
-                    num = 0
-                }
-                self.followerButton.setTitle(String(num), for: .normal)
-                self.reloadFollowButton()
+            
+            var num = snapshot.value as! Int
+            if num == -1 {
+                num = 0
             }
+            self.followerButton.setTitle(String(num), for: .normal)
+            self.reloadFollowButton()
+            
         })
         ref.child("user/" + self.userKey + "/follows").observe(.value, with: { snapshot in
-            if let snap = snapshot as? FIRDataSnapshot {
-                var num = snap.value as! Int
-                if num == -1 {
-                    num = 0
-                }
-                self.followIngButton.setTitle(String(num), for: .normal)
+            
+            var num = snapshot.value as! Int
+            if num == -1 {
+                num = 0
             }
+            self.followingButton.setTitle(String(num), for: .normal)
+            
         })
         reloadFollowButton()
         ref.child("user/" + self.userKey + "/posts").observe(.value, with: { snapshot in

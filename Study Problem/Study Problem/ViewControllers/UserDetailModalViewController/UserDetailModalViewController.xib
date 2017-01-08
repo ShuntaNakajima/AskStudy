@@ -12,8 +12,8 @@
             <connections>
                 <outlet property="exitButton" destination="MoJ-iX-y0d" id="3UK-R1-UJE"/>
                 <outlet property="followButton" destination="xq4-e2-WZe" id="ToM-Ca-6dd"/>
-                <outlet property="followIngButton" destination="fKC-XP-Ghp" id="WQ0-2H-IcE"/>
                 <outlet property="followerButton" destination="DcO-Kz-DTg" id="C2l-Vn-2Dj"/>
+                <outlet property="followingButton" destination="fKC-XP-Ghp" id="uB2-i3-gey"/>
                 <outlet property="profileImageButton" destination="qVq-2E-wFs" id="NAC-Ju-uFQ"/>
                 <outlet property="profileLabel" destination="NMq-8D-1sx" id="lrH-sd-8fV"/>
                 <outlet property="userGropeButton" destination="heX-bJ-A84" id="WyJ-e6-2zk"/>
