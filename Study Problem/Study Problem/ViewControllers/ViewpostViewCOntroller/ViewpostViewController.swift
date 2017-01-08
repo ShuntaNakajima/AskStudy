@@ -156,7 +156,7 @@ class ViewpostViewController: UIViewController {
             segueUser = replies[row-2]["author"] as! String
         }
         let viewcontroller: UserDetailModalViewController = self.presentedViewController as! UserDetailModalViewController
-        viewcontroller.UserKey = segueUser
+        viewcontroller.userKey = segueUser
     }
 }
 
