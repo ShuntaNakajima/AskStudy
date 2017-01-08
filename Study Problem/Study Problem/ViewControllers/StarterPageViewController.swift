@@ -9,16 +9,14 @@
 import UIKit
 
 class PageViewController: UIPageViewController {
+    
     let idList = ["Farst", "Second", "Third"]
     override func viewDidLoad() {
         super.viewDidLoad()
-         let controller = storyboard!.instantiateViewController(withIdentifier: idList.first!)
+        
+        let controller = storyboard!.instantiateViewController(withIdentifier: idList.first!)
         self.setViewControllers([controller], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
-        }
- 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
@@ -41,10 +39,4 @@ extension PageViewController : UIPageViewControllerDataSource {
             return nil
         }
     }
-//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-//        return idList.count
-//    }
-//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//        return 0
-//    }
 }
