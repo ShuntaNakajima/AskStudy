@@ -68,8 +68,8 @@
 		BC5E9E6C1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E9E6B1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift */; };
 		BC5E9E731D5B75E4003C1850 /* ModalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E9E711D5B75E4003C1850 /* ModalTableViewCell.swift */; };
 		BC5E9E741D5B75E4003C1850 /* ModalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC5E9E721D5B75E4003C1850 /* ModalTableViewCell.xib */; };
-		BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */; };
-		BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */; };
+		BC64FFF01CEC9F0A008E5DB7 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC64FFEE1CEC9F0A008E5DB7 /* ItemTableViewCell.swift */; };
+		BC64FFF11CEC9F0A008E5DB7 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFEF1CEC9F0A008E5DB7 /* ItemTableViewCell.xib */; };
 		BC64FFF41CEDD179008E5DB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */; };
 		BC708E731DBC943F005D8529 /* OnePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC708E721DBC943F005D8529 /* OnePhotoView.swift */; };
 		BC708E751DBC9488005D8529 /* OnePhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC708E741DBC9488005D8529 /* OnePhotoView.xib */; };
@@ -229,8 +229,8 @@
 		BC5E9E6B1D5B5D6B003C1850 /* UserDetailModalViewControllerTableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewControllerTableViewExtension.swift; sourceTree = "<group>"; };
 		BC5E9E711D5B75E4003C1850 /* ModalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTableViewCell.swift; sourceTree = "<group>"; };
 		BC5E9E721D5B75E4003C1850 /* ModalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalTableViewCell.xib; sourceTree = "<group>"; };
-		BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemTableViewCell.swift; sourceTree = "<group>"; };
-		BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemTableViewCell.xib; sourceTree = "<group>"; };
+		BC64FFEE1CEC9F0A008E5DB7 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		BC64FFEF1CEC9F0A008E5DB7 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		BC64FFF31CEDD179008E5DB7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC708E721DBC943F005D8529 /* OnePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnePhotoView.swift; sourceTree = "<group>"; };
 		BC708E741DBC9488005D8529 /* OnePhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnePhotoView.xib; sourceTree = "<group>"; };
@@ -572,8 +572,8 @@
 		BC64FFF21CEC9F0F008E5DB7 /* ItemTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				BC64FFEE1CEC9F0A008E5DB7 /* itemTableViewCell.swift */,
-				BC64FFEF1CEC9F0A008E5DB7 /* itemTableViewCell.xib */,
+				BC64FFEE1CEC9F0A008E5DB7 /* ItemTableViewCell.swift */,
+				BC64FFEF1CEC9F0A008E5DB7 /* ItemTableViewCell.xib */,
 			);
 			path = ItemTableViewCell;
 			sourceTree = "<group>";
@@ -873,7 +873,7 @@
 				BCC7C5EC1D979EB0002AF37E /* Icon-App-76x76@3x.png in Resources */,
 				BCA052421D76CD8100B24A5E /* Setting.gif in Resources */,
 				BC0095EC1D5E0BF000FBA347 /* star.gif in Resources */,
-				BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */,
+				BC64FFF11CEC9F0A008E5DB7 /* ItemTableViewCell.xib in Resources */,
 				BCC7C5DE1D979EB0002AF37E /* Icon-App-20x20@2x.png in Resources */,
 				BC01985A1D97F14E00E39160 /* AskStudy.png in Resources */,
 				BC0198681D98069200E39160 /* Starts.png in Resources */,
@@ -1021,7 +1021,7 @@
 				BCF8D6C71D915B8D00FF0BB5 /* AnimationView.swift in Sources */,
 				BC5484191D648A5D00CD5D5D /* ChatTableViewCell.swift in Sources */,
 				BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */,
-				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
+				BC64FFF01CEC9F0A008E5DB7 /* ItemTableViewCell.swift in Sources */,
 				BCA3210C1DE167FB001C7A50 /* DataCacheNetwork.swift in Sources */,
 				BC9967FB1D97B4FB001E3AA1 /* StarDetailViewController.swift in Sources */,
 				BC4EB1B31D53764F00D2AEB0 /* FollowButton.swift in Sources */,

@@ -102,7 +102,7 @@ class ViewpostViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         let mainNib  = UINib(nibName: "PostTableViewCell", bundle: nil)
         self.tableView.register(mainNib, forCellReuseIdentifier: "PostCell")
-        let itemNib = UINib(nibName: "itemTableViewCell", bundle: nil)
+        let itemNib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         self.tableView.register(itemNib, forCellReuseIdentifier: "ItemCell")
         let repliesNib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
         self.tableView.register(repliesNib, forCellReuseIdentifier:"ReplysCell")

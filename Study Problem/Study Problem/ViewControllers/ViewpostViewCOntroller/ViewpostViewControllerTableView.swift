@@ -25,7 +25,7 @@ extension ViewpostViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 1{
             
-            let itemcell: itemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! itemTableViewCell
+            let itemcell: ItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! ItemTableViewCell
             itemcell.DateLable.text = postDic["date"] as! String!
          let BestAnswer = postDic["BestAnswer"] as? String
             if BestAnswer == ""{

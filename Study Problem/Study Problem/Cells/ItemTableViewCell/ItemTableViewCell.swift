@@ -1,5 +1,5 @@
 //
-//  itemTableViewCell.swift
+//  ItemTableViewCell.swift
 //  Study Problem
 //
 //  Created by nakajimashunta on 2016/05/18.
@@ -8,20 +8,14 @@
 
 import UIKit
 
-class itemTableViewCell: UITableViewCell {
+class ItemTableViewCell: UITableViewCell {
+    
     @IBOutlet var ReplycountLabel:UILabel!
     @IBOutlet var IwantknowButton:UIButton!
     @IBOutlet var StateLabel:UILabel!
     @IBOutlet var DateLable:UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
