@@ -50,7 +50,7 @@
 		BC4281921D77086100D5F66E /* Main@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818E1D77086100D5F66E /* Main@2x.gif */; };
 		BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818F1D77086100D5F66E /* Chat@2x.gif */; };
 		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButton.swift */; };
-		BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */; };
+		BC4EB1B31D53764F00D2AEB0 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B21D53764F00D2AEB0 /* FollowButton.swift */; };
 		BC5127CD1D1F81A900033737 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* Date+Extention.swift */; };
 		BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CF1D1F83E000033737 /* MianCellTextView.swift */; };
 		BC5127D31D1F968C00033737 /* MainCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellButton.swift */; };
@@ -205,7 +205,7 @@
 		BC42818E1D77086100D5F66E /* Main@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Main@2x.gif"; sourceTree = "<group>"; };
 		BC42818F1D77086100D5F66E /* Chat@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Chat@2x.gif"; sourceTree = "<group>"; };
 		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButton.swift; sourceTree = "<group>"; };
-		BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowButtonClass.swift; sourceTree = "<group>"; };
+		BC4EB1B21D53764F00D2AEB0 /* FollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
 		BC5127CC1D1F81A900033737 /* Date+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		BC5127CF1D1F83E000033737 /* MianCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MianCellTextView.swift; sourceTree = "<group>"; };
 		BC5127D21D1F968C00033737 /* MainCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellButton.swift; sourceTree = "<group>"; };
@@ -464,7 +464,7 @@
 			children = (
 				BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */,
 				BC32D1271D4F913D00086026 /* CustomPresentationController.swift */,
-				BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */,
+				BC4EB1B21D53764F00D2AEB0 /* FollowButton.swift */,
 				BC5127D21D1F968C00033737 /* MainCellButton.swift */,
 				BC5127CF1D1F83E000033737 /* MianCellTextView.swift */,
 				BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButton.swift */,
@@ -1024,7 +1024,7 @@
 				BC64FFF01CEC9F0A008E5DB7 /* itemTableViewCell.swift in Sources */,
 				BCA3210C1DE167FB001C7A50 /* DataCacheNetwork.swift in Sources */,
 				BC9967FB1D97B4FB001E3AA1 /* StarDetailViewController.swift in Sources */,
-				BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */,
+				BC4EB1B31D53764F00D2AEB0 /* FollowButton.swift in Sources */,
 				BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */,
 				BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButton.swift in Sources */,
 				BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */,

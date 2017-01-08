@@ -14,7 +14,7 @@ class UserDetailModalViewController: UIViewController {
     @IBOutlet var profileImageButton: ProfileImageButton!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var exitButton: UIButton!
-    @IBOutlet var followButton: FollowButtonClass!
+    @IBOutlet var followButton: FollowButton!
     @IBOutlet var followingButton: UIButton!
     @IBOutlet var followerButton: UIButton!
     @IBOutlet var userPostButton: UIButton!
@@ -43,13 +43,15 @@ class UserDetailModalViewController: UIViewController {
     }
     
     @IBAction func follow(){
-        if self.userKey == (FIRAuth.auth()?.currentUser!.uid)!{
+        
+        if self.userKey == (FIRAuth.auth()?.currentUser!.uid)! {
+            
         }else if myKey == ""{
             
-            FollowButtonClass().follow(uid: userKey)
+            FollowButton().follow(uid: userKey)
         }else{
             
-            FollowButtonClass().unfollow(uid: userKey)
+            FollowButton().unfollow(uid: userKey)
         }
     }
     
