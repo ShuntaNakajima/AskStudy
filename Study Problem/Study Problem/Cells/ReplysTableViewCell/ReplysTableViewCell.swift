@@ -10,7 +10,7 @@ import UIKit
 
 class ReplysTableViewCell: UITableViewCell {
     
-    @IBOutlet var profileImageView : MainCellUiimageViewClass!    
+    @IBOutlet var profileImageView : MainCellButton!
     @IBOutlet var usernameLabel:UILabel!
     
     @IBOutlet var postLabel:UILabel!
@@ -19,13 +19,5 @@ class ReplysTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

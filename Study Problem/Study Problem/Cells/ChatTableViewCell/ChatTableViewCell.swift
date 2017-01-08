@@ -9,8 +9,10 @@
 import UIKit
 
 class ChatTableViewCell: UITableViewCell {
-    @IBOutlet var profileImage:MainCellUiimageViewClass!
+    
+    @IBOutlet var profileImage:MainCellButton!
     @IBOutlet var profileLabel:UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         profileImage.layer.borderColor = UIColor.white.cgColor
@@ -20,13 +22,5 @@ class ChatTableViewCell: UITableViewCell {
         profileImage.layer.masksToBounds=true
         profileImage.setTitle("", for: UIControlState.normal)
         profileImage.setBackgroundImage(UIImage(named: "noimage.gif")!, for: .normal)
-        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
