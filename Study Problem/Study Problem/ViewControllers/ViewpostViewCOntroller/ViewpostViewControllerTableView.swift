@@ -109,7 +109,7 @@ extension ViewpostViewController: UITableViewDelegate, UITableViewDataSource {
             }else{
                 if postDic["BestAnswer"] as? String == replies[indexPath.row - 2]["key"] as? String{
                     replycell.setBestAnser.setTitle("✔︎", for: .normal)
-                    replycell.setBestAnser.setTitleColor(UIColor.ThemeGreenThin(), for: .normal)
+                    replycell.setBestAnser.setTitleColor(UIColor.themeGreenThin(), for: .normal)
                 }else{
                     replycell.setBestAnser.isHidden = true
                 }
