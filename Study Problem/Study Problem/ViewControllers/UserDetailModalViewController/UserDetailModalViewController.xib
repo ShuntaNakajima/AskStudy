@@ -41,7 +41,7 @@
                         <action selector="exitButtonPushed" destination="-1" eventType="touchUpInside" id="AyA-Np-LI2"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVq-2E-wFs" customClass="ProfileImageButtonClass" customModule="Study_Problem" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVq-2E-wFs" customClass="ProfileImageButton" customModule="Study_Problem" customModuleProvider="target">
                     <rect key="frame" x="16" y="114" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </button>
