@@ -1,3 +1,4 @@
+
 //
 //  LoginViewController.swift
 //  Study Problem
@@ -21,7 +22,7 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
         super.viewDidLoad()
         self.gradient = CAGradientLayer()
         self.gradient?.frame = self.view.bounds
-        self.gradient?.colors = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        self.gradient?.colors = [ UIColor.themePurple().cgColor, UIColor.themeRed().cgColor]
         self.view.layer.insertSublayer(self.gradient!, at: 0)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -31,8 +32,8 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
         animateLayer()
     }
     func animateLayer(){
-        let toColors: [AnyObject] = [ UIColor.ThemeBlue().cgColor, UIColor.ThemeLightBlue().cgColor]
-        let fromColors: [AnyObject] = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
+        let toColors: [AnyObject] = [ UIColor.themeBlue().cgColor, UIColor.themeLightBlue().cgColor]
+        let fromColors: [AnyObject] = [ UIColor.themePurple().cgColor, UIColor.themeRed().cgColor]
         self.gradient?.colors = toColors
         let animation : CABasicAnimation = CABasicAnimation(keyPath: "colors")
         animation.fromValue = fromColors

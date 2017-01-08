@@ -15,8 +15,8 @@ extension UIView{
         animation.repeatCount = HUGE
         animation.autoreverses = true
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
-        animation.fromValue = UIColor.ThemeBlue()
-        animation.toValue = UIColor.ThemeRed()
+        animation.fromValue = UIColor.themeBlue()
+        animation.toValue = UIColor.themeRed()
         return animation
     }
 }

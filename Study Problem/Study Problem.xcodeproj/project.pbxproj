@@ -19,7 +19,7 @@
 		BC01985E1D98004C00E39160 /* StarterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC01985D1D98004C00E39160 /* StarterPageViewController.swift */; };
 		BC0198661D98049000E39160 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0198651D98049000E39160 /* Start.png */; };
 		BC0198681D98069200E39160 /* Starts.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0198671D98069200E39160 /* Starts.png */; };
-		BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */; };
+		BC07E4DE1D5CA86000AC9B6D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC07E4DD1D5CA85F00AC9B6D /* UIColor+Extension.swift */; };
 		BC1437CC1CE5CF1E00448AC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */; };
 		BC1437CE1CE5E29200448AC0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */; };
 		BC1437D01CE5F20300448AC0 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */; };
@@ -51,7 +51,7 @@
 		BC4281931D77086100D5F66E /* Chat@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC42818F1D77086100D5F66E /* Chat@2x.gif */; };
 		BC4EB1B11D536C0F00D2AEB0 /* ProfileImageButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */; };
 		BC4EB1B31D53764F00D2AEB0 /* FollowButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */; };
-		BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* NSdateExtention.swift */; };
+		BC5127CD1D1F81A900033737 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CC1D1F81A900033737 /* Date+Extention.swift */; };
 		BC5127D01D1F83E000033737 /* MianCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127CF1D1F83E000033737 /* MianCellTextView.swift */; };
 		BC5127D31D1F968C00033737 /* MainCellUiimageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */; };
 		BC51CD101DD7E0E1002D3223 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC51CD0F1DD7E0E1002D3223 /* Launch Screen.storyboard */; };
@@ -174,7 +174,7 @@
 		BC01985D1D98004C00E39160 /* StarterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarterPageViewController.swift; sourceTree = "<group>"; };
 		BC0198651D98049000E39160 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		BC0198671D98069200E39160 /* Starts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starts.png; sourceTree = "<group>"; };
-		BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		BC07E4DD1D5CA85F00AC9B6D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BC1437CB1CE5CF1E00448AC0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC1437CD1CE5E29200448AC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		BC1437CF1CE5F20300448AC0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		BC42818F1D77086100D5F66E /* Chat@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Chat@2x.gif"; sourceTree = "<group>"; };
 		BC4EB1B01D536C0F00D2AEB0 /* ProfileImageButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonClass.swift; sourceTree = "<group>"; };
 		BC4EB1B21D53764F00D2AEB0 /* FollowButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowButtonClass.swift; sourceTree = "<group>"; };
-		BC5127CC1D1F81A900033737 /* NSdateExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSdateExtention.swift; sourceTree = "<group>"; };
+		BC5127CC1D1F81A900033737 /* Date+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		BC5127CF1D1F83E000033737 /* MianCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MianCellTextView.swift; sourceTree = "<group>"; };
 		BC5127D21D1F968C00033737 /* MainCellUiimageViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCellUiimageViewClass.swift; sourceTree = "<group>"; };
 		BC51CD0F1DD7E0E1002D3223 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -399,7 +399,6 @@
 			isa = PBXGroup;
 			children = (
 				BC1603661CE8569200402577 /* Post.swift */,
-				BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,7 +428,6 @@
 				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
 				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
 			);
-			name = ViewpostViewController;
 			path = ViewpostViewController;
 			sourceTree = "<group>";
 		};
@@ -455,7 +453,8 @@
 		BC5127CE1D1F820B00033737 /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
-				BC5127CC1D1F81A900033737 /* NSdateExtention.swift */,
+				BC5127CC1D1F81A900033737 /* Date+Extention.swift */,
+				BC07E4DD1D5CA85F00AC9B6D /* UIColor+Extension.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -1010,7 +1009,7 @@
 				BCFBDD8A1D633D6D0032DC6F /* ChatUserSelectViewController.swift in Sources */,
 				BCF520C21CE9B8CB0027D8EA /* MyReplysTableViewCell.swift in Sources */,
 				BC16036C1CE85C8300402577 /* PostTableViewCell.swift in Sources */,
-				BC07E4DE1D5CA86000AC9B6D /* ThemeColor.swift in Sources */,
+				BC07E4DE1D5CA86000AC9B6D /* UIColor+Extension.swift in Sources */,
 				BCF3E4F81DBC606300BC056D /* TwoImageView.swift in Sources */,
 				BCF8D6C51D9022E000FF0BB5 /* ThemeButton.swift in Sources */,
 				BC7A203A1D94B1590033F758 /* SearchViewControllerTableviewClass.swift in Sources */,
@@ -1050,7 +1049,7 @@
 				BC01985E1D98004C00E39160 /* StarterPageViewController.swift in Sources */,
 				BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */,
 				BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */,
-				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,
+				BC5127CD1D1F81A900033737 /* Date+Extention.swift in Sources */,
 				BC366D561DAA2F5700797B3A /* PickImageViewController.swift in Sources */,
 				BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */,
 				BC5E9E731D5B75E4003C1850 /* ModalTableViewCell.swift in Sources */,

@@ -75,35 +75,35 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIViewC
         SVProgressHUD.show()
         let userDefaults: UserDefaults = UserDefaults.standard
         let themeColorString: String? = userDefaults.string(forKey: "id")
-        UITabBar.appearance().tintColor = UIColor.ThemeBlue()
-        UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
+        UITabBar.appearance().tintColor = UIColor.themeBlue()
+        UINavigationBar.appearance().barTintColor = UIColor.themeBlue()
         
         if let color: String = themeColorString {
             switch color{
             case "yellow":
-                UITabBar.appearance().tintColor = UIColor.ThemeYellow()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeYellow()
+                UITabBar.appearance().tintColor = UIColor.themeYellow()
+                UINavigationBar.appearance().barTintColor = UIColor.themeYellow()
             case "lightblue":
-                UITabBar.appearance().tintColor = UIColor.ThemeLightBlue()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeLightBlue()
+                UITabBar.appearance().tintColor = UIColor.themeLightBlue()
+                UINavigationBar.appearance().barTintColor = UIColor.themeLightBlue()
             case "blue":
-                UITabBar.appearance().tintColor = UIColor.ThemeBlue()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
+                UITabBar.appearance().tintColor = UIColor.themeBlue()
+                UINavigationBar.appearance().barTintColor = UIColor.themeBlue()
             case "red":
-                UITabBar.appearance().tintColor = UIColor.ThemeRed()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeRed()
+                UITabBar.appearance().tintColor = UIColor.themeRed()
+                UINavigationBar.appearance().barTintColor = UIColor.themeRed()
             case "green":
-                UITabBar.appearance().tintColor = UIColor.ThemeGreen()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeGreen()
+                UITabBar.appearance().tintColor = UIColor.themeGreen()
+                UINavigationBar.appearance().barTintColor = UIColor.themeGreen()
             case "orange":
-                UITabBar.appearance().tintColor = UIColor.ThemeOrange()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeOrange()
+                UITabBar.appearance().tintColor = UIColor.themeOrange()
+                UINavigationBar.appearance().barTintColor = UIColor.themeOrange()
             case "purple":
-                UITabBar.appearance().tintColor = UIColor.ThemePurple()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemePurple()
+                UITabBar.appearance().tintColor = UIColor.themePurple()
+                UINavigationBar.appearance().barTintColor = UIColor.themePurple()
             default:
-                UITabBar.appearance().tintColor = UIColor.ThemeBlue()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
+                UITabBar.appearance().tintColor = UIColor.themeBlue()
+                UINavigationBar.appearance().barTintColor = UIColor.themeBlue()
             }
         }
         postButton.backgroundColor = UITabBar.appearance().tintColor
