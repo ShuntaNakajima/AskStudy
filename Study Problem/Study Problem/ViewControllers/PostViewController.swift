@@ -8,9 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import Photos
 import AVKit
 import DKImagePickerController
@@ -18,10 +15,11 @@ import JTSImageViewController
 import SVProgressHUD
 
 
-class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate,UITextViewDelegate{
+class PostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
+    
     @IBOutlet var textView:UITextView!
     
-    var Database = FIRDatabaseReference.init()
+    let ref: FIRDatabaseReference = FIRDatabase.database().reference()
     
     @IBOutlet var subjectTextfield:UITextField!
     @IBOutlet var closebutton:UIButton!
@@ -30,7 +28,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     @IBOutlet var photobutton:UIButton!
     
     let storage = FIRStorage.storage()
-    var profileImages : UIImage! = nil
+    var profileImages : UIImage!
     var profileRef : FIRStorageReference!
     var profileReforig : FIRStorageReference!
     var assets: [DKAsset]?
@@ -38,7 +36,9 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
     var photos = [UIImage]()
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         self.view.backgroundColor = UITabBar.appearance().tintColor
         self.previewView?.backgroundColor = UITabBar.appearance().tintColor
         self.closebutton.setTitleColor(UITabBar.appearance().tintColor, for: .normal)
@@ -46,8 +46,8 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         self.photobutton.setTitleColor(UITabBar.appearance().tintColor, for: .normal)
     }
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        Database = FIRDatabase.database().reference()
         
         self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
         previewView?.delegate = self
@@ -60,8 +60,6 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1
-        //textView.layer.masksToBounds = true
-        //  textView.layer.cornerRadius = 20.0
         textView.text = "Type here"
         textView.textColor = UIColor.lightGray
         textView.delegate = self
@@ -128,29 +126,21 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         toolBarKeyBoard.setItems([flexSpaces,flexSpaces,flexSpaces,flexSpaces,doneButtonKey], animated: true)
         
         textView.inputAccessoryView = toolBarKeyBoard
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func donePressedKey(sender: UIBarButtonItem){
+        
         textView.resignFirstResponder()
     }
     
     func donePressed(sender: UIBarButtonItem) {
         
         subjectTextfield.resignFirstResponder()
-        
     }
     
     func tappedToolBarBtn(sender: UIBarButtonItem) {
         
         subjectTextfield.text = "Japanese"
-        
         subjectTextfield.resignFirstResponder()
     }
     
@@ -182,12 +172,11 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     
     @IBAction func post(){
+        
         let postText = textView.text
         
         if postText != "" && subjectTextfield.text != "" {
             
-            // Build the new Joke.
-            // AnyObject is needed because of the votes of type Int.
             let date_formatter: DateFormatter = DateFormatter()
             date_formatter.locale     = NSLocale(localeIdentifier: "ja") as Locale!
             date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
@@ -202,14 +191,13 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
                 "BestAnswer": "" as AnyObject,
                 "Photo": photoCount as AnyObject
             ]
-            // Send it over to DataService to seal the deal.
             
-            let firebaseNewJoke = Database.child("post/").childByAutoId()
-            if assets?.count != nil{
-            uploadImage(key: firebaseNewJoke.key)
+            let firebaseNewJoke = ref.child("post/").childByAutoId()
+            if assets?.count != nil {
+                uploadImage(key: firebaseNewJoke.key)
             }
             firebaseNewJoke.setValue(newJoke)
-            let firebaseUserPost = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
+            let firebaseUserPost = ref.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
             firebaseUserPost.setValue(firebaseNewJoke.key)
             let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: {(action: UIAlertAction!) -> Void in
@@ -237,6 +225,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         )}
 }
 extension PostViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
     func showImagePickerWithAssetType(_ assetType: DKImagePickerControllerAssetType,
                                       sourceType: DKImagePickerControllerSourceType = .both,
                                       maxSelectableCount: Int,
@@ -244,28 +233,14 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
                                       singleSelect: Bool) {
         
         let pickerController = DKImagePickerController()
-        
-        // Custom camera
-        //		pickerController.UIDelegate = CustomUIDelegate()
-        //		pickerController.modalPresentationStyle = .OverCurrentContext
-        
         pickerController.assetType = assetType
         pickerController.allowsLandscape = allowsLandscape
         pickerController.maxSelectableCount = maxSelectableCount
         pickerController.sourceType = sourceType
         pickerController.singleSelect = singleSelect
-        
-        //		pickerController.showsCancelButton = true
-        //		pickerController.showsEmptyAlbums = false
-        //		pickerController.defaultAssetGroup = PHAssetCollectionSubtype.SmartAlbumFavorites
-        
-        // Clear all the selected assets if you used the picker controller as a single instance.
-        //		pickerController.defaultSelectedAssets = nil
-        
         pickerController.defaultSelectedAssets = self.assets
         
         pickerController.didSelectAssets = { [unowned self] (assets: [DKAsset]) in
-            print("didSelectAssets")
             
             self.assets = assets
             self.previewView?.reloadData()
@@ -311,6 +286,7 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let asset = self.assets![indexPath.row]
         var cell: UICollectionViewCell?
         var imageView: UIImageView?
@@ -336,6 +312,7 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         return cell!
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image = assets![indexPath.row]
         image.fetchFullScreenImage(false, completeBlock: { images, info in
@@ -348,6 +325,7 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
             imageViewer?.show(from: self, transition: JTSImageViewControllerTransition.fromOriginalPosition)
         })
     }
+    
     func uploadImage(key:String!){
         for (index,asset) in assets!.enumerated(){
             asset.fetchFullScreenImage(false, completeBlock: { image, info in
@@ -358,13 +336,12 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
                 self.profileRef = storageRef.child("\(key!)/\(index).png")
                 let uploadTask = self.profileRef.put(data as Data, metadata: metadata) { metadata, error in
                     if (error != nil) {
-                        // Uh-oh, an error occurred!
+                        
                     } else {
-                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        
                     }
                 }
                 uploadTask.observe(.progress) { snapshot in
-                    // Upload reported progress
                     
                     if let progress = snapshot.progress {
                         let number = 100/self.assets!.count
@@ -374,10 +351,10 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
                 }
                 uploadTask.observe(.success) { snapshot in
                     if index == self.assets!.count - 1{
-                    SVProgressHUD.showSuccess(withStatus: "Successful!")
-                    let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-                    DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
-                }
+                        SVProgressHUD.showSuccess(withStatus: "Successful!")
+                        let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+                        DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
+                    }
                 }
             })
         }
