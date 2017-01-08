@@ -29,7 +29,7 @@ extension StarPostViewController: UITableViewDataSource, UITableViewDelegate{
         cell.subjectLabel.text = post["subject"] as? String!
         let postdate = post["date"] as! String!
         cell.dateLabel.text = Date().offset(toDate: (postdate?.postDate())!)
-        cell.textView.text = post["text"] as? String
+        cell.mainCellLabel.text = post["text"] as? String
         let currentUser = ref.child("user").child((post["author"] as? String)!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             

@@ -26,7 +26,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate, UIScro
         cell.subjectLabel.text = post["subject"] as! String!
         let postdate: String = post["date"] as! String
         cell.dateLabel.text = Date().offset(toDate: postdate.postDate())
-        cell.textView.text = post["text"] as? String
+        cell.mainCellLabel.text = post["text"] as? String
         let currentUserRef: FIRDatabaseReference = ref.child("user").child(post["author"] as! String)
         currentUserRef.observe(FIRDataEventType.value, with: { snapshot in
             
