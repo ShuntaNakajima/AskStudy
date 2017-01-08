@@ -156,7 +156,7 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate, UIViewC
         let row = sender.tag
         let segueUser = posts[row]["author"] as! String
         let viewcontroller: UserDetailModalViewController = self.presentedViewController as! UserDetailModalViewController
-        viewcontroller.UserKey = segueUser
+        viewcontroller.userKey = segueUser
     }
 }
 
