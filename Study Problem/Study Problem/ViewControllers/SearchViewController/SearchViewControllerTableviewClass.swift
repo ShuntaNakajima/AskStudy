@@ -95,13 +95,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         if segmentedControl.selectedSegmentIndex == 0 {
             
-            let post = posts[indexPath.row]
-            selectpost = post
-            selectpostID = post["key"] as! String!
-            if selectpost != nil {
-                searchBar.resignFirstResponder()
-                performSegue(withIdentifier: "viewSarchPost",sender: nil)
-            }
+            selectpost = posts[indexPath.row]
+            selectpostID = selectpost["key"] as! String!
+            searchBar.resignFirstResponder()
+            performSegue(withIdentifier: "viewSarchPost",sender: nil)
+            
         }
     }
     
