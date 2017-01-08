@@ -422,14 +422,15 @@
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */ = {
+		BC25AFB91D2E7F0100A9F881 /* ViewpostViewController */ = {
 			isa = PBXGroup;
 			children = (
 				BC19B23D1DAA083D009D2498 /* BestAnswer.swift */,
 				BCF520B31CE8A8330027D8EA /* ViewpostViewController.swift */,
 				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
 			);
-			path = ViewpostViewCOntroller;
+			name = ViewpostViewController;
+			path = ViewpostViewController;
 			sourceTree = "<group>";
 		};
 		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
@@ -442,7 +443,7 @@
 				BCE425161D9779B000F49F1D /* Setting */,
 				BC79806E1D75C6A000ACAE5C /* StarPostViewController */,
 				BC5E9E6D1D5B6ED4003C1850 /* UserDetailModalViewController */,
-				BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */,
+				BC25AFB91D2E7F0100A9F881 /* ViewpostViewController */,
 				BC366D551DAA2F5700797B3A /* PickImageViewController.swift */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
 				BC9967FA1D97B4FB001E3AA1 /* StarDetailViewController.swift */,
