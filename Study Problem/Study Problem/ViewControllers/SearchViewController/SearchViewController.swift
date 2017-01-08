@@ -150,7 +150,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UIGestureReco
             segueUser = posts[row]["key"] as! String
         }
         let viewcontroller: UserDetailModalViewController = self.presentedViewController as! UserDetailModalViewController
-        viewcontroller.UserKey = self.segueUser
+        viewcontroller.userKey = self.segueUser
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
