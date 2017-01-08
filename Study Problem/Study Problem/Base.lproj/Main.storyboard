@@ -1154,13 +1154,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="1xa-p0-qho"/>
                     <connections>
-                        <outlet property="BlueButton" destination="teo-e1-ipf" id="cKv-G1-ilW"/>
-                        <outlet property="GreenButton" destination="7hA-td-C9A" id="7a3-8v-F3n"/>
-                        <outlet property="LightBlueButton" destination="oAA-Xj-gu6" id="K8e-Nz-fZO"/>
-                        <outlet property="OrangeButton" destination="cFL-cS-9U3" id="ZXd-oV-5nN"/>
-                        <outlet property="PurpleButton" destination="XBt-Qq-qA1" id="ajQ-lU-RGd"/>
-                        <outlet property="RedButton" destination="NhF-y9-jr1" id="WYY-Gd-iaf"/>
-                        <outlet property="YellowButton" destination="7VB-9M-JXA" id="hR9-eb-YOt"/>
+                        <outlet property="blueButton" destination="teo-e1-ipf" id="JuG-5d-BbP"/>
+                        <outlet property="greenButton" destination="7hA-td-C9A" id="JPS-eR-Djt"/>
+                        <outlet property="lightBlueButton" destination="oAA-Xj-gu6" id="2yY-60-i2y"/>
+                        <outlet property="orangeButton" destination="cFL-cS-9U3" id="gL7-8s-e3x"/>
+                        <outlet property="purpleButton" destination="XBt-Qq-qA1" id="PyU-Vs-JCA"/>
+                        <outlet property="redButton" destination="NhF-y9-jr1" id="wFb-B5-5JF"/>
+                        <outlet property="yellowButton" destination="7VB-9M-JXA" id="YrK-Yj-N6u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTo-ry-3cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1204,7 +1204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6D-KI-e9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023.5507246376815" y="-1462.6875"/>
+            <point key="canvasLocation" x="2165" y="-1463"/>
         </scene>
         <!--Star Detail View Controller-->
         <scene sceneID="6ij-Pd-VIR">
@@ -1337,6 +1337,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eHI-c3-pJ3"/>
+        <segue reference="kmm-RN-9aq"/>
     </inferredMetricsTieBreakers>
 </document>
