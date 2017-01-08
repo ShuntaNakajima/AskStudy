@@ -12,7 +12,7 @@ import WebImage
 
 class PostTableViewCell: UITableViewCell {
     
-    @IBOutlet var textView : MianCellTextView!
+    @IBOutlet var mainCellLabel : MainCellButton!
     @IBOutlet var profileImage: MainCellButton!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var replyscountLabel : UILabel!
@@ -22,7 +22,6 @@ class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,28 +30,29 @@ class PostTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        for (index,i) in self.view.subviews.enumerated(){
-            print(i)
-        switch i{
-        case is OnePhotoView: let nib = self.view.subviews[index] as! OnePhotoView
+        for (index,i) in self.view.subviews.enumerated() {
+            
+            switch i{
+            case is OnePhotoView: let nib = self.view.subviews[index] as! OnePhotoView
             nib.cancelReload()
-        case is TwoView: let nib = self.view.subviews[index] as! TwoView
-        nib.cancelReload()
-        case is ThreeView: let nib = self.view.subviews[index] as! ThreeView
-        nib.cancelReload()
-        case is FourView: let nib = self.view.subviews[index] as! FourView
-        nib.cancelReload()
-        default:break
-        }
+            case is TwoView: let nib = self.view.subviews[index] as! TwoView
+            nib.cancelReload()
+            case is ThreeView: let nib = self.view.subviews[index] as! ThreeView
+            nib.cancelReload()
+            case is FourView: let nib = self.view.subviews[index] as! FourView
+            nib.cancelReload()
+            default:break
+            }
         }
     }
+    
     func setNib(photos:Int,key:String,on:UIViewController){
         var imagePhotos = [String!]()
         if photos != 0{
             switch photos{
             case 1:
                 let nib = OnePhotoView.instance()
-               // nib.resetview(on: on)
+                // nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
@@ -61,7 +61,7 @@ class PostTableViewCell: UITableViewCell {
                 }
             case 2:
                 let nib = TwoView.instance()
-             //   nib.resetview(on: on)
+                //   nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
@@ -70,7 +70,7 @@ class PostTableViewCell: UITableViewCell {
                 }
             case 3:
                 let nib = ThreeView.instance()
-               // nib.resetview(on: on)
+                // nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
@@ -79,7 +79,7 @@ class PostTableViewCell: UITableViewCell {
                 }
             case 4:
                 let nib = FourView.instance()
-               // nib.resetview(on: on)
+                // nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
