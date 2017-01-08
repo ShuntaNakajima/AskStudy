@@ -130,14 +130,16 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
          // let nytPhoto = NYTPhoto(image: asset as? UIImage, imageData: nil, placeholderImage: nil, attributedCaptionTitle: nil, 
     }
     @IBAction func image(){
-        showImagePickerWithAssetType(            .allPhotos,
+        showImagePickerWithAssetType(.allPhotos,
             sourceType: .both,
             maxSelectableCount: 4,
             allowsLandscape: false,
             singleSelect: true
         )
     }
+    
     func cropImageToSquare(image: UIImage) -> UIImage? {
+        
         if image.size.width > image.size.height {
             let cropCGImageRef = image.cgImage!.cropping(to: CGRect(x:image.size.width/2 - image.size.height/2,y: 0,width: image.size.height,height: image.size.height))
             
