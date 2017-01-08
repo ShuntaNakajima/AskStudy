@@ -8,145 +8,160 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 
 class UserDetailModalViewController: UIViewController {
-    var UserKey = ""
-    var Database = FIRDatabaseReference.init()
-    @IBOutlet var ProfileImageButton:ProfileImageButtonClass!
-    @IBOutlet var ProfileLabel:UILabel!
-    @IBOutlet var ExitButton:UIButton!
-    @IBOutlet var FollowButton:FollowButtonClass!
-    @IBOutlet var FollowIngButton:UIButton!
-    @IBOutlet var FollowerButton:UIButton!
-    @IBOutlet var UserPostButton:UIButton!
-    @IBOutlet var UserGropeButton:UIButton!
-    var mykey = ""
-    var postkeys = [String!]()
-    var mypost = [Dictionary<String, AnyObject>]()
-    var selectpost : String!
+    
+    var userKey = ""
+    let ref: FIRDatabaseReference = FIRDatabase.database().reference()
+    @IBOutlet var profileImageButton: ProfileImageButtonClass!
+    @IBOutlet var profileLabel: UILabel!
+    @IBOutlet var exitButton: UIButton!
+    @IBOutlet var followButton: FollowButtonClass!
+    @IBOutlet var followIngButton: UIButton!
+    @IBOutlet var followerButton: UIButton!
+    @IBOutlet var userPostButton: UIButton!
+    @IBOutlet var userGropeButton: UIButton!
+    var myKey: String = ""
+    var postKeys: [String] = []
+    var myPosts: [[String: AnyObject]] = []
+    var selectedPost: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ExitButton.layer.cornerRadius=15
-        ExitButton.layer.masksToBounds=true
+        
+        exitButton.layer.cornerRadius = 15
+        exitButton.layer.masksToBounds = true
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func ExitButtonPushed(){
+    
+    @IBAction func exitButtonPushed(){
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func Follow(){
-        if self.UserKey == (FIRAuth.auth()?.currentUser!.uid)!{
-        }else if mykey == ""{
-            FollowButtonClass().follow(uid: UserKey)
+    
+    @IBAction func follow(){
+        if self.userKey == (FIRAuth.auth()?.currentUser!.uid)!{
+        }else if myKey == ""{
+            
+            FollowButtonClass().follow(uid: userKey)
         }else{
-            FollowButtonClass().unfollow(uid: UserKey)
+            
+            FollowButtonClass().unfollow(uid: userKey)
         }
     }
+    
     func reloadFollowButton(){
-        let Database = FIRDatabase.database().reference()
-        let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: "user").queryEqual(toValue: self.UserKey))
+        
+        let recentUesrsQuery = ref.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: "user").queryEqual(toValue: self.userKey)
         recentUesrsQuery.observe(.value, with: { snapshot in
-            self.mykey = ""
+            self.myKey = ""
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
-                    self.mykey = snap.key
+                    self.myKey = snap.key
                 }
             }
-            if self.UserKey == (FIRAuth.auth()?.currentUser!.uid)!{
-                self.FollowButton.setTitle("Me", for: .normal)
-                self.FollowButton.setTitleColor(UIColor.blue, for: .normal)
-            }else if self.mykey == ""{
-                self.FollowButton.setTitle("Follow", for: .normal)
-                self.FollowButton.setTitleColor(UIColor.black, for: .normal)
+            if self.userKey == (FIRAuth.auth()?.currentUser!.uid)!{
+                
+                self.followButton.setTitle("Me", for: .normal)
+                self.followButton.setTitleColor(UIColor.blue, for: .normal)
+            }else if self.myKey == "" {
+                
+                self.followButton.setTitle("Follow", for: .normal)
+                self.followButton.setTitleColor(UIColor.black, for: .normal)
             }else{
-                self.FollowButton.setTitle("UnFollow", for: .normal)
-                self.FollowButton.setTitleColor(UIColor.red, for: .normal)
+                
+                self.followButton.setTitle("UnFollow", for: .normal)
+                self.followButton.setTitleColor(UIColor.red, for: .normal)
             }
         })
     }
+    
     func loadData(){
-        let Database = FIRDatabase.database().reference()
-        let User = Database.child("user").child(UserKey)
-        Database.child("user/" + self.UserKey + "/followers").observe(.value, with: { snapshot in
+        
+        let userRef = ref.child("user").child(userKey)
+        ref.child("user/" + self.userKey + "/followers").observe(.value, with: { snapshot in
             if let snap = snapshot as? FIRDataSnapshot {
                 var num = snap.value as! Int
                 if num == -1{
                     num = 0
                 }
-                self.FollowerButton.setTitle(String(num), for: .normal)
+                self.followerButton.setTitle(String(num), for: .normal)
                 self.reloadFollowButton()
             }
         })
-        Database.child("user/" + self.UserKey + "/follows").observe(.value, with: { snapshot in
+        ref.child("user/" + self.userKey + "/follows").observe(.value, with: { snapshot in
             if let snap = snapshot as? FIRDataSnapshot {
                 var num = snap.value as! Int
-                if num == -1{
+                if num == -1 {
                     num = 0
                 }
-                self.FollowIngButton.setTitle(String(num), for: .normal)
+                self.followIngButton.setTitle(String(num), for: .normal)
             }
         })
         reloadFollowButton()
-        Database.child("user/" + self.UserKey + "/posts").observe(.value, with: { snapshot in
+        ref.child("user/" + self.userKey + "/posts").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                self.postkeys = []
+                self.postKeys = []
                 for snap in snapshots {
                     if let post = snap.value as? String {
-                        self.postkeys.insert(post, at: 0)
+                        
+                        self.postKeys.insert(post, at: 0)
                     }
                 }
-                if self.postkeys.isEmpty{}else{
-                let post = self.postkeys[0]
-                print(post)
-                Database.child("post/" + post! + "/").observe(.value, with: { snapshot in
-                    if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                        var apost = Dictionary<String, AnyObject>()
-                        for snap in snapshots{
-                            apost[snap.key] = snap.value as AnyObject?
+                
+                if self.postKeys.isEmpty{}else{
+                    let post = self.postKeys[0]
+                    
+                    self.ref.child("post/" + post + "/").observe(.value, with: { snapshot in
+                        if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                            var apost = Dictionary<String, AnyObject>()
+                            for snap in snapshots{
+                                apost[snap.key] = snap.value as AnyObject?
+                            }
+                            self.myPosts.append(apost)
                         }
-                        self.mypost.append(apost)
-                    }
-                })
+                    })
                 }
             }
         })
-        User.observe(FIRDataEventType.value, with: { snapshot in
+        userRef.observe(FIRDataEventType.value, with: { snapshot in
+            
             let postUser = (snapshot.value! as AnyObject!)["username"] as! String
-            self.ProfileLabel.text = postUser
-            let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: self.UserKey))
+            self.profileLabel.text = postUser
+            let recentUesrsQuery = self.ref.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: self.userKey)
             recentUesrsQuery.observe(.value, with: { snapshot in
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    
                     for snap in snapshots {
-                        self.mykey = snap.key
+                        self.myKey = snap.key
                         self.reloadFollowButton()
                     }
                 }
             })
-            }, withCancel: { error in
+        }, withCancel: { error in
         })
+        
         DispatchQueue.global().async(execute: {
+            
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
             let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\(self.UserKey)/profileimage.png")
-            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
+            let autorsprofileRef = storageRef.child("\(self.userKey)/profileimage.png")
+            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { data, error in
+                
                 if error != nil {
-                    print(error)
-                } else {
+                    
+                    print("\(error)")
+                }else {
+                    
                     viewImg = data.flatMap(UIImage.init)!
                     DispatchQueue.main.async(execute:{
-                        self.ProfileImageButton.setBackgroundImage(viewImg, for: .normal)
-                    });
+                        self.profileImageButton.setBackgroundImage(viewImg, for: .normal)
+                    })
                 }
             }
         });
