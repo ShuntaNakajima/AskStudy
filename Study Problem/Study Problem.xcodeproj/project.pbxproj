@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395B83801E24589E00421F19 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395B837F1E24589E00421F19 /* StoryboardInstantiable.swift */; };
 		729810BB871C2C24CAF292B5 /* Pods_Study_Problem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */; };
 		BC0095EA1D5DFE8400FBA347 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0095E91D5DFE8400FBA347 /* ToastView.swift */; };
 		BC0095EC1D5E0BF000FBA347 /* star.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC0095EB1D5E0BF000FBA347 /* star.gif */; };
@@ -153,6 +154,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		395B837F1E24589E00421F19 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryboardInstantiable.swift; path = Protocols/StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		4F012C46BD228AB7DDA7EE6B /* Pods-Study Problem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Problem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Problem/Pods-Study Problem.debug.xcconfig"; sourceTree = "<group>"; };
 		6576D153FA40607098BB99E6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0095E91D5DFE8400FBA347 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -352,6 +354,14 @@
 			name = Resorces;
 			sourceTree = "<group>";
 		};
+		395B83811E24682200421F19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				395B837F1E24589E00421F19 /* StoryboardInstantiable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		3A246FAC62CDD551976F47EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +497,7 @@
 		BC54BB7B1CE4AE720013C0DD /* Study Problem */ = {
 			isa = PBXGroup;
 			children = (
+				395B83811E24682200421F19 /* Protocols */,
 				BCF3E4EC1DBC56FE00BC056D /* ImageView */,
 				BCEDA1411D95500E006F05D5 /* Defalts */,
 				BC1437D11CE60E7400448AC0 /* User */,
@@ -1020,6 +1031,7 @@
 				BCFBDD881D633C940032DC6F /* ChatViewControllerTableView.swift in Sources */,
 				BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */,
 				BCF576ED1D649FE500C50BBC /* ChatUserAddViewController.swift in Sources */,
+				395B83801E24589E00421F19 /* StoryboardInstantiable.swift in Sources */,
 				BCF3E4F61DBC605900BC056D /* OneImageView.swift in Sources */,
 				BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */,
 				BC1603671CE8569200402577 /* Post.swift in Sources */,
