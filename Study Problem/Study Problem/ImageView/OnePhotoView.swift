@@ -8,7 +8,7 @@
 
 import UIKit
 import JTSImageViewController
-import SDWebImage
+import WebImage
 
 class OnePhotoView: UIView {
     
@@ -46,7 +46,6 @@ class OnePhotoView: UIView {
         }
     }
     func showImage(index:UIImageView){
-        print(index.tag)
         let imageInfo = JTSImageInfo()
         imageInfo.image = imageViews[index.tag].currentBackgroundImage
         imageInfo.referenceRect = (self.imageViews[index.tag].frame)

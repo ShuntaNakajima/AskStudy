@@ -7,13 +7,11 @@
 //
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import BubbleTransition
 import JTSImageViewController
 import SVProgressHUD
-import SDWebImage
+import WebImage
+
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
     var Database = FIRDatabaseReference.init()
     var selectpost : Dictionary<String, AnyObject> = [:]
@@ -75,7 +73,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         postButton.backgroundColor = UITabBar.appearance().tintColor
-        reloadData()
+        reloadData(success: {_ in})
         DataCacheNetwork().loadCache(limit: number, success: {posts in
             self.posts = posts
             SVProgressHUD.dismiss()

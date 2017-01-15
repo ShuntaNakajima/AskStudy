@@ -8,9 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import Photos
 import AVKit
 import DKImagePickerController
@@ -205,26 +202,19 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
                                       singleSelect: Bool) {
         
         let pickerController = DKImagePickerController()
-        
         pickerController.assetType = assetType
         pickerController.allowsLandscape = allowsLandscape
         pickerController.maxSelectableCount = maxSelectableCount
         pickerController.sourceType = sourceType
         pickerController.singleSelect = singleSelect
-        
         pickerController.defaultSelectedAssets = self.assets
-        
         pickerController.didSelectAssets = { [unowned self] (assets: [DKAsset]) in
-            print("didSelectAssets")
-            
             self.assets = assets
             self.previewView?.reloadData()
         }
-        
         if UI_USER_INTERFACE_IDIOM() == .pad {
             pickerController.modalPresentationStyle = .formSheet
         }
-        
         self.present(pickerController, animated: true) {}
     }
     

@@ -8,8 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
 
 class LoginViewController: UIViewController,CAAnimationDelegate {
     var Database = FIRDatabase.database().reference()

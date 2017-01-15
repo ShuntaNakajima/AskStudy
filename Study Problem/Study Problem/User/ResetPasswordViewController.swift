@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 
 class ResetPasswordViewController: UIViewController ,CAAnimationDelegate{
         @IBOutlet weak var emailField: UITextField!

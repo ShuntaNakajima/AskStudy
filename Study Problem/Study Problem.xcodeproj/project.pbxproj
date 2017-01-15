@@ -36,6 +36,12 @@
 		BC25AFB81D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */; };
 		BC28B8801DAB440A0010DA17 /* Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = BC28B87F1DAB440A0010DA17 /* Photo.png */; };
 		BC3144281E2B131100BBBD70 /* ChangeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3144271E2B131100BBBD70 /* ChangeColor.swift */; };
+		BC3144301E2B1B9C00BBBD70 /* BubbleTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442A1E2B1B9C00BBBD70 /* BubbleTransition.framework */; };
+		BC3144311E2B1B9C00BBBD70 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442B1E2B1B9C00BBBD70 /* DZNEmptyDataSet.framework */; };
+		BC3144321E2B1B9C00BBBD70 /* KRProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442C1E2B1B9C00BBBD70 /* KRProgressHUD.framework */; };
+		BC3144331E2B1B9C00BBBD70 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442D1E2B1B9C00BBBD70 /* RSKImageCropper.framework */; };
+		BC3144341E2B1B9C00BBBD70 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442E1E2B1B9C00BBBD70 /* SVProgressHUD.framework */; };
+		BC3144351E2B1B9C00BBBD70 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */; };
 		BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1271D4F913D00086026 /* CustomPresentationController.swift */; };
 		BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */; };
 		BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */; };
@@ -185,6 +191,12 @@
 		BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewpostViewControllerTableView.swift; sourceTree = "<group>"; };
 		BC28B87F1DAB440A0010DA17 /* Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photo.png; sourceTree = "<group>"; };
 		BC3144271E2B131100BBBD70 /* ChangeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeColor.swift; sourceTree = "<group>"; };
+		BC31442A1E2B1B9C00BBBD70 /* BubbleTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BubbleTransition.framework; path = Carthage/Build/iOS/BubbleTransition.framework; sourceTree = "<group>"; };
+		BC31442B1E2B1B9C00BBBD70 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
+		BC31442C1E2B1B9C00BBBD70 /* KRProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRProgressHUD.framework; path = Carthage/Build/iOS/KRProgressHUD.framework; sourceTree = "<group>"; };
+		BC31442D1E2B1B9C00BBBD70 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKImageCropper.framework; path = Carthage/Build/iOS/RSKImageCropper.framework; sourceTree = "<group>"; };
+		BC31442E1E2B1B9C00BBBD70 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 		BC32D1271D4F913D00086026 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewController.swift; sourceTree = "<group>"; };
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
@@ -300,6 +312,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3144301E2B1B9C00BBBD70 /* BubbleTransition.framework in Frameworks */,
+				BC3144311E2B1B9C00BBBD70 /* DZNEmptyDataSet.framework in Frameworks */,
+				BC3144321E2B1B9C00BBBD70 /* KRProgressHUD.framework in Frameworks */,
+				BC3144331E2B1B9C00BBBD70 /* RSKImageCropper.framework in Frameworks */,
+				BC3144341E2B1B9C00BBBD70 /* SVProgressHUD.framework in Frameworks */,
+				BC3144351E2B1B9C00BBBD70 /* WebImage.framework in Frameworks */,
 				729810BB871C2C24CAF292B5 /* Pods_Study_Problem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +385,12 @@
 		3A246FAC62CDD551976F47EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC31442A1E2B1B9C00BBBD70 /* BubbleTransition.framework */,
+				BC31442B1E2B1B9C00BBBD70 /* DZNEmptyDataSet.framework */,
+				BC31442C1E2B1B9C00BBBD70 /* KRProgressHUD.framework */,
+				BC31442D1E2B1B9C00BBBD70 /* RSKImageCropper.framework */,
+				BC31442E1E2B1B9C00BBBD70 /* SVProgressHUD.framework */,
+				BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */,
 				6576D153FA40607098BB99E6 /* Pods.framework */,
 				CC153ED82D6BFF197674F225 /* Pods_Study_Problem.framework */,
 			);
@@ -742,6 +766,7 @@
 				BC54BB771CE4AE720013C0DD /* Resources */,
 				EA3871DB0CAEE01E292F6F17 /* [CP] Embed Pods Frameworks */,
 				ED1472372B0DF72554B126F8 /* [CP] Copy Pods Resources */,
+				BC3144291E2B1AD300BBBD70 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -939,8 +964,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		BC3144291E2B1AD300BBBD70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/WebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BubbleTransition.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RSKImageCropper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KRProgressHUD.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		EA3871DB0CAEE01E292F6F17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1180,6 +1224,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Study Problem/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1201,6 +1249,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Study Problem/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -31,8 +31,11 @@ open class DKAsset: NSObject {
 	open private(set) var duration: Double?
 	
 	open private(set) var originalAsset: PHAsset?
+    
+    open var localIdentifier: String
 		
 	public init(originalAsset: PHAsset) {
+        self.localIdentifier = originalAsset.localIdentifier
 		super.init()
 		
 		self.originalAsset = originalAsset
@@ -46,20 +49,18 @@ open class DKAsset: NSObject {
 	
 	private var image: UIImage?
 	internal init(image: UIImage) {
+        self.localIdentifier = String(image.hash)
 		super.init()
+        
 		self.image = image
 		self.fullScreenImage = (image, nil)
 	}
 	
 	override open func isEqual(_ object: Any?) -> Bool {
-		let another = object as! DKAsset!
-		
-		if let localIdentifier = self.originalAsset?.localIdentifier,
-			let anotherLocalIdentifier = another?.originalAsset?.localIdentifier {
-				return localIdentifier.isEqual(anotherLocalIdentifier)
-		} else {
-			return false
-		}
+        if let another = object as? DKAsset {
+            return self.localIdentifier == another.localIdentifier
+        }
+        return false
 	}
 	
 	public func fetchImageWithSize(_ size: CGSize, completeBlock: @escaping (_ image: UIImage?, _ info: [AnyHashable: Any]?) -> Void) {
@@ -74,7 +75,7 @@ open class DKAsset: NSObject {
 		if let _ = self.originalAsset {
 			getImageManager().fetchImageForAsset(self, size: size, options: options, contentMode: contentMode, completeBlock: completeBlock)
 		} else {
-			completeBlock(self.image!, nil)
+			completeBlock(self.image, nil)
 		}
 	}
 	
@@ -124,10 +125,29 @@ open class DKAsset: NSObject {
 		options.isSynchronous = sync
 		
 		getImageManager().fetchImageDataForAsset(self, options: options, completeBlock: { (data, info) in
-			let image = UIImage(data: data!)
+            var image: UIImage?
+            if let data = data {
+    			image = UIImage(data: data)
+            }
 			completeBlock(image, info)
 		})
 	}
+    
+    /**
+     Fetch an image data with the original size.
+     
+     - parameter sync:          If true, the method blocks the calling thread until image is ready or an error occurs.
+     - parameter completeBlock: The block is executed when the image download is complete.
+     */
+    public func fetchImageDataForAsset(_ sync: Bool, completeBlock: @escaping (_ imageData: Data?, _ info: [AnyHashable: Any]?) -> Void) {
+        let options = PHImageRequestOptions()
+        options.version = .current
+        options.isSynchronous = sync
+        
+        getImageManager().fetchImageDataForAsset(self, options: options, completeBlock: { (data, info) in
+            completeBlock(data, info)
+        })
+    }
 	
     /**
      Fetch an AVAsset with a completeBlock.
@@ -198,21 +218,22 @@ public extension DKAsset {
      - parameter presetName:    An NSString specifying the name of the preset template for the export. See AVAssetExportPresetXXX.
      */
 	public func writeAVToFile(_ path: String, presetName: String, completeBlock: @escaping (_ success: Bool) -> Void) {
-		self.fetchAVAsset(nil) { (AVAsset, _) in
-			DKAssetWriter.writeQueue.addOperation({
-				if let exportSession = AVAssetExportSession(asset: AVAsset!, presetName: presetName) {
-					exportSession.outputFileType = AVFileTypeQuickTimeMovie
-					exportSession.outputURL = URL(fileURLWithPath: path)
-					exportSession.shouldOptimizeForNetworkUse = true
-					exportSession.exportAsynchronously(completionHandler: {
-						completeBlock(exportSession.status == .completed ? true : false)
-					})
-				} else {
-					completeBlock(false)
-				}
-			})
-		}
-	}
+		self.fetchAVAsset(nil) { (avAsset, _) in
+            DKAssetWriter.writeQueue.addOperation({
+                if let avAsset = avAsset,
+                    let exportSession = AVAssetExportSession(asset: avAsset, presetName: presetName) {
+                    exportSession.outputFileType = AVFileTypeQuickTimeMovie
+                    exportSession.outputURL = URL(fileURLWithPath: path)
+                    exportSession.shouldOptimizeForNetworkUse = true
+                    exportSession.exportAsynchronously(completionHandler: {
+                        completeBlock(exportSession.status == .completed ? true : false)
+                    })
+                } else {
+                    completeBlock(false)
+                }
+            })
+        }
+    }
 }
 
 public extension AVAsset {
