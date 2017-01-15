@@ -12,12 +12,11 @@ import RSKImageCropper
 import SVProgressHUD
 
 class SettingViewController: UITableViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate  ,RSKImageCropViewControllerDelegate, RSKImageCropViewControllerDataSource,UITextFieldDelegate{
-    //var Database = Firebase(url: "https://studyproblemfirebase.firebaseio.com/")
     @IBOutlet var profileimage:UIButton!
     @IBOutlet var emailTextField:UILabel!
     @IBOutlet var usernameTextField:UILabel!
     @IBOutlet var usernameTextFieldincell:UILabel!
-     @IBOutlet var gradeTextField:UILabel!
+    @IBOutlet var gradeTextField:UILabel!
     var Database = FIRDatabaseReference.init()
     let user = FIRAuth.auth()?.currentUser
     let storage = FIRStorage.storage()
@@ -58,7 +57,6 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         super.viewWillAppear(animated)
         profileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
             if error != nil {
-                // Uh-oh, an error occurred!
                 print(error)
             } else {
                 
@@ -68,11 +66,6 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         }
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         self.navigationController?.navigationBar.topItem?.title = "AskStudy"
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     @IBAction func logoutbutton(){
         try! FIRAuth.auth()!.signOut()
@@ -95,7 +88,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // イメージ表示
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let imageCropVC: RSKImageCropViewController = RSKImageCropViewController(image: image, cropMode: RSKImageCropMode.circle)
@@ -120,20 +113,14 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         let metadata = FIRStorageMetadata()
-         //firebaseにプロフィールイメージをアップロードする
         let data: NSData = UIImagePNGRepresentation(resizedImage!)! as NSData
         let uploadTask = profileRef.put(data as Data, metadata: metadata) { metadata, error in
             if (error != nil) {
-                // Uh-oh, an error occurred!
             } else {
-                // Metadata contains file metadata such as size, content-type, and download URL.
-                
             }
             
         }
         uploadTask.observe(.progress) { snapshot in
-            // Upload reported progress
-            
             if let progress = snapshot.progress {
                 let percentComplete = 50 * Int(progress.completedUnitCount) / Int(progress.totalUnitCount)
                 SVProgressHUD.show(withStatus: "\(percentComplete)/100")
@@ -144,16 +131,10 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             let data: NSData = UIImagePNGRepresentation(croppedImage)! as NSData
             let uploadTasks = self.profileReforig.put(data as Data, metadata: metadatas) { metadatas, error in
                 if (error != nil) {
-                    // Uh-oh, an error occurred!
                 } else {
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    
                 }
-                
             }
             uploadTasks.observe(.progress) { snapshot in
-                // Upload reported progress
-                
                 if let progress = snapshot.progress {
                     let percentComplete = 50 * Int(progress.completedUnitCount) / Int(progress.totalUnitCount)
                     SVProgressHUD.show(withStatus: "\(50 + percentComplete)/100")
@@ -165,49 +146,34 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
                 DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
                 self.profileimage.setBackgroundImage(resizedImage, for: .normal)
             }
-            
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
     func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
-        
         var maskSize: CGSize
         var width, height: CGFloat!
-        
         width = self.view.frame.width
-        
-        
-        
-        height = self.view.frame.width / 1
-        //正方形
-        
+        height = self.view.frame.width / 1//正方形
         maskSize = CGSize(width:self.view.frame.width,height: height)
-        
         let viewWidth: CGFloat = controller.view.frame.width
         let viewHeight: CGFloat = controller.view.frame.height
-        
         let maskRect: CGRect = CGRect(x:(viewWidth - maskSize.width) * 0.5, y:(viewHeight - maskSize.height) * 0.5, width:maskSize.width,height: maskSize.height)
         return maskRect
     }
-    
     // トリミングしたい領域を描画
     func imageCropViewControllerCustomMaskPath(_ controller: RSKImageCropViewController) -> UIBezierPath {
         let rect: CGRect = controller.maskRect
-        
         let point1: CGPoint = CGPoint(x:rect.minX,y: rect.maxY)
         let point2: CGPoint = CGPoint(x:rect.minX,y: rect.maxY)
         let point3: CGPoint = CGPoint(x:rect.minX,y: rect.maxY)
         let point4: CGPoint = CGPoint(x:rect.minX,y: rect.maxY)
-        
         let square: UIBezierPath = UIBezierPath()
         square.move(to: point1)
         square.addLine(to: point2)
         square.addLine(to: point3)
         square.addLine(to: point4)
         square.close()
-        
         return square
-        
     }
     
     func imageCropViewControllerCustomMovementRect(_ controller: RSKImageCropViewController) -> CGRect {

@@ -33,10 +33,6 @@ class UserDetailModalViewController: UIViewController {
         super.viewWillAppear(animated)
         loadData()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @IBAction func ExitButtonPushed(){
         self.dismiss(animated: true, completion: nil)
     }
@@ -103,16 +99,16 @@ class UserDetailModalViewController: UIViewController {
                     }
                 }
                 if self.postkeys.isEmpty{}else{
-                let post = self.postkeys[0]
-                Database.child("post/" + post! + "/").observe(.value, with: { snapshot in
-                    if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                        var apost = Dictionary<String, AnyObject>()
-                        for snap in snapshots{
-                            apost[snap.key] = snap.value as AnyObject?
+                    let post = self.postkeys[0]
+                    Database.child("post/" + post! + "/").observe(.value, with: { snapshot in
+                        if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                            var apost = Dictionary<String, AnyObject>()
+                            for snap in snapshots{
+                                apost[snap.key] = snap.value as AnyObject?
+                            }
+                            self.mypost.append(apost)
                         }
-                        self.mypost.append(apost)
-                    }
-                })
+                    })
                 }
             }
         })
@@ -128,7 +124,7 @@ class UserDetailModalViewController: UIViewController {
                     }
                 }
             })
-            }, withCancel: { error in
+        }, withCancel: { error in
         })
         DispatchQueue.global().async(execute: {
             var viewImg = UIImage()

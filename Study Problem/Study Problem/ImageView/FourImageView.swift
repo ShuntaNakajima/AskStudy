@@ -38,7 +38,7 @@ class FourView: UIView {
             imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
             SDWebImageManager.shared().imageCache.queryDiskCache(forKey: image
                 , done: { (image,type: SDImageCacheType) -> Void in
-                   self.imageViews[index].setBackgroundImage(image, for: .normal)
+                    self.imageViews[index].setBackgroundImage(image, for: .normal)
             })
             imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }

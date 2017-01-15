@@ -1,14 +1,14 @@
  //
-//  OneImageView.swift
-//  Study Problem
-//
-//  Created by nakajimashunta on 2016/10/23.
-//  Copyright © 2016年 ShuntaNakajima. All rights reserved.
-//
-
-import UIKit
-
-class OneImageView: UIView {
+ //  OneImageView.swift
+ //  Study Problem
+ //
+ //  Created by nakajimashunta on 2016/10/23.
+ //  Copyright © 2016年 ShuntaNakajima. All rights reserved.
+ //
+ 
+ import UIKit
+ 
+ class OneImageView: UIView {
     @IBOutlet var ImageViews: UIImageView!
     var delegate :ShowImageDelegate!
     override init(frame: CGRect) {
@@ -21,7 +21,6 @@ class OneImageView: UIView {
     }
     private func setup(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(show))
-        //ImageViews.forEach({$0.addGestureRecognizer(tapGestureRecognizer)})
         ImageViews.addGestureRecognizer(tapGestureRecognizer)
     }
     @objc private func show(){
@@ -33,5 +32,5 @@ class OneImageView: UIView {
     func setImage(images:[UIImage]){
         ImageViews.image = images[0]
     }
-}
-
+ }
+ 

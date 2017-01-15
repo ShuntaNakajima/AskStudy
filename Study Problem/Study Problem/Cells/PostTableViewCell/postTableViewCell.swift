@@ -22,7 +22,6 @@ class postTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,13 +44,13 @@ class postTableViewCell: UITableViewCell {
         }
         }
     }
+    
     func setNib(photos:Int,key:String,on:UIViewController){
         var imagePhotos = [String!]()
         if photos != 0{
             switch photos{
             case 1:
                 let nib = OnePhotoView.instance()
-               // nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
@@ -60,7 +59,6 @@ class postTableViewCell: UITableViewCell {
                 }
             case 2:
                 let nib = TwoView.instance()
-             //   nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
@@ -69,7 +67,6 @@ class postTableViewCell: UITableViewCell {
                 }
             case 3:
                 let nib = ThreeView.instance()
-               // nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{
@@ -78,7 +75,6 @@ class postTableViewCell: UITableViewCell {
                 }
             case 4:
                 let nib = FourView.instance()
-               // nib.resetview(on: on)
                 nib.frame = self.view.bounds
                 self.view.addSubview(nib)
                 for i in 0...photos - 1{

@@ -9,7 +9,7 @@ import Firebase
 import WebImage
 class DataCacheNetwork{
     
-    func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
+    static func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
         
         let Database = FIRDatabase.database().reference()
         var posts = [Dictionary<String, AnyObject>]()
@@ -52,7 +52,7 @@ class DataCacheNetwork{
                             SDWebImageManager.shared().downloadImage(with: url,
                                                                      options: SDWebImageOptions.cacheMemoryOnly,
                                                                      progress: nil,
-                                                                     completed: { [weak self] (image, error, a, c, s) in
+                                                                     completed: {(image, error, a, c, s) in
                                                                         SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
                             })
                         }

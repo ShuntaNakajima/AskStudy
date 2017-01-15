@@ -19,7 +19,7 @@ class MianCellTextView: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
-                self.updateLayout()
+        self.updateLayout()
     }
     func updateLayout(){
         self.layer.borderWidth = 1.0

@@ -30,8 +30,8 @@ extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSourc
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
-            }, withCancel: { (error) in
-                print(error)
+        }, withCancel: { (error) in
+            print(error)
         })
         return cell
     }

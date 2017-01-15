@@ -35,13 +35,13 @@ extension Date {
         }
     }
 }
-    extension String {
+extension String {
     func postDate() -> Date{
         let date_formatter: DateFormatter = DateFormatter()
         date_formatter.locale     = NSLocale(localeIdentifier: "ja") as Locale!
         date_formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         let change_date:Date = date_formatter.date(from: self)! as Date
         return change_date
-
+        
     }
 }

@@ -99,12 +99,12 @@ class ToastView: UIView {
     // MARK: - Create Toast
     
     /**
-      指定した設定でToastの表示を行う
-      - parameters:
-         - text:    Toastに表示するテキスト
-         - duration:    Toastの表示時間を`ToastDuration`で指定。Defaultでは、`ToastDuration.Short`
-      - returns:
-         生成したToastのView
+     指定した設定でToastの表示を行う
+     - parameters:
+     - text:    Toastに表示するテキスト
+     - duration:    Toastの表示時間を`ToastDuration`で指定。Defaultでは、`ToastDuration.Short`
+     - returns:
+     生成したToastのView
      */
     static func showText(text: String, duration: ToastDuration = .Short) -> ToastView? {
         guard let keyWindow = UIApplication.shared.keyWindow else {
@@ -137,18 +137,18 @@ class ToastView: UIView {
         targetView.addSubview(toast)
         
         let constraints = [NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: backgroundView, attribute: .leading, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: backgroundView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .equal, toItem: textLabel, attribute: .bottom, multiplier: 1.0, constant: 10.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -10.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -10.0),
-            NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .trailing, multiplier: 1.0, constant: 10.0),
-            
-            NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: targetView, attribute: .bottomMargin, multiplier: 1.0, constant: -12.0),
-            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: targetView, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: targetView, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0),
-            ]
+                           NSLayoutConstraint(item: toast, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: backgroundView, attribute: .leading, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: backgroundView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: backgroundView, attribute: .bottom, relatedBy: .equal, toItem: textLabel, attribute: .bottom, multiplier: 1.0, constant: 10.0),
+                           NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: textLabel, attribute: .top, multiplier: 1.0, constant: -10.0),
+                           NSLayoutConstraint(item: backgroundView, attribute: .leading, relatedBy: .equal, toItem: textLabel, attribute: .leading, multiplier: 1.0, constant: -10.0),
+                           NSLayoutConstraint(item: backgroundView, attribute: .trailing, relatedBy: .equal, toItem: textLabel, attribute: .trailing, multiplier: 1.0, constant: 10.0),
+                           
+                           NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: targetView, attribute: .bottomMargin, multiplier: 1.0, constant: -12.0),
+                           NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: targetView, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: targetView, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0),
+                           ]
         
         NSLayoutConstraint.activate(constraints)
         targetView.layoutIfNeeded()
@@ -162,10 +162,10 @@ class ToastView: UIView {
     /**
      指定した設定でToastの表示を行う
      - parameters:
-       - text:    Toastに表示するテキスト
-       - image:   Toastに表示する画像
-       - imagePosition:   Toastに表示する画像の位置を指定。Defaultでは、`ToastImagePosition.Left`
-       - duration:    Toastの表示時間を`ToastDuration`で指定。Defaultでは、`ToastDuration.Short`
+     - text:    Toastに表示するテキスト
+     - image:   Toastに表示する画像
+     - imagePosition:   Toastに表示する画像の位置を指定。Defaultでは、`ToastImagePosition.Left`
+     - duration:    Toastの表示時間を`ToastDuration`で指定。Defaultでは、`ToastDuration.Short`
      - returns:
      生成したToastのView
      */
@@ -205,15 +205,15 @@ class ToastView: UIView {
         targetView.addSubview(toast)
         
         var constraints = [NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: backgroundView, attribute: .leading, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: backgroundView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: targetView, attribute: .bottomMargin, multiplier: 1.0, constant: -12.0),
-            NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: targetView, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: targetView, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.0)),
-            NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.1)),
-        ]
+                           NSLayoutConstraint(item: toast, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: backgroundView, attribute: .leading, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: backgroundView, attribute: .trailing, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .bottom, relatedBy: .equal, toItem: targetView, attribute: .bottomMargin, multiplier: 1.0, constant: -12.0),
+                           NSLayoutConstraint(item: toast, attribute: .leading, relatedBy: .equal, toItem: targetView, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: toast, attribute: .trailing, relatedBy: .equal, toItem: targetView, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0),
+                           NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.0)),
+                           NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CGFloat(MaximumImageSize.1)),
+                           ]
         switch imagePosition {
         case .Top:
             constraints.append(NSLayoutConstraint(item: backgroundView, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .top, multiplier: 1.0, constant: -10.0))

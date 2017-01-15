@@ -12,8 +12,8 @@ import UIKit
 import Firebase
 
 extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
-
-
+    
+    
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

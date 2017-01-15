@@ -11,7 +11,6 @@ import UIKit
 class ChangeColor: NSObject {
     
     static func getColor() {
-        
         let color = UserDefaults.standard
         let colorop : String? = color.object(forKey: "id") as! String?
         UITabBar.appearance().tintColor = UIColor.ThemeBlue()

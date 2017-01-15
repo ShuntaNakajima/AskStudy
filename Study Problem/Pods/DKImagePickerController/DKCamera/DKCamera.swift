@@ -178,16 +178,9 @@ open class DKCamera: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         self.motionManager.stopAccelerometerUpdates()
     }
     
-    override open func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     open override var prefersStatusBarHidden : Bool {
         return true
     }
-    
-    // MARK: - Setup
     
     let bottomView = UIView()
     open func setupUI() {
@@ -202,8 +195,6 @@ open class DKCamera: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         bottomView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         bottomView.backgroundColor = UIColor(white: 0, alpha: 0.4)
         contentView.addSubview(bottomView)
-        
-        // switch button
         let cameraSwitchButton: UIButton = {
             let cameraSwitchButton = UIButton()
             cameraSwitchButton.addTarget(self, action: #selector(DKCamera.switchCamera), for: .touchUpInside)

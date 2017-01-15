@@ -67,12 +67,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         subjectTextfield.inputAccessoryView = setToolBar()
         textView.inputAccessoryView = setKeyBoardToolBar()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     func donePressedKey(sender: UIBarButtonItem){
         textView.resignFirstResponder()
     }
@@ -298,14 +293,10 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
                 self.profileRef = storageRef.child("\(key!)/\(index).png")
                 let uploadTask = self.profileRef.put(data as Data, metadata: metadata) { metadata, error in
                     if (error != nil) {
-                        // Uh-oh, an error occurred!
                     } else {
-                        // Metadata contains file metadata such as size, content-type, and download URL.
                     }
                 }
                 uploadTask.observe(.progress) { snapshot in
-                    // Upload reported progress
-                    
                     if let progress = snapshot.progress {
                         let number = 100/self.assets!.count
                         let percentComplete = number * Int(progress.completedUnitCount) / Int(progress.totalUnitCount)

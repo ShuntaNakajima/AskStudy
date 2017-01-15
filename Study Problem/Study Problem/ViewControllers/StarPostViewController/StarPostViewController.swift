@@ -61,9 +61,6 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
             self.tableView.reloadData()
         })
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "viewStarPost") {
             let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
