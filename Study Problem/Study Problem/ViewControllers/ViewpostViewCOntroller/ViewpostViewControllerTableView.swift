@@ -42,6 +42,8 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             let now = Date()
             cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
             cell.textView.text = postDictionary["text"] as? String
+            cell.menuButton.tag = indexPath.row
+            cell.menuButton.addTarget(self, action: #selector(ViewpostViewController.reportPost(sender:)), for: .touchUpInside)
             let currentUser = Database.child("user").child((postDictionary["author"] as? String)!)
             currentUser.observe(FIRDataEventType.value, with: { snapshot in
                 let postUser = (snapshot.value! as AnyObject)["username"] as! String

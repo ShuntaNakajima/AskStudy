@@ -19,6 +19,7 @@ class postTableViewCell: UITableViewCell {
     @IBOutlet var subjectLabel:UILabel!
     @IBOutlet var dateLabel:UILabel!
     @IBOutlet var view:UIView!
+    @IBOutlet var menuButton:UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

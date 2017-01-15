@@ -139,4 +139,19 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
         UDMC.UserKey = segueUser
     }
+    func reportPost(sender:UIButton){
+        let row = sender.tag
+        let alert = UIAlertController(title: "Report Post", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
+            let newreport: Dictionary<String, Any> = [
+                "reportPost":self.postDic["key"] as! String!,
+                "reportUser":FIRAuth.auth()?.currentUser?.uid
+            ]
+            self.Database.child("report").childByAutoId().setValue(newreport)
+        })
+        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelaction)
+        present(alert, animated: true, completion: nil)
+    }
 }

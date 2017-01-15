@@ -20,16 +20,17 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! postTableViewCell
         let post = posts[indexPath.row]
-        let postDictionary = post as? Dictionary<String, AnyObject>
         cell.view.translatesAutoresizingMaskIntoConstraints = false
-        cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
-        cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
-        cell.subjectLabel.text = postDictionary!["subject"] as? String!
-        let postdate = postDictionary!["date"] as! String!
+        cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
+        cell.replyscountLabel.text = String(post["reply"] as! Int!)
+        cell.subjectLabel.text = post["subject"] as? String!
+        cell.menuButton.tag = indexPath.row
+        cell.menuButton.addTarget(self, action: #selector(MainViewController.reportPost(sender:)), for: .touchUpInside)
+        let postdate = post["date"] as! String!
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
-        cell.textView.text = postDictionary!["text"] as? String
-        let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
+        cell.textView.text = post["text"] as? String
+        let currentUser = Database.child("user").child((post["author"] as? String)!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
@@ -40,7 +41,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
             let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+            let autorsprofileRef = storageRef.child("\((post["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
                     print(error)
@@ -57,15 +58,32 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
     }
+    
+    func reportPost(sender:UIButton){
+        let row = sender.tag
+        let alert = UIAlertController(title: "Report Post", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
+            let newreport: Dictionary<String, Any> = [
+                "reportPost":self.posts[row]["key"] as! String!,
+                "reportUser":FIRAuth.auth()?.currentUser?.uid
+            ]
+            self.Database.child("report").childByAutoId().setValue(newreport)
+        })
+        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelaction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         let post = posts[indexPath.row]
-        let postDictionary = post as? Dictionary<String, AnyObject>
-        selectpost = postDictionary!
-        selectpostID = postDictionary!["key"] as! String!
+        selectpost = post
+        selectpostID = post["key"] as! String!
         if selectpost != nil {
             performSegue(withIdentifier: "viewPost",sender: nil)
         }
     }
+    
     func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
         let point = recognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)

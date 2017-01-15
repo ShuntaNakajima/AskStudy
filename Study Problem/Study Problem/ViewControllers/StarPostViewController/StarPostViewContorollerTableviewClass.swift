@@ -23,17 +23,16 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
         let post = posts[indexPath.row]
-        let postDictionary = post as? Dictionary<String, AnyObject>
         for i in cell.view.subviews{
             i.removeFromSuperview()
         }
-        cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
-        cell.subjectLabel.text = postDictionary!["subject"] as? String!
-        let postdate = postDictionary!["date"] as! String!
+        cell.replyscountLabel.text = String(post["reply"] as! Int!)
+        cell.subjectLabel.text = post["subject"] as? String!
+        let postdate = post["date"] as! String!
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
-        cell.textView.text = postDictionary!["text"] as? String
-        let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
+        cell.textView.text = post["text"] as? String
+        let currentUser = Database.child("user").child((post["author"] as? String)!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
@@ -44,7 +43,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
             let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+            let autorsprofileRef = storageRef.child("\((post["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
                     print(error)
@@ -58,15 +57,14 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
             }
         });
         cell.view.translatesAutoresizingMaskIntoConstraints = false
-        cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
+        cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
         cell.profileImage.tag = indexPath.row
         cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         let post = posts[indexPath.row]
-        let postDictionary = post
-        selectpost = postDictionary["key"] as! String!
+        selectpost = post["key"] as! String!
         if selectpost != nil {
             performSegue(withIdentifier: "viewStarPost",sender: nil)
         }
