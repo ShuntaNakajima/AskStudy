@@ -14,7 +14,7 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     var fromColors = [Any?]()
-     var gradient : CAGradientLayer?
+    var gradient : CAGradientLayer?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gradient = CAGradientLayer()
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
     override func viewDidAppear(_ animated: Bool) {
         animateLayer()
     }
-     func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
         animateLayer()
     }
     func animateLayer(){
@@ -47,45 +47,25 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
     @IBAction func tryLogin(sender: AnyObject) {
         let email = emailField.text
         let password = passwordField.text
-    
         if email != "" && password != "" {
-                      // Login with the Firebase's authUser method
-            
             FIRAuth.auth()?.signIn(withEmail: email!, password: password!) { (user, error) in
-                
                 if user != nil {
-                    
-                    // Be sure the correct uid is stored.
-                    
-                    // NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                    
-                    // Enter the app!
                     self.dismiss(animated: true, completion: nil)
-                    //self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
-                   
                 } else {
-                  
                     self.loginErrorAlert(title: "Oops!", message: "Check your username and password.")
                 }
             }
-            
         } else {
-            
-            // There was a problem
-            
             loginErrorAlert(title: "Oops!", message: "Don't forget to enter your email and password.")
         }
         
     }
     
     func loginErrorAlert(title: String, message: String) {
-        
-        // Called upon login error to let the user know login didn't work.
-        
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
+    
 }

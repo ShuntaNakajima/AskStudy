@@ -21,11 +21,6 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         super.viewDidLoad()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func showImagePickerWithAssetType(_ assetType: DKImagePickerControllerAssetType,
                                       sourceType: DKImagePickerControllerSourceType = .both,
                                       maxSelectableCount: Int,
@@ -33,23 +28,11 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
                                       singleSelect: Bool) {
         
         let pickerController = DKImagePickerController()
-        
-        // Custom camera
-        //		pickerController.UIDelegate = CustomUIDelegate()
-        //		pickerController.modalPresentationStyle = .OverCurrentContext
-        
         pickerController.assetType = assetType
         pickerController.allowsLandscape = allowsLandscape
         pickerController.maxSelectableCount = maxSelectableCount
         pickerController.sourceType = sourceType
         pickerController.singleSelect = singleSelect
-        
-        //		pickerController.showsCancelButton = true
-        //		pickerController.showsEmptyAlbums = false
-        //		pickerController.defaultAssetGroup = PHAssetCollectionSubtype.SmartAlbumFavorites
-        
-        // Clear all the selected assets if you used the picker controller as a single instance.
-        //		pickerController.defaultSelectedAssets = nil
         
         pickerController.defaultSelectedAssets = self.assets
         
@@ -77,8 +60,6 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         self.present(player, animated: true, completion: nil)
     }
     
-    // MARK: - UITableViewDataSource, UITableViewDelegate methods
-    
     struct Demo {
         static let titles = [
             ["Pick All", "Pick photos only", "Pick videos only", "Pick All (only photos or videos)"],
@@ -89,10 +70,6 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         ]
         static let types: [DKImagePickerControllerAssetType] = [.allAssets, .allPhotos, .allVideos, .allAssets]
     }
-    
-    
-    // MARK: - UICollectionViewDataSource, UICollectionViewDelegate methods
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.assets?.count ?? 0
     }
@@ -114,25 +91,20 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             let tag = indexPath.row + 1
             cell.tag = tag
-//            asset.fetchImageWithSize(layout.itemSize.toPixel(), completeBlock: { image, info in
-//                if cell.tag == tag {
-                    imageView.image = cropImageToSquare(image: (asset as? UIImage)!)
-//                }
-//            })
+            imageView.image = cropImageToSquare(image: (asset as? UIImage)!)
         }
         
         return cell!
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let asset = self.assets![indexPath.row]
-         // let nytPhoto = NYTPhoto(image: asset as? UIImage, imageData: nil, placeholderImage: nil, attributedCaptionTitle: nil, 
     }
     @IBAction func image(){
         showImagePickerWithAssetType(            .allPhotos,
-            sourceType: .both,
-            maxSelectableCount: 4,
-            allowsLandscape: false,
-            singleSelect: true
+                                                 sourceType: .both,
+                                                 maxSelectableCount: 4,
+                                                 allowsLandscape: false,
+                                                 singleSelect: true
         )
     }
     func cropImageToSquare(image: UIImage) -> UIImage? {

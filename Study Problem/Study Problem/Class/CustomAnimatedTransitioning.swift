@@ -29,7 +29,6 @@ final class CustomAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
         }
     }
     
-    // 表示する時のアニメーション
     func animatePresentTransition(transitionContext: UIViewControllerContextTransitioning) {
         guard
             let presentingController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
@@ -38,38 +37,32 @@ final class CustomAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
             else {
                 return
         }
-        
         presentedController.view.layer.cornerRadius = 4.0
         presentedController.view.clipsToBounds = true
         presentedController.view.alpha = 0.0
         presentedController.view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        
         containerView.insertSubview(presentedController.view, belowSubview: presentingController.view)
-        
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: .curveLinear, animations: {
             presentedController.view.alpha = 1.0
             presentedController.view.frame.origin.x = containerView.bounds.size.width - self.atButton.frame.origin.x
             presentedController.view.frame.origin.y = containerView.bounds.size.height - self.atButton.frame.origin.y
             presentedController.view.transform = CGAffineTransform.identity
-            }, completion: { finished in
-                transitionContext.completeTransition(true)
+        }, completion: { finished in
+            transitionContext.completeTransition(true)
         })
     }
     
-    // 非表示する時のアニメーション
     func animateDissmissalTransition(transitionContext: UIViewControllerContextTransitioning) {
         guard let presentedController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) else {
             return
         }
-        
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: .curveLinear, animations:{
             presentedController.view.alpha = 0.0
             presentedController.view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             presentedController.view.frame.origin.x = self.atButton.frame.origin.x
             presentedController.view.frame.origin.y = self.atButton.frame.origin.y
-            
-            }, completion: { finished in
-                transitionContext.completeTransition(true)
+        }, completion: { finished in
+            transitionContext.completeTransition(true)
         })
     }
 }

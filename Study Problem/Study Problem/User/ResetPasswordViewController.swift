@@ -42,10 +42,6 @@ class ResetPasswordViewController: UIViewController ,CAAnimationDelegate{
         animation.delegate = self
         self.gradient?.add(animation, forKey:"animateGradient")
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @IBAction func sendreset(){
         let email = emailField.text
         FIRAuth.auth()?.sendPasswordReset(withEmail: email!) { error in
@@ -63,15 +59,6 @@ class ResetPasswordViewController: UIViewController ,CAAnimationDelegate{
     @IBAction func backbuttonPushed(segue:UIStoryboardSegue){
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func back(){
         self.dismiss(animated: true, completion: nil)
     }

@@ -12,7 +12,6 @@ class StarDetailViewController: UIViewController {
     @IBOutlet var closebutton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         closebutton.layer.cornerRadius=30
         closebutton.layer.masksToBounds=true
     }
@@ -21,12 +20,8 @@ class StarDetailViewController: UIViewController {
         self.view.backgroundColor = UITabBar.appearance().tintColor
         self.closebutton.setTitleColor(UITabBar.appearance().tintColor, for: .normal)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @IBAction func close(){
         self.dismiss(animated: true, completion: nil)
     }
-
+    
 }

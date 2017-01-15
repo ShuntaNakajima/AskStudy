@@ -26,7 +26,6 @@
 		BC1438081CE7364200448AC0 /* gazou.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1438071CE7364200448AC0 /* gazou.gif */; };
 		BC1438141CE7575A00448AC0 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1438131CE7575A00448AC0 /* 1.gif */; };
 		BC1438161CE75B6600448AC0 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = BC1438151CE75B6600448AC0 /* 2.gif */; };
-		BC1603671CE8569200402577 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1603661CE8569200402577 /* Post.swift */; };
 		BC16036C1CE85C8300402577 /* postTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC16036A1CE85C8300402577 /* postTableViewCell.swift */; };
 		BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC16036B1CE85C8300402577 /* postTableViewCell.xib */; };
 		BC19B23E1DAA083D009D2498 /* BestAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC19B23D1DAA083D009D2498 /* BestAnswer.swift */; };
@@ -42,6 +41,8 @@
 		BC3144331E2B1B9C00BBBD70 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442D1E2B1B9C00BBBD70 /* RSKImageCropper.framework */; };
 		BC3144341E2B1B9C00BBBD70 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442E1E2B1B9C00BBBD70 /* SVProgressHUD.framework */; };
 		BC3144351E2B1B9C00BBBD70 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */; };
+		BC3144391E2B2F2400BBBD70 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */; };
+		BC31443A1E2B2F2400BBBD70 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */; };
 		BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1271D4F913D00086026 /* CustomPresentationController.swift */; };
 		BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */; };
 		BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */; };
@@ -173,7 +174,6 @@
 		BC1438071CE7364200448AC0 /* gazou.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gazou.gif; sourceTree = "<group>"; };
 		BC1438131CE7575A00448AC0 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		BC1438151CE75B6600448AC0 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
-		BC1603661CE8569200402577 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BC16036A1CE85C8300402577 /* postTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postTableViewCell.swift; sourceTree = "<group>"; };
 		BC16036B1CE85C8300402577 /* postTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = postTableViewCell.xib; sourceTree = "<group>"; };
 		BC19B23D1DAA083D009D2498 /* BestAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestAnswer.swift; sourceTree = "<group>"; };
@@ -189,6 +189,8 @@
 		BC31442D1E2B1B9C00BBBD70 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKImageCropper.framework; path = Carthage/Build/iOS/RSKImageCropper.framework; sourceTree = "<group>"; };
 		BC31442E1E2B1B9C00BBBD70 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
+		BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		BC32D1271D4F913D00086026 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewController.swift; sourceTree = "<group>"; };
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
@@ -394,7 +396,6 @@
 		BC1603651CE8563F00402577 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC1603661CE8569200402577 /* Post.swift */,
 				BC07E4DD1D5CA85F00AC9B6D /* ThemeColor.swift */,
 			);
 			path = Model;
@@ -426,6 +427,16 @@
 				BC25AFB71D2E7EFE00A9F881 /* ViewpostViewControllerTableView.swift */,
 			);
 			path = ViewpostViewCOntroller;
+			sourceTree = "<group>";
+		};
+		BC3144361E2B2F2400BBBD70 /* ChatTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */,
+				BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */,
+			);
+			name = ChatTableViewCell;
+			path = ItemTableViewCell/ChatTableViewCell;
 			sourceTree = "<group>";
 		};
 		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
@@ -657,6 +668,7 @@
 		BCF520B51CE9B7050027D8EA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BC3144361E2B2F2400BBBD70 /* ChatTableViewCell */,
 				BC64FFF21CEC9F0F008E5DB7 /* ItemTableViewCell */,
 				BC5E9E701D5B75C5003C1850 /* ModalTableViewCell */,
 				BCF520C41CE9B8D20027D8EA /* MyReplysTableViewCell */,
@@ -841,6 +853,7 @@
 				BC64FFF11CEC9F0A008E5DB7 /* itemTableViewCell.xib in Resources */,
 				BCC7C5DE1D979EB0002AF37E /* Icon-App-20x20@2x.png in Resources */,
 				BC01985A1D97F14E00E39160 /* AskStudy.png in Resources */,
+				BC31443A1E2B2F2400BBBD70 /* ChatTableViewCell.xib in Resources */,
 				BC0198681D98069200E39160 /* Starts.png in Resources */,
 				BC1438081CE7364200448AC0 /* gazou.gif in Resources */,
 				BC1438141CE7575A00448AC0 /* 1.gif in Resources */,
@@ -1009,6 +1022,7 @@
 				BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */,
 				BC19B23E1DAA083D009D2498 /* BestAnswer.swift in Sources */,
 				BC01985E1D98004C00E39160 /* StarterPageViewController.swift in Sources */,
+				BC3144391E2B2F2400BBBD70 /* ChatTableViewCell.swift in Sources */,
 				BCE33D361D92D652004CF5D3 /* SearchViewController.swift in Sources */,
 				BC1FB6ED1D3225CB004CE534 /* colorNavigationViewController.swift in Sources */,
 				BC5127CD1D1F81A900033737 /* NSdateExtention.swift in Sources */,
@@ -1023,7 +1037,6 @@
 				395B83801E24589E00421F19 /* StoryboardInstantiable.swift in Sources */,
 				BCF3E4F61DBC605900BC056D /* OneImageView.swift in Sources */,
 				BC25AFB61D2E7D9300A9F881 /* MainViewControllerTableViewClass.swift in Sources */,
-				BC1603671CE8569200402577 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,7 +43,7 @@ class ThreeView: UIView {
             imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }
     }
-
+    
     func showImage(index:UIImageView){
         let imageInfo = JTSImageInfo()
         imageInfo.image = imageViews[index.tag].currentBackgroundImage

@@ -11,14 +11,14 @@ import Firebase
 
 class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,CAAnimationDelegate {
     
-
+    
     
     var Database = FIRDatabase.database().reference()
-
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
-
+    
     @IBOutlet weak var gradeField: UITextField!
     var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12","others"]
     var fromColors = [Any?]()
@@ -65,8 +65,8 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         toolBar.setItems([defaultButton,flexSpace,textBtn,flexSpace,doneButton], animated: true)
         
         gradeField.inputAccessoryView = toolBar
-
-
+        
+        
         // Do any additional setup after loading the view.
         self.gradient = CAGradientLayer()
         self.gradient?.frame = self.view.bounds
@@ -109,8 +109,8 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                 if error != nil {
                     
                     // There was a problem.
-            
-                           self.signupErrorAlert(title: "Oops!", message: "Having some trouble creating your account. Try again.")
+                    
+                    self.signupErrorAlert(title: "Oops!", message: "Having some trouble creating your account. Try again.")
                     
                     
                 } else {
@@ -136,8 +136,8 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         }else{
             
             self.signupErrorAlert(title: "Oops!", message: "Don't forget to enter your email, password, and a username.")
-        
-        
+            
+            
         }
     }
     func signupErrorAlert(title: String, message: String) {
@@ -149,19 +149,19 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
-        func donePressed(sender: UIBarButtonItem) {
-            
-            gradeField.resignFirstResponder()
-            
-        }
+    
+    func donePressed(sender: UIBarButtonItem) {
         
-        func tappedToolBarBtn(sender: UIBarButtonItem) {
-            
-            gradeField.text = "Grade1"
-            
-            gradeField.resignFirstResponder()
-        }
+        gradeField.resignFirstResponder()
+        
+    }
+    
+    func tappedToolBarBtn(sender: UIBarButtonItem) {
+        
+        gradeField.text = "Grade1"
+        
+        gradeField.resignFirstResponder()
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

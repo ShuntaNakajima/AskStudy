@@ -22,7 +22,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
         if indexPath.row == 1{
             let itemcell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! itemTableViewCell
             itemcell.DateLable.text = postDic["date"] as! String!
-         let BestAnswer = postDic["BestAnswer"] as? String
+            let BestAnswer = postDic["BestAnswer"] as? String
             if BestAnswer == ""{
                 itemcell.StateLabel.text = "open"
             }else{
@@ -137,7 +137,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
         }
     }
     
-      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1{
         }else if indexPath.row == 0{
             toreply = postDic["author"] as! String

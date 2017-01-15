@@ -55,13 +55,13 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                 if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                     let key = snapshot.key
                     postDictionary["key"] = key as AnyObject?
-                     guard let BestAnswer = postDictionary["BestAnswer"] as? String else{return}
-                   if BestAnswer == ""{
-                    self.toolbar.isHidden = false
-                    self.tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
-                   }else{
-                    self.toolbar.isHidden = true
-                    self.tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+                    guard let BestAnswer = postDictionary["BestAnswer"] as? String else{return}
+                    if BestAnswer == ""{
+                        self.toolbar.isHidden = false
+                        self.tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
+                    }else{
+                        self.toolbar.isHidden = true
+                        self.tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
                     }
                     self.postDic = postDictionary
                     self.tableView.reloadData()
@@ -132,9 +132,9 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let row = sender.tag
         var segueUser = ""
         if row == 1{}else if row == 0{
-           segueUser = postDic["author"] as! String
+            segueUser = postDic["author"] as! String
         }else{
-        segueUser = replys[row - 2]["author"] as! String
+            segueUser = replys[row - 2]["author"] as! String
         }
         let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
         UDMC.UserKey = segueUser

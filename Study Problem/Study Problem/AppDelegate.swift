@@ -21,9 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRDatabase.database().persistenceEnabled = true
         let pageviewControl = UIPageControl.appearance()
         pageviewControl.backgroundColor = UIColor.clear
-        //  let storyboard: UIStoryboard = StoryboardHelper.adjust()
-        // window!.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
-        // self.window?.makeKeyAndVisible()
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,NSFontAttributeName: UIFont(name: "Pacifico", size: 28)!]
         let ud = UserDefaults.standard

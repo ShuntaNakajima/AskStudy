@@ -74,7 +74,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         postButton.backgroundColor = UITabBar.appearance().tintColor
         reloadData(success: {_ in})
-        DataCacheNetwork().loadCache(limit: number, success: {posts in
+        DataCacheNetwork.loadCache(limit: number, success: {posts in
             self.posts = posts
             SVProgressHUD.dismiss()
             self.tableView.isHidden = false
@@ -106,7 +106,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         return transition
     }
     func reloadData(success:@escaping() -> Void){
-        DataCacheNetwork().loadCache(limit: number, success: {posts in
+        DataCacheNetwork.loadCache(limit: number, success: {posts in
             self.posts = posts
             SVProgressHUD.dismiss()
             self.tableView.isHidden = false
