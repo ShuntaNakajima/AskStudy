@@ -48,6 +48,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         postButton.layer.cornerRadius=30
         postButton.layer.masksToBounds=true
         postButton.setTitle("", for: UIControlState.normal)
+        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -62,7 +63,6 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
                 self.present(viewController, animated: true, completion: nil)
             }
         }
-        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,7 +84,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "viewPost") {
-            let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
+            let vpVC: ViewpostViewController = segue.destination as! ViewpostViewController
             vpVC.postDic = selectpost
             vpVC.post = selectpostID
         }else if (segue.identifier == "toPost"){

@@ -79,8 +79,8 @@
                         </constraints>
                         <state key="normal" backgroundImage="menu.png"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMM-FH-cK3">
-                        <rect key="frame" x="214" y="23" width="53" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMM-FH-cK3">
+                        <rect key="frame" x="228" y="21" width="53" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="GDG-2F-525"/>
                             <constraint firstAttribute="width" constant="53" id="suz-MK-Me9"/>
@@ -99,7 +99,7 @@
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="D01-1q-FRl"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="top" secondItem="no2-6P-cnc" secondAttribute="bottom" constant="20" id="D7V-XI-K67"/>
                     <constraint firstItem="JO3-rL-F37" firstAttribute="leading" secondItem="HSV-1e-kmy" secondAttribute="trailing" constant="34.5" id="GwI-6f-XH6"/>
-                    <constraint firstItem="Nvr-bt-AE5" firstAttribute="leading" secondItem="YMM-FH-cK3" secondAttribute="trailing" constant="19" id="HTO-m3-COl"/>
+                    <constraint firstItem="Nvr-bt-AE5" firstAttribute="leading" secondItem="YMM-FH-cK3" secondAttribute="trailing" constant="5" id="HTO-m3-COl"/>
                     <constraint firstItem="XtY-Eb-yai" firstAttribute="top" secondItem="bPV-GY-aVJ" secondAttribute="bottom" constant="227" id="IMJ-gh-eUo"/>
                     <constraint firstItem="tNj-ug-88d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Irc-dt-Lbh"/>
                     <constraint firstItem="Nvr-bt-AE5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="J94-HP-uGS"/>
@@ -108,7 +108,7 @@
                     <constraint firstAttribute="bottom" secondItem="JO3-rL-F37" secondAttribute="bottom" constant="5" id="ZGl-bh-xUu"/>
                     <constraint firstItem="tNj-ug-88d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bpZ-c1-uvk"/>
                     <constraint firstAttribute="trailing" secondItem="Tlc-jF-NLH" secondAttribute="trailing" id="fyu-Ho-4sH"/>
-                    <constraint firstItem="YMM-FH-cK3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="heo-PH-h8M"/>
+                    <constraint firstItem="YMM-FH-cK3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="heo-PH-h8M"/>
                     <constraint firstItem="bPV-GY-aVJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="jF1-mG-HwH"/>
                     <constraint firstAttribute="trailing" secondItem="JO3-rL-F37" secondAttribute="trailing" constant="8" id="lRC-Na-x7V"/>
                     <constraint firstAttribute="bottom" secondItem="HSV-1e-kmy" secondAttribute="bottom" constant="5" id="usA-Zd-sKf"/>
