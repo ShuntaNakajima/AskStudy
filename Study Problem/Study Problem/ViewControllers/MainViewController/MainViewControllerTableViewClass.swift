@@ -5,12 +5,12 @@
 //  Created by nakajimashunta on 2016/07/07.
 //
 //
-
 import Foundation
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
 import FirebaseDatabase
+import SVProgressHUD
 
 extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -20,12 +20,12 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! postTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! postTableViewCell
         let post = posts[indexPath.row]
         let postDictionary = post as? Dictionary<String, AnyObject>
-//        for i in cell.view.subviews{
-//            i.removeFromSuperview()
-//        }
+        //        for i in cell.view.subviews{
+        //            i.removeFromSuperview()
+        //        }
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: postDictionary!["Photo"] as! Int,key:postDictionary!["key"] as! String,on:self)
         cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
@@ -38,8 +38,8 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
-            }, withCancel: { (error) in
-                print(error)
+        }, withCancel: { (error) in
+            print(error)
         })
         DispatchQueue.global().async(execute:{
             var viewImg = UIImage()
@@ -51,10 +51,10 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
                     print(error)
                 } else {
                     viewImg = data.flatMap(UIImage.init)!
-                        DispatchQueue.main.async(execute: {
-                            cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
-                            cell.layoutSubviews()
-                        });
+                    DispatchQueue.main.async(execute: {
+                        cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
+                        cell.layoutSubviews()
+                    });
                 }
             }
         });
@@ -101,7 +101,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
                         if self.longState == true{
                             Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                             let anImage = UIImage(named: "star.gif")
-                             ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                            ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }
@@ -114,9 +114,14 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let x = tableView.contentOffset.x
         let offset = CGPoint(x:x,y:y)
         let indexPath = tableView.indexPathForRow(at: offset)
-        if indexPath?.row == number - 1{
-            number = number + 10
-            reloadData()
+        if indexPath?.row == number - 5{
+            number = number + 1
+            // SVProgressHUD.show()
+            reloadData(success: {_ in})
+        }
+        if indexPath?.row == realnumber - 1{
+            realnumber = number
+            tableView.reloadData()
         }
     }
 }
