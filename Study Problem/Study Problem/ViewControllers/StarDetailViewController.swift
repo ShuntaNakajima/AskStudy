@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StarDtialViewController: UIViewController {
+class StarDetailViewController: UIViewController {
     @IBOutlet var closebutton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()

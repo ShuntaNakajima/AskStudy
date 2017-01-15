@@ -24,6 +24,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     var refreshControl:UIRefreshControl!
     let transition = BubbleTransition()
     var number = 10
+    var realnumber = 10
     @IBOutlet var tableView :UITableView!
     @IBOutlet var postButton:UIButton!
     override func viewDidLoad() {
@@ -63,51 +64,26 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
                 self.present(viewController, animated: true, completion: nil)
             }
         }
+        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.isHidden = true
         SVProgressHUD.show()
-        let color = UserDefaults.standard
-        let colorop : String? = color.object(forKey: "id") as! String?
-        UITabBar.appearance().tintColor = UIColor.ThemeBlue()
-        UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
-        if let color = colorop{
-            switch color{
-            case "yellow":
-                UITabBar.appearance().tintColor = UIColor.ThemeYellow()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeYellow()
-            case "lightblue":
-                UITabBar.appearance().tintColor = UIColor.ThemeLightBlue()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeLightBlue()
-            case "blue":
-                UITabBar.appearance().tintColor = UIColor.ThemeBlue()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
-            case "red":
-                UITabBar.appearance().tintColor = UIColor.ThemeRed()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeRed()
-            case "green":
-                UITabBar.appearance().tintColor = UIColor.ThemeGreen()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeGreen()
-            case "orange":
-                UITabBar.appearance().tintColor = UIColor.ThemeOrange()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeOrange()
-            case "purple":
-                UITabBar.appearance().tintColor = UIColor.ThemePurple()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemePurple()
-            default:
-                UITabBar.appearance().tintColor = UIColor.ThemeBlue()
-                UINavigationBar.appearance().barTintColor = UIColor.ThemeBlue()
-            }
-            self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
-            self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
-        }
+        self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
+        self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
+        ChangeColor.getColor()
+        self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
+        self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         postButton.backgroundColor = UITabBar.appearance().tintColor
         reloadData()
+        DataCacheNetwork().loadCache(limit: number, success: {posts in
+            self.posts = posts
+            SVProgressHUD.dismiss()
+            self.tableView.isHidden = false
+            self.tableView.reloadData()
+        })
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "viewPost") {
             let vpVC: ViewpostViewController = (segue.destination as? ViewpostViewController)!
@@ -131,12 +107,12 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         transition.bubbleColor = UITabBar.appearance().tintColor
         return transition
     }
-    func reloadData(){
-      DataCacheNetwork().loadCache(limit: number, success: {posts in
-        self.posts = posts
+    func reloadData(success:@escaping() -> Void){
+        DataCacheNetwork().loadCache(limit: number, success: {posts in
+            self.posts = posts
             SVProgressHUD.dismiss()
             self.tableView.isHidden = false
-            self.tableView.reloadData()
+            success()
         })
     }
     func showUserData(sender:UIButton){
@@ -146,7 +122,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         UDMC.UserKey = self.segueUser
     }
     func refresh(){
-        reloadData()
+        reloadData(success: {_ in})
     }
 }
 

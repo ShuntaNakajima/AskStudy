@@ -70,6 +70,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             }
         }
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
+        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
     }
     
     override func didReceiveMemoryWarning() {

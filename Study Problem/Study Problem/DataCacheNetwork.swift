@@ -34,7 +34,7 @@ class DataCacheNetwork{
                 aphoto["key"] = j["key"]
                 aphoto["Photo"] = j["Photo"]
                 if j["Photo"] as! Int! != 0{
-                photos.append(aphoto)
+                    photos.append(aphoto)
                 }
             }
             for i in photos{
@@ -51,24 +51,19 @@ class DataCacheNetwork{
                             imagePhotos.append(URL!)
                             pass.append("\(i["key"]!)/\(j)")
                         }
-                        DispatchQueue.global().async {
-                            for (index,url) in imagePhotos.enumerated(){
-                                SDWebImageManager.shared().downloadImage(with: url,
-                                                                         options: SDWebImageOptions.cacheMemoryOnly,
-                                                                         progress: nil,
-                                                                         completed: { [weak self] (image, error, a, c, s) in
-                                                                            SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
-                                                                            print(pass[index])
-                                })
-                            }
-                            DispatchQueue.main.async {
-                                  success(posts)
-                            }
+                        for (index,url) in imagePhotos.enumerated(){
+                            SDWebImageManager.shared().downloadImage(with: url,
+                                                                     options: SDWebImageOptions.cacheMemoryOnly,
+                                                                     progress: nil,
+                                                                     completed: { [weak self] (image, error, a, c, s) in
+                                                                        SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
+                                                                        print(pass[index])
+                            })
                         }
                     }
                 }
             }
+            success(posts)
         })
     }
 }
-
