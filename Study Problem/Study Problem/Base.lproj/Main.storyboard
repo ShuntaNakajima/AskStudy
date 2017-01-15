@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="1Bj-rs-iBY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="1Bj-rs-iBY">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -872,9 +872,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="CER-Xb-u8H"/>
                     <connections>
-                        <outlet property="newPassword" destination="hO3-ji-GlO" id="zwb-gq-Qem"/>
-                        <outlet property="newPasswordAgain" destination="XTd-Ic-7D2" id="LSu-q0-JWh"/>
-                        <outlet property="oldPassword" destination="qcV-KG-03h" id="4fH-Rx-lPe"/>
+                        <outlet property="newPasswordAgainField" destination="XTd-Ic-7D2" id="6kb-yN-vH6"/>
+                        <outlet property="newPasswordField" destination="hO3-ji-GlO" id="QuE-Rr-40o"/>
+                        <outlet property="oldPasswordField" destination="qcV-KG-03h" id="NVK-YJ-HoV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJj-BA-0qR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1066,11 +1066,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="emailTextField" destination="D0q-Ic-XS2" id="ZMX-v4-ryC"/>
-                        <outlet property="gradeTextField" destination="3T1-Et-IBk" id="27K-VF-VNR"/>
-                        <outlet property="profileimage" destination="h8W-GU-UGQ" id="QY8-rC-P8h"/>
-                        <outlet property="usernameTextField" destination="eBD-gr-qgY" id="dMd-Ln-QXI"/>
-                        <outlet property="usernameTextFieldincell" destination="p6B-0P-lIW" id="nZ4-Pf-X06"/>
+                        <outlet property="emailLabel" destination="D0q-Ic-XS2" id="fPA-c2-Kzo"/>
+                        <outlet property="gradeLabel" destination="3T1-Et-IBk" id="ZQQ-AC-7Av"/>
+                        <outlet property="profileImageButton" destination="h8W-GU-UGQ" id="t0C-bU-Ucg"/>
+                        <outlet property="usernameInGrayLabel" destination="p6B-0P-lIW" id="UiT-Or-lKj"/>
+                        <outlet property="usernameLabel" destination="eBD-gr-qgY" id="zzP-Jt-DL0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Or7-QK-Ghw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1154,13 +1154,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="1xa-p0-qho"/>
                     <connections>
-                        <outlet property="BlueButton" destination="teo-e1-ipf" id="cKv-G1-ilW"/>
-                        <outlet property="GreenButton" destination="7hA-td-C9A" id="7a3-8v-F3n"/>
-                        <outlet property="LightBlueButton" destination="oAA-Xj-gu6" id="K8e-Nz-fZO"/>
-                        <outlet property="OrangeButton" destination="cFL-cS-9U3" id="ZXd-oV-5nN"/>
-                        <outlet property="PurpleButton" destination="XBt-Qq-qA1" id="ajQ-lU-RGd"/>
-                        <outlet property="RedButton" destination="NhF-y9-jr1" id="WYY-Gd-iaf"/>
-                        <outlet property="YellowButton" destination="7VB-9M-JXA" id="hR9-eb-YOt"/>
+                        <outlet property="blueButton" destination="teo-e1-ipf" id="JuG-5d-BbP"/>
+                        <outlet property="greenButton" destination="7hA-td-C9A" id="JPS-eR-Djt"/>
+                        <outlet property="lightBlueButton" destination="oAA-Xj-gu6" id="2yY-60-i2y"/>
+                        <outlet property="orangeButton" destination="cFL-cS-9U3" id="gL7-8s-e3x"/>
+                        <outlet property="purpleButton" destination="XBt-Qq-qA1" id="PyU-Vs-JCA"/>
+                        <outlet property="redButton" destination="NhF-y9-jr1" id="wFb-B5-5JF"/>
+                        <outlet property="yellowButton" destination="7VB-9M-JXA" id="YrK-Yj-N6u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTo-ry-3cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1204,12 +1204,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6D-KI-e9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023.5507246376815" y="-1462.6875"/>
+            <point key="canvasLocation" x="2165" y="-1463"/>
         </scene>
-        <!--Star Dtial View Controller-->
+        <!--Star Detail View Controller-->
         <scene sceneID="6ij-Pd-VIR">
             <objects>
-                <viewController storyboardIdentifier="StarDetial" id="988-UW-Ipc" customClass="StarDtialViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StarDetial" id="988-UW-Ipc" customClass="StarDetailViewController" customModule="Study_Problem" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TFG-Ds-RUy"/>
                         <viewControllerLayoutGuide type="bottom" id="qfI-dC-TNb"/>
@@ -1337,6 +1337,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eHI-c3-pJ3"/>
+        <segue reference="kmm-RN-9aq"/>
     </inferredMetricsTieBreakers>
 </document>

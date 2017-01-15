@@ -6,9 +6,8 @@
 //  Copyright © 2016年 ShuntaNakajima. All rights reserved.
 //
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import SDWebImage
+import WebImage
+
 class DataCacheNetwork{
     
     func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
