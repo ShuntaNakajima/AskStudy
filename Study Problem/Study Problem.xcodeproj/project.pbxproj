@@ -43,6 +43,7 @@
 		BC3144351E2B1B9C00BBBD70 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */; };
 		BC3144391E2B2F2400BBBD70 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */; };
 		BC31443A1E2B2F2400BBBD70 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */; };
+		BC31443E1E2B404C00BBBD70 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BC31443D1E2B404C00BBBD70 /* menu.png */; };
 		BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1271D4F913D00086026 /* CustomPresentationController.swift */; };
 		BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */; };
 		BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */; };
@@ -191,6 +192,7 @@
 		BC31442F1E2B1B9C00BBBD70 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 		BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		BC31443D1E2B404C00BBBD70 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		BC32D1271D4F913D00086026 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewController.swift; sourceTree = "<group>"; };
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				BC0198591D97F14E00E39160 /* AskStudy.png */,
 				BC4281881D76D1D600D5F66E /* Chat.gif */,
 				BC42818F1D77086100D5F66E /* Chat@2x.gif */,
+				BC31443D1E2B404C00BBBD70 /* menu.png */,
 				BCC9E0A21D97B0E600D05897 /* ChatsBig.png */,
 				BC9178AA1DCEF3990001134B /* Gay.png */,
 				BCC9E0A41D97B31C00D05897 /* IMG_1781.PNG */,
@@ -893,6 +896,7 @@
 				BC4281921D77086100D5F66E /* Main@2x.gif in Resources */,
 				BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */,
 				BCF520C31CE9B8CB0027D8EA /* MyReplysTableViewCell.xib in Resources */,
+				BC31443E1E2B404C00BBBD70 /* menu.png in Resources */,
 				BC16036D1CE85C8300402577 /* postTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
