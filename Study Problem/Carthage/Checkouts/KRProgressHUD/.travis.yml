@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8
+script:
+  - xcodebuild clean test -project KRProgressHUD.xcodeproj -scheme KRProgressHUD -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0'
+

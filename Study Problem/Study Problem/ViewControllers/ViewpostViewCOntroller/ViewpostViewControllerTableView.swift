@@ -8,9 +8,7 @@
 
 import Foundation
 import UIKit
-import FirebaseStorage
-import FirebaseAuth
-import FirebaseDatabase
+import Firebase
 
 extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

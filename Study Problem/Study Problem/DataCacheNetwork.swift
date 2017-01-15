@@ -6,9 +6,7 @@
 //  Copyright © 2016年 ShuntaNakajima. All rights reserved.
 //
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import SDWebImage
+import WebImage
 class DataCacheNetwork{
     
     func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
@@ -43,7 +41,6 @@ class DataCacheNetwork{
                     let storage = FIRStorage.storage()
                     let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
                     let autorsprofileRef = storageRef.child("\(i["key"]!)/\(j).png")
-                    print(autorsprofileRef)
                     autorsprofileRef.downloadURL{(URL,error) -> Void in
                         if error != nil {
                             print(error)
@@ -57,7 +54,6 @@ class DataCacheNetwork{
                                                                      progress: nil,
                                                                      completed: { [weak self] (image, error, a, c, s) in
                                                                         SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
-                                                                        print(pass[index])
                             })
                         }
                     }

@@ -7,9 +7,6 @@
 //
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import DZNEmptyDataSet
 
 extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
@@ -108,9 +105,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                 let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
                 recentUesrsQuery.observe(.value, with: { snapshot in
                     var mykey = ""
-                    print(snapshot.value)
                     if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                        print(snapshots)
                         for snap in snapshots {
                             mykey = snap.key
                         }

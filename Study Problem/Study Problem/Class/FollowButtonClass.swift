@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
 
 class FollowButtonClass: UIButton {
     var Database = FIRDatabaseReference.init()

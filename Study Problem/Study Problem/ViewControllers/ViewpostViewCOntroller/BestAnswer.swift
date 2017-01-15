@@ -9,9 +9,7 @@
 
 import Foundation
 import UIKit
-import FirebaseStorage
-import FirebaseAuth
-import FirebaseDatabase
+import Firebase
 import DKImagePickerController
 import Photos
 import AVKit

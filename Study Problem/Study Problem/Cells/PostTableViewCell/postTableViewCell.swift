@@ -8,10 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
-import SDWebImage
+import WebImage
 
 class postTableViewCell: UITableViewCell {
     
@@ -35,7 +32,6 @@ class postTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         for (index,i) in self.view.subviews.enumerated(){
-            print(i)
         switch i{
         case is OnePhotoView: let nib = self.view.subviews[index] as! OnePhotoView
             nib.cancelReload()

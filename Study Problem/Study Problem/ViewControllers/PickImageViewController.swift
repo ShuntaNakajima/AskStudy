@@ -54,8 +54,6 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         pickerController.defaultSelectedAssets = self.assets
         
         pickerController.didSelectAssets = { [unowned self] (assets: [DKAsset]) in
-            print("didSelectAssets")
-            
             self.assets = assets
             self.previewView?.reloadData()
         }

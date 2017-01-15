@@ -8,9 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-
 
 class ViewpostViewController: UIViewController,UITextViewDelegate {
     var Database = FIRDatabaseReference.init()

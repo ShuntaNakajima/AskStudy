@@ -8,9 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 
 class UserDetailModalViewController: UIViewController {
     var UserKey = ""
@@ -107,7 +104,6 @@ class UserDetailModalViewController: UIViewController {
                 }
                 if self.postkeys.isEmpty{}else{
                 let post = self.postkeys[0]
-                print(post)
                 Database.child("post/" + post! + "/").observe(.value, with: { snapshot in
                     if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                         var apost = Dictionary<String, AnyObject>()

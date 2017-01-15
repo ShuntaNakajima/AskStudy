@@ -8,9 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
 import DZNEmptyDataSet
 
 class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRecognizerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate{
@@ -66,7 +63,6 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
         }
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {// textDidChange
-        print(searchText)
         reload(searchText: searchText)
     }
     func reload(searchText:String){
@@ -77,7 +73,6 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {
                         if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                            print(snap)
                             let key:String! = snapshot.key
                             postDictionary["key"] = key as AnyObject?
                             self.posts.append(postDictionary)
@@ -93,7 +88,6 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {
                         if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                            print(snap)
                             let key = snap.key
                             postDictionary["key"] = key as AnyObject?
                             self.posts.append(postDictionary)

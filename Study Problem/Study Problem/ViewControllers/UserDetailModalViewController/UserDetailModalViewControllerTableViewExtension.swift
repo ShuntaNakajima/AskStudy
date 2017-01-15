@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import FirebaseAuth
-import FirebaseDatabase
 extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSource{
     private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
