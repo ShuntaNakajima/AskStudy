@@ -8,7 +8,7 @@
 
 import UIKit
 
-class itemTableViewCell: UITableViewCell {
+class ItemTableViewCell: UITableViewCell {
     
     @IBOutlet var ReplycountLabel:UILabel!
     @IBOutlet var IwantknowButton:UIButton!

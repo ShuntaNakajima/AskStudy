@@ -11,11 +11,11 @@ import Firebase
 
 class UserDetailModalViewController: UIViewController {
     var UserKey = ""
-    var Database = FIRDatabaseReference.init()
-    @IBOutlet var ProfileImageButton:ProfileImageButtonClass!
+    let database = FIRDatabase.database().reference()
+    @IBOutlet var ProfileImageButton:ProfileImageButton!
     @IBOutlet var ProfileLabel:UILabel!
     @IBOutlet var ExitButton:UIButton!
-    @IBOutlet var FollowButton:FollowButtonClass!
+    @IBOutlet var FollowButton:FollowButton!
     @IBOutlet var FollowIngButton:UIButton!
     @IBOutlet var FollowerButton:UIButton!
     @IBOutlet var UserPostButton:UIButton!
@@ -39,9 +39,9 @@ class UserDetailModalViewController: UIViewController {
     @IBAction func Follow(){
         if self.UserKey == (FIRAuth.auth()?.currentUser!.uid)!{
         }else if mykey == ""{
-            FollowButtonClass().follow(uid: UserKey)
+            FollowButton.follow(uid: UserKey)
         }else{
-            FollowButtonClass().unfollow(uid: UserKey)
+            FollowButton.unfollow(uid: UserKey)
         }
     }
     func reloadFollowButton(){
@@ -68,9 +68,8 @@ class UserDetailModalViewController: UIViewController {
         })
     }
     func loadData(){
-        let Database = FIRDatabase.database().reference()
-        let User = Database.child("user").child(UserKey)
-        Database.child("user/" + self.UserKey + "/followers").observe(.value, with: { snapshot in
+        let User = database.child("user").child(UserKey)
+        database.child("user/" + self.UserKey + "/followers").observe(.value, with: { snapshot in
             if let snap = snapshot as? FIRDataSnapshot {
                 var num = snap.value as! Int
                 if num == -1{
@@ -80,7 +79,7 @@ class UserDetailModalViewController: UIViewController {
                 self.reloadFollowButton()
             }
         })
-        Database.child("user/" + self.UserKey + "/follows").observe(.value, with: { snapshot in
+        database.child("user/" + self.UserKey + "/follows").observe(.value, with: { snapshot in
             if let snap = snapshot as? FIRDataSnapshot {
                 var num = snap.value as! Int
                 if num == -1{
@@ -90,7 +89,7 @@ class UserDetailModalViewController: UIViewController {
             }
         })
         reloadFollowButton()
-        Database.child("user/" + self.UserKey + "/posts").observe(.value, with: { snapshot in
+        database.child("user/" + self.UserKey + "/posts").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.postkeys = []
                 for snap in snapshots {
@@ -100,7 +99,7 @@ class UserDetailModalViewController: UIViewController {
                 }
                 if self.postkeys.isEmpty{}else{
                     let post = self.postkeys[0]
-                    Database.child("post/" + post! + "/").observe(.value, with: { snapshot in
+                    self.database.child("post/" + post! + "/").observe(.value, with: { snapshot in
                         if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                             var apost = Dictionary<String, AnyObject>()
                             for snap in snapshots{
@@ -115,7 +114,7 @@ class UserDetailModalViewController: UIViewController {
         User.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject!)["username"] as! String
             self.ProfileLabel.text = postUser
-            let recentUesrsQuery = (Database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: self.UserKey))
+            let recentUesrsQuery = (self.database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: self.UserKey))
             recentUesrsQuery.observe(.value, with: { snapshot in
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {

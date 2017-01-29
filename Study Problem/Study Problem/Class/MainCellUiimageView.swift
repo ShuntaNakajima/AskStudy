@@ -7,15 +7,15 @@
 //
 
 import UIKit
-class MainCellUiimageViewClass: UIButton {
+class MainCellUiimageView: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addTarget(self, action:  #selector(MainCellUiimageViewClass.showUser(sender:)), for: .touchUpInside)
+        self.addTarget(self, action:  #selector(MainCellUiimageView.showUser(sender:)), for: .touchUpInside)
         self.updateLayout()
     }
     
     override func awakeFromNib() {
-        self.addTarget(self, action: #selector(MainCellUiimageViewClass.showUser(sender:)), for: .touchUpInside)
+        self.addTarget(self, action: #selector(MainCellUiimageView.showUser(sender:)), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,7 +37,7 @@ class MainCellUiimageViewClass: UIButton {
         self.superview!.window?.rootViewController!.present(modalViewController, animated: true, completion: nil)
     }
 }
-extension MainCellUiimageViewClass: UIViewControllerTransitioningDelegate {
+extension MainCellUiimageView: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return CustomPresentationController(presentedViewController: forPresented, presenting: presenting)
     }

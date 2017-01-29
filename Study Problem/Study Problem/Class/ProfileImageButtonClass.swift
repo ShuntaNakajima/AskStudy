@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class ProfileImageButtonClass: UIButton{
+class ProfileImageButton: UIButton{
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.updateLayout()

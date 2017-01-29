@@ -10,7 +10,7 @@ import UIKit
 
 class ModalTableViewCell: UITableViewCell {
 
-    @IBOutlet var textView : MianCellTextView!
+    @IBOutlet var textView : MainCellLabel!
     @IBOutlet var profileLabel: UILabel!
     @IBOutlet var replyscountLabel : UILabel!
     @IBOutlet var subjectLabel:UILabel!

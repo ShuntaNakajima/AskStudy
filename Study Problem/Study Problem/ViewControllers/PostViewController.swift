@@ -18,7 +18,7 @@ import SVProgressHUD
 class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate,UITextViewDelegate{
     @IBOutlet var textView:UITextView!
     
-    var Database = FIRDatabaseReference.init()
+    let database = FIRDatabase.database().reference()
     
     @IBOutlet var subjectTextfield:UITextField!
     @IBOutlet var closebutton:UIButton!
@@ -44,7 +44,6 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        Database = FIRDatabase.database().reference()
         
         self.currentUserId = (FIRAuth.auth()?.currentUser!.uid)!
         previewView?.delegate = self
@@ -157,12 +156,12 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
                 "BestAnswer": "" as AnyObject,
                 "Photo": photoCount as AnyObject
             ]
-            let firebaseNewJoke = Database.child("post/").childByAutoId()
+            let firebaseNewJoke = database.child("post/").childByAutoId()
             if assets?.count != nil{
                 uploadImage(key: firebaseNewJoke.key)
             }
             firebaseNewJoke.setValue(newJoke)
-            let firebaseUserPost = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
+            let firebaseUserPost = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
             firebaseUserPost.setValue(firebaseNewJoke.key)
             let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: {(action: UIAlertAction!) -> Void in

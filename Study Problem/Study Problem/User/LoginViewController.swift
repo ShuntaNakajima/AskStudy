@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController,CAAnimationDelegate {
-    var Database = FIRDatabase.database().reference()
+    let database = FIRDatabase.database().reference()
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     var fromColors = [Any?]()

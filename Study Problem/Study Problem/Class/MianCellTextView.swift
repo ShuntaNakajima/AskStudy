@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MianCellTextView: UILabel {
+class MainCellLabel: UILabel {
     override func draw(_ rect: CGRect) {
         self.updateLayout()
     }

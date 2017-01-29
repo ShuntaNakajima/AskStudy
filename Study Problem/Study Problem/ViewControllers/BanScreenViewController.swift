@@ -14,7 +14,7 @@ class BanScreenViewController: UIViewController,CAAnimationDelegate {
     @IBOutlet var timeLabel : UILabel!
     @IBOutlet var reasonLabel:UILabel!
     
-    var Database = FIRDatabase.database().reference()
+    let database = FIRDatabase.database().reference()
     var fromColors = [Any?]()
     var gradient : CAGradientLayer?
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class BanScreenViewController: UIViewController,CAAnimationDelegate {
     }
     func getState(){
         var myStatus = [Dictionary<String, AnyObject>]()
-        let recentUesrsQuery = (Database.child("ban").queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser!.uid))
+        let recentUesrsQuery = (database.child("ban").queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser!.uid))
         recentUesrsQuery.observe(.value, with: { snapshot in
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {

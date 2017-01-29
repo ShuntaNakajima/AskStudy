@@ -22,7 +22,7 @@ extension MainViewController{
             case let .success(referenceTime):
                 now = referenceTime.now()
                 var myStatus = [Dictionary<String, AnyObject>]()
-                let recentUesrsQuery = (self.Database.child("ban").queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser!.uid))
+                let recentUesrsQuery = (self.database.child("ban").queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser!.uid))
                 recentUesrsQuery.observe(.value, with: { snapshot in
                     
                     if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ViewpostViewController: UIViewController,UITextViewDelegate {
-    var Database = FIRDatabaseReference.init()
+    let database = FIRDatabase.database().reference()
     var post : String!
     var newpost : FIRDatabase!
     var replys = [Dictionary<String, AnyObject>]()
@@ -22,12 +22,11 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         let mainnib  = UINib(nibName: "postTableViewCell", bundle:nil)
         self.tableView.register(mainnib, forCellReuseIdentifier:"PostCell")
-        let itemnib = UINib(nibName: "itemTableViewCell", bundle: nil)
+        let itemnib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         self.tableView.register(itemnib, forCellReuseIdentifier: "ItemCell")
         let replysnib  = UINib(nibName: "ReplysTableViewCell", bundle:nil)
         self.tableView.register(replysnib, forCellReuseIdentifier:"ReplysCell")
@@ -50,7 +49,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         toolbar.addSubview(self.myTextView)
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(ViewpostViewController.handleKeyboardWillShowNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        Database.child("post/" + post).observe(.value, with: { (snapshot:FIRDataSnapshot) in
+        database.child("post/" + post).observe(.value, with: { (snapshot:FIRDataSnapshot) in
             if snapshot.children.allObjects is [FIRDataSnapshot] {
                 if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                     let key = snapshot.key
@@ -68,7 +67,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                 }
             }
         })
-        Database.child("post/" + post + "/replys").observe(.value, with: { snapshot in
+        database.child("post/" + post + "/replys").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.replys = []
                 for snap in snapshots {
@@ -110,11 +109,11 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                 "text": replyText! as AnyObject,
                 "author": (FIRAuth.auth()?.currentUser?.uid)! as AnyObject
             ]
-            let firebasenewreply = Database.child("post/" + post + "/replys").childByAutoId()
+            let firebasenewreply = database.child("post/" + post + "/replys").childByAutoId()
             firebasenewreply.setValue(newreply)
             var replaycount = postDic["reply"] as! Int
             replaycount = replaycount + 1
-            let firebasenewreplyscount = Database.child("post/" + post + "/reply")
+            let firebasenewreplyscount = database.child("post/" + post + "/reply")
             firebasenewreplyscount.setValue(replaycount)
         }
     }
@@ -147,7 +146,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                 "reportPost":self.postDic["key"] as! String!,
                 "reportUser":FIRAuth.auth()?.currentUser?.uid
             ]
-            self.Database.child("report").childByAutoId().setValue(newreport)
+            self.database.child("report").childByAutoId().setValue(newreport)
         })
         let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(action)

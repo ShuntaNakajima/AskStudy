@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRDatabase.database().persistenceEnabled = true
+       // FIRDatabase.database().persistenceEnabled = true
         let pageviewControl = UIPageControl.appearance()
         pageviewControl.backgroundColor = UIColor.clear
         UINavigationBar.appearance().tintColor = UIColor.white

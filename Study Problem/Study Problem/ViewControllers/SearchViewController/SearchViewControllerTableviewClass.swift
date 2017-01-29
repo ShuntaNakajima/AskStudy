@@ -19,7 +19,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         if segucon.selectedSegmentIndex == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
             let postDictionary = post as? Dictionary<String, AnyObject>
             cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
             cell.subjectLabel.text = postDictionary!["subject"] as? String!
@@ -27,7 +27,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
             let now = Date()
             cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
             cell.textView.text = postDictionary!["text"] as? String
-            let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
+            let currentUser = database.child("user").child((postDictionary!["author"] as? String)!)
             currentUser.observe(FIRDataEventType.value, with: { snapshot in
                 let postUser = (snapshot.value! as AnyObject)["username"] as! String
                 cell.profileLabel.text = postUser
@@ -101,8 +101,8 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
             } else if recognizer.state == UIGestureRecognizerState.began  {
                 if longState == false{
                     longState = true
-                    let Database = FIRDatabase.database().reference()
-                    let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
+                    let database = FIRDatabase.database().reference()
+                    let recentUesrsQuery = database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
                     recentUesrsQuery.observe(.value, with: { snapshot in
                         var mykey = ""
                         if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -112,17 +112,17 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                         }
                         if mykey == ""{
                             if self.longState == true{
-                                let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
+                                let newFollowChild = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
                                 newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                                 let anImage = UIImage(named: "star.gif")
-                                ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                                _ = ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
                                 self.longState = false
                             }
                         }else{
                             if self.longState == true{
-                                Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
+                                database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                                 let anImage = UIImage(named: "star.gif")
-                                ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                                _ = ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
                                 self.longState = false
                             }
                         }
