@@ -66,6 +66,9 @@ PODS:
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - JTSImageViewController (1.5.1)
+  - Result (3.1.0)
+  - TrueTime (4.0.0):
+    - Result (~> 3.0)
 
 DEPENDENCIES:
   - DKImagePickerController
@@ -77,6 +80,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - JSQMessagesViewController
   - JTSImageViewController
+  - TrueTime
 
 SPEC CHECKSUMS:
   DKImagePickerController: 0fccc62b047a6b0c64d81e7b64a3deab22b86839
@@ -95,7 +99,9 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  TrueTime: 7924bbe03d015c22a5b59f28001f879f1b4cb183
 
-PODFILE CHECKSUM: b50c248717b180477973326d03d0a8054b8ce08c
+PODFILE CHECKSUM: 4f5e43c96022953f23ee3a545fd562e733289829
 
 COCOAPODS: 1.1.1

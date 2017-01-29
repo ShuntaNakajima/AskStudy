@@ -10,4 +10,5 @@ pod 'Firebase/Auth'
 pod 'JSQMessagesViewController'
 pod 'DKImagePickerController'
 pod 'JTSImageViewController'
+pod 'TrueTime'
 end
