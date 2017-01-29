@@ -44,6 +44,9 @@
 		BC3144391E2B2F2400BBBD70 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */; };
 		BC31443A1E2B2F2400BBBD70 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */; };
 		BC31443E1E2B404C00BBBD70 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BC31443D1E2B404C00BBBD70 /* menu.png */; };
+		BC31444B1E2B682900BBBD70 /* BanScreenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC31444A1E2B682900BBBD70 /* BanScreenStoryboard.storyboard */; };
+		BC31444D1E2B684800BBBD70 /* BanScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31444C1E2B684800BBBD70 /* BanScreenViewController.swift */; };
+		BC31444F1E2B68E800BBBD70 /* MainViewControllerBanExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31444E1E2B68E800BBBD70 /* MainViewControllerBanExtension.swift */; };
 		BC32D1281D4F913D00086026 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1271D4F913D00086026 /* CustomPresentationController.swift */; };
 		BC32D12B1D501B9F00086026 /* UserDetailModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */; };
 		BC32D12C1D501B9F00086026 /* UserDetailModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */; };
@@ -193,6 +196,9 @@
 		BC3144371E2B2F2400BBBD70 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		BC3144381E2B2F2400BBBD70 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		BC31443D1E2B404C00BBBD70 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		BC31444A1E2B682900BBBD70 /* BanScreenStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BanScreenStoryboard.storyboard; path = "Study Problem/BanScreenStoryboard.storyboard"; sourceTree = SOURCE_ROOT; };
+		BC31444C1E2B684800BBBD70 /* BanScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BanScreenViewController.swift; sourceTree = "<group>"; };
+		BC31444E1E2B68E800BBBD70 /* MainViewControllerBanExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerBanExtension.swift; sourceTree = "<group>"; };
 		BC32D1271D4F913D00086026 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		BC32D1291D501B9F00086026 /* UserDetailModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModalViewController.swift; sourceTree = "<group>"; };
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
@@ -442,6 +448,16 @@
 			path = ItemTableViewCell/ChatTableViewCell;
 			sourceTree = "<group>";
 		};
+		BC3144471E2B67E700BBBD70 /* BanScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BC31444A1E2B682900BBBD70 /* BanScreenStoryboard.storyboard */,
+				BC31444C1E2B684800BBBD70 /* BanScreenViewController.swift */,
+				BC31444E1E2B68E800BBBD70 /* MainViewControllerBanExtension.swift */,
+			);
+			name = BanScreen;
+			sourceTree = "<group>";
+		};
 		BC46D6CF1D1FA7C700F25E5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +468,7 @@
 				BC5E9E6D1D5B6ED4003C1850 /* UserDetailModalViewController */,
 				BC25AFB91D2E7F0100A9F881 /* ViewpostViewCOntroller */,
 				BC366D551DAA2F5700797B3A /* PickImageViewController.swift */,
+				BC3144471E2B67E700BBBD70 /* BanScreen */,
 				BC1437E51CE6138900448AC0 /* PostViewController.swift */,
 				BC9967FA1D97B4FB001E3AA1 /* StarDetailViewController.swift */,
 				BC01985D1D98004C00E39160 /* StarterPageViewController.swift */,
@@ -890,6 +907,7 @@
 				BC54BB841CE4AE720013C0DD /* Assets.xcassets in Resources */,
 				BCC7C5E71D979EB0002AF37E /* Icon-App-60x60@1x.png in Resources */,
 				BCC7C5DD1D979EB0002AF37E /* Icon-App-20x20@1x.png in Resources */,
+				BC31444B1E2B682900BBBD70 /* BanScreenStoryboard.storyboard in Resources */,
 				BC54BB821CE4AE720013C0DD /* Main.storyboard in Resources */,
 				BCA052431D76CD8100B24A5E /* Main.gif in Resources */,
 				BCC7C5E31D979EB0002AF37E /* Icon-App-40x40@1x.png in Resources */,
@@ -1022,6 +1040,7 @@
 				BC0095EA1D5DFE8400FBA347 /* ToastView.swift in Sources */,
 				BCF520B81CE9B71F0027D8EA /* PostMainTableViewCell.swift in Sources */,
 				BC32D12E1D5023F400086026 /* CustomAnimatedTransitioning.swift in Sources */,
+				BC31444F1E2B68E800BBBD70 /* MainViewControllerBanExtension.swift in Sources */,
 				BC1437E41CE6137B00448AC0 /* MainViewController.swift in Sources */,
 				BC7980701D75C6C900ACAE5C /* StarPostViewController.swift in Sources */,
 				BC19B23E1DAA083D009D2498 /* BestAnswer.swift in Sources */,
@@ -1036,6 +1055,7 @@
 				BC3144281E2B131100BBBD70 /* ChangeColor.swift in Sources */,
 				BCE4251A1D9779F100F49F1D /* ChangeDisplayNameViewController.swift in Sources */,
 				BC708E731DBC943F005D8529 /* OnePhotoView.swift in Sources */,
+				BC31444D1E2B684800BBBD70 /* BanScreenViewController.swift in Sources */,
 				BCF3E4FA1DBC606D00BC056D /* ThreeImageView.swift in Sources */,
 				BC54BB7D1CE4AE720013C0DD /* AppDelegate.swift in Sources */,
 				395B83801E24589E00421F19 /* StoryboardInstantiable.swift in Sources */,
