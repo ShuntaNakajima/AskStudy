@@ -15,11 +15,10 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet var newPassword:UITextField!
     @IBOutlet var newPasswordAgain:UITextField!
     var userDic = Dictionary<String, AnyObject>()
-    var Database = FIRDatabaseReference.init()
+    let database = FIRDatabase.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
-        Database = FIRDatabase.database().reference()
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
+        database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
             if var userDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                 let key = snapshot.key
                 userDictionary["key"] = key as AnyObject?

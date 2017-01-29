@@ -13,15 +13,11 @@ import Firebase
 
 extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
     
-    
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
         let post = posts[indexPath.row]
         for i in cell.view.subviews{
             i.removeFromSuperview()
@@ -32,7 +28,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = post["text"] as? String
-        let currentUser = Database.child("user").child((post["author"] as? String)!)
+        let currentUser = database.child("user").child((post["author"] as? String)!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
@@ -59,7 +55,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
         cell.profileImage.tag = indexPath.row
-        cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
+        cell.profileImage.addTarget(self, action: #selector(self.showUserData(sender:)), for: .touchUpInside)
         return cell
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
@@ -76,8 +72,8 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         } else if recognizer.state == UIGestureRecognizerState.began  {
             if longState == false{
                 longState = true
-                let Database = FIRDatabase.database().reference()
-                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
+                let database = FIRDatabase.database().reference()
+                let recentUesrsQuery = database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
                 recentUesrsQuery.observe(.value, with: { snapshot in
                     var mykey = ""
                     if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -87,15 +83,15 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
                     }
                     if mykey == ""{
                         if self.longState == true{
-                            let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
+                            let newFollowChild = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
                             newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                             let anImage = UIImage(named: "star.gif")
-                            ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }else{
                         if self.longState == true{
-                            Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
+                            database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                             if self.posts.count == 1{
                                 self.posts = []
                                 self.tableView.reloadData()
@@ -103,7 +99,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
                                 self.reload()
                             }
                             let anImage = UIImage(named: "star.gif")
-                            ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }
@@ -111,5 +107,6 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
             }
         }
     }
+    
 }
 

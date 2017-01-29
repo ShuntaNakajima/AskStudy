@@ -20,7 +20,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 1{
-            let itemcell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! itemTableViewCell
+            let itemcell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! ItemTableViewCell
             itemcell.DateLable.text = postDic["date"] as! String!
             let BestAnswer = postDic["BestAnswer"] as? String
             if BestAnswer == ""{
@@ -31,7 +31,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             return itemcell
         }
         if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! postTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
             let postDictionary = postDic
             for i in cell.view.subviews{
                 i.removeFromSuperview()
@@ -44,7 +44,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             cell.textView.text = postDictionary["text"] as? String
             cell.menuButton.tag = indexPath.row
             cell.menuButton.addTarget(self, action: #selector(ViewpostViewController.reportPost(sender:)), for: .touchUpInside)
-            let currentUser = Database.child("user").child((postDictionary["author"] as? String)!)
+            let currentUser = database.child("user").child((postDictionary["author"] as? String)!)
             currentUser.observe(FIRDataEventType.value, with: { snapshot in
                 let postUser = (snapshot.value! as AnyObject)["username"] as! String
                 cell.profileLabel.text = postUser
@@ -58,7 +58,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 let autorsprofileRef = storageRef.child("\((postDictionary["author"] as? String)!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                     if error != nil {
-                        print(error)
+                        print(error as Any)
                     } else {
                         viewImg = data.flatMap(UIImage.init)!
                         DispatchQueue.main.async(execute: {
@@ -83,7 +83,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
-                    print(error)
+                    print(error as Any)
                 } else {
                     viewImg = data.flatMap(UIImage.init)!
                     replycell.profileImageView.setBackgroundImage(viewImg, for: UIControlState.normal)
@@ -108,7 +108,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 }
             }
             replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
-            let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
+            let currentUser = database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observe(.value, with: { (snapshot: FIRDataSnapshot) in
                 replycell.usernameLabel.text! = (snapshot.value! as AnyObject)["username"] as! String
             })
@@ -116,7 +116,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
         }else{
             let myreplycell = tableView.dequeueReusableCell(withIdentifier: "MyReplysCell") as! MyReplysTableViewCell
             myreplycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
-            let currentUser = Database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
+            let currentUser = database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
             currentUser.observe(.value, with: { (snapshot: FIRDataSnapshot) in
                 myreplycell.usernameLabel.text! = (snapshot.value! as AnyObject)["username"] as! String
             })
@@ -129,7 +129,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
-                    print(error)
+                    print(error as Any)
                 }else{
                     viewImg = data.flatMap(UIImage.init)!
                     myreplycell.profileImageView.setBackgroundImage(viewImg, for: UIControlState.normal)

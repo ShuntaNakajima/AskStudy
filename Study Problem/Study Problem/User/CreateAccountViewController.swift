@@ -11,9 +11,7 @@ import Firebase
 
 class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,CAAnimationDelegate {
     
-    
-    
-    var Database = FIRDatabase.database().reference()
+    let database = FIRDatabase.database().reference()
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -124,7 +122,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                             let user = ["email": email!, "username": username!, "grade": grade! ,"follows": 0,"followers":0] as [String : Any]
                             
                             // Seal the deal in DataService.swift.
-                            self.Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
+                            self.database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
                             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                         }else {
                             self.signupErrorAlert(title: "Oops!", message: "Plaese check your e-mail address.")

@@ -18,7 +18,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! postTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
@@ -30,7 +30,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = post["text"] as? String
-        let currentUser = Database.child("user").child((post["author"] as? String)!)
+        let currentUser = database.child("user").child((post["author"] as? String)!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser
@@ -67,7 +67,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
                 "reportPost":self.posts[row]["key"] as! String!,
                 "reportUser":FIRAuth.auth()?.currentUser?.uid
             ]
-            self.Database.child("report").childByAutoId().setValue(newreport)
+            self.database.child("report").childByAutoId().setValue(newreport)
         })
         let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(action)
@@ -91,8 +91,8 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         } else if recognizer.state == UIGestureRecognizerState.began  {
             if longState == false{
                 longState = true
-                let Database = FIRDatabase.database().reference()
-                let recentUesrsQuery = Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
+                let database = FIRDatabase.database().reference()
+                let recentUesrsQuery = database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").queryOrdered(byChild: "userstars").queryEqual(toValue: self.posts[indexPath!.row]["key"] as! String!)
                 recentUesrsQuery.observe(.value, with: { snapshot in
                     var mykey = ""
                     if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -102,17 +102,17 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
                     }
                     if mykey == ""{
                         if self.longState == true{
-                            let newFollowChild = Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
+                            let newFollowChild = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
                             newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                             let anImage = UIImage(named: "star.gif")
-                            ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }else{
                         if self.longState == true{
-                            Database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
+                            database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                             let anImage = UIImage(named: "star.gif")
-                            ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }

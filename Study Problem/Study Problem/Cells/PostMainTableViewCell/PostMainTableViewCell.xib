@@ -24,7 +24,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZt-hD-mxM" customClass="MainCellUiimageViewClass" customModule="Study_Problem" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZt-hD-mxM" customClass="MainCellUiimageView" customModule="Study_Problem" customModuleProvider="target">
                         <rect key="frame" x="9" y="9" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="QbL-yn-y0x"/>

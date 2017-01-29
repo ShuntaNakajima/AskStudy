@@ -17,7 +17,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
     @IBOutlet var usernameTextField:UILabel!
     @IBOutlet var usernameTextFieldincell:UILabel!
     @IBOutlet var gradeTextField:UILabel!
-    var Database = FIRDatabaseReference.init()
+    let database = FIRDatabase.database().reference()
     let user = FIRAuth.auth()?.currentUser
     let storage = FIRStorage.storage()
     var profileImages : UIImage! = nil
@@ -38,9 +38,8 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         //        reportbutton.clipsToBounds=true
         profileimage.layer.borderWidth = 2
         profileimage.layer.borderColor = UIColor.white.cgColor
-        Database = FIRDatabase.database().reference()
         // Do any additional setup after loading the view.
-        Database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
+        database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).observe(.value, with: { snapshot in
             if var postDictionary = snapshot.value as? Dictionary<String, AnyObject> {
                 let key = snapshot.key
                 postDictionary["key"] = key as AnyObject?

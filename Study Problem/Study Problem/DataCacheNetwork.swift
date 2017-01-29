@@ -11,12 +11,12 @@ class DataCacheNetwork{
     
     static func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
         
-        let Database = FIRDatabase.database().reference()
+        let database = FIRDatabase.database().reference()
         var posts = [Dictionary<String, AnyObject>]()
         var photos = [Dictionary<String, AnyObject>]()
         var imagePhotos = [URL]()
         var pass = [String]()
-        Database.child("post").queryLimited(toLast: UInt(limit)).observe(.value, with: { snapshot in
+        database.child("post").queryLimited(toLast: UInt(limit)).observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 posts = []
                 for snap in snapshots {

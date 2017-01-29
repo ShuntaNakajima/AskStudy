@@ -10,7 +10,7 @@ import UIKit
 
 class PostMainTableViewCell: UITableViewCell {
     
-    @IBOutlet var profileImageView : MainCellUiimageViewClass!
+    @IBOutlet var profileImageView : MainCellUiimageView!
     @IBOutlet var usernameLabel:UILabel!
     @IBOutlet var postLabel:UILabel!
     

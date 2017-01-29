@@ -13,7 +13,7 @@ import SVProgressHUD
 import WebImage
 
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
-    var Database = FIRDatabaseReference.init()
+    let database = FIRDatabase.database().reference()
     var selectpost : Dictionary<String, AnyObject> = [:]
     var selectpostID : String!
     var posts = [Dictionary<String, AnyObject>]()
@@ -31,9 +31,8 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
             let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
             self.present(viewController, animated: true, completion: nil)
         }
-        let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
+        let nib  = UINib(nibName: "PostTableViewCell", bundle:nil)
         self.tableView.register(nib, forCellReuseIdentifier:"PostCell")
-        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         self.refreshControl = UIRefreshControl()

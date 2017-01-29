@@ -26,7 +26,7 @@ extension UserDetailModalViewController:UITableViewDelegate,UITableViewDataSourc
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = postDictionary!["text"] as? String
-        let currentUser = Database.child("user").child((postDictionary!["author"] as? String)!)
+        let currentUser = database.child("user").child((postDictionary!["author"] as? String)!)
         currentUser.observe(FIRDataEventType.value, with: { snapshot in
             let postUser = (snapshot.value! as AnyObject)["username"] as! String
             cell.profileLabel.text = postUser

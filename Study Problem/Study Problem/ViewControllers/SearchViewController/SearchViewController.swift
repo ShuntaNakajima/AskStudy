@@ -12,7 +12,7 @@ import DZNEmptyDataSet
 
 class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRecognizerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate{
     var searchBar: UISearchBar!
-    var Database = FIRDatabaseReference.init()
+    let database = FIRDatabase.database().reference()
     var posts = [Dictionary<String, AnyObject>]()
     var longState = false
     var refreshControl:UIRefreshControl!
@@ -24,11 +24,10 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
-        let nib  = UINib(nibName: "postTableViewCell", bundle:nil)
+        let nib  = UINib(nibName: "PostTableViewCell", bundle:nil)
         self.tableView.register(nib, forCellReuseIdentifier:"PostCell")
         let nib2  = UINib(nibName: "ChatTableViewCell", bundle:nil)
         self.tableView.register(nib2, forCellReuseIdentifier:"ChatUserCell")
-        Database = FIRDatabase.database().reference()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.emptyDataSetSource = self
@@ -68,7 +67,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     func reload(searchText:String){
         self.tableView.contentOffset = CGPoint(x:0,y: -self.tableView.contentInset.top)
         if segucon.selectedSegmentIndex == 0{
-            Database.child("post").queryOrdered(byChild: "text").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
+            database.child("post").queryOrdered(byChild: "text").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
                 self.posts = []
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {
@@ -83,7 +82,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
                 self.tableView.reloadData()
             })
         }else{
-            Database.child("user").queryOrdered(byChild: "username").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
+            database.child("user").queryOrdered(byChild: "username").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
                 self.posts = []
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {
