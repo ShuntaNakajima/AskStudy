@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         // Firebase Init
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       // FIRDatabase.database().persistenceEnabled = true
         let pageviewControl = UIPageControl.appearance()
         pageviewControl.backgroundColor = UIColor.clear
         UINavigationBar.appearance().tintColor = UIColor.white

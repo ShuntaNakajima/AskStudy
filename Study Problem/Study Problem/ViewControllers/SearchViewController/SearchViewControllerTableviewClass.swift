@@ -18,7 +18,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-        if segucon.selectedSegmentIndex == 0{
+      //  if segucon.selectedSegmentIndex == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
             let postDictionary = post as? Dictionary<String, AnyObject>
             cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
@@ -54,35 +54,35 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
             cell.profileImage.tag = indexPath.row
             cell.profileImage.addTarget(self, action: #selector(SearchViewController.showUserData(sender:)), for: .touchUpInside)
             return cell
-        }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserCell") as! ChatTableViewCell
-            cell.profileLabel.text = post["username"] as? String!
-            DispatchQueue.global().async(execute:{
-                var viewImg = UIImage()
-                let storage = FIRStorage.storage()
-                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-                let key = post["key"] as? String!
-                let autorsprofileRef = storageRef.child("\(key!!)/profileimage.png")
-                autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
-                    if error != nil {
-                        print(error)
-                    } else {
-                        viewImg = data.flatMap(UIImage.init)!
-                        DispatchQueue.main.async(execute: {
-                            cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
-                            cell.layoutSubviews()
-                        });
-                    }
-                }
-            });
-            cell.profileImage.tag = indexPath.row
-            cell.profileImage.addTarget(self, action: #selector(SearchViewController.showUserData(sender:)), for: .touchUpInside)
-            return cell
-            
-        }
+//        }else{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserCell") as! ChatTableViewCell
+//            cell.profileLabel.text = post["username"] as? String!
+//            DispatchQueue.global().async(execute:{
+//                var viewImg = UIImage()
+//                let storage = FIRStorage.storage()
+//                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
+//                let key = post["key"] as? String!
+//                let autorsprofileRef = storageRef.child("\(key!!)/profileimage.png")
+//                autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
+//                    if error != nil {
+//                        print(error)
+//                    } else {
+//                        viewImg = data.flatMap(UIImage.init)!
+//                        DispatchQueue.main.async(execute: {
+//                            cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
+//                            cell.layoutSubviews()
+//                        });
+//                    }
+//                }
+//            });
+//            cell.profileImage.tag = indexPath.row
+//            cell.profileImage.addTarget(self, action: #selector(SearchViewController.showUserData(sender:)), for: .touchUpInside)
+//            return cell
+//            
+//        }
     }
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
-        if segucon.selectedSegmentIndex == 0{
+        //if segucon.selectedSegmentIndex == 0{
             let post = posts[indexPath.row]
             let postDictionary = post as? Dictionary<String, AnyObject>
             selectpost = postDictionary!
@@ -91,10 +91,10 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                 searchBar.resignFirstResponder()
                 performSegue(withIdentifier: "viewSarchPost",sender: nil)
             }
-        }
+        //}
     }
     func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
-        if segucon.selectedSegmentIndex == 0{
+      //  if segucon.selectedSegmentIndex == 0{
             let point = recognizer.location(in: tableView)
             let indexPath = tableView.indexPathForRow(at: point)
             if indexPath == nil {
@@ -129,7 +129,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                     })
                 }
             }
-        }
+        //}
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "No result"

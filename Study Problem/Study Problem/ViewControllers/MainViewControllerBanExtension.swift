@@ -15,8 +15,6 @@ extension MainViewController{
     func CheckUser(){
         SVProgressHUD.show(withStatus: "loading userstate")
         var now = Date()
-        let client = TrueTimeClient.sharedInstance
-        client.start()
         client.fetchIfNeeded { result in
             switch result {
             case let .success(referenceTime):

@@ -20,7 +20,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     var selectpostID : String!
     var segueUser = ""
     @IBOutlet var tableView :UITableView!
-    @IBOutlet var segucon:UISegmentedControl!
+   // @IBOutlet var segucon:UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
@@ -44,7 +44,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
         longPressRecognizer.minimumPressDuration = 0.4
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
-        segucon.addTarget(self, action: #selector(SearchViewController.segmentedControlChanged(sender:)), for: UIControlEvents.valueChanged)
+      //  segucon.addTarget(self, action: #selector(SearchViewController.segmentedControlChanged(sender:)), for: UIControlEvents.valueChanged)
     }
     private func setupSearchBar() {
         if let navigationBarFrame = navigationController?.navigationBar.bounds {
@@ -66,7 +66,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     }
     func reload(searchText:String){
         self.tableView.contentOffset = CGPoint(x:0,y: -self.tableView.contentInset.top)
-        if segucon.selectedSegmentIndex == 0{
+      //  if segucon.selectedSegmentIndex == 0{
             database.child("post").queryOrdered(byChild: "text").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
                 self.posts = []
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -81,22 +81,22 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
                 }
                 self.tableView.reloadData()
             })
-        }else{
-            database.child("user").queryOrdered(byChild: "username").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
-                self.posts = []
-                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                    for snap in snapshots {
-                        if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                            let key = snap.key
-                            postDictionary["key"] = key as AnyObject?
-                            self.posts.append(postDictionary)
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-                self.tableView.reloadData()
-            })
-        }
+        //}else{
+//            database.child("user").queryOrdered(byChild: "username").queryStarting(atValue:searchText).queryEnding(atValue: searchText+"\u{f8ff}").observeSingleEvent(of: .value, with: { snapshot in
+//                self.posts = []
+//                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+//                    for snap in snapshots {
+//                        if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
+//                            let key = snap.key
+//                            postDictionary["key"] = key as AnyObject?
+//                            self.posts.append(postDictionary)
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                }
+//                self.tableView.reloadData()
+//            })
+        //}
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {// clicked cancel button
         searchBar.resignFirstResponder()
@@ -115,11 +115,11 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     }
     func showUserData(sender:UIButton){
         let row = sender.tag
-        if segucon.selectedSegmentIndex == 0{
+       // if segucon.selectedSegmentIndex == 0{
             segueUser = posts[row]["author"] as! String
-        }else{
-            segueUser = posts[row]["key"] as! String
-        }
+//        }else{
+//            segueUser = posts[row]["key"] as! String
+//        }
         let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
         UDMC.UserKey = self.segueUser
     }

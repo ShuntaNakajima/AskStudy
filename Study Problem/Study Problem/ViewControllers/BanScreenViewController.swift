@@ -48,6 +48,7 @@ class BanScreenViewController: UIViewController,CAAnimationDelegate {
         self.gradient?.add(animation, forKey:"animateGradient")
     }
     func getState(){
+        let now = Date()
         var myStatus = [Dictionary<String, AnyObject>]()
         let recentUesrsQuery = (database.child("ban").queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser!.uid))
         recentUesrsQuery.observe(.value, with: { snapshot in
@@ -69,6 +70,10 @@ class BanScreenViewController: UIViewController,CAAnimationDelegate {
             if myStatus.last?["date"] as! String! == "never"{
                 self.label.text = "Your are banned for"
         }
+            let date = (myStatus.last?["date"] as! String!).postDate()
+            if date.offset(toDate: now) == "Just"{
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     )
     }

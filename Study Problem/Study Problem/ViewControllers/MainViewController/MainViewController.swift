@@ -11,6 +11,7 @@ import BubbleTransition
 import JTSImageViewController
 import SVProgressHUD
 import WebImage
+import TrueTime
 
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
     let database = FIRDatabase.database().reference()
@@ -21,12 +22,14 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     var longState = false
     var refreshControl:UIRefreshControl!
     let transition = BubbleTransition()
+     let client = TrueTimeClient.sharedInstance
     var number = 10
     var realnumber = 10
     @IBOutlet var tableView :UITableView!
     @IBOutlet var postButton:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        client.start()
         if FIRAuth.auth()?.currentUser == nil{
             let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
             self.present(viewController, animated: true, completion: nil)

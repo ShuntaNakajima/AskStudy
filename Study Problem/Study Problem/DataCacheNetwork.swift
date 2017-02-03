@@ -56,10 +56,11 @@ class DataCacheNetwork{
                                                                         SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
                             })
                         }
+                        success(posts)
                     }
                 }
             }
-            success(posts)
+            //success(posts)
         })
     }
 }

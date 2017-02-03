@@ -24,7 +24,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
-        let mainnib  = UINib(nibName: "postTableViewCell", bundle:nil)
+        let mainnib  = UINib(nibName: "PostTableViewCell", bundle:nil)
         self.tableView.register(mainnib, forCellReuseIdentifier:"PostCell")
         let itemnib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         self.tableView.register(itemnib, forCellReuseIdentifier: "ItemCell")
