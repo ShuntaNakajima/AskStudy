@@ -7,10 +7,10 @@
 //
 import Firebase
 import WebImage
+import SVProgressHUD
+import TrueTime
 class DataCacheNetwork{
-    
-    static func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
-        
+    func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
         let database = FIRDatabase.database().reference()
         var posts = [Dictionary<String, AnyObject>]()
         var photos = [Dictionary<String, AnyObject>]()
@@ -60,7 +60,55 @@ class DataCacheNetwork{
                     }
                 }
             }
-            //success(posts)
+            success(posts)
         })
+    }
+    
+    func loadusername(uid:String!) -> String!{
+        let database = FIRDatabase.database().reference()
+        var username = String()
+        let user = database.child("user").child(uid)
+        user.observe(FIRDataEventType.value, with: { snapshot in
+            username = (snapshot.value! as AnyObject)["username"] as! String
+        }, withCancel: { (error) in
+            print(error)
+        })
+        return username
+    }
+    
+    func checkUser(client:TrueTimeClient,vc:Any,success:@escaping () -> Void){
+        let database = FIRDatabase.database().reference()
+        SVProgressHUD.show(withStatus: "loading userstate")
+        var now = Date()
+        client.fetchIfNeeded { result in
+            switch result {
+            case let .success(referenceTime):
+                now = referenceTime.now()
+                var myStatus = [Dictionary<String, AnyObject>]()
+                let recentUesrsQuery = (database.child("ban").queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser!.uid))
+                recentUesrsQuery.observe(.value, with: { snapshot in
+                    
+                    if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                        for snap in snapshots{
+                            if var postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                                let key = snap.key
+                                postDictionary["key"] = key as AnyObject?
+                                myStatus.append(postDictionary)
+                            }
+                        }
+                    }
+                    let date = (myStatus.last?["date"] as! String!).postDate()
+                    if date.offset(toDate: now) != "Just"{
+                        let storyboard = UIStoryboard(name: "BanScreenStoryboard", bundle: nil)
+                        let viewController:UIViewController = storyboard.instantiateViewController(withIdentifier: "BanScreenStoryboard")
+                        (vc as AnyObject).present(viewController, animated: true, completion: nil)
+                    }
+                    SVProgressHUD.show(withStatus: "loading data from database")
+                    success()
+                })
+            case let .failure(error):
+                print("Error! \(error)")
+            }
+        }
     }
 }

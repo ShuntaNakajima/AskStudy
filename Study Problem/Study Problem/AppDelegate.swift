@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ud = UserDefaults.standard
         let dic = ["firstLaunch": true]
         ud.register(defaults: dic)
-        
         return true
     }
     

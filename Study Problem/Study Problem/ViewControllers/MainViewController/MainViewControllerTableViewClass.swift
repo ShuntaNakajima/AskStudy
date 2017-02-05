@@ -30,13 +30,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = post["text"] as? String
-        let currentUser = database.child("user").child((post["author"] as? String)!)
-        currentUser.observe(FIRDataEventType.value, with: { snapshot in
-            let postUser = (snapshot.value! as AnyObject)["username"] as! String
-            cell.profileLabel.text = postUser
-        }, withCancel: { (error) in
-            print(error)
-        })
+       cell.profileLabel.text = network.loadusername(uid: (post["author"] as? String)!)
         DispatchQueue.global().async(execute:{
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
@@ -127,7 +121,6 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let indexPath = tableView.indexPathForRow(at: offset)
         if indexPath?.row == number - 5{
             number = number + 1
-            // SVProgressHUD.show()
             reloadData(success: {_ in})
         }
         if indexPath?.row == realnumber - 1{

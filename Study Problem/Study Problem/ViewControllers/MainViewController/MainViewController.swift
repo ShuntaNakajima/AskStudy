@@ -14,6 +14,7 @@ import WebImage
 import TrueTime
 
 class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewControllerTransitioningDelegate{
+    let network = DataCacheNetwork()
     let database = FIRDatabase.database().reference()
     var selectpost : Dictionary<String, AnyObject> = [:]
     var selectpostID : String!
@@ -23,6 +24,7 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     var refreshControl:UIRefreshControl!
     let transition = BubbleTransition()
      let client = TrueTimeClient.sharedInstance
+    
     var number = 10
     var realnumber = 10
     @IBOutlet var tableView :UITableView!
@@ -75,8 +77,11 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         postButton.backgroundColor = UITabBar.appearance().tintColor
-        reloadData(success: {_ in})
-        CheckUser()
+        network.checkUser(client:client,vc:self, success: {_ in
+                self.reloadData(success: {_ in
+                 self.tableView.reloadData()
+                })
+    })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,9 +108,10 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         return transition
     }
     func reloadData(success:@escaping() -> Void){
-        DataCacheNetwork.loadCache(limit: number, success: {posts in
+        network.loadCache(limit: number, success: {posts in
             self.posts = posts
             self.tableView.isHidden = false
+            SVProgressHUD.dismiss()
             success()
         })
     }
