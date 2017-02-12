@@ -9,6 +9,7 @@
 import UIKit
 import JTSImageViewController
 import WebImage
+import Firebase
 
 class OnePhotoView: UIView {
     
@@ -19,7 +20,7 @@ class OnePhotoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        imageViews.forEach{$0.imageView?.contentMode = UIViewContentMode.scaleAspectFill}
+        //imageViews.forEach{$0.imageView?.contentMode = UIViewContentMode.scaleAspectFill}
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,20 +30,40 @@ class OnePhotoView: UIView {
         return UINib(nibName: "OnePhotoView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! OnePhotoView
     }
     func cancelReload(){
-        for (index,image) in images.enumerated(){
+        for (index,_) in images.enumerated(){
             imageViews[index].sd_cancelImageLoad(for: .normal)
         }
     }
     func setImage(images:[String],on:UIViewController){
         viewcontroller = on
         self.images = images
-        for (index,image) in images.enumerated(){
+        for (index,imagestring) in images.enumerated(){
             imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
-            SDWebImageManager.shared().imageCache.queryDiskCache(forKey: image
+            SDWebImageManager.shared().imageCache.queryDiskCache(forKey: imagestring
                 , done: { (image,type: SDImageCacheType) -> Void in
-                    self.imageViews[index].setBackgroundImage(image, for: .normal)
+                    if image != nil{
+                        self.imageViews[index].setBackgroundImage(image, for: .normal)
+                    }else{
+                        let storage = FIRStorage.storage()
+                        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
+                        let autorsprofileRef = storageRef.child("\(imagestring).png")
+                        autorsprofileRef.downloadURL{(URL,error) -> Void in
+                            if error != nil {
+                                print(error)
+                            } else {
+                                SDWebImageManager.shared().downloadImage(with: URL!,
+                                                                         options: SDWebImageOptions.cacheMemoryOnly,
+                                                                         progress: nil,
+                                                                         completed: {(image, error, a, c, s) in
+                                                                            SDWebImageManager.shared().imageCache.store(image, forKey: imagestring)
+                                                                            self.imageViews[index].setBackgroundImage(image, for: .normal)
+                                })
+                            }
+                        }
+                    }
+                    self.imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
+                    self.imageViews[index].addTarget(self, action: #selector(self.showImage(index:)), for: .touchUpInside)
             })
-            imageViews[index].addTarget(self, action: #selector(showImage(index:)), for: .touchUpInside)
         }
     }
     func showImage(index:UIImageView){

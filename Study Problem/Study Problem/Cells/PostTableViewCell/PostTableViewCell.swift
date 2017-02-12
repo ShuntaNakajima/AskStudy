@@ -28,7 +28,6 @@ class PostTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         for (index,i) in self.view.subviews.enumerated(){
@@ -45,7 +44,12 @@ class PostTableViewCell: UITableViewCell {
         }
         }
     }
-    
+//    required init(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//    }
     func setNib(photos:Int,key:String,on:UIViewController){
         var imagePhotos = [String!]()
         if photos != 0{

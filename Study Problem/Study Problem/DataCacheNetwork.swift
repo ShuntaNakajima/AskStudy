@@ -10,7 +10,7 @@ import WebImage
 import SVProgressHUD
 import TrueTime
 class DataCacheNetwork{
-    func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void){
+    func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void,loadedimage:@escaping () -> Void){
         let database = FIRDatabase.database().reference()
         var posts = [Dictionary<String, AnyObject>]()
         var photos = [Dictionary<String, AnyObject>]()
@@ -35,45 +35,20 @@ class DataCacheNetwork{
                     photos.append(aphoto)
                 }
             }
-            for i in photos{
-                let count = i["Photo"] as? Int!
-                for j in 0...count! - 1{
-                    let storage = FIRStorage.storage()
-                    let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post")
-                    let autorsprofileRef = storageRef.child("\(i["key"]!)/\(j).png")
-                    autorsprofileRef.downloadURL{(URL,error) -> Void in
-                        if error != nil {
-                            print(error)
-                        } else {
-                            imagePhotos.append(URL!)
-                            pass.append("\(i["key"]!)/\(j)")
-                        }
-                        for (index,url) in imagePhotos.enumerated(){
-                            SDWebImageManager.shared().downloadImage(with: url,
-                                                                     options: SDWebImageOptions.cacheMemoryOnly,
-                                                                     progress: nil,
-                                                                     completed: {(image, error, a, c, s) in
-                                                                        SDWebImageManager.shared().imageCache.store(image, forKey: pass[index])
-                            })
-                        }
-                        success(posts)
-                    }
-                }
-            }
             success(posts)
         })
     }
     
-    func loadusername(uid:String!) -> String!{
+    func loadusername(uid:String,success:@escaping (String!) -> Void){
         let database = FIRDatabase.database().reference()
         var username = String()
         let user = database.child("user").child(uid)
         user.observe(FIRDataEventType.value, with: { snapshot in
             username = (snapshot.value! as AnyObject)["username"] as! String
+            success(username)
         }, withCancel: { (error) in
             print(error)
         })
-        return username
     }
     
     func checkUser(client:TrueTimeClient,vc:Any,success:@escaping () -> Void){
@@ -109,6 +84,27 @@ class DataCacheNetwork{
             case let .failure(error):
                 print("Error! \(error)")
             }
+        }
+    }
+    
+    func cacheuserimage(uid:String,success:@escaping () -> Void){
+        
+        let storage = FIRStorage.storage()
+        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user/\(uid)/profileimage.png")
+        var url = URL(string: "")
+        storageRef.downloadURL{(URL,error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+          url = URL
+            }
+                SDWebImageManager.shared().downloadImage(with: url,
+                                                         options: SDWebImageOptions.cacheMemoryOnly,
+                                                         progress: nil,
+                                                         completed: {(image, error, a, c, s) in
+                                                            SDWebImageManager.shared().imageCache.store(image, forKey: uid)
+                })
+            success()
         }
     }
 }

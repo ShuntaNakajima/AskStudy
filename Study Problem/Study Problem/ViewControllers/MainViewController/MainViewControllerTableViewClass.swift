@@ -18,8 +18,8 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
         cell.replyscountLabel.text = String(post["reply"] as! Int!)
@@ -30,7 +30,9 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = post["text"] as? String
-       cell.profileLabel.text = network.loadusername(uid: (post["author"] as? String)!)
+        network.loadusername(uid: (post["author"] as? String)!,success: {username in
+            cell.profileLabel.text = username
+            })
         DispatchQueue.global().async(execute:{
             var viewImg = UIImage()
             let storage = FIRStorage.storage()
@@ -44,10 +46,13 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
                     DispatchQueue.main.async(execute: {
                         cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
                         cell.layoutSubviews()
-                    });
+                    })
                 }
             }
-        });
+        })
+        network.cacheuserimage(uid: (post["author"] as? String)!, success: {_ in
+            
+        })
         cell.profileImage.tag = indexPath.row
         cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
@@ -123,7 +128,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
             number = number + 1
             reloadData(success: {_ in})
         }
-        if indexPath?.row == realnumber - 1{
+        if indexPath?.row == realnumber - 2{
             realnumber = number
             tableView.reloadData()
         }

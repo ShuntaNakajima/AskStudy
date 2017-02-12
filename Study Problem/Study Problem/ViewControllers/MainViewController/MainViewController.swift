@@ -113,6 +113,8 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
             self.tableView.isHidden = false
             SVProgressHUD.dismiss()
             success()
+        },loadedimage:{_ in
+            success()
         })
     }
     func showUserData(sender:UIButton){
