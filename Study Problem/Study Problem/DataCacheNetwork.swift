@@ -14,8 +14,6 @@ class DataCacheNetwork{
         let database = FIRDatabase.database().reference()
         var posts = [Dictionary<String, AnyObject>]()
         var photos = [Dictionary<String, AnyObject>]()
-        var imagePhotos = [URL]()
-        var pass = [String]()
         database.child("post").queryLimited(toLast: UInt(limit)).observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 posts = []
@@ -87,24 +85,29 @@ class DataCacheNetwork{
         }
     }
     
-    func cacheuserimage(uid:String,success:@escaping () -> Void){
-        
-        let storage = FIRStorage.storage()
-        let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user/\(uid)/profileimage.png")
-        var url = URL(string: "")
-        storageRef.downloadURL{(URL,error) -> Void in
-            if error != nil {
-                print(error)
-            } else {
-          url = URL
-            }
-                SDWebImageManager.shared().downloadImage(with: url,
-                                                         options: SDWebImageOptions.cacheMemoryOnly,
-                                                         progress: nil,
-                                                         completed: {(image, error, a, c, s) in
-                                                            SDWebImageManager.shared().imageCache.store(image, forKey: uid)
-                })
-            success()
-        }
-    }
+    func cacheuserimage(uid:String,success:@escaping (UIImage) -> Void){
+        SDWebImageManager.shared().imageCache.queryDiskCache(forKey: uid
+            , done: { (image,type: SDImageCacheType) -> Void in
+                if image != nil{
+                    success(image!)
+                }else{
+                    let storage = FIRStorage.storage()
+                    let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/\(uid)")
+                    let autorsprofileRef = storageRef.child("profileimage.png")
+                    autorsprofileRef.downloadURL{(URL,error) -> Void in
+                        if error != nil {
+                            print(error)
+                        } else {
+                            SDWebImageManager.shared().downloadImage(with: URL!,
+                                                                     options: SDWebImageOptions.cacheMemoryOnly,
+                                                                     progress: nil,
+                                                                     completed: {(image, error, a, c, s) in
+                                                                        SDWebImageManager.shared().imageCache.store(image, forKey: uid)
+                                                                        success(image!)
+                            })
+                        }
+                    }
+                }
+        })
+}
 }

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pageviewControl = UIPageControl.appearance()
         pageviewControl.backgroundColor = UIColor.clear
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,NSFontAttributeName: UIFont(name: "Pacifico", size: 28)!]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,NSFontAttributeName: UIFont.systemFont(ofSize: 28)]
         let ud = UserDefaults.standard
         let dic = ["firstLaunch": true]
         ud.register(defaults: dic)
