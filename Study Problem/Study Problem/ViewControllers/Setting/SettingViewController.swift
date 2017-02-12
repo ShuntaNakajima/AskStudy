@@ -51,6 +51,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             }
             self.tableView.reloadData()
         })
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,NSFontAttributeName: UIFont.systemFont(ofSize: 28)]
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,7 +65,7 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
             }
         }
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
-        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
+        self.navigationController?.navigationBar.topItem?.title = "Setting"
     }
     @IBAction func logoutbutton(){
         try! FIRAuth.auth()!.signOut()

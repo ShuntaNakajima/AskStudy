@@ -36,7 +36,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
         super.viewWillAppear(animated)
         reload()
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
-        self.navigationController?.navigationBar.topItem?.title = "AskStudy"
+        self.navigationController?.navigationBar.topItem?.title = "Star"
     }
     func reload(){
         database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).child("stars").observeSingleEvent(of: .value, with: { snapshot in

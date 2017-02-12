@@ -45,7 +45,7 @@ class ToastView: UIView {
     static private let LongDurationInSeconds = 6.0
     
     /// ToastDuration.Shortに対応した表示秒数
-    static private let ShortDurationInSeconds = 3.0
+    static private let ShortDurationInSeconds = 1.0
     
     /// Toastの表示・非表示にかかるアニメーションの秒数
     static private let FadeInOutDurationInSeconds = 0.4

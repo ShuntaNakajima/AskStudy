@@ -52,7 +52,13 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         postButton.layer.cornerRadius=30
         postButton.layer.masksToBounds=true
         postButton.setTitle("", for: UIControlState.normal)
+         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,NSFontAttributeName: UIFont(name: "Pacifico", size: 28)!]
         self.navigationController?.navigationBar.topItem?.title = "AskStudy"
+        network.checkUser(client:client,vc:self, success: {_ in
+            self.reloadData(success: {_ in
+                self.tableView.reloadData()
+            })
+        })
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -70,18 +76,12 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        SVProgressHUD.show()
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         ChangeColor.getColor()
         self.navigationController?.navigationBar.barTintColor = UINavigationBar.appearance().barTintColor
         self.tabBarController?.tabBar.tintColor = UITabBar.appearance().tintColor
         postButton.backgroundColor = UITabBar.appearance().tintColor
-        network.checkUser(client:client,vc:self, success: {_ in
-                self.reloadData(success: {_ in
-                 self.tableView.reloadData()
-                })
-    })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
