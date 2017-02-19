@@ -24,6 +24,7 @@ class UserDetailModalViewController: UIViewController {
     @IBOutlet var PostButton:UIButton!
     var mykey = ""
     var postkeys = [String!]()
+    var bestanser = [String!]()
     var mypost = [Dictionary<String, AnyObject>]()
     var selectpost : String!
     let network = DataCacheNetwork()
@@ -69,6 +70,7 @@ class UserDetailModalViewController: UIViewController {
                 self.FollowButton.setTitleColor(UIColor.red, for: .normal)
             }
             self.PostButton.setTitle(String(self.postkeys.count), for: .normal)
+            self.BestAnserButton.setTitle(String(self.bestanser.count), for: .normal)
         })
     }
     func loadData(){
@@ -88,6 +90,15 @@ class UserDetailModalViewController: UIViewController {
                 }
                 self.FollowIngButton.setTitle(String(num), for: .normal)
         })
+        database.child("user/" + self.UserKey + "/BestAnswer").observe(.value, with: { snap in
+            if let snapshots = snap.children.allObjects as? [FIRDataSnapshot] {
+                self.postkeys = []
+                for snap in snapshots {
+                    if let post = snap.value as? String {
+                        self.bestanser.insert(post, at: 0)
+                    }
+                }
+            }})
         reloadFollowButton()
         database.child("user/" + self.UserKey + "/posts").observe(.value, with: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {

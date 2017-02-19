@@ -21,6 +21,7 @@ extension ViewpostViewController{
         let alert = UIAlertController(title: "BestAnswer", message: "Are you sure set best answer and close this post?", preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler:{(_) in
             self.database.child("post").child(self.post).child("BestAnswer").setValue((reply["key"] as? String!)!)
+            self.database.child("user").child(reply["author"] as! String).child("BestAnswer").childByAutoId().setValue((reply["key"] as? String!)!)
         })
         let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(action)

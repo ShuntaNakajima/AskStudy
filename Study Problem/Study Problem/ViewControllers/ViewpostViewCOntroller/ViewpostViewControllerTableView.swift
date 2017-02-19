@@ -43,7 +43,7 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
             cell.textView.text = postDictionary["text"] as? String
             cell.menuButton.tag = indexPath.row
-            cell.menuButton.addTarget(self, action: #selector(ViewpostViewController.reportPost(sender:)), for: .touchUpInside)
+            cell.menuButton.addTarget(self, action: #selector(ViewpostViewController.option(sender:)), for: .touchUpInside)
             network.loadusername(uid: (postDictionary["author"] as? String)!,success: {username in
                 cell.profileLabel.text = username
             })

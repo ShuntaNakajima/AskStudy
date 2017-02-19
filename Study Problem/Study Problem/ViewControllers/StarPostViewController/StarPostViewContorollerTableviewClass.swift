@@ -28,29 +28,13 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
         cell.textView.text = post["text"] as? String
-        let currentUser = database.child("user").child((post["author"] as? String)!)
-        currentUser.observe(FIRDataEventType.value, with: { snapshot in
-            let postUser = (snapshot.value! as AnyObject)["username"] as! String
-            cell.profileLabel.text = postUser
-        }, withCancel: { (error) in
-            print(error)
+        network.loadusername(uid: (post["author"] as? String)!,success: {username in
+            cell.profileLabel.text = username
         })
-        DispatchQueue.global().async(execute:{
-            var viewImg = UIImage()
-            let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\((post["author"] as? String)!)/profileimage.png")
-            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
-                if error != nil {
-                } else {
-                    viewImg = data.flatMap(UIImage.init)!
-                    DispatchQueue.main.async(execute: {
-                        cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
-                        cell.layoutSubviews()
-                    });
-                }
-            }
-        });
+        network.cacheuserimage(uid: (post["author"] as? String)!, success: {image in
+            cell.profileImage.setBackgroundImage(image, for: UIControlState.normal)
+            cell.layoutSubviews()
+        })
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
         cell.profileImage.tag = indexPath.row

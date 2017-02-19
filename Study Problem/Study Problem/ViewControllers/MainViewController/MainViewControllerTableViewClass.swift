@@ -20,12 +20,15 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        for i in cell.view.subviews{
+            i.removeFromSuperview()
+        }
         cell.view.translatesAutoresizingMaskIntoConstraints = false
         cell.setNib(photos: post["Photo"] as! Int,key:post["key"] as! String,on:self)
         cell.replyscountLabel.text = String(post["reply"] as! Int!)
         cell.subjectLabel.text = post["subject"] as? String!
         cell.menuButton.tag = indexPath.row
-        cell.menuButton.addTarget(self, action: #selector(MainViewController.reportPost(sender:)), for: .touchUpInside)
+        cell.menuButton.addTarget(self, action: #selector(MainViewController.option(sender:)), for: .touchUpInside)
         let postdate = post["date"] as! String!
         let now = Date()
         cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
@@ -41,9 +44,26 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
         return cell
     }
-    
-    func reportPost(sender:UIButton){
-        let row = sender.tag
+    func option(sender:UIButton){
+                let row = sender.tag
+        if posts[row]["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
+        let alert = UIAlertController(title: "Option", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
+self.reportPost(row: row)
+        })
+        let delete = UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+            self.delete(row: row)
+        })
+        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(delete)
+        alert.addAction(cancelaction)
+        present(alert, animated: true, completion: nil)
+        }else{
+            reportPost(row: row)
+        }
+    }
+    func reportPost(row:Int){
         let alert = UIAlertController(title: "Report Post", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
             let newreport: Dictionary<String, Any> = [
@@ -51,6 +71,16 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
                 "reportUser":FIRAuth.auth()?.currentUser?.uid as Any
             ]
             self.database.child("report").childByAutoId().setValue(newreport)
+        })
+        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelaction)
+        present(alert, animated: true, completion: nil)
+    }
+    func delete(row:Int){
+        let alert = UIAlertController(title: "Delete", message: "Are you sure delete this Post?", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+            self.database.child("post").child(self.posts[row]["key"] as! String!).removeValue()
         })
         let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(action)
