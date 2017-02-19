@@ -8,8 +8,8 @@
 
 import UIKit
 import JTSImageViewController
-import WebImage
 import Firebase
+import WebImage
 class TwoView: UIView {
     @IBOutlet var imageViews:[UIButton]!
     var delegate:ShowImageDelegate!
@@ -27,7 +27,7 @@ class TwoView: UIView {
         return UINib(nibName: "TwoImageView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! TwoView
     }
     func cancelReload(){
-        for (index,image) in images.enumerated(){
+        for (index,_) in images.enumerated(){
             imageViews[index].sd_cancelImageLoad(for: .normal)
         }
     }
@@ -36,7 +36,7 @@ class TwoView: UIView {
         self.images = images
         for (index,imagestring) in images.enumerated(){
             imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
-            SDWebImageManager.shared().imageCache.queryDiskCache(forKey: imagestring
+            _ = SDWebImageManager.shared().imageCache?.queryDiskCache(forKey: imagestring
                 , done: { (image,type: SDImageCacheType) -> Void in
                     if image != nil{
                         self.imageViews[index].setBackgroundImage(image, for: .normal)
@@ -46,7 +46,6 @@ class TwoView: UIView {
                         let autorsprofileRef = storageRef.child("\(imagestring).png")
                         autorsprofileRef.downloadURL{(URL,error) -> Void in
                             if error != nil {
-                                print(error)
                             } else {
                                 SDWebImageManager.shared().downloadImage(with: URL!,
                                                                          options: SDWebImageOptions.cacheMemoryOnly,

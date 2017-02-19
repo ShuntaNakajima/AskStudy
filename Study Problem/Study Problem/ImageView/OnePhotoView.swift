@@ -49,7 +49,6 @@ class OnePhotoView: UIView {
                         let autorsprofileRef = storageRef.child("\(imagestring).png")
                         autorsprofileRef.downloadURL{(URL,error) -> Void in
                             if error != nil {
-                                print(error)
                             } else {
                                 SDWebImageManager.shared().downloadImage(with: URL!,
                                                                          options: SDWebImageOptions.cacheMemoryOnly,

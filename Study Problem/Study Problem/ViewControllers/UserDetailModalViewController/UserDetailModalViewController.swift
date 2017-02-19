@@ -20,10 +20,13 @@ class UserDetailModalViewController: UIViewController {
     @IBOutlet var FollowerButton:UIButton!
     @IBOutlet var UserPostButton:UIButton!
     @IBOutlet var UserGropeButton:UIButton!
+    @IBOutlet var BestAnserButton:UIButton!
+    @IBOutlet var PostButton:UIButton!
     var mykey = ""
     var postkeys = [String!]()
     var mypost = [Dictionary<String, AnyObject>]()
     var selectpost : String!
+    let network = DataCacheNetwork()
     override func viewDidLoad() {
         super.viewDidLoad()
         ExitButton.layer.cornerRadius=15
@@ -65,28 +68,25 @@ class UserDetailModalViewController: UIViewController {
                 self.FollowButton.setTitle("UnFollow", for: .normal)
                 self.FollowButton.setTitleColor(UIColor.red, for: .normal)
             }
+            self.PostButton.setTitle(String(self.postkeys.count), for: .normal)
         })
     }
     func loadData(){
         let User = database.child("user").child(UserKey)
-        database.child("user/" + self.UserKey + "/followers").observe(.value, with: { snapshot in
-            if let snap = snapshot as? FIRDataSnapshot {
+        database.child("user/" + self.UserKey + "/followers").observe(.value, with: { snap in
                 var num = snap.value as! Int
                 if num == -1{
                     num = 0
                 }
                 self.FollowerButton.setTitle(String(num), for: .normal)
                 self.reloadFollowButton()
-            }
         })
-        database.child("user/" + self.UserKey + "/follows").observe(.value, with: { snapshot in
-            if let snap = snapshot as? FIRDataSnapshot {
+        database.child("user/" + self.UserKey + "/follows").observe(.value, with: { snap in
                 var num = snap.value as! Int
                 if num == -1{
                     num = 0
                 }
                 self.FollowIngButton.setTitle(String(num), for: .normal)
-            }
         })
         reloadFollowButton()
         database.child("user/" + self.UserKey + "/posts").observe(.value, with: { snapshot in
@@ -112,8 +112,6 @@ class UserDetailModalViewController: UIViewController {
             }
         })
         User.observe(FIRDataEventType.value, with: { snapshot in
-            let postUser = (snapshot.value! as AnyObject!)["username"] as! String
-            self.ProfileLabel.text = postUser
             let recentUesrsQuery = (self.database.child("user/" + (FIRAuth.auth()?.currentUser!.uid)! + "/follow/").queryOrdered(byChild: self.UserKey))
             recentUesrsQuery.observe(.value, with: { snapshot in
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -125,21 +123,11 @@ class UserDetailModalViewController: UIViewController {
             })
         }, withCancel: { error in
         })
-        DispatchQueue.global().async(execute: {
-            var viewImg = UIImage()
-            let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\(self.UserKey)/profileimage.png")
-            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
-                if error != nil {
-                    print(error)
-                } else {
-                    viewImg = data.flatMap(UIImage.init)!
-                    DispatchQueue.main.async(execute:{
-                        self.ProfileImageButton.setBackgroundImage(viewImg, for: .normal)
-                    });
-                }
-            }
-        });
+        network.loadusername(uid: self.UserKey,success: {username in
+            self.ProfileLabel.text = username
+        })
+        network.cacheuserimage(uid: self.UserKey, success: {image in
+           self.ProfileImageButton.setBackgroundImage(image, for: .normal)
+        })
     }
 }

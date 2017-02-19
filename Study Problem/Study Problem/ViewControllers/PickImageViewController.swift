@@ -87,17 +87,16 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
             imageView = cell?.contentView.viewWithTag(1) as? UIImageView
         }
         
-        if let cell = cell, let imageView = imageView {
-            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        if let cell = cell, let _ = imageView {
             let tag = indexPath.row + 1
             cell.tag = tag
-            imageView.image = cropImageToSquare(image: (asset as? UIImage)!)
+           // imageView.image = cropImageToSquare(image: (asset))
         }
         
         return cell!
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let asset = self.assets![indexPath.row]
+        _ = self.assets![indexPath.row]
     }
     @IBAction func image(){
         showImagePickerWithAssetType(            .allPhotos,

@@ -57,7 +57,6 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
         super.viewWillAppear(animated)
         profileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
             if error != nil {
-                print(error)
             } else {
                 
                 let Image = data.flatMap(UIImage.init)
@@ -151,9 +150,8 @@ class SettingViewController: UITableViewController,  UIImagePickerControllerDele
     }
     func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
         var maskSize: CGSize
-        var width, height: CGFloat!
-        width = self.view.frame.width
-        height = self.view.frame.width / 1//正方形
+        var height:CGFloat!
+        height = self.view.frame.width / 1
         maskSize = CGSize(width:self.view.frame.width,height: height)
         let viewWidth: CGFloat = controller.view.frame.width
         let viewHeight: CGFloat = controller.view.frame.height

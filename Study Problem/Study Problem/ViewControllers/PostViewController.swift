@@ -258,7 +258,7 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         
         if let cell = cell, let imageView = imageView {
-            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            _ = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             let tag = indexPath.row + 1
             cell.tag = tag
             asset.fetchFullScreenImage(false, completeBlock: { image, info in

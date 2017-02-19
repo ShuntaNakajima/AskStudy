@@ -44,59 +44,40 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             cell.textView.text = postDictionary["text"] as? String
             cell.menuButton.tag = indexPath.row
             cell.menuButton.addTarget(self, action: #selector(ViewpostViewController.reportPost(sender:)), for: .touchUpInside)
-            let currentUser = database.child("user").child((postDictionary["author"] as? String)!)
-            currentUser.observe(FIRDataEventType.value, with: { snapshot in
-                let postUser = (snapshot.value! as AnyObject)["username"] as! String
-                cell.profileLabel.text = postUser
-            }, withCancel: { (error) in
-                print(error)
+            network.loadusername(uid: (postDictionary["author"] as? String)!,success: {username in
+                cell.profileLabel.text = username
             })
-            DispatchQueue.global().async(execute:{
-                var viewImg = UIImage()
-                let storage = FIRStorage.storage()
-                let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-                let autorsprofileRef = storageRef.child("\((postDictionary["author"] as? String)!)/profileimage.png")
-                autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
-                    if error != nil {
-                        print(error as Any)
-                    } else {
-                        viewImg = data.flatMap(UIImage.init)!
-                        DispatchQueue.main.async(execute: {
-                            cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
-                            cell.layoutSubviews()
-                        });
-                    }
-                }
-            });
+            network.cacheuserimage(uid: (postDictionary["author"] as? String)!, success: {image in
+                cell.profileImage.setBackgroundImage(image, for: UIControlState.normal)
+                cell.layoutSubviews()
+            })
             cell.view.translatesAutoresizingMaskIntoConstraints = false
             cell.setNib(photos: postDictionary["Photo"] as! Int,key:postDictionary["key"] as! String,on:self)
             cell.profileImage.tag = indexPath.row
             cell.profileImage.addTarget(self, action: #selector(MainViewController.showUserData(sender:)), for: .touchUpInside)
             return cell
-        }else if replys[indexPath.row - 2]["author"] as? String != FIRAuth.auth()?.currentUser!.uid{
-            let replycell = tableView.dequeueReusableCell(withIdentifier: "ReplysCell") as! ReplysTableViewCell
+        }else if replys[indexPath.row - 2]["photos"] as! Int == 1{
+            let replycell = tableView.dequeueReusableCell(withIdentifier: "ReplyswithphotoCell") as! ReplaywithphotoTableViewCell
             replycell.profileImageView.tag = indexPath.row
             replycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
-            var viewImg = UIImage()
-            let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
-            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
-                if error != nil {
-                    print(error as Any)
-                } else {
-                    viewImg = data.flatMap(UIImage.init)!
-                    replycell.profileImageView.setBackgroundImage(viewImg, for: UIControlState.normal)
-                    replycell.layoutSubviews()
-                }
-            }
+            network.loadusername(uid: replys[indexPath.row - 2]["author"] as! String,success: {username in
+                replycell.usernameLabel.text = username
+            })
+            network.cacheuserimage(uid: replys[indexPath.row - 2]["author"] as! String, success: {image in
+                replycell.profileImageView.setBackgroundImage(image, for: UIControlState.normal)
+                replycell.layoutSubviews()
+            })
+            replycell.setimage(vc: self, post: postDic["key"] as! String, uid: replys[indexPath.row - 2]["key"] as! String)
             if postDic["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
                 replycell.setBestAnser.isHidden = false
             }else{
                 replycell.setBestAnser.isHidden = true
             }
             let BestAnswer = postDic["BestAnswer"] as? String
-            if BestAnswer == ""{
+            if replys[indexPath.row - 2]["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
+                replycell.setBestAnser.isHidden = true
+            }
+            else if BestAnswer == ""{
                 replycell.setBestAnser.tag = indexPath.row - 2
                 replycell.setBestAnser.addTarget(self, action: #selector(ViewpostViewController.bestAnswer(sender:)), for: .touchUpInside)
             }else{
@@ -108,34 +89,40 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
                 }
             }
             replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
-            let currentUser = database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
-            currentUser.observe(.value, with: { (snapshot: FIRDataSnapshot) in
-                replycell.usernameLabel.text! = (snapshot.value! as AnyObject)["username"] as! String
-            })
             return replycell
         }else{
-            let myreplycell = tableView.dequeueReusableCell(withIdentifier: "MyReplysCell") as! MyReplysTableViewCell
-            myreplycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
-            let currentUser = database.child("user").child(replys[indexPath.row - 2]["author"] as! String)
-            currentUser.observe(.value, with: { (snapshot: FIRDataSnapshot) in
-                myreplycell.usernameLabel.text! = (snapshot.value! as AnyObject)["username"] as! String
+            let replycell = tableView.dequeueReusableCell(withIdentifier: "ReplysCell") as! ReplysTableViewCell
+            replycell.profileImageView.tag = indexPath.row
+            replycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
+            network.loadusername(uid: replys[indexPath.row - 2]["author"] as! String,success: {username in
+                replycell.usernameLabel.text = username
             })
-            
-            myreplycell.profileImageView.tag = indexPath.row
-            myreplycell.profileImageView.addTarget(self, action: #selector(ViewpostViewController.showUserData(sender:)), for: .touchUpInside)
-            var viewImg = UIImage()
-            let storage = FIRStorage.storage()
-            let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-            let autorsprofileRef = storageRef.child("\((self.replys[indexPath.row - 2]["author"] as? String)!)/profileimage.png")
-            autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
-                if error != nil {
-                    print(error as Any)
+            network.cacheuserimage(uid: replys[indexPath.row - 2]["author"] as! String, success: {image in
+                replycell.profileImageView.setBackgroundImage(image, for: UIControlState.normal)
+                replycell.layoutSubviews()
+            })
+            if postDic["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
+                replycell.setBestAnser.isHidden = false
+            }else{
+                replycell.setBestAnser.isHidden = true
+            }
+            let BestAnswer = postDic["BestAnswer"] as? String
+            if replys[indexPath.row - 2]["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
+            replycell.setBestAnser.isHidden = true
+            }
+            else if BestAnswer == ""{
+                replycell.setBestAnser.tag = indexPath.row - 2
+                replycell.setBestAnser.addTarget(self, action: #selector(ViewpostViewController.bestAnswer(sender:)), for: .touchUpInside)
+            }else{
+                if postDic["BestAnswer"] as? String == replys[indexPath.row - 2]["key"] as? String{
+                    replycell.setBestAnser.setTitle("✔︎", for: .normal)
+                    replycell.setBestAnser.setTitleColor(UIColor.ThemeGreenThin(), for: .normal)
                 }else{
-                    viewImg = data.flatMap(UIImage.init)!
-                    myreplycell.profileImageView.setBackgroundImage(viewImg, for: UIControlState.normal)
-                    myreplycell.layoutSubviews()
-                }}
-            return myreplycell
+                    replycell.setBestAnser.isHidden = true
+                }
+            }
+            replycell.postLabel.text = replys[indexPath.row - 2]["text"] as? String
+            return replycell
         }
     }
     

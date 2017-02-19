@@ -125,7 +125,7 @@
                 <outlet property="setBestAnser" destination="Amn-7Z-xgV" id="tee-50-JX7"/>
                 <outlet property="usernameLabel" destination="2pQ-rW-eym" id="mTl-lf-Fof"/>
             </connections>
-            <point key="canvasLocation" x="431" y="318"/>
+            <point key="canvasLocation" x="429" y="415"/>
         </tableViewCell>
     </objects>
 </document>

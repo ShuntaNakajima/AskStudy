@@ -6,9 +6,9 @@
 //  Copyright © 2016年 ShuntaNakajima. All rights reserved.
 //
 import Firebase
-import WebImage
 import SVProgressHUD
 import TrueTime
+import WebImage
 class DataCacheNetwork{
     func loadCache(limit:Int,success:@escaping ([Dictionary<String, AnyObject>]) -> Void,loadedimage:@escaping () -> Void){
         let database = FIRDatabase.database().reference()
@@ -50,6 +50,7 @@ class DataCacheNetwork{
     }
     
     func checkUser(client:TrueTimeClient,vc:Any,success:@escaping () -> Void){
+        if FIRAuth.auth()?.currentUser != nil{
         let database = FIRDatabase.database().reference()
         SVProgressHUD.show(withStatus: "loading userstate")
         var now = Date()
@@ -70,25 +71,28 @@ class DataCacheNetwork{
                             }
                         }
                     }
+                    if myStatus.last?["date"] as? String != nil{
                     let date = (myStatus.last?["date"] as! String!).postDate()
                     if date.offset(toDate: now) != "Just"{
                         let storyboard = UIStoryboard(name: "BanScreenStoryboard", bundle: nil)
                         let viewController:UIViewController = storyboard.instantiateViewController(withIdentifier: "BanScreenStoryboard")
                         (vc as AnyObject).present(viewController, animated: true, completion: nil)
                     }
+                    }
                     SVProgressHUD.show(withStatus: "loading data from database")
                     success()
+                    
                 })
             case let .failure(error):
                 print("Error! \(error)")
             }
-        }
+            }}
     }
     
     func cacheuserimage(uid:String,success:@escaping (UIImage) -> Void){
-        SDWebImageManager.shared().imageCache.queryDiskCache(forKey: uid
+        _ = SDWebImageManager.shared().imageCache?.queryDiskCache(forKey: uid
             , done: { (image,type: SDImageCacheType) -> Void in
-                if image != nil{
+                if image != nil {
                     success(image!)
                 }else{
                     let storage = FIRStorage.storage()
@@ -96,7 +100,6 @@ class DataCacheNetwork{
                     let autorsprofileRef = storageRef.child("profileimage.png")
                     autorsprofileRef.downloadURL{(URL,error) -> Void in
                         if error != nil {
-                            print(error)
                         } else {
                             SDWebImageManager.shared().downloadImage(with: URL!,
                                                                      options: SDWebImageOptions.cacheMemoryOnly,
@@ -110,4 +113,28 @@ class DataCacheNetwork{
                 }
         })
 }
+    func cachereplayimage(post:String,uid:String,success:@escaping (UIImage) -> Void){
+        _ = SDWebImageManager.shared().imageCache?.queryDiskCache(forKey: post + uid
+            , done: { (image,type: SDImageCacheType) -> Void in
+                if image != nil {
+                    success(image!)
+                }else{
+                    let storage = FIRStorage.storage()
+                    let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/post/\(post)/reply")
+                    let autorsprofileRef = storageRef.child("\(uid).png")
+                    autorsprofileRef.downloadURL{(URL,error) -> Void in
+                        if error != nil {
+                        } else {
+                            SDWebImageManager.shared().downloadImage(with: URL!,
+                                                                     options: SDWebImageOptions.cacheMemoryOnly,
+                                                                     progress: nil,
+                                                                     completed: {(image, error, a, c, s) in
+                                                                        SDWebImageManager.shared().imageCache.store(image, forKey: post + uid)
+                                                                        success(image!)
+                            })
+                        }
+                    }
+                }
+        })
+    }
 }

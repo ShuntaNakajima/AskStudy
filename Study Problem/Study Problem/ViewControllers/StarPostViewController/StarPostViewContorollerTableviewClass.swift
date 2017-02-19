@@ -42,7 +42,6 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
             let autorsprofileRef = storageRef.child("\((post["author"] as? String)!)/profileimage.png")
             autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                 if error != nil {
-                    print(error)
                 } else {
                     viewImg = data.flatMap(UIImage.init)!
                     DispatchQueue.main.async(execute: {
