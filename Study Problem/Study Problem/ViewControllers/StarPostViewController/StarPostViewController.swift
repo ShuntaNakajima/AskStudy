@@ -16,6 +16,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
     var posts = [Dictionary<String, AnyObject>]()
     var segueUser = ""
     var longState = false
+     let network = DataCacheNetwork()
     @IBOutlet var tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

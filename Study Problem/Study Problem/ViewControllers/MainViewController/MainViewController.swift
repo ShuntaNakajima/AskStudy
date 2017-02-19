@@ -124,7 +124,10 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         UDMC.UserKey = self.segueUser
     }
     func refresh(){
-        reloadData(success: {_ in})
+        reloadData(success: {_ in
+            self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
+        })
     }
 }
 

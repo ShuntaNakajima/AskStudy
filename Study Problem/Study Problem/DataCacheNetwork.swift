@@ -89,17 +89,19 @@ class DataCacheNetwork{
             }}
     }
     
-    func cacheuserimage(uid:String,success:@escaping (UIImage) -> Void){
+    func cacheuserimage(uid:String!,success:@escaping (UIImage) -> Void){
         _ = SDWebImageManager.shared().imageCache?.queryDiskCache(forKey: uid
             , done: { (image,type: SDImageCacheType) -> Void in
                 if image != nil {
                     success(image!)
                 }else{
                     let storage = FIRStorage.storage()
-                    let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/\(uid)")
-                    let autorsprofileRef = storageRef.child("profileimage.png")
+                    let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
+                    let autorsprofileRef = storageRef.child("/\(uid!)/profileimage.png")
                     autorsprofileRef.downloadURL{(URL,error) -> Void in
                         if error != nil {
+                            let image = UIImage(named:"noimage.gif")
+                            success(image!)
                         } else {
                             SDWebImageManager.shared().downloadImage(with: URL!,
                                                                      options: SDWebImageOptions.cacheMemoryOnly,
@@ -124,6 +126,8 @@ class DataCacheNetwork{
                     let autorsprofileRef = storageRef.child("\(uid).png")
                     autorsprofileRef.downloadURL{(URL,error) -> Void in
                         if error != nil {
+                            let image = UIImage(named:"noimage.gif")
+                            success(image!)
                         } else {
                             SDWebImageManager.shared().downloadImage(with: URL!,
                                                                      options: SDWebImageOptions.cacheMemoryOnly,

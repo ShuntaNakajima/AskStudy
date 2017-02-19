@@ -1,0 +1,213 @@
+
+/* Class = "UILabel"; text = "New Password"; ObjectID = "1D0-YB-jAJ"; */
+"1D0-YB-jAJ.text" = "新しいパスワード";
+
+/* Class = "UILabel"; text = "subject"; ObjectID = "1XL-uv-38c"; */
+"1XL-uv-38c.text" = "科目";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "1px-UO-1e0"; */
+"1px-UO-1e0.normalTitle" = "登録";
+
+/* Class = "UILabel"; text = "Grade:1"; ObjectID = "3T1-Et-IBk"; */
+"3T1-Et-IBk.text" = "Grade:1";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "4X9-lW-oju"; */
+"4X9-lW-oju.text" = "パスワード";
+
+/* Class = "UILabel"; text = "Grade"; ObjectID = "5Ar-Vm-XUE"; */
+"5Ar-Vm-XUE.text" = "Grade";
+
+/* Class = "UINavigationItem"; title = "StarPost"; ObjectID = "5sc-mJ-Hih"; */
+"5sc-mJ-Hih.title" = "StarPost";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "6ou-i7-8Cj"; */
+"6ou-i7-8Cj.normalTitle" = "X";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "7G9-Uo-nrN"; */
+"7G9-Uo-nrN.placeholder" = "メールアドレス";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7VB-9M-JXA"; */
+"7VB-9M-JXA.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "<"; ObjectID = "7WO-Kp-t6E"; */
+"7WO-Kp-t6E.text" = "<";
+
+/* Class = "UILabel"; text = ">"; ObjectID = "7X3-zF-ZOd"; */
+"7X3-zF-ZOd.text" = ">";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7hA-td-C9A"; */
+"7hA-td-C9A.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "×"; ObjectID = "AfK-i5-6ig"; */
+"AfK-i5-6ig.normalTitle" = "×";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "D0q-Ic-XS2"; */
+"D0q-Ic-XS2.text" = "Label";
+
+/* Class = "UITextView"; text = "text"; ObjectID = "D5T-HB-YQs"; */
+"D5T-HB-YQs.text" = "text";
+
+/* Class = "UILabel"; text = "Reset Password"; ObjectID = "FP7-lI-h4N"; */
+"FP7-lI-h4N.text" = "パスワードリセット";
+
+/* Class = "UILabel"; text = "selected image"; ObjectID = "Gj5-rH-P4v"; */
+"Gj5-rH-P4v.text" = "選択された画像";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "Gjr-FI-4wQ"; */
+"Gjr-FI-4wQ.normalTitle" = "閉じる";
+
+/* Class = "UILabel"; text = "to add Star"; ObjectID = "HSO-RW-5AM"; */
+"HSO-RW-5AM.text" = "to add Star";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Jb4-xM-aht"; */
+"Jb4-xM-aht.normalTitle" = "完了";
+
+/* Class = "UIButton"; normalTitle = "Let's Start"; ObjectID = "KL5-aA-EW8"; */
+"KL5-aA-EW8.normalTitle" = "さあ始めよう";
+
+/* Class = "UITabBarItem"; title = "Setting"; ObjectID = "KTI-0C-swp"; */
+"KTI-0C-swp.title" = "設定";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "KtM-Wf-hX3"; */
+"KtM-Wf-hX3.normalTitle" = "登録";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Kta-Ks-nb0"; */
+"Kta-Ks-nb0.normalTitle" = "完了";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "LNj-TX-TvF"; */
+"LNj-TX-TvF.headerTitle" = "アカウント";
+
+/* Class = "UILabel"; text = "Display name "; ObjectID = "LZA-tJ-1Wv"; */
+"LZA-tJ-1Wv.text" = "表示名 ";
+
+/* Class = "UIButton"; normalTitle = "×"; ObjectID = "LeJ-PC-9fC"; */
+"LeJ-PC-9fC.normalTitle" = "×";
+
+/* Class = "UILabel"; text = "Long press post in Home View"; ObjectID = "ME1-Fb-hfV"; */
+"ME1-Fb-hfV.text" = "ホーム画面で投稿を長押し";
+
+/* Class = "UILabel"; text = "<"; ObjectID = "MsX-Hf-UMS"; */
+"MsX-Hf-UMS.text" = "<";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "NgF-tb-H8m"; */
+"NgF-tb-H8m.placeholder" = "メールアドレス";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NhF-y9-jr1"; */
+"NhF-y9-jr1.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "OTl-lj-l75"; */
+"OTl-lj-l75.normalTitle" = "ログイン";
+
+/* Class = "UIButton"; normalTitle = "send"; ObjectID = "Ocs-Mt-Mq7"; */
+"Ocs-Mt-Mq7.normalTitle" = "送信";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "OrR-Sv-l4a"; */
+"OrR-Sv-l4a.placeholder" = "メールアドレス";
+
+/* Class = "UIButton"; normalTitle = "×"; ObjectID = "RBz-56-J7P"; */
+"RBz-56-J7P.normalTitle" = "×";
+
+/* Class = "UINavigationItem"; title = "All"; ObjectID = "Rwf-Pd-CkC"; */
+"Rwf-Pd-CkC.title" = "全て";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Tzg-Z3-UKH"; */
+"Tzg-Z3-UKH.normalTitle" = "完了";
+
+/* Class = "UILabel"; text = "Star can stock your favorite post"; ObjectID = "UHL-pf-uKW"; */
+"UHL-pf-uKW.text" = "お気に入りはあなたの興味のある投稿をストックできます。";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Uc7-FD-zLw"; */
+"Uc7-FD-zLw.placeholder" = "パスワード";
+
+/* Class = "UILabel"; text = "Old Password"; ObjectID = "VTm-hK-xwG"; */
+"VTm-hK-xwG.text" = "古いパスワード";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XBt-Qq-qA1"; */
+"XBt-Qq-qA1.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Slide Right"; ObjectID = "XFL-N4-YBd"; */
+"XFL-N4-YBd.text" = "右にスライド";
+
+/* Class = "UITabBarItem"; title = "Star"; ObjectID = "XOx-jv-Cf4"; */
+"XOx-jv-Cf4.title" = "お気に入り";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Xfs-bo-OZc"; */
+"Xfs-bo-OZc.placeholder" = "パスワード";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "Xyl-jE-FXL"; */
+"Xyl-jE-FXL.title" = "ホーム";
+
+/* Class = "UIButton"; normalTitle = "close"; ObjectID = "ZUH-ev-qVi"; */
+"ZUH-ev-qVi.normalTitle" = "閉じる";
+
+/* Class = "UIButton"; normalTitle = "POST!"; ObjectID = "agL-js-UoH"; */
+"agL-js-UoH.normalTitle" = "投稿";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cFL-cS-9U3"; */
+"cFL-cS-9U3.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Email "; ObjectID = "ctl-pT-39d"; */
+"ctl-pT-39d.text" = "メールアドレス ";
+
+/* Class = "UILabel"; text = "How to add Star?"; ObjectID = "cuS-EX-Ic9"; */
+"cuS-EX-Ic9.text" = "お気に入りの追加方法";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eBD-gr-qgY"; */
+"eBD-gr-qgY.text" = "Label";
+
+/* Class = "UILabel"; text = "Welcome to"; ObjectID = "eBT-ws-QcJ"; */
+"eBT-ws-QcJ.text" = "Welcome to";
+
+/* Class = "UIBarButtonItem"; title = "<"; ObjectID = "eSk-5e-Nts"; */
+"eSk-5e-Nts.title" = "<";
+
+/* Class = "UILabel"; text = "Create an account"; ObjectID = "fqK-ln-Z4g"; */
+"fqK-ln-Z4g.text" = "アカウント作成";
+
+/* Class = "UIButton"; normalTitle = "Forgot password?"; ObjectID = "i5g-Pg-qKg"; */
+"i5g-Pg-qKg.normalTitle" = "パスワードを忘れましたか?";
+
+/* Class = "UITableViewSection"; headerTitle = "Setting"; ObjectID = "iSq-YN-4Yb"; */
+"iSq-YN-4Yb.headerTitle" = "設定";
+
+/* Class = "UILabel"; text = "AskStudy"; ObjectID = "jy9-nl-LyH"; */
+"jy9-nl-LyH.text" = "AskStudy";
+
+/* Class = "UIBarButtonItem"; title = ">"; ObjectID = "kns-Cs-eKr"; */
+"kns-Cs-eKr.title" = ">";
+
+/* Class = "UILabel"; text = "What is Star?"; ObjectID = "mq3-uM-Ag3"; */
+"mq3-uM-Ag3.text" = "お気に入りとは？";
+
+/* Class = "UITextField"; placeholder = "select"; ObjectID = "n23-kA-ZNh"; */
+"n23-kA-ZNh.placeholder" = "選択";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oAA-Xj-gu6"; */
+"oAA-Xj-gu6.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "logout"; ObjectID = "p4o-fW-Biw"; */
+"p4o-fW-Biw.normalTitle" = "ログアウト";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "p6B-0P-lIW"; */
+"p6B-0P-lIW.text" = "ユーザー名";
+
+/* Class = "UILabel"; text = ">"; ObjectID = "paR-Bo-EMM"; */
+"paR-Bo-EMM.text" = ">";
+
+/* Class = "UILabel"; text = "ThemeColor"; ObjectID = "q46-25-Nwy"; */
+"q46-25-Nwy.text" = "テーマカラー";
+
+/* Class = "UITableViewSection"; headerTitle = "Logout"; ObjectID = "qOy-YC-fIt"; */
+"qOy-YC-fIt.headerTitle" = "ログアウト";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "teo-e1-ipf"; */
+"teo-e1-ipf.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "wJS-V0-bmn"; */
+"wJS-V0-bmn.placeholder" = "ユーザ名";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "wlD-0j-38f"; */
+"wlD-0j-38f.title" = "設定";
+
+/* Class = "UILabel"; text = "Again"; ObjectID = "yPj-8s-ATS"; */
+"yPj-8s-ATS.text" = "もう一度";

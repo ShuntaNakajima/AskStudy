@@ -204,6 +204,7 @@
 		BC32D12A1D501B9F00086026 /* UserDetailModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailModalViewController.xib; sourceTree = "<group>"; };
 		BC32D12D1D5023F400086026 /* CustomAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		BC366D551DAA2F5700797B3A /* PickImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickImageViewController.swift; sourceTree = "<group>"; };
+		BC3672A81E59DBA500D515F3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		BC4281881D76D1D600D5F66E /* Chat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Chat.gif; sourceTree = "<group>"; };
 		BC42818A1D76D4FF00D5F66E /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		BC42818C1D77086100D5F66E /* Setting@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Setting@2x.gif"; sourceTree = "<group>"; };
@@ -1105,6 +1106,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BC54BB811CE4AE720013C0DD /* Base */,
+				BC3672A81E59DBA500D515F3 /* ja */,
 			);
 			name = Main.storyboard;
 			path = .;
@@ -1117,6 +1119,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1165,6 +1168,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

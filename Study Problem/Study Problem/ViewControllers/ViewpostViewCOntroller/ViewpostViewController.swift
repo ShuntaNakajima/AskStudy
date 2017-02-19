@@ -197,7 +197,26 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         let UDMC: UserDetailModalViewController = (self.presentedViewController as? UserDetailModalViewController)!
         UDMC.UserKey = segueUser
     }
-    func reportPost(sender:UIButton){
+    func option(sender:UIButton){
+        let row = sender.tag
+        if postDic["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
+            let alert = UIAlertController(title: "Option", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.actionSheet)
+            let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
+                self.reportPost(row: row)
+            })
+            let delete = UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+                self.delete(row: row)
+            })
+            let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(action)
+            alert.addAction(delete)
+            alert.addAction(cancelaction)
+            present(alert, animated: true, completion: nil)
+        }else{
+            reportPost(row: row)
+        }
+    }
+    func reportPost(row:Int){
         let alert = UIAlertController(title: "Report Post", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
             let newreport: Dictionary<String, Any> = [
@@ -205,6 +224,16 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
                 "reportUser":FIRAuth.auth()?.currentUser?.uid as Any
             ]
             self.database.child("report").childByAutoId().setValue(newreport)
+        })
+        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelaction)
+        present(alert, animated: true, completion: nil)
+    }
+    func delete(row:Int){
+        let alert = UIAlertController(title: "Delete", message: "Are you sure delete this Post?", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+            self.database.child("post").child(self.postDic["key"] as! String!).removeValue()
         })
         let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(action)
