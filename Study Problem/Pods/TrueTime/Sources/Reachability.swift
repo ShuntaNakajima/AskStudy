@@ -16,8 +16,8 @@ enum ReachabilityStatus {
 }
 
 final class Reachability {
-    var callback: ((ReachabilityStatus) -> ())?
-    var callbackQueue: DispatchQueue = DispatchQueue.main
+    var callback: ((ReachabilityStatus) -> Void)?
+    var callbackQueue: DispatchQueue = .main
     var status: ReachabilityStatus? {
         if let networkReachability = self.networkReachability {
             var flags = SCNetworkReachabilityFlags()
@@ -61,7 +61,7 @@ final class Reachability {
         SCNetworkReachabilitySetCallback(networkReachability,
                                          Reachability.reachabilityCallback,
                                          &context)
-        SCNetworkReachabilitySetDispatchQueue(networkReachability, DispatchQueue.global())
+        SCNetworkReachabilitySetDispatchQueue(networkReachability, .global())
 
         if let status = status {
             updateStatus(status)

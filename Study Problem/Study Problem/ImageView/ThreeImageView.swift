@@ -28,7 +28,7 @@ class ThreeView: UIView {
         return UINib(nibName: "ThreeImageView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ThreeView
     }
     func cancelReload(){
-        for (index,image) in images.enumerated(){
+        for (index,_) in images.enumerated(){
             imageViews[index].sd_cancelImageLoad(for: .normal)
         }
     }
@@ -37,7 +37,7 @@ class ThreeView: UIView {
         self.images = images
         for (index,imagestring) in images.enumerated(){
             imageViews[index].imageView?.contentMode = UIViewContentMode.scaleAspectFill
-            SDWebImageManager.shared().imageCache.queryDiskCache(forKey: imagestring
+          _ = SDWebImageManager.shared().imageCache?.queryDiskCache(forKey: imagestring
                 , done: { (image,type: SDImageCacheType) -> Void in
                     if image != nil{
                         self.imageViews[index].setBackgroundImage(image, for: .normal)
@@ -47,7 +47,6 @@ class ThreeView: UIView {
                         let autorsprofileRef = storageRef.child("\(imagestring).png")
                         autorsprofileRef.downloadURL{(URL,error) -> Void in
                             if error != nil {
-                                print(error)
                             } else {
                                 SDWebImageManager.shared().downloadImage(with: URL!,
                                                                          options: SDWebImageOptions.cacheMemoryOnly,

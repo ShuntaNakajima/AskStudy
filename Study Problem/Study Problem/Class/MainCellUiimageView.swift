@@ -32,6 +32,8 @@ class MainCellUiimageView: UIButton {
     
     func showUser(sender:UIButton){
         let modalViewController = UserDetailModalViewController(nibName: "UserDetailModalViewController", bundle: nil)
+        modalViewController.view.frame = CGRect(x:0,y:0,width: UIScreen.main.bounds.size.width - 40,height: UIScreen.main.bounds.size.height - 380)
+        print( modalViewController.view.frame)
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         self.superview!.window?.rootViewController!.present(modalViewController, animated: true, completion: nil)

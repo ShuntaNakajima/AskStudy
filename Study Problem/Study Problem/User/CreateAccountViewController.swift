@@ -112,11 +112,6 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                     
                     
                 } else {
-                    var providerId = ""
-                    for provi in (FIRAuth.auth()?.currentUser?.providerData)!{
-                        providerId = provi.providerID
-                    }
-                    // Create and Login the New User with authUser
                     user?.sendEmailVerification(completion: { (error) in
                         if error == nil {
                             let user = ["email": email!, "username": username!, "grade": grade! ,"follows": 0,"followers":0] as [String : Any]

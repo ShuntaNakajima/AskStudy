@@ -32,18 +32,19 @@ struct ALPHDecoder {
   int pre_processing_;
   struct VP8LDecoder* vp8l_dec_;
   VP8Io io_;
-  int use_8b_decode_;  // Although alpha channel requires only 1 byte per
-                       // pixel, sometimes VP8LDecoder may need to allocate
-                       // 4 bytes per pixel internally during decode.
-  uint8_t* output_;
-  const uint8_t* prev_line_;   // last output row (or NULL)
+  int use_8b_decode;  // Although alpha channel requires only 1 byte per
+                      // pixel, sometimes VP8LDecoder may need to allocate
+                      // 4 bytes per pixel internally during decode.
 };
 
 //------------------------------------------------------------------------------
 // internal functions. Not public.
 
-// Deallocate memory associated to dec->alpha_plane_ decoding
-void WebPDeallocateAlphaMemory(VP8Decoder* const dec);
+// Allocates a new alpha decoder instance.
+ALPHDecoder* ALPHNew(void);
+
+// Clears and deallocates an alpha decoder instance.
+void ALPHDelete(ALPHDecoder* const dec);
 
 //------------------------------------------------------------------------------
 

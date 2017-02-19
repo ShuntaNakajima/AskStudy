@@ -28,7 +28,7 @@ class FourView: UIView {
         return UINib(nibName: "FourImageView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! FourView
     }
     func cancelReload(){
-        for (index,image) in images.enumerated(){
+        for (index,_) in images.enumerated(){
             imageViews[index].sd_cancelImageLoad(for: .normal)
         }
     }
@@ -47,7 +47,6 @@ class FourView: UIView {
                         let autorsprofileRef = storageRef.child("\(imagestring).png")
                         autorsprofileRef.downloadURL{(URL,error) -> Void in
                             if error != nil {
-                                print(error)
                             } else {
                                 SDWebImageManager.shared().downloadImage(with: URL!,
                                                                          options: SDWebImageOptions.cacheMemoryOnly,

@@ -48,7 +48,7 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
             let newreport: Dictionary<String, Any> = [
                 "reportPost":self.posts[row]["key"] as! String!,
-                "reportUser":FIRAuth.auth()?.currentUser?.uid
+                "reportUser":FIRAuth.auth()?.currentUser?.uid as Any
             ]
             self.database.child("report").childByAutoId().setValue(newreport)
         })
@@ -62,10 +62,8 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
         let post = posts[indexPath.row]
         selectpost = post
         selectpostID = post["key"] as! String!
-        if selectpost != nil {
             performSegue(withIdentifier: "viewPost",sender: nil)
         }
-    }
     
     func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
         let point = recognizer.location(in: tableView)

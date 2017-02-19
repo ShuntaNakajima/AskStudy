@@ -1,20 +1,21 @@
-/*
- * This file is part of the SDWebImage package.
- * (c) Olivier Poitrey <rs@dailymotion.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+//
+//  SDWebImageManagerTests.m
+//  SDWebImage Tests
+//
+//  Created by Bogdan Poplauschi on 20/06/14.
+//
+//
 
 #define EXP_SHORTHAND   // required by Expecta
 
 
 #import <XCTest/XCTest.h>
-#import <Expecta/Expecta.h>
+#import <Expecta.h>
 
-#import <SDWebImage/SDWebImageManager.h>
+#import "SDWebImageManager.h"
 
-NSString *workingImageURL = @"http://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage001.jpg";
+static int64_t kAsyncTestTimeout = 5;
+
 
 @interface SDWebImageManagerTests : XCTestCase
 
@@ -22,20 +23,24 @@ NSString *workingImageURL = @"http://s3.amazonaws.com/fast-image-cache/demo-imag
 
 @implementation SDWebImageManagerTests
 
-- (void)test01ThatSharedManagerIsNotEqualToInitManager {
-    SDWebImageManager *manager = [[SDWebImageManager alloc] init];
-    expect(manager).toNot.equal([SDWebImageManager sharedManager]);
+- (void)setUp
+{
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)test02ThatDownloadInvokesCompletionBlockWithCorrectParamsAsync {
+- (void)tearDown
+{
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+- (void)testThatDownloadInvokesCompletionBlockWithCorrectParamsAsync {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Image download completes"];
 
-    NSURL *originalImageURL = [NSURL URLWithString:workingImageURL];
+    NSURL *originalImageURL = [NSURL URLWithString:@"http://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage000.jpg"];
     
-    [[SDWebImageManager sharedManager] loadImageWithURL:originalImageURL
-                                                options:SDWebImageRefreshCached
-                                               progress:nil
-                                              completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+    [[SDWebImageManager sharedManager] downloadImageWithURL:originalImageURL options:SDWebImageRefreshCached progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         expect(image).toNot.beNil();
         expect(error).to.beNil();
         expect(originalImageURL).to.equal(imageURL);
@@ -43,20 +48,16 @@ NSString *workingImageURL = @"http://s3.amazonaws.com/fast-image-cache/demo-imag
         [expectation fulfill];
         expectation = nil;
     }];
-    expect([[SDWebImageManager sharedManager] isRunning]).to.equal(YES);
 
     [self waitForExpectationsWithTimeout:kAsyncTestTimeout handler:nil];
 }
 
-- (void)test03ThatDownloadWithIncorrectURLInvokesCompletionBlockWithAnErrorAsync {
+- (void)testThatDownloadWithIncorrectURLInvokesCompletionBlockWithAnErrorAsync {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Image download completes"];
 
     NSURL *originalImageURL = [NSURL URLWithString:@"http://static2.dmcdn.net/static/video/656/177/44771656:jpeg_preview_small.png"];
     
-    [[SDWebImageManager sharedManager] loadImageWithURL:originalImageURL
-                                                options:SDWebImageRefreshCached
-                                               progress:nil
-                                              completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+    [[SDWebImageManager sharedManager] downloadImageWithURL:originalImageURL options:SDWebImageRefreshCached progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         expect(image).to.beNil();
         expect(error).toNot.beNil();
         expect(originalImageURL).to.equal(imageURL);
@@ -64,51 +65,6 @@ NSString *workingImageURL = @"http://s3.amazonaws.com/fast-image-cache/demo-imag
         [expectation fulfill];
         expectation = nil;
     }];
-    
-    [self waitForExpectationsWithTimeout:kAsyncTestTimeout handler:nil];
-}
-
-- (void)test04CachedImageExistsForURL {
-    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Image exists in cache"];
-    NSURL *imageURL = [NSURL URLWithString:workingImageURL];
-    [[SDWebImageManager sharedManager] cachedImageExistsForURL:imageURL completion:^(BOOL isInCache) {
-        if (isInCache) {
-            [expectation fulfill];
-        } else {
-            XCTFail(@"Image should be in cache");
-        }
-    }];
-    [self waitForExpectationsWithTimeout:kAsyncTestTimeout handler:nil];
-}
-
-- (void)test05DiskImageExistsForURL {
-    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Image exists in disk cache"];
-    NSURL *imageURL = [NSURL URLWithString:workingImageURL];
-    [[SDWebImageManager sharedManager] diskImageExistsForURL:imageURL completion:^(BOOL isInCache) {
-        if (isInCache) {
-            [expectation fulfill];
-        } else {
-            XCTFail(@"Image should be in cache");
-        }
-    }];
-    [self waitForExpectationsWithTimeout:kAsyncTestTimeout handler:nil];
-}
-
-- (void)test06CancellAll {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Cancel"];
-    
-    NSURL *imageURL = [NSURL URLWithString:@"http://s3.amazonaws.com/fast-image-cache/demo-images/FICDDemoImage006.jpg"];
-    [[SDWebImageManager sharedManager] loadImageWithURL:imageURL options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
-        XCTFail(@"Should not get here");
-    }];
-    
-    [[SDWebImageManager sharedManager] cancelAll];
-    
-    // doesn't cancel immediately - since it uses dispatch async
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        expect([[SDWebImageManager sharedManager] isRunning]).to.equal(NO);
-        [expectation fulfill];
-    });
     
     [self waitForExpectationsWithTimeout:kAsyncTestTimeout handler:nil];
 }

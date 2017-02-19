@@ -32,11 +32,11 @@ final class CustomAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
     func animatePresentTransition(transitionContext: UIViewControllerContextTransitioning) {
         guard
             let presentingController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-            let presentedController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
-            let containerView:UIView = transitionContext.containerView
-            else {
+            let presentedController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+                    else {
                 return
         }
+        let containerView:UIView = transitionContext.containerView
         presentedController.view.layer.cornerRadius = 4.0
         presentedController.view.clipsToBounds = true
         presentedController.view.alpha = 0.0

@@ -20,7 +20,6 @@ final class CustomPresentationController: UIPresentationController {
         overlayView.backgroundColor = UIColor.black
         overlayView.alpha = 0.0
         containerView.insertSubview(overlayView, at: 0)
-        self.containerView
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] context in
             self?.overlayView.alpha = 0.7
             }, completion: nil)
@@ -38,7 +37,7 @@ final class CustomPresentationController: UIPresentationController {
         }
     }
     
-    let margin = (x: CGFloat(40), y: CGFloat(330))
+    let margin = (x: CGFloat(40), y: CGFloat(380))
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
         return CGSize(width: parentSize.width - margin.x, height: parentSize.height - margin.y)
     }

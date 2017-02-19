@@ -100,7 +100,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {// clicked cancel button
         searchBar.resignFirstResponder()
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {// clicked serch button
         searchBar.resignFirstResponder()

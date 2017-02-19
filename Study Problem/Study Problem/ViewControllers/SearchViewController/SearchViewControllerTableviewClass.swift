@@ -20,14 +20,14 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
         let post = posts[indexPath.row]
       //  if segucon.selectedSegmentIndex == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostTableViewCell
-            let postDictionary = post as? Dictionary<String, AnyObject>
-            cell.replyscountLabel.text = String(postDictionary!["reply"] as! Int!)
-            cell.subjectLabel.text = postDictionary!["subject"] as? String!
-            let postdate = postDictionary!["date"] as! String!
+            let postDictionary = post
+        cell.replyscountLabel.text = String(postDictionary["reply"] as! Int!)
+            cell.subjectLabel.text = postDictionary["subject"] as? String!
+            let postdate = postDictionary["date"] as! String!
             let now = Date()
             cell.dateLabel.text = now.offset(toDate: (postdate?.postDate())!)
-            cell.textView.text = postDictionary!["text"] as? String
-            let currentUser = database.child("user").child((postDictionary!["author"] as? String)!)
+            cell.textView.text = postDictionary["text"] as? String
+            let currentUser = database.child("user").child((postDictionary["author"] as? String)!)
             currentUser.observe(FIRDataEventType.value, with: { snapshot in
                 let postUser = (snapshot.value! as AnyObject)["username"] as! String
                 cell.profileLabel.text = postUser
@@ -38,11 +38,10 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                 var viewImg = UIImage()
                 let storage = FIRStorage.storage()
                 let storageRef = storage.reference(forURL: "gs://studyproblemfirebase.appspot.com/user")
-                let autorsprofileRef = storageRef.child("\((postDictionary!["author"] as? String)!)/profileimage.png")
+                let autorsprofileRef = storageRef.child("\((postDictionary["author"] as? String)!)/profileimage.png")
                 autorsprofileRef.data(withMaxSize: 1 * 1028 * 1028) { (data, error) -> Void in
                     if error != nil {
-                        print(error)
-                    } else {
+                }else{
                         viewImg = data.flatMap(UIImage.init)!
                         DispatchQueue.main.async(execute: {
                             cell.profileImage.setBackgroundImage(viewImg, for: UIControlState.normal)
@@ -84,14 +83,11 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         //if segucon.selectedSegmentIndex == 0{
             let post = posts[indexPath.row]
-            let postDictionary = post as? Dictionary<String, AnyObject>
-            selectpost = postDictionary!
-            selectpostID = postDictionary!["key"] as! String!
-            if selectpost != nil {
+            let postDictionary = post
+            selectpost = postDictionary
+            selectpostID = postDictionary["key"] as! String!
                 searchBar.resignFirstResponder()
                 performSegue(withIdentifier: "viewSarchPost",sender: nil)
-            }
-        //}
     }
     func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
       //  if segucon.selectedSegmentIndex == 0{

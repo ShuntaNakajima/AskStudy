@@ -16,7 +16,6 @@
 #include "./vp8i.h"
 #include "./vp8li.h"
 #include "./webpi.h"
-#include "../utils/utils.h"
 #include "../webp/mux_types.h"  // ALPHA_FLAG
 
 //------------------------------------------------------------------------------
@@ -44,6 +43,14 @@
 // All sizes are in little-endian order.
 // Note: chunk data size must be padded to multiple of 2 when written.
 
+static WEBP_INLINE uint32_t get_le24(const uint8_t* const data) {
+  return data[0] | (data[1] << 8) | (data[2] << 16);
+}
+
+static WEBP_INLINE uint32_t get_le32(const uint8_t* const data) {
+  return (uint32_t)get_le24(data) | (data[3] << 24);
+}
+
 // Validates the RIFF container (if detected) and skips over it.
 // If a RIFF container is detected, returns:
 //     VP8_STATUS_BITSTREAM_ERROR for invalid header,
@@ -63,7 +70,7 @@ static VP8StatusCode ParseRIFF(const uint8_t** const data,
     if (memcmp(*data + 8, "WEBP", TAG_SIZE)) {
       return VP8_STATUS_BITSTREAM_ERROR;  // Wrong image file signature.
     } else {
-      const uint32_t size = GetLE32(*data + TAG_SIZE);
+      const uint32_t size = get_le32(*data + TAG_SIZE);
       // Check that we have at least one chunk (i.e "WEBP" + "VP8?nnnn").
       if (size < TAG_SIZE + CHUNK_HEADER_SIZE) {
         return VP8_STATUS_BITSTREAM_ERROR;
@@ -109,7 +116,7 @@ static VP8StatusCode ParseVP8X(const uint8_t** const data,
   if (!memcmp(*data, "VP8X", TAG_SIZE)) {
     int width, height;
     uint32_t flags;
-    const uint32_t chunk_size = GetLE32(*data + TAG_SIZE);
+    const uint32_t chunk_size = get_le32(*data + TAG_SIZE);
     if (chunk_size != VP8X_CHUNK_SIZE) {
       return VP8_STATUS_BITSTREAM_ERROR;  // Wrong chunk size.
     }
@@ -118,9 +125,9 @@ static VP8StatusCode ParseVP8X(const uint8_t** const data,
     if (*data_size < vp8x_size) {
       return VP8_STATUS_NOT_ENOUGH_DATA;  // Insufficient data.
     }
-    flags = GetLE32(*data + 8);
-    width = 1 + GetLE24(*data + 12);
-    height = 1 + GetLE24(*data + 15);
+    flags = get_le32(*data + 8);
+    width = 1 + get_le24(*data + 12);
+    height = 1 + get_le24(*data + 15);
     if (width * (uint64_t)height >= MAX_IMAGE_AREA) {
       return VP8_STATUS_BITSTREAM_ERROR;  // image is too large
     }
@@ -174,7 +181,7 @@ static VP8StatusCode ParseOptionalChunks(const uint8_t** const data,
       return VP8_STATUS_NOT_ENOUGH_DATA;
     }
 
-    chunk_size = GetLE32(buf + TAG_SIZE);
+    chunk_size = get_le32(buf + TAG_SIZE);
     if (chunk_size > MAX_CHUNK_PAYLOAD) {
       return VP8_STATUS_BITSTREAM_ERROR;          // Not a valid chunk size.
     }
@@ -240,7 +247,7 @@ static VP8StatusCode ParseVP8Header(const uint8_t** const data_ptr,
 
   if (is_vp8 || is_vp8l) {
     // Bitstream contains VP8/VP8L header.
-    const uint32_t size = GetLE32(data + TAG_SIZE);
+    const uint32_t size = get_le32(data + TAG_SIZE);
     if ((riff_size >= minimal_size) && (size > riff_size - minimal_size)) {
       return VP8_STATUS_BITSTREAM_ERROR;  // Inconsistent size information.
     }
@@ -415,8 +422,7 @@ static VP8StatusCode ParseHeadersInternal(const uint8_t* data,
 }
 
 VP8StatusCode WebPParseHeaders(WebPHeaderStructure* const headers) {
-  // status is marked volatile as a workaround for a clang-3.8 (aarch64) bug
-  volatile VP8StatusCode status;
+  VP8StatusCode status;
   int has_animation = 0;
   assert(headers != NULL);
   // fill out headers, ignore width/height/has_alpha.
@@ -513,13 +519,13 @@ static VP8StatusCode DecodeInto(const uint8_t* const data, size_t data_size,
 
   if (status != VP8_STATUS_OK) {
     WebPFreeDecBuffer(params->output);
-  } else {
-    if (params->options != NULL && params->options->flip) {
-      // This restores the original stride values if options->flip was used
-      // during the call to WebPAllocateDecBuffer above.
-      status = WebPFlipBuffer(params->output);
-    }
   }
+
+#if WEBP_DECODER_ABI_VERSION > 0x0203
+  if (params->options != NULL && params->options->flip) {
+    status = WebPFlipBuffer(params->output);
+  }
+#endif
   return status;
 }
 
@@ -761,24 +767,9 @@ VP8StatusCode WebPDecode(const uint8_t* data, size_t data_size,
   }
 
   WebPResetDecParams(&params);
-  params.options = &config->options;
   params.output = &config->output;
-  if (WebPAvoidSlowMemory(params.output, &config->input)) {
-    // decoding to slow memory: use a temporary in-mem buffer to decode into.
-    WebPDecBuffer in_mem_buffer;
-    WebPInitDecBuffer(&in_mem_buffer);
-    in_mem_buffer.colorspace = config->output.colorspace;
-    in_mem_buffer.width = config->input.width;
-    in_mem_buffer.height = config->input.height;
-    params.output = &in_mem_buffer;
-    status = DecodeInto(data, data_size, &params);
-    if (status == VP8_STATUS_OK) {  // do the slow-copy
-      status = WebPCopyDecBufferPixels(&in_mem_buffer, &config->output);
-    }
-    WebPFreeDecBuffer(&in_mem_buffer);
-  } else {
-    status = DecodeInto(data, data_size, &params);
-  }
+  params.options = &config->options;
+  status = DecodeInto(data, data_size, &params);
 
   return status;
 }
@@ -817,17 +808,15 @@ int WebPIoInitFromOptions(const WebPDecoderOptions* const options,
   // Scaling
   io->use_scaling = (options != NULL) && (options->use_scaling > 0);
   if (io->use_scaling) {
-    int scaled_width = options->scaled_width;
-    int scaled_height = options->scaled_height;
-    if (!WebPRescalerGetScaledDimensions(w, h, &scaled_width, &scaled_height)) {
+    if (options->scaled_width <= 0 || options->scaled_height <= 0) {
       return 0;
     }
-    io->scaled_width = scaled_width;
-    io->scaled_height = scaled_height;
+    io->scaled_width = options->scaled_width;
+    io->scaled_height = options->scaled_height;
   }
 
   // Filter
-  io->bypass_filtering = (options != NULL) && options->bypass_filtering;
+  io->bypass_filtering = options && options->bypass_filtering;
 
   // Fancy upsampler
 #ifdef FANCY_UPSAMPLING
@@ -844,3 +833,4 @@ int WebPIoInitFromOptions(const WebPDecoderOptions* const options,
 }
 
 //------------------------------------------------------------------------------
+

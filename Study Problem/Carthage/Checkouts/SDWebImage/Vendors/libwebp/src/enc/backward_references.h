@@ -22,8 +22,13 @@
 extern "C" {
 #endif
 
-// The maximum allowed limit is 11.
-#define MAX_COLOR_CACHE_BITS 10
+// The spec allows 11, we use 9 bits to reduce memory consumption in encoding.
+// Having 9 instead of 11 only removes about 0.25 % of compression density.
+#define MAX_COLOR_CACHE_BITS 9
+
+// Max ever number of codes we'll use:
+#define PIX_OR_COPY_CODES_MAX \
+    (NUM_LITERAL_CODES + NUM_LENGTH_CODES + (1 << MAX_COLOR_CACHE_BITS))
 
 // -----------------------------------------------------------------------------
 // PixOrCopy
@@ -115,12 +120,11 @@ static WEBP_INLINE uint32_t PixOrCopyDistance(const PixOrCopy* const p) {
 
 typedef struct VP8LHashChain VP8LHashChain;
 struct VP8LHashChain {
-  // The 20 most significant bits contain the offset at which the best match
-  // is found. These 20 bits are the limit defined by GetWindowSizeForHashChain
-  // (through WINDOW_SIZE = 1<<20).
-  // The lower 12 bits contain the length of the match. The 12 bit limit is
-  // defined in MaxFindCopyLength with MAX_LENGTH=4096.
-  uint32_t* offset_length_;
+  // Stores the most recently added position with the given hash value.
+  int32_t hash_to_first_index_[HASH_SIZE];
+  // chain_[pos] stores the previous position with the same hash value
+  // for every pixel in the image.
+  int32_t* chain_;
   // This is the maximum size of the hash_chain that can be constructed.
   // Typically this is the pixel count (width x height) for a given image.
   int size_;
@@ -128,9 +132,6 @@ struct VP8LHashChain {
 
 // Must be called first, to set size.
 int VP8LHashChainInit(VP8LHashChain* const p, int size);
-// Pre-compute the best matches for argb.
-int VP8LHashChainFill(VP8LHashChain* const p, int quality,
-                      const uint32_t* const argb, int xsize, int ysize);
 void VP8LHashChainClear(VP8LHashChain* const p);  // release memory
 
 // -----------------------------------------------------------------------------
@@ -189,15 +190,20 @@ static WEBP_INLINE void VP8LRefsCursorNext(VP8LRefsCursor* const c) {
 // Main entry points
 
 // Evaluates best possible backward references for specified quality.
-// The input cache_bits to 'VP8LGetBackwardReferences' sets the maximum cache
-// bits to use (passing 0 implies disabling the local color cache).
-// The optimal cache bits is evaluated and set for the *cache_bits parameter.
+// Further optimize for 2D locality if use_2d_locality flag is set.
 // The return value is the pointer to the best of the two backward refs viz,
 // refs[0] or refs[1].
 VP8LBackwardRefs* VP8LGetBackwardReferences(
     int width, int height, const uint32_t* const argb, int quality,
-    int low_effort, int* const cache_bits,
-    const VP8LHashChain* const hash_chain, VP8LBackwardRefs refs[2]);
+    int cache_bits, int use_2d_locality, VP8LHashChain* const hash_chain,
+    VP8LBackwardRefs refs[2]);
+
+// Produce an estimate for a good color cache size for the image.
+int VP8LCalculateEstimateForCacheSize(const uint32_t* const argb,
+                                      int xsize, int ysize, int quality,
+                                      VP8LHashChain* const hash_chain,
+                                      VP8LBackwardRefs* const ref,
+                                      int* const best_cache_bits);
 
 #ifdef __cplusplus
 }

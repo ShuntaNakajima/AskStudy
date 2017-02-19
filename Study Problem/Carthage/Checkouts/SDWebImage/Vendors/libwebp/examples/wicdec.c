@@ -17,7 +17,6 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include <string.h>
 
 #ifdef HAVE_WINCODEC_H
 #ifdef __MINGW32__
@@ -27,13 +26,11 @@
 #define COBJMACROS
 #define _WIN32_IE 0x500  // Workaround bug in shlwapi.h when compiling C++
                          // code with COBJMACROS.
-#include <ole2.h>  // CreateStreamOnHGlobal()
 #include <shlwapi.h>
 #include <windows.h>
 #include <wincodec.h>
 
 #include "webp/encode.h"
-#include "./example_util.h"
 #include "./metadata.h"
 
 #define IFS(fn)                                                     \
@@ -85,32 +82,7 @@ WEBP_DEFINE_GUID(GUID_WICPixelFormat64bppRGBA_,
 
 static HRESULT OpenInputStream(const char* filename, IStream** stream) {
   HRESULT hr = S_OK;
-  if (!strcmp(filename, "-")) {
-    const uint8_t* data = NULL;
-    size_t data_size = 0;
-    const int ok = ExUtilReadFile(filename, &data, &data_size);
-    if (ok) {
-      HGLOBAL image = GlobalAlloc(GMEM_MOVEABLE, data_size);
-      if (image != NULL) {
-        void* const image_mem = GlobalLock(image);
-        if (image_mem != NULL) {
-          memcpy(image_mem, data, data_size);
-          GlobalUnlock(image);
-          IFS(CreateStreamOnHGlobal(image, TRUE, stream));
-        } else {
-          hr = E_FAIL;
-        }
-      } else {
-        hr = E_OUTOFMEMORY;
-      }
-      free((void*)data);
-    } else {
-      hr = E_FAIL;
-    }
-  } else {
-    IFS(SHCreateStreamOnFileA(filename, STGM_READ, stream));
-  }
-
+  IFS(SHCreateStreamOnFileA(filename, STGM_READ, stream));
   if (FAILED(hr)) {
     fprintf(stderr, "Error opening input file %s (%08lx)\n", filename, hr);
   }
@@ -348,7 +320,7 @@ int ReadPictureWithWIC(const char* const filename,
     int ok;
     pic->width = width;
     pic->height = height;
-    pic->use_argb = 1;    // For WIC, we always force to argb
+    pic->use_argb = 1;
     ok = importer->import(pic, rgb, stride);
     if (!ok) hr = E_FAIL;
   }
