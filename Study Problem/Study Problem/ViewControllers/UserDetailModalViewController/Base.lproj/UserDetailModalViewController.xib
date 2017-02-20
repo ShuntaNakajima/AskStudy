@@ -108,13 +108,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BestAnser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gx-qR-NRu">
-                            <rect key="frame" x="263" y="470" width="49.5" height="12"/>
+                            <rect key="frame" x="262" y="470" width="50" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-kW-Xjq">
-                            <rect key="frame" x="78" y="470" width="21.5" height="12"/>
+                            <rect key="frame" x="77" y="470" width="22" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
