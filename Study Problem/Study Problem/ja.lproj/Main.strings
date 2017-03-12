@@ -57,7 +57,7 @@
 "Gjr-FI-4wQ.normalTitle" = "閉じる";
 
 /* Class = "UILabel"; text = "to add Star"; ObjectID = "HSO-RW-5AM"; */
-"HSO-RW-5AM.text" = "to add Star";
+"HSO-RW-5AM.text" = "";
 
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Jb4-xM-aht"; */
 "Jb4-xM-aht.normalTitle" = "完了";
@@ -84,7 +84,7 @@
 "LeJ-PC-9fC.normalTitle" = "×";
 
 /* Class = "UILabel"; text = "Long press post in Home View"; ObjectID = "ME1-Fb-hfV"; */
-"ME1-Fb-hfV.text" = "ホーム画面で投稿を長押し";
+"ME1-Fb-hfV.text" = "ホーム画面で投稿を長押しします。";
 
 /* Class = "UILabel"; text = "<"; ObjectID = "MsX-Hf-UMS"; */
 "MsX-Hf-UMS.text" = "<";
@@ -114,7 +114,7 @@
 "Tzg-Z3-UKH.normalTitle" = "完了";
 
 /* Class = "UILabel"; text = "Star can stock your favorite post"; ObjectID = "UHL-pf-uKW"; */
-"UHL-pf-uKW.text" = "お気に入りはあなたの興味のある投稿をストックできます。";
+"UHL-pf-uKW.text" = "あなたの興味のある投稿をストックできます。";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "Uc7-FD-zLw"; */
 "Uc7-FD-zLw.placeholder" = "パスワード";

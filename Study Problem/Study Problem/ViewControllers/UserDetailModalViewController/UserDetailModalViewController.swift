@@ -60,13 +60,13 @@ class UserDetailModalViewController: UIViewController {
                 }
             }
             if self.UserKey == (FIRAuth.auth()?.currentUser!.uid)!{
-                self.FollowButton.setTitle("Me", for: .normal)
+                self.FollowButton.setTitle(NSLocalizedString("Me",comment:""), for: .normal)
                 self.FollowButton.setTitleColor(UIColor.blue, for: .normal)
             }else if self.mykey == ""{
-                self.FollowButton.setTitle("Follow", for: .normal)
+                self.FollowButton.setTitle(NSLocalizedString("Follow",comment:""), for: .normal)
                 self.FollowButton.setTitleColor(UIColor.black, for: .normal)
             }else{
-                self.FollowButton.setTitle("UnFollow", for: .normal)
+                self.FollowButton.setTitle(NSLocalizedString("UnFollow",comment:""), for: .normal)
                 self.FollowButton.setTitleColor(UIColor.red, for: .normal)
             }
             self.PostButton.setTitle(String(self.postkeys.count), for: .normal)

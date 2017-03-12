@@ -35,13 +35,17 @@ class MainViewController: UIViewController,UIGestureRecognizerDelegate,UIViewCon
         if FIRAuth.auth()?.currentUser == nil{
             let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
             self.present(viewController, animated: true, completion: nil)
-        }
+        }else{
+        if FIRAuth.auth()?.currentUser!.isEmailVerified == true{
+            let viewController:UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewControllers")
+            self.present(viewController, animated: true, completion: nil)
+            }}
         let nib  = UINib(nibName: "PostTableViewCell", bundle:nil)
         self.tableView.register(nib, forCellReuseIdentifier:"PostCell")
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Reload")
+        self.refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("Reload",comment:""))
         self.refreshControl.addTarget(self, action: #selector(MainViewController.refresh), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl)
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.cellLongPressed(recognizer:)))

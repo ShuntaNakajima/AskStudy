@@ -24,9 +24,9 @@ extension ViewpostViewController:UITableViewDelegate,UITableViewDataSource{
             itemcell.DateLable.text = postDic["date"] as! String!
             let BestAnswer = postDic["BestAnswer"] as? String
             if BestAnswer == ""{
-                itemcell.StateLabel.text = "open"
+                itemcell.StateLabel.text = NSLocalizedString("open", comment: "")
             }else{
-                itemcell.StateLabel.text = "closed"
+                itemcell.StateLabel.text = NSLocalizedString("closed", comment: "")
             }
             return itemcell
         }

@@ -47,14 +47,14 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate,UIScrollV
     func option(sender:UIButton){
                 let row = sender.tag
         if posts[row]["author"] as? String == FIRAuth.auth()?.currentUser!.uid{
-        let alert = UIAlertController(title: "Option", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.actionSheet)
-        let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
+        let alert = UIAlertController(title: NSLocalizedString("Option", comment: ""), message: NSLocalizedString("Are you sure report this Post?", comment: ""), preferredStyle: UIAlertControllerStyle.actionSheet)
+        let action = UIAlertAction(title: NSLocalizedString("Report", comment: ""), style: .default, handler:{(_) in
 self.reportPost(row: row)
         })
-        let delete = UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+        let delete = UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .default, handler:{(_) in
             self.delete(row: row)
         })
-        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelaction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         alert.addAction(action)
         alert.addAction(delete)
         alert.addAction(cancelaction)
@@ -64,25 +64,25 @@ self.reportPost(row: row)
         }
     }
     func reportPost(row:Int){
-        let alert = UIAlertController(title: "Report Post", message: "Are you sure report this Post?", preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "Report", style: .default, handler:{(_) in
+        let alert = UIAlertController(title: NSLocalizedString("Report Post", comment: ""), message: NSLocalizedString("Are you sure report this Post?", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: NSLocalizedString("Report", comment: ""), style: .default, handler:{(_) in
             let newreport: Dictionary<String, Any> = [
                 "reportPost":self.posts[row]["key"] as! String!,
                 "reportUser":FIRAuth.auth()?.currentUser?.uid as Any
             ]
             self.database.child("report").childByAutoId().setValue(newreport)
         })
-        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelaction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         alert.addAction(action)
         alert.addAction(cancelaction)
         present(alert, animated: true, completion: nil)
     }
     func delete(row:Int){
-        let alert = UIAlertController(title: "Delete", message: "Are you sure delete this Post?", preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+        let alert = UIAlertController(title: NSLocalizedString("Delete",comment:""), message: NSLocalizedString("Are you sure delete this Post?",comment:""), preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: NSLocalizedString("Delete",comment:""), style: .default, handler:{(_) in
             self.database.child("post").child(self.posts[row]["key"] as! String!).removeValue()
         })
-        let cancelaction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelaction = UIAlertAction(title: NSLocalizedString("Cancel",comment:""), style: .cancel, handler: nil)
         alert.addAction(action)
         alert.addAction(cancelaction)
         present(alert, animated: true, completion: nil)
@@ -116,14 +116,14 @@ self.reportPost(row: row)
                             let newFollowChild = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
                             newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                             let anImage = UIImage(named: "star.gif")
-                            _ = ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: NSLocalizedString("Star",comment:""), image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }else{
                         if self.longState == true{
                             database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                             let anImage = UIImage(named: "star.gif")
-                            _ = ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: NSLocalizedString("UnStar",comment:""), image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }

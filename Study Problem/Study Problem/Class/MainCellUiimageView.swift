@@ -31,7 +31,7 @@ class MainCellUiimageView: UIButton {
     }
     
     func showUser(sender:UIButton){
-        let modalViewController = UserDetailModalViewController(nibName: "UserDetailModalViewController", bundle: nil)
+        let modalViewController = UserDetailModalViewController(nibName: "UserDetailModalViewController", bundle: Bundle.main)
         modalViewController.view.frame = CGRect(x:0,y:0,width: UIScreen.main.bounds.size.width - 40,height: UIScreen.main.bounds.size.height - 380)
         print( modalViewController.view.frame)
         modalViewController.modalPresentationStyle = .custom

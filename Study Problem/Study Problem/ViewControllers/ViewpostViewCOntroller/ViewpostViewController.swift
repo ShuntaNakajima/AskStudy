@@ -64,7 +64,7 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         myTextView.layer.borderWidth = 0.5
         myTextView.font = UIFont.systemFont(ofSize: 15)
         myTextView.delegate = self
-        myTextView.text = "Type here"
+        myTextView.text = NSLocalizedString("Type here",comment:"")
         myTextView.textColor = UIColor.lightGray
         toolbar.addSubview(self.myTextView)
         let notificationCenter = NotificationCenter.default
@@ -125,19 +125,19 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
         tableView.frame = (frame: CGRect(x: 0, y: keyboardScreenEndFrame.size.height, width: self.view.frame.width, height: self.view.frame.height - keyboardScreenEndFrame.size.height - 30))
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if myTextView.text == "Type here"{
+        if myTextView.text == NSLocalizedString("Type here",comment:""){
             myTextView.text = ""
             myTextView.textColor = UIColor.black
         }
     }
     func tappedToolBarBtn(){
         let replyText = myTextView.text
-        if replyText != "" && replyText != "Type here" {
+        if replyText != "" && replyText != NSLocalizedString("Type here",comment:"") {
             myTextView.resignFirstResponder()
             self.view.transform = CGAffineTransform.identity
             toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - 30.0,width: self.view.bounds.size.width,height:30.0))
             myTextView.frame = (frame: CGRect(x:55,y:0 ,width:self.view.frame.width - 110,height: 30))
-            myTextView.text = "Type here"
+            myTextView.text = NSLocalizedString("Type here",comment:"")
             myTextView.textColor = UIColor.lightGray
             tableView.frame = (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 30))
             let newreply: Dictionary<String, AnyObject> = [
@@ -177,9 +177,9 @@ class ViewpostViewController: UIViewController,UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView){
         self.closebutton.isHidden = false
-        let maxHeight = 140.0
+        let maxHeight:CGFloat = 140.0
         let size:CGSize = myTextView.sizeThatFits(myTextView.frame.size)
-        if (size.height.native <= maxHeight) {
+        if size.height <= maxHeight {
             myTextView.frame.size.height = size.height
             toolbar.frame = (frame: CGRect(x:0,y: self.view.bounds.size.height - size.height,width: self.view.bounds.size.width,height: size.height))
             myTextView.frame = (frame: CGRect(x:55,y:0 ,width:self.view.frame.width - 110,height: size.height))

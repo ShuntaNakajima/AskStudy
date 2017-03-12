@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  Study Problem
+
+  Created by nakajimashunta on 2017/03/12.
+  Copyright © 2017年 ShuntaNakajima. All rights reserved.
+*/
+"Update Succeful!" = "Update Succeful!";
+"Japanese" = "Japanese";
+"Math" = "Mathmatics";
+"Science" = "Science";
+"Sociology" = "Sociology";
+"English" = "English";
+"Other" = "Other";
+"Pick Subject" = "Pick Subject";
+"Type here" = "Type here";
+"Report Post" = "Report Post";
+"Cancel" = "Cancel";
+"Are you sure report this Post?" = "Are you sure report this Post?";
+"Report" = "Report";
+"Option" = "Option";
+"Delete" = "Delete";
+"Are you sure delete this Post?" = "Are you sure delete this Post?";
+"BestAnswer" = "BestAnswer";
+"Are you sure set best answer and close this post?" = "Are you sure set best answer and close this post?";
+"Follow" = "Follow";
+"Me" = "Me";
+"oepn" = "open";
+"closed" = "closed";
+"replys" = "replys";
+"You don't have any stars" = "You don't have any stars";
+"No result" = "No result";
+"Search" = "Search";
+"Star" = "Star";
+"UnStar" = "UnStar";
+"Post Succeeded" = "Post Succeeded";
+"Successful!" = "Successful!";
+"loading userstate" = "loading userstate";
+"loading data from database" = "loading data from database";
+"What is Star?" = "What is Star?";
+"UnFollow" = "UnFollow";
+"Reload" = "Reload";
+"Oops!" = "Oops!";
+"Check your username and password." = "Check your username and password.";
+"Don't forget to enter your email and password." = "Don't forget to enter your email and password.";
+"Please verify your email." = "Please verify your email.";
+"Having some trouble creating your account. Try again." = "Having some trouble creating your account. Try again.";
+"Pick your grade" = "Pick your grade";
+"Grade1" = "Grade1";
+"Grade2" = "Grade2";
+"Grade3" = "Grade3";
+"Grade4" = "Grade4";
+"Grade5" = "Grade5";
+"Grade6" = "Grade6";
+"Grade7" = "Grade7";
+"Grade8" = "Grade8";
+"Grade9" = "Grade9";
+"Grade10" = "Grade10";
+"Grade11" = "Grade11";
+"Grade12" = "Grade12";
+"other" = "Other";

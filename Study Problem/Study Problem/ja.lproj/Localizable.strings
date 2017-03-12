@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  Study Problem
+
+  Created by nakajimashunta on 2017/03/12.
+  Copyright © 2017年 ShuntaNakajima. All rights reserved.
+*/
+"Update Succeful!" = "アップロード完了";
+"Japanese" = "国語";
+"Math" = "数学";
+"Science" = "理科";
+"Sociology" = "社会";
+"English" = "英語";
+"Other" = "その他";
+"Pick Subject" = "教科を選択";
+"Type here" = "タップで編集";
+"Report Post" = "投稿を報告";
+"Cancel" = "キャンセル";
+"Are you sure report this Post?" = "この投稿を報告してよろしいですか？";
+"Report" = "報告";
+"Option" = "オプション";
+"Delete" = "消去";
+"Are you sure delete this Post?" = "この投稿を消去してよろしいですか？";
+"BestAnswer" = "ベストアンサー";
+"Are you sure set best answer and close this post?" = "ベストアンサーを決めてこの投稿を閉じてよろしいですか？";
+"Follow" = "フォロー";
+"Me" = "自分";
+"oepn" = "オープン";
+"closed" = "クローズ";
+"replys" = "返信";
+"You don't have any stars" = "あなたのお気に入りがありません。";
+"No result" = "結果なし";
+"Search" = "検索";
+"Star" = "お気に入り登録";
+"UnStar" = "お気に入り解除";
+"Post Succeeded" = "投稿完了";
+"Successful!" = "完了";
+"loading userstate" = "ユーザデーターを読み込んでます。";
+"loading data from database" = "データを読み込んでいます。";
+"What is Star?" = "お気に入りとは？";
+"UnFollow" = "フォロー解除";
+"Reload" = "更新";
+"Oops!" = "おっと、";
+"Check your username and password." = "ユーザーネームとパスワードを確認してください。";
+"Don't forget to enter your email and password." = "メールとパスワードを入力してください。";
+"Please verify your email." = "メールを認証してください。";
+"Having some trouble creating your account. Try again." = "アカウント作成途中にエラーが発生しました。入力項目を確認してもう一度試してください。";
+"Plaese check your e-mail address." = "メールアドレスを確認してください。";
+"Pick your grade" = "学年を選んで下さい。";
+"Grade1" = "小学1年生";
+"Grade2" = "小学2年生";
+"Grade3" = "小学3年生";
+"Grade4" = "小学4年生";
+"Grade5" = "小学5年生";
+"Grade6" = "小学6年生";
+"Grade7" = "中学1年生";
+"Grade8" = "中学2年生";
+"Grade9" = "中学3年生";
+"Grade10" = "高校1年生";
+"Grade11" = "高校2年生";
+"Grade12" = "高校3年生";
+"other" = "その他";

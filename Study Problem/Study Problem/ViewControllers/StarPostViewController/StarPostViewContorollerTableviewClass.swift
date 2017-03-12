@@ -69,7 +69,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
                             let newFollowChild = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
                             newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                             let anImage = UIImage(named: "star.gif")
-                            _ = ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: NSLocalizedString("Star",comment:""), image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }else{
@@ -82,7 +82,7 @@ extension StarPostViewController:UITableViewDataSource,UITableViewDelegate{
                                 self.reload()
                             }
                             let anImage = UIImage(named: "star.gif")
-                            _ = ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                            _ = ToastView.showText(text: NSLocalizedString("UnStar",comment:""), image: anImage!, imagePosition: .Left, duration:.Short)
                             self.longState = false
                         }
                     }

@@ -111,14 +111,14 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
                                 let newFollowChild = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").childByAutoId().child("userstars")
                                 newFollowChild.setValue(self.posts[indexPath!.row]["key"] as! String!)
                                 let anImage = UIImage(named: "star.gif")
-                                _ = ToastView.showText(text: "Star", image: anImage!, imagePosition: .Left, duration:.Short)
+                                _ = ToastView.showText(text: NSLocalizedString("Star", comment: ""), image: anImage!, imagePosition: .Left, duration:.Short)
                                 self.longState = false
                             }
                         }else{
                             if self.longState == true{
                                 database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/stars/").child(mykey).child("userstars").removeValue()
                                 let anImage = UIImage(named: "star.gif")
-                                _ = ToastView.showText(text: "UnStar", image: anImage!, imagePosition: .Left, duration:.Short)
+                                _ = ToastView.showText(text: NSLocalizedString("UnStar", comment: ""), image: anImage!, imagePosition: .Left, duration:.Short)
                                 self.longState = false
                             }
                         }
@@ -128,7 +128,7 @@ extension SearchViewController:UITableViewDataSource,UITableViewDelegate{
         //}
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let str = "No result"
+        let str = NSLocalizedString("No result", comment: "")
         let font = UIFont.systemFont(ofSize: 14.0, weight: 2.0)
         return NSAttributedString(
             string: str,

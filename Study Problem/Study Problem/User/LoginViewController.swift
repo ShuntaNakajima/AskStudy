@@ -21,6 +21,11 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
         self.gradient?.frame = self.view.bounds
         self.gradient?.colors = [ UIColor.ThemePurple().cgColor, UIColor.ThemeRed().cgColor]
         self.view.layer.insertSublayer(self.gradient!, at: 0)
+        if FIRAuth.auth()?.currentUser != nil{
+            if FIRAuth.auth()?.currentUser!.isEmailVerified == true{
+                self.loginErrorAlert(title: NSLocalizedString("Oops!",comment:""), message: NSLocalizedString("Please verify your email.",comment:""))
+            }
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         animateLayer()
@@ -52,11 +57,11 @@ class LoginViewController: UIViewController,CAAnimationDelegate {
                 if user != nil {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.loginErrorAlert(title: "Oops!", message: "Check your username and password.")
+                    self.loginErrorAlert(title: NSLocalizedString("Oops!",comment:""), message: NSLocalizedString("Check your username and password.",comment:""))
                 }
             }
         } else {
-            loginErrorAlert(title: "Oops!", message: "Don't forget to enter your email and password.")
+            loginErrorAlert(title: NSLocalizedString("Oops!",comment:""), message: NSLocalizedString("Don't forget to enter your email and password.",comment:""))
         }
         
     }

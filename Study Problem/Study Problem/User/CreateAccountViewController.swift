@@ -18,7 +18,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var gradeField: UITextField!
-    var pickOption = ["Grade1", "Grade2", "Grade3", "Grade4", "Grade5","Grade6", "Grade7", "Grade8", "Grade9", "Grade10", "Grade11", "Grade12","others"]
+    var pickOption = [NSLocalizedString("Grade1",comment:""), NSLocalizedString("Grade2",comment:""), NSLocalizedString("Grade3",comment:""), NSLocalizedString("Grade4",comment:""), NSLocalizedString("Grade5",comment:""),NSLocalizedString("Grade6",comment:""), NSLocalizedString("Grade7",comment:""), NSLocalizedString("Grade8",comment:""), NSLocalizedString("Grade9",comment:""), NSLocalizedString("Grade10",comment:""), NSLocalizedString("Grade11",comment:""), NSLocalizedString("Grade12",comment:""),NSLocalizedString("other",comment:"")]
     var fromColors = [Any?]()
     var gradient : CAGradientLayer?
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         toolBar.backgroundColor = UIColor.white
         
         
-        let defaultButton = UIBarButtonItem(title: "Grade1", style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedToolBarBtn))
+        let defaultButton = UIBarButtonItem(title:  NSLocalizedString("Grade1",comment:""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedToolBarBtn))
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(donePressed))
         
@@ -54,7 +54,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
         
         label.textColor = UIColor.white
         
-        label.text = "Pick your grade"
+        label.text = NSLocalizedString("Pick your grade",comment:"")
         
         label.textAlignment = NSTextAlignment.center
         
@@ -108,7 +108,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                     
                     // There was a problem.
                     
-                    self.signupErrorAlert(title: "Oops!", message: "Having some trouble creating your account. Try again.")
+                    self.signupErrorAlert(title: NSLocalizedString("Oops!",comment:""), message: NSLocalizedString("Having some trouble creating your account. Try again.",comment:""))
                     
                     
                 } else {
@@ -120,7 +120,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
                             self.database.child("user").child((FIRAuth.auth()?.currentUser!.uid)!).setValue(user)
                             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                         }else {
-                            self.signupErrorAlert(title: "Oops!", message: "Plaese check your e-mail address.")
+                            self.signupErrorAlert(title: NSLocalizedString("Oops!",comment:""), message: NSLocalizedString("Plaese check your e-mail address.",comment:""))
                         }
                     })
                 }
@@ -128,7 +128,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
             
         }else{
             
-            self.signupErrorAlert(title: "Oops!", message: "Don't forget to enter your email, password, and a username.")
+            self.signupErrorAlert(title: NSLocalizedString("Oops!",comment:""), message: NSLocalizedString("Don't forget to enter your email, password, and a username.",comment:""))
             
             
         }
@@ -151,7 +151,7 @@ class CreateAccountViewController: UIViewController, UIPickerViewDataSource, UIP
     
     func tappedToolBarBtn(sender: UIBarButtonItem) {
         
-        gradeField.text = "Grade1"
+        gradeField.text = NSLocalizedString("Grade1",comment:"")
         
         gradeField.resignFirstResponder()
     }

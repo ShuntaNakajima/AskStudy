@@ -36,7 +36,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Reload")
+        self.refreshControl.attributedTitle = NSAttributedString(string: (string: NSLocalizedString("Reload",comment:"")))
         self.refreshControl.addTarget(self, action: #selector(SearchViewController.refresh), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl)
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SearchViewController.cellLongPressed(recognizer:)))
@@ -51,7 +51,7 @@ class SearchViewController: UIViewController,  UISearchBarDelegate ,UIGestureRec
             self.navigationItem.hidesBackButton = true
             let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
             searchBar.delegate = self
-            searchBar.placeholder = "Search"
+            searchBar.placeholder = NSLocalizedString("Search",comment:"")
             searchBar.showsCancelButton = true
             searchBar.autocapitalizationType = UITextAutocapitalizationType.none
             searchBar.keyboardType = UIKeyboardType.default

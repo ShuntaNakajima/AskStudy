@@ -52,7 +52,7 @@ class DataCacheNetwork{
     func checkUser(client:TrueTimeClient,vc:Any,success:@escaping () -> Void){
         if FIRAuth.auth()?.currentUser != nil{
         let database = FIRDatabase.database().reference()
-        SVProgressHUD.show(withStatus: "loading userstate")
+            SVProgressHUD.show(withStatus: NSLocalizedString("loading userstate",comment:""))
         var now = Date()
         client.fetchIfNeeded { result in
             switch result {
@@ -79,7 +79,7 @@ class DataCacheNetwork{
                         (vc as AnyObject).present(viewController, animated: true, completion: nil)
                     }
                     }
-                    SVProgressHUD.show(withStatus: "loading data from database")
+                    SVProgressHUD.show(withStatus: NSLocalizedString("loading data from database",comment:""))
                     success()
                     
                 })

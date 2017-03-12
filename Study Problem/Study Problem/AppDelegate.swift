@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         // Firebase Init
         FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
+        //FIRDatabase.database().persistenceEnabled = true
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let pageviewControl = UIPageControl.appearance()

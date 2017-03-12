@@ -81,7 +81,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
         return UIImage(named: "StarBIg.png")
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let str = "You don't have any stars"
+        let str = NSLocalizedString("You don't have any stars", comment: "")
         let font = UIFont.systemFont(ofSize: 14.0, weight: 2.0)
         return NSAttributedString(
             string: str,
@@ -89,7 +89,7 @@ class StarPostViewController:UIViewController,UIGestureRecognizerDelegate,DZNEmp
         )
     }
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-        let str = "What is star?"
+        let str = NSLocalizedString("What is Star?", comment: "")
         let font = UIFont.systemFont(ofSize: 10.0, weight: 2.0)
         return NSAttributedString(
             string: str,

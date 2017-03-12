@@ -32,7 +32,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     var profileReforig : FIRStorageReference!
     var assets: [DKAsset]?
     var currentUserId = ""
-    var pickOption = ["Japanese", "Mathematics", "Science", "Sociology", "English","Other"]
+    var pickOption = [NSLocalizedString("Japanese",comment:""), NSLocalizedString("Math",comment:""), NSLocalizedString("Science",comment:""), NSLocalizedString("Sociology",comment:""), NSLocalizedString("English",comment:""),NSLocalizedString("Other",comment:"")]
     var photos = [UIImage]()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,7 +56,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1
-        textView.text = "Type here"
+        textView.text = NSLocalizedString("Type here",comment:"")
         textView.textColor = UIColor.lightGray
         textView.delegate = self
         
@@ -76,7 +76,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     
     func tappedToolBarBtn(sender: UIBarButtonItem) {
-        subjectTextfield.text = "Japanese"
+        subjectTextfield.text = NSLocalizedString("Japanese",comment:"")
         subjectTextfield.resignFirstResponder()
     }
     
@@ -101,7 +101,7 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Type here"{
+        if textView.text == NSLocalizedString("Type here",comment:""){
             textView.text = ""
             textView.textColor = UIColor.black
         }
@@ -113,14 +113,14 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         toolBar.barStyle = UIBarStyle.blackTranslucent
         toolBar.tintColor = UIColor.white
         toolBar.backgroundColor = UIColor.white
-        let defaultButton = UIBarButtonItem(title: "Japanese", style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedToolBarBtn))
+        let defaultButton = UIBarButtonItem(title: NSLocalizedString("Japanese",comment:""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tappedToolBarBtn))
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(donePressed))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.font = UIFont(name: "Helvetica", size: 12)
         label.backgroundColor = UIColor.clear
         label.textColor = UIColor.white
-        label.text = "Pick Subject"
+        label.text = NSLocalizedString("Pick Subject",comment:"")
         label.textAlignment = NSTextAlignment.center
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([defaultButton,flexSpace,textBtn,flexSpace,doneButton], animated: true)
@@ -163,9 +163,9 @@ class PostViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             firebaseNewJoke.setValue(newJoke)
             let firebaseUserPost = database.child("user/\((FIRAuth.auth()?.currentUser!.uid)!)/posts/").childByAutoId()
             firebaseUserPost.setValue(firebaseNewJoke.key)
-            let alert = UIAlertController(title: title, message: "Post Succeeded", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: title, message: NSLocalizedString("Post Succeeded",comment:""), preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: {(action: UIAlertAction!) -> Void in
-                self.textView.text = "Type here"
+                self.textView.text = NSLocalizedString("Type here",comment:"")
                 self.textView.textColor = UIColor.lightGray
                 self.dismiss(animated: true, completion: nil)
             })
@@ -304,7 +304,7 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
                 }
                 uploadTask.observe(.success) { snapshot in
                     if index == self.assets!.count - 1{
-                        SVProgressHUD.showSuccess(withStatus: "Successful!")
+                        SVProgressHUD.showSuccess(withStatus:NSLocalizedString("Successful!",comment:""))
                         let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
                         DispatchQueue.main.asyncAfter(deadline:delayTime, execute:{ SVProgressHUD.dismiss() })
                     }
