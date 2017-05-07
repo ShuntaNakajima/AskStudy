@@ -828,6 +828,7 @@
 						DevelopmentTeam = 3XCXCRTJ5X;
 						DevelopmentTeamName = "nakajima chiho";
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					BC54BB8C1CE4AE720013C0DD = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1289,7 +1290,7 @@
 				INFOPLIST_FILE = "Study Problem/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.studyproblem.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuntanakajima.askstudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "";
@@ -1316,7 +1317,7 @@
 				INFOPLIST_FILE = "Study Problem/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.studyproblem.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuntanakajima.askstudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "";

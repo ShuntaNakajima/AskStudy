@@ -21,13 +21,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.3</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>take user's profile photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Set the Background</string>
+	<string>post photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pacifico.ttf</string>

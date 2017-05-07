@@ -5,35 +5,25 @@
 [![Version](https://img.shields.io/cocoapods/v/KRProgressHUD.svg?style=flat)](http://cocoapods.org/pods/KRProgressHUD)
 [![License](https://img.shields.io/cocoapods/l/KRProgressHUD.svg?style=flat)](http://cocoapods.org/pods/KRProgressHUD)
 [![Platform](https://img.shields.io/cocoapods/p/KRProgressHUD.svg?style=flat)](http://cocoapods.org/pods/KRProgressHUD)
+[![Download](https://img.shields.io/cocoapods/dt/KRProgressHUD.svg?style=flat)](http://cocoapods.org/pods/KRProgressHUD)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CI Status](http://img.shields.io/travis/krimpedance/KRProgressHUD.svg?style=flat)](https://travis-ci.org/krimpedance/KRProgressHUD)
 
 `KRProgressHUD`は，Swiftでかかれた綺麗で使いやすいローディング画面を表示するライブラリです．
 
-#### 特徴
+インジケータには[KRActivityIndicatorView](https://github.com/krimpedance/KRActivityIndicator)を使用しています．
 
+<img src="./Resources/demo.gif" height=400>
+<img src="./Resources/styles.png" width=400>
+
+## 特徴
 - 丸いインジケータ
 - カラーのカスタマイズ性
 
-インジケータには[KRActivityIndicatorView](https://github.com/krimpedance/KRActivityIndicator)を使用しています．
-
-<img src="./Images/styles.png" height=300>
-
 ## 必要環境
-#### ver. 2.\*系 (現在のバージョン) 
 - iOS 9.0+
 - Xcode 8.0+
-- Swift 3.\*
-
-#### ver. 1.\*系(1.7.0以上)
-- iOS 8.0+
-- Xcode 8.0+
-- Swift 2.3.\*
-
-#### ver. 1.\*系(1.7.0未満)
-- iOS 8.0+
-- Xcode 7.\*
-- Swift 2.2.\*
+- Swift 3.0+
 
 ## デモ
 `DEMO/`以下にあるサンプルプロジェクトから確認してください．
@@ -62,7 +52,7 @@ github "Krimpedance/KRProgressHUD"
 
 **PullRefreshなど，他の場面で使用したい場合は，[KRActivityIndicatorView](https://github.com/krimpedance/KRActivityIndicator)を使用することをお勧めします**
 
-　　
+
 `KRProgressHUD`はシングルトンパターンで作られています．
 
 まず，`KRProgressHUD`をインポートします．
@@ -155,9 +145,10 @@ public class func set(centerPosition: CGPoint)  // デフォルト: デバイス
 バグや機能のリクエストがありましたら，気軽にコメントしてください．
 
 ## リリースノート
-- 2.1.0 : テキストだけのHUDを表示する機能を追加．
-          標準フォントをシステムフォントに変更しました．
-- 2.0.0 : Swift3に対応
+- 2.2.2 : KRActivityIndicatorView.siwftの `M_PI` を `Double.pi` に変更.
+- 2.2.1 : `showText()`実行後の表示で, メッセージラベルの位置がずれるバグを修正
+- 2.2.0 : `KRProgressHUDStyle.color(background: UIColor, contents: UIColor)` を追加しました.
+          このスタイルを用いることで, HUDの背景, コンテンツ(テキスト, アイコン)の色をカスタマイズできます.
 
 ## ライセンス
 KRProgressHUDはMITライセンスに準拠しています．詳しくは`LICENSE`ファイルをみてください．
